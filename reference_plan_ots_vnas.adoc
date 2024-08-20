@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: reference_plan_ots_vnas.html 
+keywords: plan, planning, vnas, vmware esxi, 
+summary: Há vários problemas de Planejamento relacionados ao uso do VMware ESXi que você deve considerar. 
+---
+= Requisitos do VMware ESXi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O ONTAP Select vNAS é uma solução que permite que os armazenamentos de dados do ONTAP Select sejam externos ao host do hipervisor ESXi onde a máquina virtual ONTAP Select é executada. Esses armazenamentos de dados remotos podem ser acessados por meio do VMware VSAN ou de um storage array externo genérico.
+
+
+
+== Requisitos básicos e restrições
+
+A solução ONTAP Select vNAS pode ser usada com um cluster ONTAP Select de qualquer tamanho.
+
+Todos os componentes de armazenamento relacionados, incluindo requisitos de hardware, software e recursos, devem cumprir os requisitos descritos link:https://mysupport.netapp.com/matrix/["Ferramenta de Matriz de interoperabilidade do NetApp"^]no . Além disso, o ONTAP Select oferece suporte a todos os storage arrays externos descritos na documentação de compatibilidade de armazenamento/SAN do VMware, incluindo iSCSI, nas (NFSv3), Fibre Channel e Fibre Channel over Ethernet. O suporte a array externo é limitado pela versão ESXi suportada pelo ONTAP Select.
+
+Os seguintes recursos da VMware são suportados ao implantar um cluster com o ONTAP Select vNAS:
+
+* VMotion
+* Alta disponibilidade (HA)
+* Agendador de recursos distribuídos (DRS)
+
+
+
+NOTE: Esses recursos da VMware são compatíveis com clusters ONTAP Select de nó único e vários nós. Ao implantar um cluster de vários nós, você deve garantir que dois ou mais nós do mesmo cluster não sejam executados no mesmo host de hipervisor.
+
+Os seguintes recursos da VMware não são suportados:
+
+* Tolerância a falhas (FT)
+* Armazenamento de dados virtual (VVOL)
+
+
+
+
+== Requisitos de configuração
+
+Se você planeja usar um armazenamento de dados VMFS em um storage array externo (iSCSI, Fibre Channel, Fibre Channel over Ethernet), crie um pool de armazenamento VMFS antes de configurar o ONTAP Select para usar o armazenamento. Se você usar um datastore NFS, não será necessário criar um datastore VMFS separado. Todos os datastores VSAN devem ser definidos no mesmo cluster ESXi.
+
+
+CAUTION: Você deve fornecer um limite de capacidade para cada armazenamento de dados no VMware VSAN ou em um storage array externo ao configurar um host ou executar uma operação de adição de storage. A capacidade especificada deve estar dentro dos limites de armazenamento permitidos do armazenamento externo. Um erro ocorrerá se você não fornecer um limite de capacidade ou o armazenamento externo ficar sem espaço durante a operação de criação de disco.
+
+
+
+== Práticas recomendadas
+
+Consulte a documentação disponível da VMware e siga as práticas recomendadas aplicáveis identificadas para hosts ESXi. Além disso:
+
+* Definir portas de rede dedicadas, largura de banda e configurações vSwitch para as redes ONTAP Select e armazenamento externo (VMware VSAN e tráfego genérico de storage array ao usar iSCSI ou NFS)
+* Configurar a opção capacidade para restringir a utilização do storage (o ONTAP Select não pode consumir toda a capacidade de um datastore vNAS externo)
+* Certifique-se de que todos os storage arrays externos genéricos usem os recursos de redundância e HA disponíveis, sempre que possível
+

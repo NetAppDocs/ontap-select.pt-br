@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: task_adm_mediators.html 
+keywords: administer, administering, web, mediators 
+summary: Cada cluster de dois nós do ONTAP Select é monitorado pelo serviço de mediador, que ajuda a gerenciar a funcionalidade de HA compartilhada pelos nós. 
+---
+= Administração dos serviços de mediação de implantação
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cada cluster de dois nós do ONTAP Select é monitorado pelo serviço de mediador, que ajuda a gerenciar a funcionalidade de HA compartilhada pelos nós.
+
+
+
+== Ver o status do serviço mediador
+
+É possível visualizar o status do serviço de mediador em relação a cada um dos clusters de dois nós definidos no utilitário ONTAP Select Deploy.
+
+.Sobre esta tarefa
+É possível exibir a configuração de cada mediador, incluindo o status atual, os dois nós de ONTAP Select e o destino iSCSI em que as informações de controle de HA são armazenadas. Passe o Mouse sobre os objetos na página para exibir informações detalhadas.
+
+.Passos
+. Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
+. Clique no separador *Administration* (Administração) na parte superior da página e clique em *Mediators* (mediadores).
+. Opcionalmente, clique em *filtro* para personalizar a visualização dos clusters de dois nós monitorados pelo serviço de mediador.
+

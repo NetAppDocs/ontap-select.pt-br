@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: task_lic_acquire_ct.html 
+keywords: license, licensing, acquire, capacity tiers 
+summary: Ao usar o licenciamento de categorias de capacidade, você precisa adquirir um arquivo de licença para cada nó do ONTAP Select. O arquivo de licença define a capacidade de armazenamento para o nó e é bloqueado para o nó através do número de série exclusivo de nove dígitos atribuído pelo NetApp. 
+---
+= Adquirir uma licença de categoria de capacidade
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Ao usar o licenciamento de categorias de capacidade, você precisa adquirir um arquivo de licença para cada nó do ONTAP Select. O arquivo de licença define a capacidade de armazenamento para o nó e é bloqueado para o nó através do número de série exclusivo de nove dígitos atribuído pelo NetApp.
+
+.Antes de começar
+Você deve ter o número de série da licença de nove dígitos atribuído ao nó pela NetApp. Antes de tentar adquirir um arquivo de licença, você deve esperar pelo menos vinte e quatro horas após a data de envio do seu pedido de compra.
+
+.Sobre esta tarefa
+Você deve executar esta tarefa para cada nó do ONTAP Select que requer uma licença de categoria de capacidade.
+
+.Passos
+. Acesse o site de licença do ONTAP Select usando um navegador da Web:
++
+`https://register.netapp.com/register/getlicensefile`
+
+. Inicie sessão utilizando as credenciais da sua conta NetApp.
+. Na página *gerador de licenças*, selecione a oferta de licença desejada na caixa suspensa.
+. Preencha os campos restantes na mesma página, incluindo o *número de série do produto*, que é o número de série do nó ONTAP Select.
+. Clique em *Enviar*.
+. Após a validação da solicitação, selecione o método de entrega da licença.
++
+Você pode clicar em *Download License* ou *Email License*.
+
+. Confirme que recebeu o ficheiro de licença com base no método de entrega selecionado.
+
+
+.Depois de terminar
+Você deve carregar o arquivo de licença para o utilitário de administração implantar antes que ele possa ser aplicado a um nó ONTAP Select.

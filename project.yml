@@ -1,0 +1,300 @@
+---
+settings:
+  name: ONTAP Select
+  harmony_integration: maestro
+  internal:
+    pdf_enabled: true
+    lipi_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  versions:
+  - version-number: 9.15.1
+    url: "/ontap-select"
+  - version-number: 9.14.1
+    url: "/ontap-select-9141"
+  - version-number: 9.13.1
+    url: "/ontap-select-9131"
+  - version-number: 9.12.1
+    url: "/ontap-select-9121"
+  - version-number: 9.11.1
+    url: "/ontap-select-9111"
+  langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
+sidebar:
+  entries:
+  - title: Documentos do ONTAP Select 9.15.1
+    url: "/index.html"
+  - title: Notas de versão
+    entries:
+    - title: Notas de versão do ONTAP Select
+      url: "/reference_release_notes.html"
+    - title: O que há de novo
+      url: "/reference_new_ots.html"
+  - title: Conceitos
+    entries:
+    - title: Visão geral do produto
+      url: "/concept_ots_overview.html"
+    - title: ONTAP Select Deploy
+      url: "/concept_ots_deploy.html"
+    - title: Casos de uso comercial
+      entries:
+      - title: Necessidades de negócios e cenários de uso
+        url: "/concept_usecase_overview.html"
+      - title: Escritório remoto e filial
+        url: "/concept_usecase_robo.html"
+      - title: Nuvem privada e data center
+        url: "/concept_usecase_private_cloud.html"
+      - title: SDS do MetroCluster
+        url: "/concept_usecase_mc_sds.html"
+    - title: Terminologia
+      url: "/concept_terminology.html"
+  - title: Plano
+    entries:
+    - title: Fluxo de trabalho de implantação
+      url: "/concept_workflow_deploy.html"
+    - title: ONTAP Select
+      entries:
+      - title: Requisitos gerais
+        url: "/reference_plan_ots_general.html"
+      - title: Hipervisor e hardware
+        url: "/reference_plan_ots_hardware.html"
+      - title: Armazenamento e RAID
+        url: "/reference_plan_ots_storage.html"
+      - title: Requisitos de armazenamento externo
+        entries:
+        - title: VMware ESXi
+          url: "/reference_plan_ots_vnas.html"
+        - title: KVM
+          url: "/reference_plan_ots_kvm.html"
+      - title: Rede
+        url: "/reference_plan_ots_networking.html"
+      - title: Clusters de dois nós
+        url: "/reference_plan_ots_two_node.html"
+      - title: Escritórios remotos e filiais
+        url: "/reference_plan_ots_robo.html"
+      - title: SDS do MetroCluster
+        url: "/reference_plan_ots_mcc_sds.html"
+      - title: VMware vCenter no ESXi
+        url: "/reference_plan_ots_vcenter.html"
+    - title: ONTAP Select Deploy
+      entries:
+      - title: Requisitos gerais
+        url: "/reference_plan_dep_general.html"
+      - title: Ambiente VMware
+        url: "/reference_plan_dep_vmware.html"
+    - title: Práticas recomendadas
+      url: "/reference_plan_best_practices.html"
+  - title: Licença
+    entries:
+    - title: Opções
+      entries:
+      - title: Licenças de avaliação
+        url: "/concept_lic_evaluation.html"
+      - title: Licenças de produção
+        url: "/concept_lic_production.html"
+      - title: Ofertas de licença de plataforma
+        url: "/concept_lic_platforms.html"
+    - title: Modelo de licenciamento de pools de capacidade
+      entries:
+      - title: Detalhes operacionais
+        url: "/concept_lic_cp_operation.html"
+      - title: Números de série do nó
+        url: "/concept_lic_cp_serial_number.html"
+      - title: Restrições
+        url: "/concept_lic_cp_restrictions.html"
+      - title: Pools de capacidade versus categorias de capacidade
+        url: "/concept_lic_cp_compare_ct.html"
+      - title: Resumo dos benefícios
+        url: "/concept_lic_cp_benefits.html"
+    - title: Compra
+      entries:
+      - title: Fluxo de trabalho de licenciamento
+        url: "/concept_lic_workflow.html"
+      - title: Categorias de capacidade
+        url: "/task_lic_acquire_ct.html"
+      - title: Pools de capacidade
+        url: "/task_lic_acquire_cp.html"
+    - title: Caraterísticas DO ONTAP
+      url: "/reference_lic_ontap_features.html"
+  - title: Instale
+    entries:
+    - title: Lista de verificação de pré-instalação
+      entries:
+      - title: Lista de verificação de preparação do anfitrião
+        url: "/reference_chk_host_prep.html"
+      - title: Implantar informações necessárias do utilitário
+        url: "/reference_chk_deploy_req_info.html"
+      - title: ONTAP Select informações necessárias
+        url: "/reference_chk_select_req_info.html"
+      - title: Configuração de host NVMe
+        url: "/task_chk_nvme_configure.html"
+    - title: Instale o ONTAP Select Deploy
+      url: "/task_install_deploy.html"
+    - title: Implantar um cluster
+      url: "/task_deploy_cluster.html"
+    - title: Estado inicial do cluster
+      url: "/reference_initial_state.html"
+  - title: Administrar
+    entries:
+    - title: Antes de começar
+      url: "/concept_adm_before.html"
+    - title: Atualizar nós
+      url: "/concept_adm_upgrading_nodes.html"
+    - title: Diagnóstico e suporte
+      url: "/task_adm_support.html"
+    - title: Segurança
+      url: "/task_adm_security.html"
+    - title: Conetividade de rede
+      url: "/task_adm_connectivity.html"
+    - title: Mediadores
+      url: "/task_adm_mediators.html"
+    - title: Clusters
+      entries:
+      - title: Clusters de ONTAP Select
+        url: "/task_adm_clusters.html"
+      - title: Expanda ou contraia o cluster
+        url: "/task_cluster_expansion_contraction.html"
+    - title: Nós e hosts
+      entries:
+      - title: Console de vídeo VM
+        url: "/task_adm_video_console.html"
+      - title: Redimensione os nós do cluster
+        url: "/task_adm_resize.html"
+      - title: Substituir unidades RAID SW com falha
+        url: "/task_adm_replace_drives_swraid.html"
+      - title: Atualize para VMFS6
+        url: "/task_adm_upgrade_vmfs6.html"
+    - title: Licenças
+      url: "/task_adm_licenses.html"
+  - title: Mergulho profundo
+    entries:
+    - title: Armazenamento
+      entries:
+      - title: Conceitos e caraterísticas gerais
+        url: "/concept_stor_concepts_chars.html"
+      - title: Serviços RAID de hardware para armazenamento anexado local
+        url: "/concept_stor_hwraid_local.html"
+      - title: Serviços RAID de software para armazenamento anexado local
+        url: "/concept_stor_swraid_local.html"
+      - title: Configurações de VSAN e array externo
+        url: "/concept_stor_vsan_external.html"
+      - title: Aumentar a capacidade de storage
+        url: "/concept_stor_capacity_inc.html"
+      - title: Suporte à eficiência de storage
+        url: "/concept_stor_eff_support.html"
+    - title: Rede
+      entries:
+      - title: Conceitos e caraterísticas gerais
+        url: "/concept_nw_concepts_chars.html"
+      - title: Configuração de um e vários nós
+        url: "/concept_nw_single_multi_node.html"
+      - title: Redes internas e externas
+        url: "/concept_nw_internal_external.html"
+      - title: Configurações compatíveis
+        url: "/concept_nw_supported_configs.html"
+      - title: Configuração do VMware vSphere vSwitch
+        url: "/concept_nw_vsphere_vswitch_config.html"
+      - title: Configuração física do switch
+        url: "/concept_nw_physical_switch_config.html"
+      - title: Separação de dados e gerenciamento
+        url: "/concept_nw_data_mgmt_separation.html"
+    - title: Arquitetura de alta disponibilidade
+      entries:
+      - title: Configuração HA
+        url: "/concept_ha_config.html"
+      - title: Replicação síncrona e agregados espelhados
+        url: "/concept_ha_mirroring.html"
+      - title: Outras funções de alta disponibilidade
+        url: "/concept_ha_other.html"
+    - title: Desempenho
+      entries:
+      - title: Visão geral do desempenho
+        url: "/concept_perf_general.html"
+      - title: Desempenho do ONTAP Select 9,6
+        url: "/concept_perf_premium_ha_direct_ssd_96.html"
+  - title: Automatize com REST
+    entries:
+    - title: Conceitos
+      entries:
+      - title: Serviços web REST
+        url: "/concept_api_rest.html"
+      - title: Acesse a API Deploy
+        url: "/concept_api_how_access.html"
+      - title: Implantar o controle de versão da API
+        url: "/concept_api_versions.html"
+      - title: Operação básica
+        url: "/concept_api_operation.html"
+      - title: Transação de solicitação e resposta
+        url: "/concept_api_transaction.html"
+      - title: Processamento assíncrono
+        url: "/concept_api_async_proc.html"
+    - title: Acesso com um navegador
+      entries:
+      - title: Antes de começar
+        url: "/concept_api_before_browser.html"
+      - title: Acesse a página do documento
+        url: "/task_api_access_doc_page.html"
+      - title: Entenda uma chamada de API
+        url: "/task_api_understanding_call.html"
+    - title: Processos de fluxo de trabalho
+      entries:
+      - title: Antes de começar
+        url: "/concept_api_before_workflows.html"
+      - title: Fluxo de trabalho 1 Crie um cluster
+        url: "/reference_api_workflow01.html"
+    - title: Acesso com Python
+      entries:
+      - title: Antes de começar
+        url: "/concept_api_before_python.html"
+      - title: Entenda os scripts
+        url: "/concept_api_understanding_scripts.html"
+    - title: Amostras de código Python
+      entries:
+      - title: Crie um cluster
+        url: "/reference_api_script_cc.html"
+      - title: JSON para criar um cluster
+        url: "/reference_api_json_cc.html"
+      - title: Adicione uma licença de nó
+        url: "/reference_api_script_anl.html"
+      - title: Eliminar um cluster
+        url: "/reference_api_script_dc.html"
+      - title: Módulo de suporte comum
+        url: "/reference_api_script_common.html"
+      - title: Redimensionar nós de cluster
+        url: "/reference_api_script_resize.html"
+  - title: Automatize com o Ansible
+    url: "/concept_automate_ansible.html"
+  - title: Use a CLI
+    entries:
+    - title: Faça login usando SSH
+      url: "/task_cli_signing_in.html"
+    - title: Implantar um cluster
+      url: "/task_cli_deploy_cluster.html"
+    - title: Segurança
+      url: "/task_cli_security.html"
+    - title: Conetividade de rede
+      url: "/task_cli_connectivity.html"
+    - title: Clusters
+      url: "/task_cli_clusters.html"
+    - title: Nós e hosts
+      entries:
+      - title: Atualizando o ESXi para 6,5 e posterior
+        url: "/task_cli_upgrade_esxi65.html"
+      - title: Modificar um servidor de gerenciamento de host
+        url: "/reference_host_modify_command.html"
+    - title: Utilitário de implantação
+      entries:
+      - title: Atualizar uma instância de implantação
+        url: "/task_cli_upgrade_deploy.html"
+      - title: Migrar uma instância de implantação
+        url: "/task_cli_migrate_deploy.html"
+      - title: Adicione imagens ONTAP Select
+        url: "/task_cli_deploy_image_add.html"
+      - title: Remover imagens ONTAP Select
+        url: "/task_cli_deploy_image_remove.html"
+      - title: Recuperar o Deploy para um cluster de dois nós
+        url: "/task_cli_deploy_recover_two_node.html"
+  - title: FAQ
+    url: "/reference_faq.html"
+  - title: Avisos legais
+    url: "/legal-notices.html"

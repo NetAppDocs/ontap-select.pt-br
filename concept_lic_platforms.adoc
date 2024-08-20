@@ -1,0 +1,76 @@
+---
+sidebar: sidebar 
+permalink: concept_lic_platforms.html 
+keywords: license, licensing, platform license offerings, license offerings, standard, premium, premium xl 
+summary: Você pode adquirir uma licença de pool de capacidade ou categoria de capacidade do ONTAP Select em um dos três níveis de capacidade da plataforma. Essas ofertas de licença determinam os recursos dos hosts nos quais você implanta o ONTAP Select. 
+---
+= Entenda as ofertas de licença da plataforma
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode adquirir uma licença de pool de capacidade ou categoria de capacidade do ONTAP Select em um dos três níveis de capacidade da plataforma. Essas ofertas de licença determinam os recursos dos hosts nos quais você implanta o ONTAP Select.
+
+
+
+== O que uma oferta de licença de plataforma oferece
+
+Uma oferta de licença específica define e restringe os recursos do host do hypervisor em duas áreas:
+
+* Tipo de instância (CPU, memória)
+* Recursos adicionais
+
+
+As ofertas de licença são organizadas em uma ordem crescente de capacidades, desde o padrão ao premium XL. Em geral, a opção de licença que você escolher concede a você os recursos desse nível e todos os níveis mais baixos. Por exemplo, o nível premium fornece as capacidades de premium e padrão.
+
+
+
+== Ofertas de licença de plataforma
+
+Há três ofertas de licença de plataforma disponíveis.
+
+
+
+=== Padrão
+
+A oferta padrão oferece os seguintes recursos:
+
+* Apenas tipo de instância pequena
+* Apenas unidades de disco rígido (HDD)
+* Apenas controlador RAID de hardware local
+* VNAS
+
+
+
+
+=== Premium
+
+A oferta premium oferece os seguintes recursos:
+
+* Tipo de instância pequena ou média
+* Unidades de disco rígido (HDD) ou unidades de estado sólido (SSD)
+* Controlador RAID de hardware local ou RAID de software
+* VNAS
+* SDS do MetroCluster
+
+
+
+
+=== XL premium
+
+A oferta Premium XL oferece os seguintes recursos:
+
+* Tipo de instância pequena, média ou grande
+* HDDs, SSDs ou unidades NVMe
+* Controlador RAID de hardware local ou RAID de software
+* VNAS
+* SDS do MetroCluster
+
+
+
+NOTE: O uso do tipo de instância grande ou de unidades NVMe em uma configuração de SW-RAID não é compatível com KVM.

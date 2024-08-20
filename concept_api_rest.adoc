@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: concept_api_rest.html 
+keywords: rest api, deploy rest api, rest, architecture, resources, state, uri, http, json 
+summary: 'Representational State Transfer (REST) é um estilo para a criação de aplicações web distribuídas. Quando aplicada ao design de uma API de serviços da Web, ela estabelece um conjunto de tecnologias e melhores práticas para expor recursos baseados em servidor e gerenciar seus estados. Ele usa protocolos e padrões convencionais para fornecer uma base flexível para implantar e gerenciar clusters ONTAP Select.' 
+---
+= Base de serviços web REST
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Representational State Transfer (REST) é um estilo para a criação de aplicações web distribuídas. Quando aplicada ao design de uma API de serviços da Web, ela estabelece um conjunto de tecnologias e melhores práticas para expor recursos baseados em servidor e gerenciar seus estados. Ele usa protocolos e padrões convencionais para fornecer uma base flexível para implantar e gerenciar clusters ONTAP Select.
+
+
+
+== Arquitetura e restrições clássicas
+
+REST foi formalmente articulado por Roy Fielding em seu doutorado https://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm["dissertação"] na UC Irvine em 2000. Ele define um estilo arquitetônico por meio de um conjunto de restrições, que coletivamente melhoraram as aplicações baseadas na Web e os protocolos subjacentes. As restrições estabelecem um aplicativo de serviços da Web RESTful com base em uma arquitetura cliente/servidor usando um protocolo de comunicação sem estado.
+
+
+
+== Recursos e representação do Estado
+
+Os recursos são os componentes básicos de um sistema baseado na Web. Ao criar um aplicativo REST de serviços da Web, as tarefas iniciais de design incluem:
+
+* Identificação de recursos baseados em sistema ou servidor que cada sistema usa e mantém recursos. Um recurso pode ser um arquivo, transação comercial, processo ou entidade administrativa. Uma das primeiras tarefas no projeto de um aplicativo baseado em serviços web REST é identificar os recursos.
+* Definição de estados de recursos e recursos de operações estatais associadas estão sempre em um de um número finito de estados. Os estados, bem como as operações associadas usadas para afetar as mudanças de estado, devem ser claramente definidos.
+
+
+As mensagens são trocadas entre o cliente e o servidor para acessar e alterar o estado dos recursos de acordo com o modelo genérico CRUD (criar, ler, atualizar e excluir).
+
+
+
+== Pontos de extremidade URI
+
+Todos os recursos REST devem ser definidos e disponibilizados usando um esquema de endereçamento bem definido. Os endpoints onde os recursos estão localizados e identificados usam um URI (Uniform Resource Identifier). O URI fornece uma estrutura geral para criar um nome exclusivo para cada recurso na rede. O Uniform Resource Locator (URL) é um tipo de URI usado com serviços da Web para identificar e acessar recursos. Os recursos são normalmente expostos em uma estrutura hierárquica semelhante a um diretório de arquivos.
+
+
+
+== Mensagens HTTP
+
+O Hypertext Transfer Protocol (HTTP) é o protocolo usado pelo cliente e servidor de serviços da Web para trocar mensagens de solicitação e resposta sobre os recursos. Como parte do projeto de um aplicativo de serviços da Web, os verbos HTTP (como GET e POST) são mapeados para os recursos e ações de gerenciamento de estado correspondentes.
+
+HTTP está sem estado. Portanto, para associar um conjunto de solicitações e respostas relacionadas em uma transação, informações adicionais devem ser incluídas nos cabeçalhos HTTP carregados com os fluxos de dados de solicitação/resposta.
+
+
+
+== Formatação JSON
+
+Embora as informações possam ser estruturadas e transferidas entre um cliente e um servidor de várias maneiras, a opção mais popular (e a usada com a API REST de implantação) é JavaScript Object Notation (JSON). JSON é um padrão da indústria para representar estruturas de dados simples em texto simples e é usado para transferir informações de estado descrevendo os recursos.

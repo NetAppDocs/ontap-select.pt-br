@@ -1,0 +1,75 @@
+---
+sidebar: sidebar 
+permalink: concept_adm_before.html 
+keywords: administer, administering, web, before you begin 
+summary: Depois de criar um cluster do ONTAP Select, você pode dar suporte à implantação executando várias tarefas administrativas. Há algumas considerações gerais a serem tomadas em consideração. 
+---
+= Antes de começar a administrar o ONTAP Select
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Depois de criar um cluster do ONTAP Select, você pode dar suporte à implantação executando várias tarefas administrativas. Há algumas considerações gerais a serem tomadas em consideração.
+
+Em geral, os procedimentos que você pode executar usando a interface da Web de implantação se enquadram em uma de três categorias.
+
+.Implantar um cluster do ONTAP Select
+Você pode implantar um cluster de nó único ou de vários nós. Consulte link:task_deploy_cluster.html["Implantar um cluster do ONTAP Select"] para obter mais informações.
+
+.Execute um procedimento com um cluster ONTAP Select existente
+Os procedimentos administrativos são organizados em várias categorias, como _Security_ e _clusters_.
+
+.Execute um procedimento no utilitário implantar
+Existem vários procedimentos específicos para implantar (como alterar a senha do administrador).
+
+
+
+== Administrar o ONTAP Select
+
+Existem muitos procedimentos administrativos diferentes disponíveis como parte do suporte ao ONTAP Select. Além disso, existem procedimentos específicos para o utilitário administrativo de implantação. Os procedimentos mais importantes são apresentados abaixo. Em geral, todos usam a interface de usuário da Web Deploy.
+
+
+NOTE: Também é possível link:https://docs.netapp.com/us-en/ontap-select/task_cli_signing_in.html["use a interface de linha de comando"]administrar o ONTAP Select.
+
+
+
+== Execute a configuração adicional do ONTAP
+
+Depois que um cluster do ONTAP Select é implantado, você pode configurar e gerenciar o cluster da mesma forma que faria com um sistema ONTAP baseado em hardware. Por exemplo, você pode usar o Gerenciador de sistema do ONTAP ou a CLI do ONTAP para configurar o cluster do ONTAP Select.
+
+.Software cliente NetApp
+Você pode se conetar ao ONTAP Select usando o seguinte software cliente NetApp suportado:
+
+* Gerente do sistema da ONTAP
+* Active IQ Unified Manager
+* OnCommand Insight
+* OnCommand Workflow Automation
+* SnapCenter
+* Console de armazenamento virtual para VMware vSphere
+
+
+Para identificar as versões suportadas do software cliente, consulte o link:https://mysupport.netapp.com/matrix/["Ferramenta de Matriz de interoperabilidade do NetApp"^]. Se o software cliente suportar ONTAP 9, a mesma versão também é suportada com o ONTAP Select.
+
+
+NOTE: O uso do SnapCenter e dos plug-ins correspondentes requer licenças baseadas em servidor. No momento, o licenciamento do sistema de storage dos plug-ins do SnapCenter não é compatível com o ONTAP Select.
+
+Qualquer outro software cliente NetApp que não esteja incluído na lista não é suportado pelo ONTAP Select.
+
+.Possíveis opções de configuração
+Há várias opções disponíveis ao configurar o cluster, incluindo as seguintes:
+
+* Criando a configuração de rede
+* Estabelecendo seus agregados
+* Criação de VMs de storage de dados (SVMs)
+
+
+.Licenças compradas com capacidade de armazenamento
+Se você decidiu não instalar os arquivos de licença com capacidade de armazenamento como parte da implantação do cluster ONTAP Select, você deve adquirir e instalar os arquivos de licença antes que o período de carência expire para clusters executados com uma licença adquirida.
+
+.Agregados espelhados
+Há discos sobressalentes de dados criados pelo utilitário de administração implantar em cada nó do ONTAP Select a partir do espaço utilizável do datastore (como, Pool0 e Pool1). Para implementar a alta disponibilidade dos dados em um cluster de vários nós, é necessário criar um agregado espelhado usando essas peças sobressalentes.

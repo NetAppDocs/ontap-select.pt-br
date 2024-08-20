@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: concept_nw_data_mgmt_separation.html 
+keywords: ontap select, traffic separation 
+summary: Isole o tráfego de dados e o tráfego de gerenciamento em redes de camada 2 separadas. 
+---
+= Separação de tráfego de dados e gerenciamento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Isole o tráfego de dados e o tráfego de gerenciamento em redes de camada 2 separadas.
+
+O tráfego de rede externa do ONTAP Select é definido como tráfego de dados (CIFS, NFS e iSCSI), gerenciamento e replicação (SnapMirror). Em um cluster ONTAP, cada estilo de tráfego usa uma interface lógica separada que deve ser hospedada em uma porta de rede virtual. Na configuração multinode do ONTAP Select, estas são designadas como portas e0a e e0b/e0g. Na configuração de nó único, eles são designados como e0a e e0b/e0c, enquanto as portas restantes são reservadas para serviços de cluster interno.
+
+A NetApp recomenda isolar o tráfego de dados e o tráfego de gerenciamento em redes de camada 2 separadas. No ambiente ONTAP Select, isso é feito usando tags de VLAN. Isso pode ser alcançado atribuindo um grupo de portas com tag VLAN ao adaptador de rede 1 (porta e0a) para o tráfego de gerenciamento. Em seguida, você pode atribuir um(s) grupo(s) de portas separado(s) às portas e0b e e0c (clusters de nó único) e e0b e e0g (clusters de vários nós) para o tráfego de dados.
+
+Se a solução VST descrita anteriormente neste documento não for suficiente, pode ser necessário colocar os LIFs de dados e gerenciamento na mesma porta virtual. Para fazer isso, use um processo conhecido como VGT, no qual a marcação de VLAN é realizada pela VM.
+
+
+NOTE: A separação de rede de gerenciamento e dados por meio do VGT não está disponível ao usar o utilitário ONTAP Deploy. Este processo deve ser executado após a conclusão da configuração do cluster.
+
+Há uma ressalva adicional ao usar clusters de VGT e dois nós. Em configurações de cluster de dois nós, o endereço IP de gerenciamento de nós é usado para estabelecer conectividade com o mediador antes que o ONTAP esteja totalmente disponível. Portanto, somente a marcação EST e VST é suportada no grupo de portas mapeado para o LIF de gerenciamento de nós (porta e0a). Além disso, se tanto o gerenciamento quanto o tráfego de dados estiverem usando o mesmo grupo de portas, somente EST/VST serão suportados para todo o cluster de dois nós.
+
+Ambas as opções de configuração, VST e VGT, são suportadas. A figura a seguir mostra o primeiro cenário, VST, no qual o tráfego é marcado na camada vSwitch através do grupo de portas atribuído. Nesta configuração, as LIFs de gerenciamento de cluster e nó são atribuídas à porta ONTAP e0a e marcadas com ID VLAN 10 por meio do grupo de portas atribuído. Os LIFs de dados são atribuídos à porta e0b e e0c ou e0g e recebem a ID VLAN 20 usando um segundo grupo de portas. As portas do cluster usam um terceiro grupo de portas e estão na VLAN ID 30.
+
+*Separação de dados e gerenciamento usando VST*
+
+image:DDN_04.jpg["Separação de dados e gerenciamento usando VST"]
+
+A figura a seguir mostra o segundo cenário, VGT, no qual o tráfego é marcado pela VM ONTAP usando portas VLAN que são colocadas em domínios de broadcast separados. Neste exemplo, as portas virtuais e0a-10/e0b-10/(e0c ou e0g)-10 e e0a-20/e0b-20 são colocadas sobre as portas VM e0a e e0b. Essa configuração permite que a marcação de rede seja realizada diretamente no ONTAP, em vez de na camada vSwitch. Os LIFs de gerenciamento e dados são colocados nessas portas virtuais, permitindo uma subdivisão de camada 2 em uma única porta VM. A VLAN do cluster (VLAN ID 30) ainda está marcada no grupo de portas.
+
+*Notas:*
+
+* Este estilo de configuração é especialmente desejável ao usar vários IPspaces. Agrupe portas VLAN em IPspaces personalizados separados se forem desejados isolamento lógico adicional e multilocação.
+* Para oferecer suporte ao VGT, os adaptadores de rede de host ESXi/ESX devem ser conetados às portas de tronco no switch físico. Os grupos de portas conetados ao switch virtual devem ter seu ID de VLAN definido como 4095 para habilitar o entroncamento no grupo de portas.
+
+
+*Separação de dados e gerenciamento usando VGT*
+
+image:DDN_05.jpg["Separação de dados e gerenciamento usando VGT"]

@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: task_lic_acquire_cp.html 
+keywords: license, licensing, acquire, capacity pools 
+summary: Você precisa adquirir um arquivo de licença para cada pool de capacidade usado pelos nós do ONTAP Select. O arquivo de licença define a capacidade de armazenamento e a expiração do pool. Ele é bloqueado para o Gerenciador de licenças por meio de uma combinação do número de série de licença exclusivo atribuído pelo NetApp e o ID de bloqueio de licença associado à instância de implantação. 
+---
+= Adquirir uma licença de pool de capacidade
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você precisa adquirir um arquivo de licença para cada pool de capacidade usado pelos nós do ONTAP Select. O arquivo de licença define a capacidade de armazenamento e a expiração do pool. Ele é bloqueado para o Gerenciador de licenças por meio de uma combinação do número de série de licença exclusivo atribuído pelo NetApp e o ID de bloqueio de licença associado à instância de implantação.
+
+.Antes de começar
+Você deve ter o número de série da licença de nove dígitos atribuído ao pool de capacidade pela NetApp. Antes de tentar adquirir um arquivo de licença, você deve esperar pelo menos vinte e quatro horas após a data de envio do seu pedido de compra.
+
+.Sobre esta tarefa
+Você deve executar esta tarefa para cada pool de capacidade usado pelos nós do ONTAP Select.
+
+.Passos
+. Acesse o site de suporte da NetApp usando um navegador da Web e faça login.
+. Clique em *sistemas* na parte superior e, em seguida, clique em *licenças de software*.
+. Digite o número de série da licença para o pool de capacidade e clique em *Go!*.
+. Na página de detalhes da licença, navegue até a coluna *Detalhes do produto*.
+. Clique em *Get NetApp License File* na linha apropriada.
+. Digite o ID de bloqueio de licença da instância do ONTAP Select Deploy e clique em *Enviar*.
+. Selecione o método de entrega apropriado e clique em *Enviar*.
+. Clique em *OK* na janela de confirmação de entrega.
+
+
+.Depois de terminar
+Você deve carregar o arquivo de licença para o utilitário de administração implantar antes que o pool de capacidade possa ser usado por um nó ONTAP Select.

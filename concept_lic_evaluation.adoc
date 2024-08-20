@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: concept_lic_evaluation.html 
+keywords: license, licensing, evaluation, upgrade license 
+summary: Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação. 
+---
+= Licenças de avaliação
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação.
+
+
+
+== Caraterísticas de licenciamento
+
+A licença de avaliação ONTAP Select tem as seguintes caraterísticas:
+
+* Não é necessária uma licença de produção com capacidade de armazenamento
+* O número de série do nó é de vinte dígitos e gerado automaticamente pelo ONTAP Select Deploy
++
+(Você não o adquire diretamente de NetApp)
+
+* O período de avaliação fornecido pela licença pode ser de até 90 dias
+* O storage máximo alocado por cada nó é o mesmo que uma licença de produção
+
+
+
+
+== Atualize para uma licença de produção
+
+Você pode atualizar um cluster de avaliação do ONTAP Select para usar uma licença de produção. Você deve estar ciente das seguintes restrições:
+
+* Você deve usar o utilitário de administração implantar para executar a atualização da licença
+* Uma licença de nível de capacidade pode ser usada, no entanto, o licenciamento de pools de capacidade não é suportado
+* Cada nó precisa ter storage suficiente alocado para dar suporte ao mínimo necessário para uma licença de produção, com base no tamanho do cluster
+
+
+Consulte link:task_adm_licenses.html["Converter uma licença de avaliação em uma licença de produção"] para obter mais informações.

@@ -1,0 +1,27 @@
+---
+sidebar: sidebar 
+permalink: concept_usecase_private_cloud.html 
+keywords: ontap select, private cloud 
+summary: O ONTAP Select é perfeito para dar suporte a uma ou mais nuvens privadas na sua organização. Um caso de uso comum é fornecer serviços de storage para nuvens privadas baseadas em servidores comuns. 
+---
+= Nuvem privada e data center
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O ONTAP Select é perfeito para dar suporte a uma ou mais nuvens privadas na sua organização. Um caso de uso comum é fornecer serviços de storage para nuvens privadas baseadas em servidores comuns.
+
+Assim como a nuvem pública, uma nuvem privada oferece flexibilidade, além de configuração e redução rápidas. Além disso, uma nuvem privada oferece maior segurança e controle.
+
+A figura a seguir mostra como um storage farm fornece computação e armazenamento conetado localmente às VMs ONTAP Select, que fornecem serviços de armazenamento upstream para uma pilha de aplicativos. Todo o fluxo de trabalho, desde o provisionamento de SVMs até a implantação e configuração de VMs de aplicação, é automatizado por meio de uma estrutura de orquestração de nuvem privada.
+
+Este é um modelo de nuvem privada orientado para serviços. O uso da versão de HA do ONTAP Select cria a mesma experiência de ONTAP que você esperaria em arrays FAS de custo mais alto. Os recursos do servidor de storage são consumidos exclusivamente pela VM ONTAP Select, com VMs de aplicação hospedadas em infraestrutura física separada.
+
+* Nuvem privada construída sobre DAS*
+
+image:PrivateCloud_01.jpg["Nuvem privada construída sobre DAS"]

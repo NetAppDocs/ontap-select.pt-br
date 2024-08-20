@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: reference_plan_dep_vmware.html 
+keywords: plan, planning, ontap select deploy, vmware requirements 
+summary: Há vários requisitos e restrições específicos para o ambiente VMware que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente VMware. 
+---
+= Considerações sobre o host do hipervisor
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Há vários problemas de Planejamento relacionados ao host do hipervisor que você deve considerar.
+
+
+CAUTION: Você não deve modificar diretamente a configuração de uma máquina virtual ONTAP Select, a menos que seja direcionado para fazê-lo pelo suporte do NetApp. Uma máquina virtual só deve ser configurada e modificada por meio do utilitário de administração implantar. Fazer alterações em uma máquina virtual ONTAP Select fora do utilitário implantar sem a ajuda do suporte do NetApp pode fazer com que a máquina virtual falhe e inutilizável.
+
+
+
+== Independente do hipervisor
+
+Tanto o ONTAP Select quanto o utilitário de administração do ONTAP Select Deploy são independentes do hipervisor.
+
+Os hypervisors a seguir são compatíveis com a administração do ONTAP Select e do ONTAP Select Deploy:
+
+* VMware ESXi
+* Kernel-Based Virtual Machine (KVM)
+
+
+
+NOTE: Consulte as informações de Planejamento específicas do hypervisor e as notas de versão para obter detalhes adicionais sobre as plataformas suportadas.
+
+.Hipervisor para nós ONTAP Select e utilitário de administração
+Tanto o utilitário de administração de implantação quanto os nós do ONTAP Select são executados como máquinas virtuais. O hypervisor que você escolher para o utilitário Deploy é independente do hypervisor que você escolher para os nós do ONTAP Select. Você tem total flexibilidade ao emparelhar os dois:
+
+* O utilitário de implantação em execução no VMware ESXi pode criar e gerenciar clusters do ONTAP Select no VMware ESXi ou no KVM
+* O utilitário de implantação em execução no KVM pode criar e gerenciar clusters do ONTAP Select no VMware ESXi ou no KVM
+
+
+.Uma ou mais instâncias de nó ONTAP Select por host
+Cada nó do ONTAP Select é executado como uma máquina virtual dedicada. Você pode criar vários nós no mesmo host de hipervisor, com as seguintes restrições:
+
+* Vários nós de um único cluster ONTAP Select não podem ser executados no mesmo host. Todos os nós em um host específico devem ser de diferentes clusters do ONTAP Select.
+* Você deve usar o armazenamento externo.
+* Se você usar RAID de software, só poderá implantar um nó ONTAP Select no host.
+
+
+.Consistência do hipervisor para os nós dentro de um cluster
+Todos os hosts em um cluster do ONTAP Select devem ser executados na mesma versão e versão do software do hypervisor.
+
+.Número de portas físicas em cada host
+Você deve configurar cada host para usar uma, duas ou quatro portas físicas. Embora você tenha flexibilidade ao configurar as portas de rede, siga estas recomendações sempre que possível:
+
+* Um host em um cluster de nó único deve ter duas portas físicas.
+* Cada host em um cluster de vários nós deve ter quatro portas físicas
+
+
+.Integre o ONTAP Select a um cluster baseado em hardware da ONTAP
+Não é possível adicionar um nó ONTAP Select diretamente a um cluster baseado em hardware da ONTAP. No entanto, você pode, opcionalmente, estabelecer uma relação de peering de cluster entre um cluster ONTAP Select e um cluster ONTAP baseado em hardware.
+
+
+
+== Ambiente de hipervisor VMware
+
+Há vários requisitos e restrições específicos para o ambiente VMware que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente VMware.
+
+.Requisitos de hardware do servidor host ESXi
+Há vários requisitos mínimos de recursos que seu host do hipervisor ESXi deve atender. Você deve garantir que os hosts em que o ONTAP Select é implantado atendam aos seguintes requisitos básicos:
+
+* Servidor ESXi:
++
+** O hardware e o software devem ser de 64 bits
+** Deve aderir às mesmas versões suportadas definidas para um nó ONTAP Select
+
+
+* CPUs virtuais (2)
+* Memória virtual (4 GB)
+* Armazenamento (40 GB)
+* DHCP ativado (também pode atribuir um endereço IP estático)
+
+
+.Conetividade de rede
+Você deve garantir que a interface de rede da máquina virtual ONTAP Select Deploy esteja configurada e tenha um único endereço IP de gerenciamento. Você pode usar DHCP para atribuir dinamicamente um endereço IP ou configurar manualmente um endereço IP estático.
+
+Dependendo de suas decisões de implantação, a VM de implantação deve ser capaz de se conetar ao servidor vCenter, aos hosts do hipervisor ESXi e aos nós do ONTAP Select que ele gerencia. Você deve configurar seus firewalls para permitir o tráfego necessário.
+
+O Deploy usa a API VMware VIX para se comunicar com o servidor vCenter e os hosts ESXi. Inicialmente, ele estabelece uma conexão usando SOAP através de SSL na porta TCP 443. Depois disso, uma conexão é aberta usando SSL na porta 902. Além disso, implantar problemas comandos PING para verificar se há um host ESXi no endereço IP especificado.
+
+O Deploy também deve ser capaz de se comunicar com o nó ONTAP Select e os endereços IP de gerenciamento de cluster usando os seguintes protocolos:
+
+* Comando PING (ICMP)
+* SSH (porta 22)
+* SSL (porta 443)
+
+
+.Suporte para IP versão 4
+O ONTAP Select Deploy só suporta IP versão 4 (IPv4). A versão IP 6 (IPv6) não é suportada. Essa restrição afeta o ONTAP Select das seguintes maneiras:
+
+* Você deve atribuir um endereço IPv4 ao LIF de gerenciamento da máquina virtual implantar.
+* A implantação não pode criar nós de ONTAP Select configurados para usar o IPv6 nos LIFs do ONTAP.
+

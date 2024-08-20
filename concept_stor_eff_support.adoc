@@ -1,0 +1,125 @@
+---
+sidebar: sidebar 
+permalink: concept_stor_eff_support.html 
+keywords: ontap select, storage efficiency support 
+summary: O ONTAP Select oferece opções de eficiência de storage semelhantes às opções de eficiência de storage presentes nos arrays FAS e AFF. 
+---
+= Suporte à eficiência de storage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O ONTAP Select oferece opções de eficiência de storage semelhantes às opções de eficiência de storage presentes nos arrays FAS e AFF.
+
+As implantações nas virtuais do ONTAP Select (vNAS) que usam VSAN all-flash ou flash arrays genéricos devem seguir as práticas recomendadas para ONTAP Select com armazenamento de conexão direta (DAS) não-SSD.
+
+Uma personalidade semelhante a AFF é ativada automaticamente em novas instalações, desde que você tenha armazenamento DAS com unidades SSD e uma licença premium.
+
+Com uma personalidade semelhante a AFF, os seguintes recursos inline se são ativados automaticamente durante a instalação:
+
+* Detecção de padrão zero inline
+* Deduplicação in-line de volume
+* Deduplicação em segundo plano de volume
+* Compressão in-line adaptável
+* Compactação de dados in-line
+* Deduplicação in-line de agregado
+* Deduplicação em segundo plano agregado
+
+
+Para verificar se o ONTAP Select ativou todas as políticas de eficiência de storage padrão, execute o seguinte comando em um volume recém-criado:
+
+[listing]
+----
+<system name>::> set diag
+Warning: These diagnostic commands are for use by NetApp personnel only.
+Do you want to continue? {y|n}: y
+twonode95IP15::*> sis config
+Vserver:                                SVM1
+Volume:                                 _export1_NFS_volume
+Schedule                                -
+Policy:                                 auto
+Compression:                            true
+Inline Compression:                     true
+Compression Type:                       adaptive
+Application IO Si                       8K
+Compression Algorithm:                  lzopro
+Inline Dedupe:                          true
+Data Compaction:                        true
+Cross Volume Inline Deduplication:      true
+Cross Volume Background Deduplication:  true
+----
+
+NOTE: Para atualizações do ONTAP Select a partir de 9,6 e posteriores, você deve instalar o ONTAP Select no armazenamento SSD DAS com uma licença premium. Além disso, você deve marcar a caixa de seleção *Ativar eficiências de armazenamento* durante a instalação inicial do cluster com o ONTAP Deploy. Ativar uma atualização pós-ONTAP de personalidade semelhante a AFF quando as condições anteriores não foram atendidas requer a criação manual de um argumento de inicialização e uma reinicialização de nó. Entre em Contato com o suporte técnico para obter mais detalhes.
+
+.Configurações de eficiência de storage da ONTAP Select
+A tabela a seguir resume as várias opções de eficiência de storage disponíveis, ativadas por padrão ou não ativadas por padrão, mas recomendadas, dependendo do tipo de Mídia e da licença de software.
+
+[cols="4"]
+|===
+| Recursos do ONTAP Select | 1 GB DE espaço livre | DAS HDD (todas as licenças) | VNAS (todas as licenças) 
+
+
+| Detecção zero inline | Sim (predefinição) | Sim ativado pelo utilizador numa base por volume | Sim ativado pelo utilizador numa base por volume 
+
+
+| Deduplicação in-line de volume | Sim (predefinição) | Não disponível | Não suportado 
+
+
+| Compressão in-line de 32K TB (compressão secundária) | Sim ativado pelo utilizador numa base por volume. | Sim ativado pelo utilizador numa base por volume | Não suportado 
+
+
+| Compressão in-line de 8K TB (compactação adaptável) | Sim (predefinição) | Sim ativado pelo utilizador numa base por volume | Não suportado 
+
+
+| Compressão de segundo plano | Não suportado | Sim ativado pelo utilizador numa base por volume | Sim ativado pelo utilizador numa base por volume 
+
+
+| Scanner de compressão | Sim | Sim | Sim ativado pelo utilizador numa base por volume 
+
+
+| Compactação de dados in-line | Sim (predefinição) | Sim ativado pelo utilizador numa base por volume | Não suportado 
+
+
+| Scanner de compactação | Sim | Sim | Não suportado 
+
+
+| Deduplicação in-line de agregado | Sim (predefinição) | N/A. | Não suportado 
+
+
+| Deduplicação em segundo plano de volume | Sim (predefinição) | Sim ativado pelo utilizador numa base por volume | Sim ativado pelo utilizador numa base por volume 
+
+
+| Deduplicação em segundo plano agregado | Sim (predefinição) | N/A. | Não suportado 
+|===
+O ONTAP Select 9,6 é compatível com uma nova licença (XL premium) e um novo tamanho de VM (grande) 1. No entanto, a VM grande só é suportada para configurações DAS usando RAID de software. As configurações de hardware RAID e vNAS não são compatíveis com a grande VM ONTAP Select na versão 9,6
+
+.Notas sobre o comportamento de atualização para configurações SSD DAS
+Após a atualização para o ONTAP Select 9,6 ou posterior, aguarde até que o `system node upgrade-revert show` comando indique que a atualização foi concluída antes de verificar os valores de eficiência de storage para volumes existentes.
+
+Em um sistema atualizado para o ONTAP Select 9,6 ou posterior, um novo volume criado em um agregado existente ou um agregado recém-criado tem o mesmo comportamento que um volume criado em uma nova implantação. Os volumes existentes submetidos à atualização de código ONTAP Select têm a maioria das mesmas políticas de eficiência de storage que um volume recém-criado, com algumas variações:
+
+Cenário 1:: Se nenhuma política de eficiência de storage tiver sido habilitada em um volume antes da atualização, então:
++
+--
+* Os volumes com `space guarantee = volume` não possuem compactação de dados in-line, deduplicação in-line agregada e deduplicação em segundo plano agregado habilitados. Essas opções podem ser habilitadas após a atualização.
+* Os volumes com `space guarantee = none` não têm compressão de segundo plano ativada. Esta opção pode ser ativada após a atualização.
+* A política de eficiência de storage nos volumes existentes é definida como automática após a atualização.
+
+
+--
+Cenário 2:: Se algumas eficiências de storage já estiverem habilitadas em um volume antes da atualização, então:
++
+--
+* Os volumes com `space guarantee = volume` não veem nenhuma diferença após a atualização.
+* Volumes com `space guarantee = none` deduplicação em segundo plano agregada ativada.
+* Os volumes com `storage policy inline-only` têm a sua política definida como automática.
+* Os volumes com políticas de eficiência de storage definidas pelo usuário não mudam na política, com exceção de volumes com `space guarantee = none`. Esses volumes têm a deduplicação em segundo plano agregada habilitada.
+
+
+--
+

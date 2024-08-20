@@ -1,0 +1,221 @@
+---
+sidebar: sidebar 
+permalink: task_install_deploy.html 
+keywords: install, installing, ontap select deploy, deploy administration utility, deploy utility 
+summary: Você precisa instalar o utilitário de administração ONTAP Select Deploy e usar o utilitário para criar um cluster do ONTAP Select. 
+---
+= Instale o ONTAP Select Deploy
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você precisa instalar o utilitário de administração ONTAP Select Deploy e usar o utilitário para criar um cluster do ONTAP Select.
+
+
+
+== Baixe a imagem da máquina virtual
+
+Pode transferir o pacote ONTAP Select a partir do site de suporte da NetApp.
+
+.Sobre esta tarefa
+O utilitário de administração ONTAP Select Deploy é empacotado como uma máquina virtual (VM) baseada no padrão OVF (Open Virtualization Format). O único arquivo compactado tem o sufixo `ova`. A VM fornece o servidor de implantação e as imagens de instalação para nós do ONTAP Select.
+
+.Passos
+. Acesse o link:https://mysupport.netapp.com/site/["Site de suporte da NetApp"^] usando um navegador da Web e faça login.
+. Selecione *Downloads* no menu e, em seguida, selecione *Downloads* no menu suspenso.
+. Na página Downloads, em todos os produtos A-Z, selecione a letra *o*.
+. Role para baixo e selecione *ONTAP Select*.
+. Selecione a versão desejada do pacote.
+. Reveja o Contrato de Licença de Utilizador final (EULA) e selecione *Accept & continue* (aceitar e continuar).
+. Selecione e baixe o pacote apropriado, respondendo a todas as solicitações, conforme necessário.
+
+
+
+
+== Verifique a assinatura OVA de implantação do ONTAP Select
+
+Você deve verificar a assinatura do ONTAP Select Open Virtualization Appliance (OVA) antes de instalar o pacote de instalação.
+
+.Antes de começar
+Verifique se o sistema atende aos seguintes requisitos:
+
+* OpenSSL versões 1.0.2 a 3,0 para verificação básica
+* Acesso público à Internet para verificação de OCSP (Online Certificate Status Protocol)
+
+
+.Passos
+. Obtenha os seguintes arquivos na página de download do produto no site de suporte da NetApp:
++
+[cols="2*"]
+|===
+| Ficheiro | Descrição 
+
+
+| `ONTAP-Select-Deploy-Production.pub` | A chave pública usada para verificar a assinatura. 
+
+
+| `csc-prod-chain-ONTAP-Select-Deploy.pem` | A cadeia de confiança da autoridade pública de certificação (CA). 
+
+
+| `csc-prod-ONTAP-Select-Deploy.pem` | O certificado usado para gerar a chave. 
+
+
+| `ONTAPdeploy.ova` | O executável de instalação do produto para ONTAP Select. 
+
+
+| `ONTAPdeploy.ova.sig` | O algoritmo SHA-256 é hash e, em seguida, assinado pelo Remote Support Agent (RSA) usando a `csc-prod` chave e assinatura do instalador. 
+|===
+. Verifique se o `ONTAPdeploy.ova.sig` arquivo está usando os comandos de validação e certificados associados.
+. Verifique a assinatura com o seguinte comando:
++
+[listing]
+----
+openssl dgst  -sha256 -verify ONTAP-Select-Deploy-Production.pub -signature ONTAPdeploy.ova.sig  ONTAPdeploy.ova
+----
+
+
+
+
+== Implante a máquina virtual
+
+Você deve instalar e iniciar a VM ONTAP Select Deploy usando a imagem OVF VM. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
+
+.Antes de começar
+Para um hypervisor ESXi, você deve se preparar para implantar a VM de implantação do ONTAP Select:
+
+* Ative a funcionalidade OVF no seu navegador instalando o plug-in de integração de cliente VMware ou executando configuração semelhante conforme necessário
+* Ative o DHCP no ambiente VMware se você atribuir dinamicamente um endereço IP à VM de implantação
+
+
+Para hipervisores ESXi e KVM, é necessário ter as informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, da rede externa e do nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:
+
+* Endereço IP da VM de implantação
+* Máscara de rede
+* Endereço IP do gateway (roteador)
+* Endereço IP do servidor DNS primário
+* Endereço IP do segundo servidor DNS
+* Domínios de pesquisa DNS
+
+
+.Sobre esta tarefa
+Se você usar o vSphere, o assistente implantar modelo OVF inclui um formulário para fornecer todas as informações de configuração de implantação, incluindo a configuração de rede. No entanto, se você optar por não usar este formulário, poderá usar o console da VM de implantação para configurar a rede.
+
+.Passos
+As etapas a seguir dependem se você usa um hipervisor ESXi ou KVM.
+
+[role="tabbed-block"]
+====
+.ESXi
+--
+. Acesse o cliente vSphere e faça login.
+. Navegue até o local apropriado na hierarquia e selecione *Deploy OVF Template*.
+. Selecione o ARQUIVO OVA e conclua o assistente Deploy OVF Template, selecionando as opções apropriadas para o seu ambiente.
++
+Tem de definir a palavra-passe da conta de administrador. Você precisa fornecer essa senha ao fazer login no utilitário implantar.
+
+. Depois que a VM for implantada, selecione a nova VM e ligue-a se ela ainda não estiver ativada com base na sua entrada para o assistente de implantação.
+. Se necessário, você pode configurar a rede de implantação usando o console da VM:
++
+.. Clique na guia *Console* para acessar o shell de configuração do host ESXi e monitorar o processo de inicialização.
+.. Aguarde o seguinte aviso:
++
+Nome do host :
+
+.. Digite o nome do host e pressione *Enter*.
+.. Aguarde o seguinte aviso:
++
+Forneça uma senha para o usuário admin:
+
+.. Digite a senha e pressione *Enter*.
+.. Aguarde o seguinte aviso:
++
+Usar DHCP para definir informações de rede? [n]:
+
+.. Digite *n* para definir uma configuração IP estática ou *y* para usar o DHCP e selecione *Enter*.
+.. Se você escolher uma configuração estática, forneça todas as informações de configuração de rede, conforme necessário.
+
+
+
+
+--
+.KVM
+--
+. Entre na CLI no servidor Linux:
++
+[listing]
+----
+ssh root@<ip_address>
+----
+. Crie um novo diretório e extraia a imagem de VM bruta:
++
+[listing]
+----
+mkdir /home/select_deploy25
+cd /home/select_deploy25
+mv /root/<file_name> .
+tar -xzvf <file_name>
+----
+. Crie e inicie a VM KVM executando o utilitário de administração implantar:
++
+[listing]
+----
+virt-install --name=select-deploy --vcpus=2 --ram=4096 --os-variant=debian10 --controller=scsi,model=virtio-scsi --disk path=/home/deploy/ONTAPdeploy.raw,device=disk,bus=scsi,format=raw --network "type=bridge,source=ontap-br,model=virtio,virtualport_type=openvswitch" --console=pty --import --noautoconsole
+----
+. Se necessário, você pode configurar a rede de implantação usando o console da VM:
++
+.. Conete-se ao console da VM:
++
+[listing]
+----
+virsh console <vm_name>
+----
+.. Aguarde o seguinte aviso:
++
+[listing]
+----
+Host name :
+----
+.. Digite o nome do host e selecione *Enter*.
+.. Aguarde o seguinte aviso:
++
+[listing]
+----
+Use DHCP to set networking information? [n]:
+----
+.. Digite *n* para definir uma configuração IP estática ou *y* para usar o DHCP e selecione *Enter*.
+.. Se você escolher uma configuração estática, forneça todas as informações de configuração de rede, conforme necessário.
+
+
+
+
+--
+====
+
+
+== Faça login na interface da Web de implantação
+
+Você deve fazer login na interface do usuário da Web para confirmar que o utilitário de implantação está disponível e executar a configuração inicial.
+
+.Passos
+. Aponte seu navegador para o utilitário implantar usando o endereço IP ou nome de domínio:
++
+`\https://<ip_address>/`
+
+. Forneça o nome e a senha da conta de administrador (admin) e inicie sessão.
+. Se a janela pop-up *Welcome to ONTAP Select* for exibida, revise os pré-requisitos e selecione *OK* para continuar.
+. Se essa for a primeira vez que você fizer login e não instalar o Deploy usando o assistente disponível com o vCenter, forneça as seguintes informações de configuração quando solicitado:
++
+** Nova senha para a conta de administrador (necessária)
+** AutoSupport (opcional)
+** Servidor vCenter com credenciais de conta (opcional)
+
+
+
+
+.Informações relacionadas
+link:task_cli_signing_in.html["Faça login para implantar usando SSH"]

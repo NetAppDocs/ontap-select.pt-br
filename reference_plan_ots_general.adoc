@@ -1,0 +1,185 @@
+---
+sidebar: sidebar 
+permalink: reference_plan_ots_general.html 
+keywords: plan, planning, general requirements 
+summary: Existem vários requisitos gerais que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select. 
+---
+= Requisitos gerais e considerações de Planejamento
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Existem vários requisitos gerais que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select.
+
+
+
+== Conhecimento e habilidades do Linux necessárias para KVM
+
+O Linux com o hypervisor KVM é um ambiente complexo para trabalhar. Antes de implantar o ONTAP Select no KVM, você deve ter o conhecimento e as habilidades necessárias.
+
+Distribuição de servidores Linux:: Você deve ter experiência com a distribuição Linux específica a ser usada para sua implantação do ONTAP Select. Especificamente, você deve ser capaz de executar as seguintes tarefas:
++
+--
+* Instale a distribuição Linux
+* Configure o sistema usando a CLI
+* Adicione pacotes de software, bem como quaisquer dependências
+
+
+--
+
+
+Para obter mais informações sobre como preparar o servidor Linux, incluindo a configuração necessária e os pacotes de software, consulte a lista de verificação de configuração do host. Consulte os requisitos do hypervisor para as distribuições Linux atualmente suportadas.
+
+Implantação e administração de KVM:: Você deve estar familiarizado com os conceitos gerais de virtualização. Além disso, existem vários comandos CLI do Linux que você deve usar como parte da instalação e administração do ONTAP Select em um ambiente KVM:
++
+--
+* `virt-install`
+* `virsh`
+* `lsblk`
+* `lvs`
+* `vgs`
+* `pvs`
+
+
+--
+Configuração de rede e vSwitch aberto:: Você deve estar familiarizado com os conceitos de rede e a configuração de switches de rede. Além disso, você deve ter experiência com Open vSwitch. Você deve usar os seguintes comandos de rede uma parte da configuração da rede ONTAP Select em um ambiente KVM:
++
+--
+* `ovs-vsctl`
+* `ip`
+* `ip link`
+* `systemctl`
+
+
+--
+
+
+
+
+== Tamanho do cluster e considerações relacionadas
+
+Há vários problemas de Planejamento relacionados ao tamanho do cluster que você deve considerar.
+
+Número de nós no cluster:: Um cluster do ONTAP Select é composto por um, dois, quatro, seis ou oito nós. Você deve determinar o tamanho do cluster com base nos requisitos da aplicação. Por exemplo, se o recurso de HA for necessário para uma implantação empresarial, deve ser usado um cluster de vários nós.
+Dedicado versus colocado:: Com base no tipo de aplicativo, você deve determinar se a implantação segue o modelo dedicado ou colocalizado. Observe que o modelo colocalizado pode ser mais complexo devido à diversidade de carga de trabalho e integração mais restrita.
+
+
+
+
+== Considerações sobre o host do hipervisor
+
+Há vários problemas de Planejamento relacionados ao host do hipervisor que você deve considerar.
+
+
+CAUTION: Você não deve modificar diretamente a configuração de uma máquina virtual ONTAP Select, a menos que seja direcionado para fazê-lo pelo suporte do NetApp. Uma máquina virtual só deve ser configurada e modificada por meio do utilitário de administração implantar. Fazer alterações em uma máquina virtual ONTAP Select fora do utilitário implantar sem a ajuda do suporte do NetApp pode fazer com que a máquina virtual falhe e inutilizável.
+
+Independente do hipervisor:: Tanto o ONTAP Select quanto o utilitário de administração do ONTAP Select Deploy são independentes de hipervisor. Os hypervisors a seguir são compatíveis com ambos.
++
+--
+* VMware ESXi
+* Kernel-Based Virtual Machine (KVM)
+
+
+--
+
+
+
+NOTE: A partir do ONTAP Select 9.14.1, o suporte ao hipervisor KVM foi reintegrado. Anteriormente, o suporte para a implantação de um novo cluster em um hipervisor KVM foi removido no ONTAP Select 9.10.1 e o suporte para o gerenciamento de clusters e hosts KVM existentes, exceto para ficar offline ou excluído, foi removido no ONTAP Select 9.11.1.
+
+Consulte as informações de Planejamento específicas do hypervisor e as notas de versão para obter detalhes adicionais sobre as plataformas suportadas.
+
+Hipervisor para nós ONTAP Select e utilitário de administração:: Tanto o utilitário de administração de implantação quanto os nós do ONTAP Select são executados como máquinas virtuais. O hypervisor que você escolher para o utilitário Deploy é independente do hypervisor que você escolher para os nós do ONTAP Select. Você tem total flexibilidade ao emparelhar os dois:
++
+--
+* O utilitário de implantação em execução no VMware ESXi pode criar e gerenciar clusters do ONTAP Select no VMware ESXi ou no KVM
+* O utilitário de implantação em execução no KVM pode criar e gerenciar clusters do ONTAP Select no VMware ESXi ou no KVM
+
+
+--
+Uma ou mais instâncias de nó ONTAP Select por host:: Cada nó do ONTAP Select é executado como uma máquina virtual dedicada. Você pode criar vários nós no mesmo host de hipervisor, com as seguintes restrições:
++
+--
+* Vários nós de um único cluster ONTAP Select não podem ser executados no mesmo host. Todos os nós em um host específico devem ser de diferentes clusters do ONTAP Select.
+* Você deve usar o armazenamento externo.
+* Se você usar RAID de software, só poderá implantar um nó ONTAP Select no host.
+
+
+--
+Consistência do hipervisor para os nós dentro de um cluster:: Todos os hosts em um cluster do ONTAP Select devem ser executados na mesma versão e versão do software do hypervisor.
+Número de portas físicas em cada host:: Você deve configurar cada host para usar uma, duas ou quatro portas físicas. Embora você tenha flexibilidade ao configurar as portas de rede, siga estas recomendações sempre que possível:
++
+--
+* Um host em um cluster de nó único deve ter duas portas físicas.
+* Cada host em um cluster de vários nós deve ter quatro portas físicas
+
+
+--
+Integração do ONTAP Select com um cluster baseado em hardware da ONTAP:: Não é possível adicionar um nó ONTAP Select diretamente a um cluster baseado em hardware da ONTAP. No entanto, você pode, opcionalmente, estabelecer uma relação de peering de cluster entre um cluster ONTAP Select e um cluster ONTAP baseado em hardware.
+
+
+
+
+== Considerações sobre armazenamento
+
+Há vários problemas de Planejamento relacionados ao storage de host que você deve considerar.
+
+Tipo de RAID:: Ao usar o armazenamento de conexão direta (DAS) no ESXi, você deve decidir se deve usar uma controladora RAID de hardware local ou o recurso RAID de software incluído no ONTAP Select. Se você usar o software RAID, consulte link:reference_plan_ots_storage.html["Considerações sobre armazenamento e RAID"] para obter mais informações.
+Armazenamento local:: Ao usar o armazenamento local gerenciado por um controlador RAID, você deve decidir o seguinte:
++
+--
+* Quer utilize um ou mais grupos RAID
+* Seja para usar um ou mais LUNs
+
+
+--
+Armazenamento externo:: Ao usar a solução ONTAP Select vNAS, você deve decidir onde os armazenamentos de dados remotos estão localizados e como eles são acessados. O ONTAP Select vNAS oferece suporte às seguintes configurações:
++
+--
+* VMware VSAN
+* Matriz de armazenamento externa genérica
+
+
+--
+Estimativa para o armazenamento necessário:: Você deve determinar a quantidade de storage necessária para os nós do ONTAP Select. Essas informações são necessárias como parte da aquisição das licenças adquiridas com capacidade de armazenamento. Consulte restrições de capacidade de armazenamento para obter mais informações.
+
+
+
+NOTE: A capacidade de armazenamento ONTAP Select corresponde ao tamanho total permitido dos discos de dados anexados à máquina virtual ONTAP Select.
+
+Modelo de licenciamento para implantação de produção:: Você deve selecionar as categorias de capacidade ou o modelo de licenciamento de pools de capacidade para cada cluster do ONTAP Select implantado em ambiente de produção. Consulte a seção _Licença_ para obter mais informações.
+
+
+
+
+== Autenticação usando o armazenamento de credenciais
+
+O armazenamento de credenciais ONTAP Select Deploy é uma base de dados contendo informações de conta. O Deploy usa as credenciais da conta para executar a autenticação do host como parte da criação e gerenciamento do cluster. Você deve estar ciente de como o armazenamento de credenciais é usado como parte do Planejamento de uma implantação do ONTAP Select.
+
+
+NOTE: As informações da conta são armazenadas de forma segura na base de dados usando o algoritmo de criptografia AES (Advanced Encryption Standard) e o algoritmo de hash SHA-256.
+
+Tipos de credenciais:: São suportados os seguintes tipos de credenciais:
++
+--
+* host
++
+A credencial *host* é usada para autenticar um host de hipervisor como parte da implantação de um nó ONTAP Select diretamente no ESXi ou KVM.
+
+* vcenter
++
+A credencial *vcenter* é usada para autenticar um servidor vCenter como parte da implantação de um nó ONTAP Select no ESXi quando o host é gerenciado pelo VMware vCenter.
+
+
+
+--
+Acesso:: O armazenamento de credenciais é acessado internamente como parte da execução de tarefas administrativas normais usando o Deploy, como a adição de um host de hipervisor. Você também pode gerenciar o armazenamento de credenciais diretamente por meio da interface de usuário da Web Deploy e da CLI.
+
+
+.Informações relacionadas
+* link:reference_plan_ots_storage.html["Considerações sobre armazenamento e RAID"]
+

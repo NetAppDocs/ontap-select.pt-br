@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: task_adm_connectivity.html 
+keywords: administer, administering, web, connectivity, network connectivity, network checker 
+summary: Você pode testar a conetividade de rede entre dois ou mais nós ONTAP Select na rede interna do cluster. Normalmente, você executa esse teste antes que um cluster de vários nós seja implantado para detetar problemas que possam causar falha na operação. 
+---
+= Confirmar a conetividade entre os nós do ONTAP Select
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode testar a conetividade de rede entre dois ou mais nós ONTAP Select na rede interna do cluster. Normalmente, você executa esse teste antes que um cluster de vários nós seja implantado para detetar problemas que possam causar falha na operação.
+
+.Antes de começar
+Todos os nós de ONTAP Select incluídos no teste devem ser configurados e ativados.
+
+.Sobre esta tarefa
+Cada vez que você inicia um teste, uma nova execução de processo é criada em segundo plano e recebe um identificador de execução exclusivo. Apenas uma corrida pode estar ativa de cada vez.
+
+O teste tem dois modos que controlam o seu funcionamento:
+
+* Rápido este modo executa um teste básico sem interrupções. Um teste DE PING é executado, juntamente com um teste do tamanho da MTU da rede e do vSwitch.
+* Estendido este modo executa um teste mais abrangente sobre todos os caminhos de rede redundantes. Se você executar isso em um cluster ONTAP Select ativo, o desempenho do cluster pode ser afetado.
+
+
+
+NOTE: É recomendável que você sempre execute um teste rápido antes de criar um cluster de vários nós. Depois que o teste rápido for concluído com sucesso, você poderá, opcionalmente, executar um teste estendido com base em seus requisitos de produção.
+
+.Passos
+. Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
+. Clique na guia *Administration* na parte superior da página e clique em *Network Checker*.
+. Clique em *Start New Run* (Iniciar nova execução) e selecione os hosts e as redes para o par de HA
++
+Você pode adicionar e configurar pares de HA adicionais conforme necessário.
+
+. Clique em *Iniciar* para iniciar o teste de conetividade de rede.
+

@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: concept_lic_workflow.html 
+keywords: license, licensing, purchase, purchasing, workflow 
+summary: Você pode seguir um fluxo de trabalho para comprar e aplicar uma licença para sua implantação do ONTAP Select. 
+---
+= Fluxo de trabalho ao comprar uma licença
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O fluxo de trabalho a seguir ilustra o processo de compra e aplicação de uma licença para a implantação do ONTAP Select. Ao comprar uma licença, você deve selecionar o modelo de licenciamento e a capacidade de armazenamento.
+
+O processo exato varia de acordo com o uso de uma licença de camada de capacidade ou de pool de capacidade:
+
+Número de série da licença de nove dígitos:: O número de série se aplica a um nó (camadas de capacidade) ou a um pool de storage (pools de capacidade)
+ID de bloqueio da licença:: Você deve ter o ID de bloqueio de licença para sua instância de implantação ao usar uma licença de pool de capacidade
+Site de licenciamento:: Você obtém uma licença de camada de capacidade e pool de capacidade em diferentes sites da Web
+
+
+image:purchased_license_workflow.png["Descreve o processo usado para comprar e instalar uma licença de storage para uma implantação do ONTAP Select de produção."]

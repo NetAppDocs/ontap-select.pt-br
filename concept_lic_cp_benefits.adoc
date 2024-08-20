@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: concept_lic_cp_benefits.html 
+keywords: license, licensing, capacity pools, benefits 
+summary: Há vários benefícios ao usar o modelo de licenciamento de pools de capacidade em vez do modelo de licenciamento de categorias de capacidade. 
+---
+= Resumo dos benefícios
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Há vários benefícios ao usar o modelo de licenciamento de pools de capacidade em vez do modelo de licenciamento de categorias de capacidade.
+
+
+
+== Uso mais eficiente da capacidade de storage
+
+Ao usar o licenciamento de categorias de capacidade, você aloca uma capacidade de storage fixa a cada nó. Qualquer espaço não utilizado não pode ser compartilhado com os outros nós e é efetivamente desperdiçado. Com o licenciamento de pools de capacidade, cada nó consome apenas a capacidade de que precisa, com base no tamanho dos agregados de dados.
+
+E como a capacidade está ancorada em um pool central, ela pode ser compartilhada entre muitos nós da sua organização.
+
+
+
+== Reduziu significativamente a sobrecarga administrativa, resultando em menor custo
+
+Se você usar licenças de categoria de capacidade, terá que obter e instalar uma licença para cada nó. Ao usar pools de capacidade, há uma licença para cada pool compartilhado. Isso pode reduzir drasticamente a sobrecarga administrativa e resultar em menor custo.
+
+
+
+== Métricas de uso aprimoradas
+
+A interface de usuário da Web Deploy fornece informações de uso aprimoradas para os pools de capacidade. Você pode determinar rapidamente quanto storage é usado e disponível em um pool de capacidade, quais nós estão usando o storage de um pool e de quais pools o cluster está alocando capacidade.

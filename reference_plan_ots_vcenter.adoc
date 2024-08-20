@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: reference_plan_ots_vcenter.html 
+keywords: plan, planning, vmware vcenter, vcenter server, vcenter 
+summary: Há vários requisitos de Planejamento relacionados ao VMware vCenter que você deve considerar. 
+---
+= Servidor VMware vCenter no ESXi
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você deve definir uma conta do vCenter Server e associá-la a uma função que contenha o Privileges administrativo necessário.
+
+
+NOTE: Você também precisa do nome de domínio ou endereço IP totalmente qualificado do servidor vCenter que gerencia os hosts do hypervisor ESXi onde o ONTAP Select é implantado.
+
+
+
+== Privileges administrativo
+
+Os Privileges administrativos mínimos necessários para criar e gerenciar um cluster do ONTAP Select são apresentados abaixo.
+
+
+
+=== Armazenamento de dados
+
+* Alocar espaço
+* Navegue pelo datastore
+* Operações de arquivo de baixo nível
+* Atualize os arquivos da máquina virtual
+* Atualize os metadados da máquina virtual
+
+
+
+
+=== Host
+
+Configuração::
++
+--
+* Configuração de rede
+* Gerenciamento do sistema
+
+
+--
+Operações locais::
++
+--
+* Criar máquina virtual
+* Eliminar a máquina virtual
+* Reconfigure a máquina virtual
+
+
+--
+
+
+
+
+=== Rede
+
+* Atribuir rede
+
+
+
+
+=== Máquina virtual
+
+Configuração:: Todos Privileges na categoria.
+Interação:: Todos Privileges na categoria.
+Inventário:: Todos Privileges na categoria.
+Provisionamento:: Todos Privileges na categoria.
+
+
+
+
+=== VApp
+
+Todos Privileges na categoria.

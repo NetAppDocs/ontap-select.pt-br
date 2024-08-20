@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: concept_api_before_browser.html 
+keywords: rest api, deploy rest api, rest, access browser, before you begin 
+summary: Há várias coisas que você deve estar ciente antes de usar a página implantar documentação on-line. 
+---
+= Antes de acessar a API com um navegador
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Há várias coisas que você deve estar ciente antes de usar a página implantar documentação on-line.
+
+
+
+== Plano de implantação
+
+Se você pretende emitir chamadas de API como parte da execução de tarefas administrativas ou de implantação específicas, considere criar um plano de implantação. Esses planos podem ser formais ou informais, e geralmente contêm seus objetivos e as chamadas de API a serem usadas. Consulte processos de fluxo de trabalho usando a API REST de implantação para obter mais informações.
+
+
+
+== Exemplos JSON e definições de parâmetros
+
+Cada chamada de API é descrita na página de documentação usando um formato consistente. O conteúdo inclui notas de implementação, parâmetros de consulta e códigos de status HTTP. Além disso, você pode exibir detalhes sobre o JSON usado com as solicitações e respostas da API da seguinte forma:
+
+* Exemplo de valor se você clicar em _exemplo de valor_ em uma chamada de API, uma estrutura JSON típica para a chamada será exibida. Você pode modificar o exemplo conforme necessário e usá-lo como entrada para sua solicitação.
+* Modelo se você clicar em _Model_, uma lista completa dos parâmetros JSON será exibida, com uma descrição para cada parâmetro.
+
+
+
+
+== Cuidado ao emitir chamadas de API
+
+Todas as operações de API que você executa usando a página de documentação de implantação são operações ativas. Você deve ter cuidado para não criar, atualizar ou excluir configurações ou outros dados por engano.

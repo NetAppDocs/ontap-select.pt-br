@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: concept_lic_cp_serial_number.html 
+keywords: license, licensing, capacity pools, node serial numbers 
+summary: Com o modelo de licenciamento de categorias de capacidade, o número de série do nó de nove dígitos é o mesmo que o número de série da licença atribuído ao nó. No entanto, os números de série atribuídos aos nós que usam o modelo de licenciamento de pools de capacidade têm um formato diferente. 
+---
+= Números de série do nó
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Com o modelo de licenciamento de categorias de capacidade, o número de série do nó de nove dígitos é o mesmo que o número de série da licença atribuído ao nó. No entanto, os números de série atribuídos aos nós que usam o modelo de licenciamento de pools de capacidade têm um formato diferente.
+
+O número de série de um nó que usa o licenciamento de pools de capacidade tem o seguinte formato:
+
+`999 ppppppppp nnnnnnnn`
+
+
+NOTE: Os espaços foram adicionados para maior clareza, mas não fazem parte do número de série real.
+
+Cada seção do número de série do nó é descrita na tabela a seguir, da esquerda para a direita.
+
+[cols="15,85"]
+|===
+| Secção | Descrição 
+
+
+| '999' | Valor constante de três dígitos reservado pela NetApp. 
+
+
+| pppppppppppp | Número de série de licença variável de nove dígitos atribuído ao pool de capacidade pela NetApp 
+
+
+| nnnnnnnn | Valor variável de oito dígitos gerado pelo Gerenciador de licenças para cada nó usando o pool de capacidade 
+|===
+
+NOTE: Atenção: Ao abrir um caso com suporte do NetApp envolvendo um nó que usa uma licença de pool de capacidade, você não pode fornecer o número de série completo de vinte dígitos do nó. Em vez disso, você deve fornecer o número de série da licença do pool de capacidade de nove dígitos. Você pode derivar o número de série da licença a partir do número de série do nó, como mostrado acima. Ignore os primeiros três dígitos do número de série do nó ('999') e extraia os próximos nove dígitos (ppppppppppppppppppp).

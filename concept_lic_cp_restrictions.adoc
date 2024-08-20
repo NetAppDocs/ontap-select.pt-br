@@ -1,0 +1,38 @@
+---
+sidebar: sidebar 
+permalink: concept_lic_cp_restrictions.html 
+keywords: license, licensing, capacity pools, restrictions 
+summary: As restrições que se aplicam ao usar o modelo de licenciamento de pool de capacidade são apresentadas abaixo. 
+---
+= Restrições de implantação para licenciamento de pools de capacidade
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+As restrições que se aplicam ao usar o modelo de licenciamento de pool de capacidade são apresentadas abaixo.
+
+.Modelo de licenciamento consistente por cluster
+Todos os nós em um único cluster do ONTAP Select precisam usar o mesmo modelo de licenciamento, de categorias de capacidade ou de pools de capacidade. Não é possível misturar os tipos de licenciamento para os nós em um único cluster.
+
+.Todos os nós em um cluster usam a mesma instância do Gerenciador de licenças
+Todos os nós com uma licença de pool de capacidade em um cluster do ONTAP Select devem usar a mesma instância do Gerenciador de licenças. Como há uma instância do Gerenciador de licenças em cada instância de implantação, essa restrição é uma reafirmação do requisito existente de que todos os nós em um cluster devem ser gerenciados pela mesma instância de implantação.
+
+.Um pool de capacidade por nó
+Cada nó pode arrendar storage a partir de exatamente um pool de capacidade. Um nó não pode usar dois ou mais pools.
+
+.O mesmo pool para nós em um par de HA
+Ambos os nós em um único par de HA devem fazer leasing de storage com o mesmo pool de capacidade. No entanto, diferentes pares de HA dentro do mesmo cluster podem alugar armazenamento de diferentes pools gerenciados pelo mesmo Gerenciador de licenças.
+
+.Duração da licença de armazenamento
+Você deve escolher a duração da licença ao adquirir a licença de armazenamento da NetApp. Por exemplo, uma licença pode ser válida por um ano.
+
+.Duração da locação agregada de dados
+Quando um nó ONTAP Select solicita uma locação de armazenamento para um agregado de dados, o Gerenciador de licenças fornece um leasing por uma duração específica com base na configuração do pool de capacidade. Você pode configurar a duração de locação para cada pool entre uma hora e sete dias. A duração padrão da concessão é de 24 horas.
+
+.Endereço IP estático atribuído para implantação
+Você deve atribuir um endereço IP estático ao utilitário de administração implantar quando o licenciamento de pools de capacidade for usado.

@@ -1,0 +1,291 @@
+---
+sidebar: sidebar 
+permalink: task_adm_replace_drives_swraid.html 
+keywords: administer, administering, web, software raid, replace drive 
+summary: 'Quando uma unidade falha usando RAID de software, o ONTAP Select usa uma unidade sobressalente (se uma estiver disponível) e inicia o processo de reconstrução automaticamente. Isso é semelhante a como o ONTAP no FAS e AFF funciona. No entanto, se nenhuma unidade sobressalente estiver disponível, você precisará adicionar uma ao nó ONTAP Select.' 
+---
+= Substitua uma unidade com falha ao usar o SW RAID
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Quando uma unidade que usa software RAID falha, o ONTAP Select atribui uma unidade sobressalente, se uma estiver disponível, e inicia o processo de reconstrução automaticamente. Isso é semelhante a como o ONTAP funciona no FAS e no AFF. No entanto, se nenhuma unidade sobressalente estiver disponível, você precisará adicionar uma ao nó ONTAP Select.
+
+
+NOTE: Tanto a remoção da unidade com falha quanto a adição de uma nova unidade (marcada como sobressalente) devem ser realizadas por meio do ONTAP Select Deploy. Anexar uma unidade à VM do ONTAP Select usando o vSphere não é compatível.
+
+
+
+== Identifique a unidade com falha
+
+Quando uma unidade falha, você precisa usar a CLI do ONTAP para identificar o disco com falha.
+
+[role="tabbed-block"]
+====
+.KVM
+--
+.Antes de começar
+Você deve ter o ID da VM da máquina virtual ONTAP Select, bem como as credenciais da conta de administrador do ONTAP Select e do ONTAP Select Deploy.
+
+.Sobre esta tarefa
+Você só deve usar esse procedimento quando o nó ONTAP Select estiver sendo executado no KVM e configurado para usar o RAID de software.
+
+.Passos
+. Na CLI do ONTAP Select, identifique o disco a ser substituído:
++
+.. Identifique o disco por número de série, UUID ou endereço de destino na máquina virtual.
++
+[listing]
+----
+disk show -fields serial,vmdisk-target-address,uuid
+----
+.. Opcionalmente, exiba uma lista completa da capacidade do disco sobressalente com os discos particionados
+
+
+. Na interface de linha de comando do Linux, localize o disco.
++
+.. Examine os dispositivos do sistema, procurando o número de série do disco ou UUID (nome do disco):
++
+[listing]
+----
+find /dev/disk/by-id/<SN|ID>
+----
+.. Examine a configuração da máquina virtual, procurando o endereço de destino:
++
+[listing]
+----
+virsh dumpxml VMID
+----
+
+
+
+
+--
+.ESXi
+--
+.Passos
+. Faça login na CLI do ONTAP usando a conta de administrador.
+. Identifique a unidade de disco que falhou.
++
+[listing]
+----
+<cluster name>::> storage disk show -container-type broken
+Usable Disk Container Container
+Disk Size Shelf Bay Type Type Name Owner
+---------------- ---------- ----- --- ------- ----------- --------- --------
+NET-1.4 893.3GB - - SSD broken - sti-rx2540-346a'
+----
+
+
+--
+====
+
+
+== Remova a unidade com falha
+
+Depois de identificar a unidade que falhou, remova o disco.
+
+[role="tabbed-block"]
+====
+.KVM usando implantar
+--
+Você pode separar um disco de um host KVM como parte da substituição do disco ou quando ele não for mais necessário.
+
+.Antes de começar
+Você deve ter as credenciais da conta de administrador do ONTAP Select e do ONTAP Select Deploy.
+
+.Passos
+. Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
+. Selecione a guia *clusters* na parte superior da página e selecione o cluster desejado na lista.
+. Selecione * ao lado do par ou nó de HA desejado.
++
+Se a opção estiver desativada, o Deploy está atualizando as informações de armazenamento no momento.
+
+. Selecione *Editar armazenamento* na página *Editar armazenamento de nós*.
+. Desmarque os discos a serem desanexados do nó, insira as credenciais do administrador do ONTAP e selecione *Editar armazenamento* para aplicar as alterações.
+. Selecione *Sim* para confirmar o aviso na janela pop-up.
+. Selecione a guia *Eventos* para o cluster monitorar e confirmar a operação de desanexar.
++
+Você pode remover o disco físico do host se ele não for mais necessário.
+
+
+
+--
+.KVM usando CLI
+--
+Depois de identificar o disco, siga os passos abaixo.
+
+.Passos
+. Separe o disco da máquina virtual:
++
+.. Descarregue a configuração.
++
+[listing]
+----
+virsh dumpxml VMNAME > /PATH/disk.xml
+----
+.. Edite o arquivo e remova tudo, exceto o disco a ser separado da máquina virtual.
++
+O endereço de destino do disco deve corresponder ao campo vmdisk-target-address no ONTAP.
+
++
+[listing]
+----
+<disk type='block' device='lun'>
+  <driver name='qemu' type='raw' cache='directsync'/>
+  <source dev='/dev/disk/by-id/ata- Micron_5100_MTFDDAK960TCC_171616D35277'/>
+  <backingStore/>
+  <target dev='sde' bus='scsi'/>
+  <alias name='scsi0-0-0-4'/>
+  <address type='drive' controller='0' bus='0' target='0' unit='4'/>
+</disk>
+----
+.. Solte o disco.
++
+[listing]
+----
+virsh detach-disk --persistent /PATH/disk.xml
+----
+
+
+. Substitua o disco físico:
++
+Você pode usar um utilitário como `ledctl locate=` para localizar o disco físico, se necessário.
+
++
+.. Remova o disco do host.
+.. Selecione um novo disco e instale-o no host, se necessário.
+
+
+. Edite o arquivo de configuração do disco original e adicione o novo disco.
++
+Você deve atualizar o caminho do disco e quaisquer outras informações de configuração, conforme necessário.
+
++
+[listing]
+----
+<disk type='block' device='lun'>
+  <driver name='qemu' type='raw' cache='directsync'/>
+  <source dev='/dev/disk/by-id/ata-Micron_5100_MTFDDAK960TCC_171616D35277'/>
+  <backingStore/>
+  <target dev='sde' bus='scsi'/>
+  <alias name='scsi0-0-0-4'/>
+  <address type='drive' controller='0' bus='0' target='0' unit='4'/>
+</disk>
+----
+
+
+--
+.ESXi
+--
+.Passos
+. Inicie sessão na interface de utilizador da Web Deploy utilizando a conta de administrador.
+. Selecione a guia *clusters* e selecione o cluster relevante.
++
+image:ST_22.jpg["Detalhes do nó"]
+
+. Selecione ** para expandir a visualização de armazenamento.
++
+image:ST_23.jpg["Edite o storage do nó"]
+
+. Selecione *Editar* para fazer alterações nos discos anexados e desmarque a unidade com falha.
++
+image:ST_24.jpg["Detalhes do disco de armazenamento"]
+
+. Forneça as credenciais do cluster e selecione *Editar armazenamento*.
++
+image:ST_25.jpg["Credenciais ONTAP"]
+
+. Confirme a operação.
++
+image:ST_26.jpg["Aviso"]
+
+
+
+--
+====
+
+
+== Adicione a nova unidade sobressalente
+
+Depois de remover a unidade com falha, adicione o disco sobressalente.
+
+[role="tabbed-block"]
+====
+.KVM usando implantar
+--
+.Anexando um disco usando implantar
+Você pode anexar um disco a um host KVM como parte da substituição de um disco ou para adicionar mais capacidade de storage.
+
+.Antes de começar
+Você deve ter as credenciais da conta de administrador do ONTAP Select e do ONTAP Select Deploy.
+
+O novo disco deve ser instalado fisicamente no host KVM Linux.
+
+.Passos
+. Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
+. Selecione a guia *clusters* na parte superior da página e selecione o cluster desejado na lista.
+. Selecione * ao lado do par ou nó de HA desejado.
++
+Se a opção estiver desativada, o Deploy está atualizando as informações de armazenamento no momento.
+
+. Selecione *Editar armazenamento* na página *Editar armazenamento de nós*.
+. Selecione os discos a serem anexados ao nó, insira as credenciais de administrador do ONTAP e selecione *Editar armazenamento* para aplicar as alterações.
+. Selecione a guia *Eventos* para monitorar e confirmar a operação de conexão.
+. Examine a configuração do armazenamento do nó para confirmar se o disco está conetado.
+
+
+--
+.KVM usando CLI
+--
+Depois de identificar e remover a unidade com falha, você pode anexar uma nova unidade.
+
+.Passos
+. Conete o novo disco à máquina virtual.
++
+[listing]
+----
+virsh attach-disk --persistent /PATH/disk.xml
+----
+
+
+.Resultados
+O disco é atribuído como um sobressalente e está disponível para o ONTAP Select. Pode demorar um minuto ou mais para o disco ficar disponível.
+
+.Depois de terminar
+Como a configuração do nó foi alterada, você deve executar uma operação de atualização de cluster usando o utilitário de administração implantar.
+
+--
+.ESXi
+--
+.Passos
+. Inicie sessão na interface de utilizador da Web Deploy utilizando a conta de administrador.
+. Selecione a guia *clusters* e selecione o cluster relevante.
++
+image:ST_27.jpg["Par de HA"]
+
+. Selecione ** para expandir a visualização de armazenamento.
++
+image:ST_28.jpg["Edite o storage do nó"]
+
+. Selecione *Editar* e confirme se a nova unidade está disponível e selecione-a.
++
+image:ST_29.jpg["Detalhes do disco de armazenamento"]
+
+. Forneça as credenciais do cluster e selecione *Editar armazenamento*.
++
+image:ST_30.jpg["Detalhes do disco de armazenamento"]
+
+. Confirme a operação.
++
+image:ST_31.jpg["Detalhes do disco de armazenamento"]
+
+
+
+--
+====

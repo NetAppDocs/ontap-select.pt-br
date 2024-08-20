@@ -1,0 +1,83 @@
+---
+sidebar: sidebar 
+permalink: concept_api_understanding_scripts.html 
+keywords: rest api, deploy rest api, rest, python, python scripts, understanding 
+summary: Os scripts Python de exemplo permitem que você execute várias tarefas diferentes. Você deve entender os scripts antes de usá-los em uma instância de implantação ao vivo. 
+---
+= Entenda os scripts Python
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Os scripts Python de exemplo permitem que você execute várias tarefas diferentes. Você deve entender os scripts antes de usá-los em uma instância de implantação ao vivo.
+
+
+
+== Caraterísticas comuns do projeto
+
+Os scripts foram projetados com as seguintes caraterísticas comuns:
+
+* Executar a partir da interface de linha de comando em uma máquina cliente você pode executar os scripts Python a partir de qualquer máquina cliente configurada corretamente. Consulte _antes de começar_ para obter mais informações.
+* Aceitar parâmetros de entrada CLI cada script é controlado na CLI através de parâmetros de entrada.
+* Ler arquivo de entrada cada script lê um arquivo de entrada com base em seu propósito. Ao criar ou excluir um cluster, você deve fornecer um arquivo de configuração JSON. Ao adicionar uma licença de nó, você deve fornecer um arquivo de licença válido.
+* Use um módulo de suporte comum o módulo de suporte comum _deploy_requests.py_ contém uma única classe. Ele é importado e usado por cada um dos scripts.
+
+
+
+
+== Crie um cluster
+
+Você pode criar um cluster ONTAP Select usando o script cluster.py. Com base nos parâmetros CLI e no conteúdo do arquivo de entrada JSON, você pode modificar o script para seu ambiente de implantação da seguinte forma:
+
+[NOTE]
+====
+* A partir do ONTAP Select 9.10.1, você não pode mais implantar um novo cluster no hipervisor KVM.
+* A partir do ONTAP Select 9.11.1, toda a funcionalidade de gerenciamento não está mais disponível para clusters e hosts KVM existentes, exceto para as funções de remoção e exclusão offline.
+
+
+====
+* Hypervisor você pode implantar no ESXI ou KVM (dependendo da versão de implantação). Ao implantar no ESXi, o hypervisor pode ser gerenciado pelo vCenter ou pode ser um host autônomo.
+* Tamanho do cluster você pode implantar um cluster de nó único ou de vários nós.
+* Avaliação ou licença de produção você pode implantar um cluster com uma licença de avaliação ou adquirida para produção.
+
+
+Os parâmetros de entrada da CLI para o script incluem:
+
+* Nome do host ou endereço IP do servidor de implantação
+* Palavra-passe para a conta de utilizador admin
+* Nome do arquivo de configuração JSON
+* Sinalizador verboso para saída de mensagem
+
+
+
+
+== Adicione uma licença de nó
+
+Se você optar por implantar um cluster de produção, será necessário adicionar uma licença para cada nó usando o script _add_license.py_. Você pode adicionar a licença antes ou depois de implantar o cluster.
+
+Os parâmetros de entrada da CLI para o script incluem:
+
+* Nome do host ou endereço IP do servidor de implantação
+* Palavra-passe para a conta de utilizador admin
+* Nome do ficheiro de licença
+* Nome de usuário do ONTAP com Privileges para adicionar a licença
+* Senha para o usuário do ONTAP
+
+
+
+
+== Eliminar um cluster
+
+Você pode excluir um cluster ONTAP Select existente usando o script _delete_cluster.py_.
+
+Os parâmetros de entrada da CLI para o script incluem:
+
+* Nome do host ou endereço IP do servidor de implantação
+* Palavra-passe para a conta de utilizador admin
+* Nome do arquivo de configuração JSON
+

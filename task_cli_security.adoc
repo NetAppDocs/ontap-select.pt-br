@@ -1,0 +1,30 @@
+---
+sidebar: sidebar 
+permalink: task_cli_security.html 
+keywords: administer, administering, cli, security 
+summary: Há várias tarefas relacionadas que você pode executar como parte da proteção de uma implantação do ONTAP Select. 
+---
+= Segurança
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Há várias tarefas relacionadas que você pode executar como parte da proteção de uma implantação do ONTAP Select.
+
+
+
+= Altere a senha do administrador de implantação
+
+Você pode alterar a senha da conta de administrador de máquina virtual implantar conforme necessário usando a interface de linha de comando.
+
+.Passos
+. Inicie sessão na CLI do utilitário de implementação utilizando a conta de administrador.
+. Alterar a palavra-passe:
+`password modify`
+. Responda a todos os prompts conforme apropriado para o seu ambiente.
+

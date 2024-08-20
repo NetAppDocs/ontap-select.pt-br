@@ -1,0 +1,84 @@
+---
+sidebar: sidebar 
+permalink: task_chk_nvme_configure.html 
+keywords: ontap select, nvme storage, host preparation 
+summary: Se você planeja usar unidades NVMe com software RAID, será necessário configurar o host para reconhecer as unidades. 
+---
+= Configuração de um host para usar unidades NVMe
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Se você planeja usar unidades NVMe com software RAID, será necessário configurar o host para reconhecer as unidades.
+
+Use a passagem de I/o do VMDirectPath nos dispositivos NVMe para maximizar a eficiência de dados. Esta configuração expõe as unidades à máquina virtual ONTAP Select, permitindo que o ONTAP tenha acesso direto à PCI ao dispositivo.
+
+.Antes de começar
+Certifique-se de que seu ambiente de implantação atenda aos seguintes requisitos mínimos:
+
+* ONTAP Select 9,7 ou posterior com um utilitário de administração de implantação compatível
+* Oferta de licença de plataforma Premium XL ou uma licença de avaliação de 90 dias
+* VMware ESXi versão 6,7 ou posterior
+* Dispositivos NVMe em conformidade com a especificação 1,0 ou posterior
+
+
+Siga o link:reference_chk_host_prep.html["lista de verificação de preparação do anfitrião"], reveja o link:reference_chk_deploy_req_info.html["Informações necessárias para a instalação do utilitário de implantação"]e link:reference_chk_select_req_info.html["Informações necessárias para a instalação do ONTAP Select"]os tópicos para obter mais informações.
+
+.Sobre esta tarefa
+Este procedimento foi concebido para ser executado antes de criar um novo cluster ONTAP Select. Você também pode executar o procedimento para configurar unidades NVMe adicionais para um cluster NVMe SW-RAID existente. Nesse caso, após configurar as unidades, você deve adicioná-las por meio da implantação, como faria com unidades SSD adicionais. A principal diferença é que o Deploy deteta as unidades NVMe e reinicializa os nós. Ao adicionar unidades NVMe a um cluster existente, observe o seguinte sobre o processo de reinicialização:
+
+* O Deploy manipula a orquestração de reinicialização.
+* A aquisição de HA e a giveback são realizadas de forma ordenada, mas pode ser demorado resincronizar os agregados.
+* Um cluster de nó único incorrerá em tempo de inatividade.
+
+
+link:concept_stor_capacity_inc.html["Aumentar a capacidade de storage"]Consulte para obter informações adicionais.
+
+.Passos
+. Acesse o menu *BIOS Configuration* no host para habilitar o suporte à virtualização de e/S.
+. Ative a configuração *Intel(R) VT para e/S direcionada (VT-d)*.
++
+image:nvme_01.png["Configuração do socket"]
+
+. Alguns servidores oferecem suporte para *Intel volume Management Device (Intel VMD)*. Quando ativado, isso torna os dispositivos NVMe disponíveis invisíveis para o hipervisor ESXi; desative essa opção antes de continuar.
++
+image:nvme_07.png["Configuração do soquete, VMD"]
+
+. Configurar as unidades NVMe para passagem para máquinas virtuais.
++
+.. No vSphere, abra a exibição host *Configure* e clique em *Edit* em *hardware: Dispositivos PCI*.
+.. Selecione as unidades NVMe que você deseja usar no ONTAP Select.
++
+image:nvme_02.png["Editar a disponibilidade do dispositivo PCI"]
+
++
+
+NOTE: Você precisa de um armazenamento de dados VMFS que também tenha o respaldo de um dispositivo NVMe para hospedar os discos do sistema de VM do ONTAP Select e o NVRAM virtual. Deixe pelo menos uma unidade NVMe disponível para esse fim ao configurar as outras para passagem PCI.
+
+.. Clique em *OK*. Os dispositivos selecionados indicam *disponível (pendente)*.
+
+
+. Clique em *Reboot the Host*.
++
+image:nvme_03.png["Reinicie este anfitrião"]
+
+
+
+.Depois de terminar
+Depois que os hosts estiverem preparados, você poderá instalar o utilitário ONTAP Select Deploy. O Deploy orienta você por meio da criação de clusters de storage do ONTAP Select em seus hosts recém-preparados. Durante esse processo, a implantação detetará a presença das unidades NVMe configuradas para passagem e as selecionará automaticamente para uso como discos de dados ONTAP. Se necessário, pode ajustar a seleção predefinida.
+
+
+NOTE: Um máximo de 14 dispositivos NVMe são compatíveis para cada nó ONTAP Select.
+
+image:nvme_04.png["Clusters de implantação do ONTAP Select"]
+
+Depois que o cluster é implantado com sucesso, o Gerenciador de sistema do ONTAP permite que você provisione o storage de acordo com as práticas recomendadas. O ONTAP habilitará automaticamente recursos de eficiência de storage otimizados para flash que utilizam melhor seu storage NVMe.
+
+image:nvme_05.png["preparar o armazenamento local"]
+
+image:nvme_06.png["Gerente do sistema da ONTAP"]

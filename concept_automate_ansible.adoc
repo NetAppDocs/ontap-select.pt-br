@@ -1,0 +1,123 @@
+---
+sidebar: sidebar 
+permalink: concept_automate_ansible.html 
+keywords: ansible, automation, configuration management, ontap, ontap select, na_ots_deploy, na_ots_cluster, ansible roles, ansible playbook 
+summary: Use as funções do Ansible para automatizar implantações do ONTAP Select. 
+---
+= Automatize implantações de ONTAP Select com o Ansible
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Use as funções e os manuais do Ansible para automatizar implantações do ONTAP Select.
+
+Uma função do Ansible é uma coleção lógica de tarefas, modelos, manipuladores e variáveis em uma estrutura de arquivos padronizada. Use essas funções para facilitar, reutilizar e modularizar a funcionalidade que pode ser usada de forma independente. Inclua funções e a lista de hosts nos quais você deseja que elas sejam executadas, em um manual de estratégia para execução. Depois de instalar o Ansible, atualizar os módulos necessários e entender os manuais, você estará pronto para baixar as funções do ONTAP Select (OTS) do NetApp GitHub para criar e executar seu próprio manual de estratégia para implantar clusters do ONTAP Select.
+
+
+
+== Funções
+
+Há duas funções disponíveis para o ONTAP Select:
+
+
+
+=== na_ots_deploy
+
+Essa função faz o download do arquivo de instalação do ONTAP Select Deploy em um host vCenter ou ESXi. Em seguida, ele cria e executa a VM de implantação.
+
+Esta função utiliza os seguintes valores de entrada:
+
+* Credenciais de host do vCenter ou ESXi
+* Implantar a criação de VM, incluindo informações como:
++
+** Endereço IP
+** Nome do host
+** Iniciar sessão
+** Palavra-passe
+** Armazenamento de dados
+** Rede
+
+
+* Caminho local para o arquivo OVA
++
+Certifique-se de que o arquivo de instalação esteja disponível antes de executar o manual de estratégia, incluindo a função).
+
+
+
+
+NOTE: A maneira mais simples de fornecer esses valores de entrada é através de um arquivo de variáveis globais no formato YML. Passe esse arquivo YML no manual de estratégia.
+
+A função tem uma única tarefa que importa o arquivo OVA de implantação para o host, cria a VM e o executa. Você pode acessar e baixar essa função no GitHub do NetApp Ansible aqui: link:https://github.com/netapp-automation/na_ots_deploy["na_ots_deploy"^]
+
+
+
+=== na_ots_cluster
+
+Essa função usa as APIs de implantação do ONTAP Select para criar e implantar o cluster do ONTAP Select. Ele assume que a VM deploy foi criada e está funcionando manualmente ou usando a função *na_ots_Deploy*. Além disso, a função assume que os hosts Select estão configurados adequadamente com a rede e o armazenamento necessários para o cluster ONTAP Select.
+
+A função usa os valores de entrada para as credenciais do vCenter ou ESXI e implementa credenciais de VM para acessar as APIs e todas as informações pertinentes necessárias para criar o cluster do ONTAP Select e a VM do nó.
+
+A função executa as seguintes tarefas:
+
+* Adição de credenciais de host (vCenter ou esxi)
+* Obter e Registrar as IDs de host
+* Validar a rede interna (para clusters de vários nós)
+* Criando o cluster
+* Configurando os nós
+* Configurando a rede e o pool de armazenamento
+* Implantando o cluster
+
+
+Como resultado, a função é concluída com a VM do cluster em execução e o cluster do ONTAP Select totalmente implantado. Você pode acessar e baixar essa função no GitHub do NetApp Ansible aqui: link:https://github.com/NetApp-Automation/na_ots_cluster["na_ots_cluster"^]
+
+
+
+== Exemplo de Playbook
+
+A seguir está um exemplo de manual de estratégia que chama essas duas funções do ONTAP Select. Observe que as variáveis de entrada são definidas em arquivos yml e passadas via "vars_files". Você pode encontrar mais detalhes nos arquivos README em cada uma das funções.
+
+[listing]
+----
+—
+
+– name: Create ONTAP Select deploy from OVA (ESXi)
+
+vars_files:
+
+– vars_deploy.yml                              # All Variables
+
+– vars_deploy_pwd.yml                          # host_password & deploy_password
+
+hosts: “{{ target_vcenter_or_esxi_host }}”     # Entry in Ansible ‘hosts’ file
+
+gather_facts: false
+
+connection: ‘local’
+
+roles:
+
+– na_ots_deploy
+
+– name: Create ONTAP Select Cluster
+
+vars_files:
+
+– vars_cluster_test.yml
+
+– vars_cluster_pwd.yml
+
+hosts: “localhost”
+
+gather_facts: false
+
+roles:
+
+– na_ots_cluster
+
+----
+Depois que o cluster do ONTAP Select for criado e executado usando as funções acima, você poderá utilizar o conjunto avançado de funções do ONTAP Ansible disponíveis para automatizar ainda mais os recursos e os recursos do ONTAP. As funções ONTAP disponíveis podem ser acessadas link:https://github.com/NetApp/ansible["aqui"]. Em resumo, as funções do ONTAP Select Ansible e as funções do ONTAP permitem automatizar totalmente seu fluxo de trabalho completo para gerenciar seu storage com o ONTAP Select.

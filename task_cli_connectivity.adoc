@@ -1,0 +1,60 @@
+---
+sidebar: sidebar 
+permalink: task_cli_connectivity.html 
+keywords: administer, administering, cli, connectivity, network connectivity, network checker 
+summary: Você pode testar a conetividade de rede entre dois ou mais nós ONTAP Select na rede interna do cluster. Normalmente, você executa esse teste antes que um cluster de vários nós seja implantado para detetar problemas que possam causar falha na operação. 
+---
+= Confirme a conetividade de rede entre os nós ONTAP Select
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode testar a conetividade de rede entre dois ou mais nós ONTAP Select na rede interna do cluster. Normalmente, você executa esse teste antes que um cluster de vários nós seja implantado para detetar problemas que possam causar falha na operação.
+
+.Antes de começar
+Todos os nós de ONTAP Select incluídos no teste devem ser configurados e ativados.
+
+.Sobre esta tarefa
+Cada vez que você inicia um teste, uma nova execução de processo é criada em segundo plano e recebe um identificador de execução exclusivo. Apenas uma corrida pode estar ativa de cada vez.
+
+O teste tem dois modos que controlam o seu funcionamento:
+
+* Rápido este modo executa um teste básico sem interrupções. Um teste DE PING é executado, juntamente com um teste do tamanho da MTU da rede e do vSwitch.
+* Estendido este modo executa um teste mais abrangente sobre todos os caminhos de rede redundantes. Se você executar isso em um cluster ONTAP Select ativo, o desempenho do cluster pode ser afetado.
+
+
+
+NOTE: É recomendável que você sempre execute um teste rápido antes de criar um cluster de vários nós. Depois que o teste rápido for concluído com sucesso, você poderá, opcionalmente, executar um teste estendido com base em seus requisitos de produção.
+
+.Passos
+. Inicie sessão na CLI do utilitário de implementação utilizando a conta de administrador.
+. Exiba as execuções atuais do verificador de conetividade de rede e verifique se nenhuma execução está ativa:
++
+`network connectivity-check show`
+
+. Inicie o verificador de conetividade de rede e anote o identificador de execução na saída do comando:
++
+`network connectivity-check start -host-names HOSTNAMES -vswitch-type VSWITCH_TYPE-mode MODE`
+
++
+Exemplo
+
++
+[listing]
+----
+network connectivity-check start -host-names 10.234.81.14
+10.234.81.15 -vswitch-type StandardVSwitch -mode quick
+----
+. Monitore o progresso do verificador de conetividade de rede com base no identificador de execução:
++
+`network connectivity-check show -run-id RUN_ID`
+
+
+
+.Depois de terminar
+O verificador de conetividade de rede normalmente limpa removendo quaisquer portas temporárias e endereços IP adicionados ao grupo de portas ONTAP-Internal. No entanto, se o verificador de conetividade não conseguir remover as portas temporárias, você deverá executar uma operação de limpeza manual reexecutando o comando CLI com a opção `-mode cleanup`. Se você não remover as portas temporárias do grupo de portas internas ONTAP, a máquina virtual ONTAP Select pode não ser criada com êxito.

@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: concept_lic_cp_compare_ct.html 
+keywords: license, licensing, capacity pools, capacity tiers, comparing 
+summary: Há várias diferenças entre os modelos de licenciamento de pools de capacidade e categorias de capacidade. 
+---
+= Comparação do licenciamento de pools de capacidade e categorias de capacidade
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+A tabela a seguir compara os dois modelos de licenciamento de produção suportados pelo ONTAP Select.
+
+[cols="20,40,40"]
+|===
+|  | Categorias de capacidade | Pools de capacidade 
+
+
+| Número de série da licença | Nove dígitos gerados pelo NetApp e atribuídos a um nó | Nove dígitos gerados pelo NetApp e atribuídos a um pool de capacidade 
+
+
+| Bloqueio da licença | Bloqueado no nó ONTAP Select | Bloqueado para instância do Gerenciador de licenças 
+
+
+| Duração da licença | Perpétuo (nenhuma renovação necessária) | Duração fixa baseada na compra (renovada necessária) 
+
+
+| Duração da concessão para o agregado de dados | Não aplicável | De uma hora a sete dias 
+
+
+| Número de série do nó | Nove dígitos e igual ao número de série da licença | Vinte dígitos e gerados pelo Gerenciador de licenças 
+
+
+| Suporte | Complemento e tempo limitado | Incluído e co-denominado 
+
+
+| Tipos de licença | Standard, premium, Premium XL | Standard, premium, Premium XL 
+
+
+| Licença de avaliação disponível | Sim | Sim 
+
+
+| Avaliação para atualização de produção | Sim | Não 
+
+
+| Redimensionamento da máquina virtual ONTAP Select (pequeno a médio, médio a grande) | Sim | Sim 
+
+
+| Execução: Licença expirada | N/A. | Sim (sem período de carência) 
+|===

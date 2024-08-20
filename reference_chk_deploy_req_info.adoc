@@ -1,0 +1,71 @@
+---
+bar: sidebar 
+permalink: reference_chk_deploy_req_info.html 
+keywords: ontap select, deploy, pre-installation, vmware 
+summary: Antes de instalar o utilitário de administração implantar em um ambiente VMware, revise os requisitos básicos e prepare-se para uma implantação bem-sucedida. 
+---
+= Informações necessárias para a instalação do utilitário de implantação
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Antes de instalar o utilitário de administração implantar em um ambiente de hipervisor, revise as informações de configuração necessárias e as informações de configuração de rede opcionais para se preparar para uma implantação bem-sucedida.
+
+
+
+== Informações de configuração necessárias
+
+Como parte do Planejamento de implantação, você deve determinar as informações de configuração necessárias antes de instalar o utilitário de administração ONTAP Select Deploy.
+
+[cols="40,60"]
+|===
+| Informações necessárias | Descrição 
+
+
+| Nome da máquina virtual implantar | Identificador a utilizar para a máquina virtual. 
+
+
+| Nome do host do hipervisor | Identificador para o host de hipervisor VMware ESXi ou KVM onde o utilitário de implantação está instalado. 
+
+
+| Nome do armazenamento de dados | Identificador para o armazenamento de dados do hipervisor que contém os ficheiros da máquina virtual (é necessário aproximadamente 40GB MB). 
+
+
+| Rede para a máquina virtual | Identificador para a rede onde a máquina virtual de implantação está conetada. 
+|===
+
+
+== Informações de configuração de rede opcionais
+
+A máquina virtual implantar é configurada usando DHCP por padrão. No entanto, se necessário, você pode configurar manualmente a interface de rede para a máquina virtual.
+
+[cols="35,65"]
+|===
+| Informações de rede | Descrição 
+
+
+| Nome do host | Identificador da máquina host. 
+
+
+| Endereço IP do host | Endereço IPv4 estático da máquina host. 
+
+
+| Máscara de sub-rede | Máscara de sub-rede, com base na rede da qual a máquina virtual faz parte. 
+
+
+| Gateway | Gateway ou roteador padrão. 
+
+
+| Servidor DNS primário | Servidor de nomes de domínio primário. 
+
+
+| Servidor DNS secundário | Servidor de nomes de domínio secundário. 
+
+
+| Pesquisar domínios | Lista dos domínios de pesquisa a utilizar. 
+|===

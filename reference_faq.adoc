@@ -1,0 +1,319 @@
+---
+sidebar: sidebar 
+permalink: reference_faq.html 
+keywords: faq, frequently asked questions 
+summary: Encontre respostas para perguntas comuns sobre o ONTAP Select. 
+---
+= Perguntas frequentes
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode encontrar respostas para perguntas frequentes sobre o ONTAP Select.
+
+[NOTE]
+====
+A partir do ONTAP Select 9.14.1, o suporte ao hipervisor KVM foi reintegrado. Anteriormente, o suporte para a implantação de um novo cluster em um hipervisor KVM foi removido no ONTAP Select 9.10.1 e o suporte para o gerenciamento de clusters e hosts KVM existentes, exceto para ficar offline ou excluído, foi removido no ONTAP Select 9.11.1.
+
+====
+
+
+== Geral
+
+Existem várias perguntas e respostas gerais.
+
+.Qual é a diferença entre o ONTAP Select Deploy e o ONTAP Select?
+O ONTAP Select Deploy é o utilitário usado para criar clusters do ONTAP Select. Atualmente, o ONTAP Select Deploy é o único método disponível para criar um cluster de produção. O ONTAP Select Deploy também pode ser usado para criar um cluster de seleção de avaliação para permitir que os clientes testem e documentem as etapas reais de uma implantação de produção. O ONTAP Select Deploy também pode converter um cluster de avaliação em um cluster de produção usando uma licença de nível de capacidade apropriada com capacidade suficiente para cobrir o espaço consumido durante a avaliação.
+
+O ONTAP Select Deploy é uma máquina virtual que contém uma imagem do ONTAP Select. Durante a instalação do cluster, o ONTAP Select Deploy impõe várias verificações para garantir que os requisitos mínimos do ONTAP Select sejam atendidos. Os clusters ONTAP Select Deploy VM e Select podem ser atualizados separadamente.
+
+.Como posso solucionar um problema de desempenho com o ONTAP Select?
+Assim como o ONTAP no FAS, os dados de desempenho devem ser coletados usando o utilitário perfstat. Aqui está um exemplo de comando:
+
+[listing]
+----
+perfstat8 –i N,m -t <sample time in minutes> --verbose --nodes=<filer IP> --diag-passwd=abcxyz --mode="cluster-mode" > <name of output file>
+----
+.Como faço para acessar a página da API Swagger para o ONTAP Select Deploy?
+[listing]
+----
+http://<Deploy-IP-Address/api/ui
+----
+
+NOTE: A versão API v3 não é compatível com versões anteriores da API. Um novo procedimento de API está disponível no https://library.netapp.com/ecm/ecm_download_file/ECMLP2845694["Field Portal"^].
+
+.O backup da VM do ONTAP Select pode ser feito com o VMware ou outros snapshots de terceiros?
+Não. A VM ONTAP Select usa unidades independentes-persistentes, que são excluídas de snapshots baseados em VMware. O único método suportado para fazer backup do ONTAP Select é SnapMirror ou SnapVault.
+
+.Onde obtenho esclarecimentos para perguntas não abordadas nesta FAQ?
+link:mailto:ng-ses-ontap-select@netapp.com["ng-ses-ontap-select@netapp.com"]Contacto .
+
+
+
+== Licenças, instalação, upgrades e reverts
+
+Há várias perguntas e respostas sobre licenças, instalação, atualizações e reverts.
+
+.O ONTAP Select e o ONTAP Select Deploy podem ser atualizados separadamente?
+Sim. O utilitário ONTAP Select Deploy pode ser atualizado separadamente do cluster ONTAP Select. Da mesma forma, o cluster Select pode ser atualizado separadamente do utilitário ONTAP Select Deploy.
+
+.O ONTAP Select pode ser atualizado usando o mesmo procedimento que um cluster FAS?
+Sim, o procedimento de atualização para um cluster Select é idêntico ao upgrade de um cluster FAS, embora o binário de atualização do ONTAP Select seja um download separado do binário de atualização do ONTAP on FAS.
+
+.O ONTAP Select pode ser revertido usando o mesmo procedimento que um cluster FAS?
+Sim, o procedimento de reversão para um cluster ONTAP Select é quase idêntico ao procedimento de reversão para um cluster FAS. No entanto, existem algumas diferenças:
+
+* Somente instâncias atualizadas do ONTAP Select podem ser revertidas e somente até a versão de instalação original. As novas instalações não podem ser revertidas para uma versão de código mais antiga, mesmo que o ONTAP Select em geral suporte essa versão mais antiga.
+* Para ONTAP Select (KVM) e ONTAP Select (ESX) usando RAID de software, não é possível reverter para uma versão anterior que não suporte RAID de software. Além disso, uma nova instalação do ONTAP Select 9,5 ou posterior no ESX usa drivers de rede VMXNET3 e, quando possível, o driver vNMVE. Essas novas instalações não podem ser revertidas para versões anteriores do ONTAP Select.
+* Se a VM ONTAP Select também foi atualizada para uma instância grande (usando a licença Premium XL), então reverter para uma versão anterior antes do 9,6 não é suportado, uma vez que o recurso de instância grande não está disponível em versões anteriores.
+
+
+.O SDS do ONTAP MetroCluster requer, no mínimo, uma licença Premium?
+Sim.
+
+.A configuração da rede do cluster ONTAP Select pode ser alterada após a instalação?
+As alterações nas propriedades do cluster do ONTAP Select a seguir são reconhecidas pelo ONTAP Select Deploy usando a operação de atualização do cluster disponível por meio da GUI, CLI ou API REST:
+
+* Configuração de rede (endereços IP, DNS, NTP, máscara de rede e gateway)
+* Cluster, nome do nó e versão do ONTAP Select
+
+
+As seguintes alterações de VM do ONTAP Select também são reconhecidas:
+
+* Alterações de nome e estado da VM do ONTAP Select (por exemplo, online ou offline)
+* O nome da rede host e o nome do pool de armazenamento são alterados
+
+
+A atualização para o ONTAP Select Deploy 2,6 permite o suporte a essas alterações para qualquer cluster do ONTAP Select que já esteja implantado, mas não tenha sido alterado de sua configuração original. Em outras palavras, se as propriedades do cluster do ONTAP Select mencionadas acima forem alteradas usando o Gerenciador de sistema ou o vCenter, a atualização para o ONTAP Select Deploy 2,6 não corrigirá essas inconsistências. As alterações de propriedade do ONTAP Select devem ser revertidas pela primeira vez para o ONTAP Select Deploy para adicionar seus metadados exclusivos a cada VM do ONTAP Select.
+
+.A configuração de rede ONTAP Select Deploy pode ser alterada após a instalação?
+A modificação dos detalhes de rede da instância de implantação após a execução em um ambiente não é suportada. Para obter mais informações, consulte link:https://kb.netapp.com/onprem/ontap/ONTAP_Select/Modifying_DNS_configuration_of_ONTAP_Deploy_instance["artigo da base de conhecimento - Modificação da configuração DNS da instância de implantação do ONTAP"^].
+
+.Como o Deploy deteta que as licenças do ONTAP Select são renovadas?
+O método é o mesmo para todas as licenças, embora as especificidades variem dependendo se é uma licença de nível de capacidade ou pool de capacidade.
+
+* O ONTAP Select Deploy deteta se as licenças e os contratos de suporte são renovados com a compra de um arquivo de licença atualizado da NetApp. O arquivo de licença (.NLF) inclui a capacidade, as datas de início e de fim; e é gerado no link:https://mysupport.netapp.com/site/["Site de suporte da NetApp"^]e, em seguida, atualizado no servidor de implantação.
++
+
+NOTE: Você pode carregar o NLF no servidor de implantação usando as funções *Add* e *Update*. *Adicionar* adiciona novas licenças ao servidor e *Atualizar* atualiza os arquivos existentes com informações como capacidade, licença de nó (padrão, premium, premium XL), datas de início e término do suporte (licença de nível de capacidade) ou datas de início e término da assinatura (licença de pool de capacidade).
+
++
+
+CAUTION: Não tente modificar o arquivo de licença. Isso invalida a chave de segurança e torna a licença inválida.
+
+* A licença *Capacity Tier* é uma licença permanente por nó vinculada ao número de série do nó ONTAP Select. Ele é vendido com um contrato de suporte separado. Embora a licença seja permanente, o contrato de suporte deve ser renovado para acessar os upgrades do ONTAP Select e receber assistência do suporte técnico da NetApp. Um contrato de suporte atual também é necessário para alterar parâmetros de licença, como capacidade ou tamanho do nó.
++
+A compra de uma atualização de licença do nível de capacidade, alteração de parâmetro ou renovação de contrato de suporte requer o número de série do nó como parte do pedido. Os números de série do nó da camada de capacidade têm nove dígitos e começam com o número '32'.
+
++
+Quando a compra estiver concluída e o arquivo de licença gerado, ele será carregado para o servidor de implantação usando a função *Update*.
+
+* Uma licença de pool de capacidade* é uma assinatura para o direito de usar um pool específico de capacidade e tamanho de nó (XL padrão, premium, premium) para implantar um ou mais clusters. A assinatura inclui o direito de usar uma licença e suporte para um período especificado. O direito de usar uma licença e o contrato de suporte especificaram datas de início e término.
+
+
+.Como o Deploy deteta se os nós têm licenças renovadas ou contrato de suporte?
+Comprar, gerar e carregar um arquivo de licença atualizado é como o Deploy deteta licenças renovadas e contratos de suporte.
+
+Se a data de término do contrato de suporte de nível de capacidade tiver passado, o nó poderá continuar em execução, mas você não poderá baixar e instalar atualizações do ONTAP, ou ligue para o suporte técnico da NetApp para obter assistência sem primeiro atualizar o contrato de suporte.
+
+Se uma assinatura do pool de capacidade expirar, o sistema avisará você primeiro, mas após 30 dias, se o sistema desligar, ele não será reinicializado até que uma assinatura atualizada seja instalada no servidor de implantação.
+
+
+
+== Armazenamento
+
+Há várias perguntas e respostas que lidam com o armazenamento.
+
+.Uma única instância do ONTAP Select pode implantar clusters no ESX e no KVM?
+Sim. O ONTAP Select Deploy pode ser instalado no KVM ou no ESX, e ambas as instalações podem criar clusters do ONTAP Select em qualquer hipervisor.
+
+.O vCenter é necessário para o ONTAP Select no ESX?
+Se os hosts ESX estiverem devidamente licenciados, não haverá necessidade de os hosts ESX serem gerenciados por um vCenter Server. No entanto, se os hosts forem gerenciados por um servidor vCenter, você deverá configurar o ONTAP Select Deploy para usar esse vCenter Server. Em outras palavras, você não pode configurar os hosts ESX como autônomos no ONTAP Select Deploy se eles estiverem sendo gerenciados ativamente por um vCenter Server. Observe que a VM ONTAP Select Deploy depende do vCenter para rastrear todas as migrações de VM do ONTAP Select entre hosts ESXi devido a um evento vMotion ou VMware HA.
+
+.O que é RAID de software?
+O ONTAP Select pode usar servidores sem um controlador RAID de hardware. Neste caso, a funcionalidade RAID é implementada no software. Ao usar RAID de software, as unidades SSD e NVMe são compatíveis. Os discos de inicialização e núcleo do ONTAP Select ainda devem residir dentro de uma partição virtualizada (pool de armazenamento ou datastore). O ONTAP Select usa RD2 (particionamento de dados-raiz) para particionar os SSDs. Portanto, a partição raiz do ONTAP Select reside nos mesmos fusos físicos que são usados para os agregados de dados. No entanto, o agregado raiz e os discos virtualizados de inicialização e núcleo não contam com a licença de capacidade.
+
+Todos os métodos RAID disponíveis no AFF/FAS também estão disponíveis para o ONTAP Select. Isso inclui RAID 4, RAID DP e RAID-TEC. O número mínimo de SSDs varia dependendo do tipo de configuração RAID escolhida. As melhores práticas exigem a presença de pelo menos um sobressalente. Os discos sobressalente e de paridade não contam para a licença de capacidade.
+
+.Como o RAID do software é diferente de uma configuração RAID de hardware?
+RAID de software é uma camada na pilha de software ONTAP. O RAID de software fornece mais controle administrativo porque as unidades físicas são particionadas e estão disponíveis como discos brutos na VM do ONTAP Select. Considerando que, com RAID de hardware, um único LUN grande geralmente está disponível que pode ser esculpido para criar VMDISKs vistos dentro do ONTAP Select. O RAID de software está disponível como opção e pode ser usado em vez de RAID de hardware.
+
+Alguns dos requisitos para RAID de software são os seguintes:
+
+* Compatível com ESX e KVM
++
+** A partir do ONTAP Select 9.14.1, o suporte ao hipervisor KVM foi reintegrado. Anteriormente, o suporte ao hypervisor KVM foi removido no ONTAP Select 9.10.1.
+
+
+* Tamanho dos discos físicos suportados: 200GB – 32TB
+* Apenas suportado nas configurações DO DAS
+* Compatível com SSDs ou NVMe
+* Requer uma licença Premium ou Premium XL ONTAP Select
+* O controlador RAID de hardware deve estar ausente ou desativado ou deve funcionar no modo HBA SAS
+* Um pool de armazenamento LVM ou datastore baseado em um LUN dedicado deve ser usado para discos do sistema: Despejo de núcleo, boot/NVRAM e Mediator.
+
+
+.O ONTAP Select para KVM oferece suporte a vários vínculos de NIC?
+Ao instalar no KVM, você deve usar uma única ligação e uma única ponte. Um host com duas ou quatro portas físicas deve ter todas as portas na mesma ligação.
+
+.Como o ONTAP Select relata ou alerta para um disco físico com falha ou uma NIC no host do hipervisor? O ONTAP Select recupera essas informações do hypervisor ou o monitoramento deve ser definido no nível do hypervisor?
+Ao usar um controlador RAID de hardware, o ONTAP Select não tem conhecimento dos problemas subjacentes do servidor. Se o servidor estiver configurado de acordo com nossas melhores práticas, uma certa quantidade de redundância deve existir. Recomendamos o RAID 5/6 para sobreviver a falhas de unidade. Para configurações de RAID de software, o ONTAP é responsável por emitir alertas sobre falha de disco e, se houver uma unidade sobressalente, inicie a recriação da unidade.
+
+Você deve usar um mínimo de duas NICs físicas para evitar um único ponto de falha na camada de rede. A NetApp recomenda que os grupos de dados, Gerenciamento e portas internas tenham agrupamento e ligação de NIC configurados com dois ou mais uplinks no grupo ou vínculo. Essa configuração garante que, se houver alguma falha de uplink, o switch virtual mova o tráfego do uplink com falha para um uplink saudável no grupo NIC. Para obter detalhes sobre a configuração de rede recomendada, link:reference_plan_best_practices.html#networking["Resumo das melhores práticas: Redes"]consulte .
+
+Todos os outros erros são tratados pelo ONTAP HA no caso de um cluster de dois nós ou quatro nós. Se o servidor do hypervisor precisar ser substituído e o cluster do ONTAP Select precisar ser reconstituído com um novo servidor, entre em Contato com o suporte técnico da NetApp.
+
+.Qual é o tamanho máximo do armazenamento de dados que o ONTAP Select suporta?
+Todas as configurações, incluindo VSAN, são compatíveis com 400TB TB de storage por nó ONTAP Select.
+
+Ao instalar em armazenamentos de dados maiores que o tamanho máximo suportado, você deve usar o Capacity Cap durante a configuração do produto.
+
+.Como posso aumentar a capacidade de um nó ONTAP Select?
+O ONTAP Select Deploy contém um fluxo de trabalho de adição de storage que suporta a operação de expansão de capacidade em um nó ONTAP Select. Você pode expandir o armazenamento sob gerenciamento usando espaço do mesmo datastore (se algum espaço ainda estiver disponível) ou adicionar espaço a partir de um datastore separado. A mistura de armazenamentos de dados locais e armazenamentos de dados remotos no mesmo agregado não é suportada.
+
+O Storage Add também suporta software RAID. No entanto, no caso de RAID de software, unidades físicas adicionais devem ser adicionadas à VM ONTAP Select. Nesse caso, a adição de storage é semelhante ao gerenciamento de um array FAS ou AFF. Os tamanhos e tamanhos de unidades do grupo RAID devem ser considerados ao adicionar armazenamento a um nó ONTAP Select usando RAID de software.
+
+.O ONTAP Select é compatível com VSAN ou armazenamentos de dados do tipo array externo?
+O ONTAP Select Deploy e o ONTAP Select para ESX suportam a configuração de um cluster de nó único ONTAP Select usando um VSAN ou um tipo de array externo de datastore para seu pool de armazenamento.
+
+O ONTAP Select Deploy e o ONTAP Select for KVM suportam a configuração de um cluster de nó único ONTAP Select usando um tipo de pool de storage lógico compartilhado em arrays externos. Os pools de storage podem ser baseados em iSCSI ou FC/FCoE. Outros tipos de pools de armazenamento não são suportados.
+
+Os clusters de HA Multinode em storage compartilhado são compatíveis.
+
+.O ONTAP Select é compatível com clusters de vários nós no VSAN ou outro storage externo compartilhado, incluindo algumas stacks de HCI?
+Os clusters Multinode que usam armazenamento externo (vNAS multinode) são compatíveis tanto para ESX quanto para KVM. A combinação de hipervisores no mesmo cluster não é suportada. Uma arquitetura de HA no storage compartilhado ainda implica que cada nó em um par de HA tenha uma cópia espelhada dos dados de seus parceiros. No entanto, um cluster com vários nós traz os benefícios da operação sem interrupções da ONTAP em vez de um cluster de nó único que depende do VMware HA ou KVM Live Motion.
+
+Embora o ONTAP Select Deploy adicione suporte a várias VMs ONTAP Select no mesmo host, isso não permite que essas instâncias façam parte do mesmo cluster ONTAP Select durante a criação do cluster. Para ambientes ESX, a NetApp recomenda a criação de regras de anti-afinidade de VM para que o VMware HA não tente migrar várias VMs ONTAP Select do mesmo cluster ONTAP Select para um único host ESX. Além disso, se o ONTAP Select Deploy detetar que um vMotion administrativo (iniciado pelo usuário) ou migração ao vivo de uma VM ONTAP Select resultou em uma violação de nossas práticas recomendadas, como dois nós de ONTAP Select que acabam no mesmo host físico, o ONTAP Select Deploy publica um alerta na GUI de implantação e no log. A única maneira que o ONTAP Select Deploy toma conhecimento da localização da VM do ONTAP Select é como resultado de uma operação de atualização de cluster, que é uma operação manual que o administrador do ONTAP Select Deploy deve iniciar. Não há nenhuma funcionalidade no ONTAP Select Deploy que permita o monitoramento proativo e o alerta só é visível por meio da GUI ou log de implantação. Em outras palavras, esse alerta não pode ser encaminhado para uma infraestrutura de monitoramento centralizada.
+
+.O ONTAP Select oferece suporte ao NSX VXLAN da VMware?
+Os grupos de portas NSX-V VXLAN são suportados. Para HA multinode, incluindo SDS ONTAP MetroCluster, certifique-se de configurar a MTU da rede interna para estar entre 7500 e 8900 (em vez de 9000) para acomodar a sobrecarga VXLAN. A MTU da rede interna pode ser configurada com o ONTAP Select Deploy durante a implantação do cluster.
+
+.O ONTAP Select é compatível com a migração KVM ao vivo?
+As VMs ONTAP Select executadas em pools de storage de arrays externos suportam migrações virsh ao vivo.
+
+.Preciso do ONTAP Select Premium para VSAN AF?
+Não, todas as versões são suportadas independentemente de as configurações de matriz externa ou VSAN serem all flash.
+
+.Quais configurações VSAN FTT/FTM são suportadas?
+A Select VM herda a política de armazenamento de dados VSAN e não há restrições nas configurações FTT/FTM. No entanto, observe que, dependendo das configurações FTT/FTM, o tamanho da VM do ONTAP Select pode ser significativamente maior do que a capacidade configurada durante sua configuração. O ONTAP Select usa VMDKs espessos e zerados que são criados durante a configuração. Para evitar afetar outras VMs usando o mesmo datastore compartilhado, é importante fornecer capacidade livre suficiente no datastore para acomodar o tamanho verdadeiro da VM Select como derivado das configurações Select Capacity e FTT/FTM.
+
+.Vários nós do ONTAP Select podem ser executados no mesmo host se fizerem parte de clusters Select diferentes?
+É possível configurar vários nós ONTAP Select no mesmo host apenas para configurações vNAS, desde que esses nós não façam parte do mesmo cluster ONTAP Select. Isso não é compatível com configurações DO DAS porque vários nós do ONTAP Select no mesmo host físico competiriam pelo acesso ao controlador RAID.
+
+.Você pode ter um host com uma única ONTAP Select de execução de porta 10GE e está disponível para ESX e KVM?
+Você pode usar uma única porta 10GE para se conetar à rede externa. No entanto, a NetApp recomenda que você use isso apenas em ambientes de fator forma pequeno restritos. Isso é compatível com ESX e KVM.
+
+.Quais processos adicionais você precisa executar para fazer uma migração ao vivo no KVM?
+Você deve instalar e executar componentes CLVM e pacemaker (PCs) de código aberto em cada host que participa da migração ao vivo. Isso é necessário para acessar os mesmos grupos de volume em cada host.
+
+
+
+== VCenter
+
+Há várias perguntas e respostas que lidam com o VMware vCenter.
+
+.Como o ONTAP Select Deploy se comunica com o vCenter e quais portas de firewall devem ser abertas?
+O ONTAP Select Deploy usa a API VMware VIX para se comunicar com o vCenter e/ou o host ESX. A documentação da VMware afirma que a conexão inicial com um vCenter Server ou um host ESX é feita usando HTTPS/SOAP na porta TCP 443. Esta é a porta para HTTP seguro sobre TLS/SSL. Em segundo lugar, uma conexão com o host ESX é aberta em um soquete na porta TCP 902. Os dados que passam por essa conexão são criptografados com SSL. Além disso, o ONTAP Select Deploy emite um `PING` comando para verificar se há um host ESX respondendo no endereço IP especificado.
+
+O ONTAP Select Deploy também deve ser capaz de se comunicar com o nó ONTAP Select e os endereços IP de gerenciamento de cluster da seguinte forma:
+
+* Ping
+* SSH (porta 22)
+* SSL (porta 443)
+
+
+Para clusters de dois nós, o ONTAP Select Deploy hospeda as caixas de correio do cluster. Cada nó do ONTAP Select deve ser capaz de alcançar a implantação do ONTAP Select por meio do iSCSI (porta 3260).
+
+Para clusters multinode, a rede interna deve estar totalmente aberta (sem NAT ou firewalls).
+
+.Quais direitos do vCenter o ONTAP Select implantar precisam para criar clusters do ONTAP Select?
+A lista de direitos do vCenter necessários está disponível aqui: link:reference_plan_ots_vcenter.html["Servidor VMware vCenter"].
+
+
+
+== HA e clusters
+
+Há várias perguntas e respostas sobre pares de HA e clusters.
+
+.Qual é a diferença entre um cluster de quatro nós, seis nós ou oito nós e um cluster ONTAP Select de dois nós?
+Ao contrário dos clusters de quatro nós, seis nós e oito nós nos quais a VM ONTAP Select Deploy é usada principalmente para criar o cluster, um cluster de dois nós depende continuamente da VM ONTAP Select Deploy para quorum de HA. Se a VM ONTAP Select Deploy não estiver disponível, os serviços de failover serão desativados.
+
+.O que é o MetroCluster SDS?
+O MetroCluster SDS é uma opção de replicação síncrona de baixo custo que se enquadra na categoria das soluções de continuidade de negócios da MetroCluster da NetApp. Ele está disponível apenas com o ONTAP Select, ao contrário do NetApp MetroCluster que está disponível em flash híbrido FAS, AFF, armazenamento privado NetApp para nuvem e tecnologia NetApp FlexArray.
+
+.Como a SDS do MetroCluster é diferente da NetApp MetroCluster?
+O SDS do MetroCluster fornece uma solução de replicação síncrona e se enquadra nas soluções da NetApp MetroCluster. No entanto, as principais diferenças estão nas distâncias suportadas (cerca de 10km m versus 300km m) e no tipo de conetividade (apenas redes IP são suportadas em vez de FC e IP).
+
+.Qual é a diferença entre um cluster de ONTAP Select de dois nós e um ONTAP MetroCluster SDS de dois nós?
+O cluster de dois nós é definido como um cluster para o qual ambos os nós estão no mesmo data center dentro de 300m do outro. Em geral, ambos os nós têm uplinks para o mesmo switch de rede ou conjunto de switches de rede conetados por um Inter-Switch Link.
+
+O SDS de dois nós do MetroCluster é definido como um cluster cujos nós são fisicamente separados (salas diferentes, edifícios diferentes ou centros de dados diferentes) e as conexões de uplink de cada nó são conetadas a switches de rede separados. Embora o MetroCluster SDS não exija hardware dedicado, o ambiente deve suportar um conjunto de requisitos mínimos em termos de latência (5ms RTT e 5ms jitter para um total máximo de 10msm) e distância física (10kmm).
+
+O MetroCluster SDS é um recurso premium e requer a licença Premium ou Premium XL. Uma licença Premium suporta a criação de VMs pequenas e médias, bem como de suportes HDD e SSD. Todas essas configurações são suportadas.
+
+.O SDS do ONTAP MetroCluster requer storage local (DAS)?
+O ONTAP MetroCluster SDS é compatível com todos os tipos de configurações de storage (DAS e vNAS).
+
+.O ONTAP MetroCluster SDS é compatível com RAID de software?
+Sim, o RAID de software é suportado com Mídia SSD no KVM e no ESX.
+
+.O ONTAP MetroCluster SDS é compatível com SSDs e Mídias giratórias?
+Sim, embora seja necessária uma licença Premium, essa licença oferece suporte a VMs pequenas e médias, bem como SSDs e Mídia giratória.
+
+.O ONTAP MetroCluster SDS é compatível com clusters de quatro nós e maiores?
+Não, apenas clusters de dois nós com um Mediador podem ser configurados como MetroCluster SDS.
+
+.Quais são os requisitos para o ONTAP MetroCluster SDS?
+Os requisitos são os seguintes:
+
+* Três data centers (um para o ONTAP Select Deploy Mediator e um para cada nó).
+* 5ms RTT e 5ms jitter para um total máximo de 10msm e distância física máxima de 10kmm entre os nós ONTAP Select.
+* RTT de 125ms Gbps e uma largura de banda mínima de 5Mbps Gbps entre o Mediador de implantação do ONTAP Select e cada nó ONTAP Select.
+* Uma licença Premium ou Premium XL.
+
+
+.O ONTAP Select oferece suporte ao vMotion ou ao VMware HA?
+As VMs ONTAP Select executadas em datastores VSAN ou armazenamentos de dados de array externo (em outras palavras, implantações vNAS) suportam a funcionalidade vMotion, DRS e VMware HA.
+
+.O ONTAP Select é compatível com o Storage vMotion?
+O Storage vMotion é compatível com todas as configurações, incluindo clusters de ONTAP Select de nó único e com vários nós e a VM ONTAP Select Deploy. O Storage vMotion pode ser usado para migrar o ONTAP Select ou a VM de implantação do ONTAP Select entre diferentes versões do VMFS (VMFS 5 para VMFS 6, por exemplo), mas não está restrito a esse caso de uso. A prática recomendada é desligar a VM antes de iniciar uma operação Storage vMotion. O ONTAP Select Deploy deve emitir a seguinte operação após a conclusão da operação de storage vMotion:
+
+[listing]
+----
+cluster refresh
+----
+Observe que uma operação de armazenamento vMotion entre diferentes tipos de datastores não é suportada. Em outras palavras, as operações de storage vMotion entre datastores do tipo NFS e datastores VMFS não são suportadas. Em geral, as operações de storage vMotion entre datastores externos e DAS datastores não são suportadas.
+
+.O tráfego de HA entre nós do ONTAP Select pode ser executado em um vSwitch diferente e/ou portas físicas segregadas e/ou usando cabos IP ponto a ponto entre hosts ESX?
+Essas configurações não são suportadas. O ONTAP Select não tem visibilidade sobre o status dos uplinks de rede física que transportam tráfego de cliente. Portanto, o ONTAP Select depende do heartbeat de HA para garantir que a VM esteja acessível aos clientes e ao mesmo tempo a seus pares. Quando ocorre uma perda de conetividade física, a perda do heartbeat de HA resulta em um failover automático para o outro nó, que é o comportamento desejado.
+
+Segregar o tráfego de HA em uma infra-estrutura física separada pode fazer com que uma VM Select possa se comunicar com seu par, mas não com seus clientes. Isso impede o processo automático de HA e resulta em indisponibilidade de dados até que um failover manual seja invocado.
+
+
+
+== Serviço de mediador
+
+Há várias perguntas e respostas sobre o serviço de mediador.
+
+.O que é o serviço Mediator?
+Um cluster de dois nós depende continuamente da VM ONTAP Select Deploy para quorum de HA. Uma VM de implantação do ONTAP Select que participa de uma negociação de quórum de HA de dois nós é rotulada como VM Mediador.
+
+.O serviço Mediator pode ser remoto?
+Sim. O ONTAP Select Deploy atua como mediador para um par de HA de dois nós suporta uma latência WAN de até 500ms RTT e requer uma largura de banda mínima de 5Mbps Gbps.
+
+.Que protocolo o serviço Mediator utiliza?
+O tráfego do Mediador é iSCSI, tem origem nos endereços IP de gerenciamento de nó ONTAP Select e termina no endereço IP de implantação do ONTAP Select. Observe que você não pode usar o IPv6 para o endereço IP de gerenciamento de nó do ONTAP Select ao usar um cluster de dois nós.
+
+.Posso usar um serviço Mediator para vários clusters de HA de dois nós?
+Sim. Cada VM do ONTAP Select Deploy pode servir como um serviço Mediador comum para até 100 clusters ONTAP Select de dois nós.
+
+.O local de serviço do Mediator pode ser alterado após a implantação?
+Sim. É possível usar outra VM de implantação do ONTAP Select para hospedar o serviço Mediador.
+
+.O ONTAP Select é compatível com clusters estendidos com (ou sem) o Mediador?
+Somente um cluster de dois nós com um Mediator é compatível com um modelo de implantação de HA estendida.

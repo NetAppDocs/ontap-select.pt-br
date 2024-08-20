@@ -1,0 +1,106 @@
+---
+sidebar: sidebar 
+permalink: concept_ots_overview.html 
+keywords: overview, software defined storage, sds, typical deployment, ontap 9 
+summary: O ONTAP Select é uma versão somente de software do ONTAP que você implanta como uma máquina virtual em um host de hipervisor. Ele complementa o conjunto de ofertas de FAS e AFF ONTAP mainstream, bem como outras opções somente de software, como o Cloud Volumes ONTAP. 
+---
+= Visão geral do ONTAP Select
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O ONTAP Select é uma versão somente de software do ONTAP que você pode implantar como uma máquina virtual em um host de hipervisor. Ele complementa o conjunto de ofertas de FAS e AFF ONTAP mainstream, bem como outras opções somente de software, como o Cloud Volumes ONTAP.
+
+
+
+== Storage definido por software
+
+A implementação e entrega de SERVIÇOS DE TI por meio de software permite que os administradores provisionem rapidamente recursos com uma velocidade e agilidade que antes não era possível. À medida que os data centers modernos migram para uma arquitetura de infraestrutura definida por software (SDI), os ativos DE TI mais valiosos podem ser separados da infraestrutura física subjacente, proporcionando flexibilidade, escalabilidade e programabilidade.
+
+Em um mundo comum em que os dados são fragmentados entre silos de storage com conexão direta (DAS), a mobilidade e o gerenciamento de dados se tornaram problemas mais complexos. O armazenamento definido por software (SDS) surgiu como uma parte importante do cenário SDI para lidar com esses e outros problemas.
+
+A ONTAP Select é a solução NetApp para o mercado de SDS. A ONTAP Select oferece recursos de gerenciamento de storage de classe empresarial para o data center definido por software e estende a arquitetura do NetApp Data Fabric para os casos de uso mais extremos, incluindo a Internet das coisas (IoT) e servidores táticos.
+
+
+
+== Dois componentes de software
+
+O ONTAP Select é composto por dois principais componentes de software:
+
+
+
+=== Nó ONTAP Select
+
+Um cluster do ONTAP Select é composto por um, dois, quatro, seis ou oito nós. Cada nó de cluster é implantado como uma máquina virtual separada e executa uma versão especialmente projetada do software ONTAP 9.
+
+
+
+=== Utilitário de administração ONTAP Select Deploy
+
+O utilitário de administração de implantação é empacotado e instalado como uma máquina virtual Linux separada. Você deve usar o utilitário para implantar clusters do ONTAP Select em um ambiente de produção. Uma versão atual da imagem do nó ONTAP Select é fornecida com o utilitário Deploy.
+
+
+NOTE: O utilitário de administração implantar não tem um número de versão separado. O Deploy tem o mesmo número de versão que o lançamento do ONTAP Select associado. No entanto, cada atualização do utilitário de implantação dentro de uma versão específica do ONTAP Select tem um número de compilação exclusivo.
+
+
+
+== Ilustração de uma implantação típica
+
+A figura a seguir ilustra o utilitário de administração ONTAP Select Deploy que está sendo usado para implantar e dar suporte a um cluster ONTAP Select de quatro nós. O utilitário Deploy e os nós ONTAP Select são executados como máquinas virtuais separadas em hosts de hypervisor dedicados.
+
+image:ots_architecture.png["A ilustra um cluster de quatro nós do ONTAP Select criado com o utilitário de administração implantar."]
+
+
+
+== Comparar ONTAP Select e ONTAP 9
+
+Tanto a ONTAP quanto a ONTAP Select baseadas em hardware fornecem soluções de storage de classe empresarial. No entanto, como eles são projetados e implementados de forma diferente, cada um pode atender a diferentes requisitos de negócios e cenários de uso. Você deve se familiarizar com as principais diferenças entre as plataformas antes de Planejar uma implantação do ONTAP Select.
+
+
+
+=== Arquitetura de HA diferente
+
+Dependendo do número de nós que você define em um cluster, o ONTAP Select fornece uma funcionalidade de HA. Por exemplo, um cluster de quatro nós consiste em dois pares de HA. A arquitetura de HA usada com o ONTAP Select é baseada em um modelo de storage não compartilhado. Ou seja, um nó em um par de HA não pode acessar diretamente o storage de propriedade do outro nó. Este projeto pode afetar certas caraterísticas operacionais do ONTAP Select.
+
+
+
+=== Licenciamento de capacidade
+
+A ONTAP Select introduz um modelo de licenciamento baseado no consumo. Você precisa adquirir uma licença com capacidade de storage para cada nó ou pool de capacidade compartilhada ao implantar um cluster do ONTAP Select em um ambiente de produção. Usando o utilitário implantar, você deve aplicar os arquivos de licença que estabelecem a capacidade de storage para os nós de cluster.
+
+
+
+=== Licenciamento de recursos do ONTAP
+
+Cada nó em um cluster do ONTAP Select é licenciado automaticamente para usar vários recursos do ONTAP. Não é necessário instalar ou aplicar manualmente estas licenças de funcionalidades.
+
+
+
+=== Os recursos do ONTAP não são suportados no ONTAP Select
+
+Vários recursos do ONTAP não são suportados com o ONTAP Select. Na maioria dos casos, esses recursos exigem hardware especial que não está disponível no ambiente virtualizado do ONTAP Select.
+
+* Proteção autônoma contra ransomware (ARP)
+* Cluster IPspace qualquer modificação no Cluster IPspace, incluindo a adição ou remoção de portas, LANs virtuais (VLANs) ou grupos de agregação de links não é suportada.
+* ESXi 8,0 U3
+* Fibre Channel e Fibre Channel over Ethernet não são compatíveis.
+* O monitoramento tradicional de integridade usado com uma implantação de ONTAP baseada em hardware é específico dos componentes de hardware subjacentes. Devido ao ambiente virtualizado usado com o ONTAP Select, os monitores de integridade não estão ativos.
+* Grupos de interface grupos de interface não são suportados.
+* Gerenciador de chaves multi-Tenant (MTKM)
+* Devido ao ambiente virtualizado usado com o ONTAP Select, a instalação de descarga de NIC não é suportada.
+* Unidades de criptografia de armazenamento NetApp
+* Propriedades da porta ONTAP a modificação das propriedades das portas ONTAP, incluindo velocidade, duplex e controle de fluxo, não é suportada.
+* Processadores de serviço
+* Migração para SVM
+* SnapLock Compliance
+* VMware HCX
+
+
+.Informações relacionadas
+* link:reference_lic_ontap_features.html["Recursos do ONTAP ativados por padrão"]
+

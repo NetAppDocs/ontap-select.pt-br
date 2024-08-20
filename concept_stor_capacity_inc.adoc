@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: concept_stor_capacity_inc.html 
+keywords: ontap select, deploy, increase storage 
+summary: O ONTAP Deploy pode ser usado para adicionar e licenciar armazenamento adicional para cada nó em um cluster do ONTAP Select. 
+---
+= Aumentar a capacidade de storage
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+O ONTAP Deploy pode ser usado para adicionar e licenciar armazenamento adicional para cada nó em um cluster do ONTAP Select.
+
+A funcionalidade de adição de storage no ONTAP Deploy é a única maneira de aumentar o storage sob gerenciamento e modificar diretamente a VM do ONTAP Select não é compatível. A figura a seguir mostra o ícone que inicia o assistente de adição de storage.
+
+image:ST_05.jpg["Detalhes do cluster e do nó"]
+
+As considerações a seguir são importantes para o sucesso da operação de expansão de capacidade. Adicionar capacidade requer a licença existente para cobrir a quantidade total de espaço (existente mais novo). Falha em uma operação de adição de storage que resulta na superação da capacidade licenciada do nó. Uma nova licença com capacidade suficiente deve ser instalada primeiro.
+
+Se a capacidade extra for adicionada a um agregado ONTAP Select existente, o novo pool de armazenamento (datastore) deverá ter um perfil de desempenho semelhante ao do pool de armazenamento existente (datastore). Observe que não é possível adicionar storage não-SSD a um nó ONTAP Select instalado com uma personalidade semelhante a AFF (flash habilitado). A mistura DAS e armazenamento externo também não é suportada.
+
+Se o armazenamento conetado localmente for adicionado a um sistema para fornecer pools de armazenamento locais (DAS) adicionais, você deverá criar um grupo RAID e LUN (ou LUNs) adicionais. Assim como nos sistemas FAS, deve-se ter cuidado para garantir que o novo desempenho do grupo RAID seja semelhante ao do grupo RAID original se você estiver adicionando novo espaço ao mesmo agregado. Se você estiver criando um novo agregado, o novo layout do grupo RAID poderá ser diferente se as implicações de desempenho para o novo agregado forem bem compreendidas.
+
+O novo espaço pode ser adicionado ao mesmo armazenamento de dados como uma extensão se o tamanho total do armazenamento de dados não exceder o tamanho máximo suportado do armazenamento de dados. Adicionar uma extensão de armazenamento de dados ao armazenamento de dados no qual o ONTAP Select já está instalado pode ser feito dinamicamente e não afeta as operações do nó ONTAP Select.
+
+Se o nó ONTAP Select fizer parte de um par de HA, alguns problemas adicionais devem ser considerados.
+
+Em um par de HA, cada nó contém uma cópia espelhada dos dados do parceiro. A adição de espaço ao nó 1 exige que uma quantidade idêntica de espaço seja adicionada ao nó 2 do parceiro, para que todos os dados do nó 1 sejam replicados para o nó 2. Em outras palavras, o espaço adicionado ao nó 2 como parte da operação de adição de capacidade para o nó 1 não é visível ou acessível no nó 2. O espaço é adicionado ao nó 2 para que os dados do nó 1 fiquem totalmente protegidos durante um evento de HA.
+
+Há uma consideração adicional no que diz respeito ao desempenho. Os dados no nó 1 são replicados em sincronia para o nó 2. Portanto, o desempenho do novo espaço (datastore) no nó 1 deve corresponder ao desempenho do novo espaço (datastore) no nó 2. Em outras palavras, adicionar espaço em ambos os nós, mas usar tecnologias de unidade diferentes ou tamanhos de grupo RAID diferentes, pode levar a problemas de desempenho. Isso se deve à operação RAID SyncMirror usada para manter uma cópia dos dados no nó do parceiro.
+
+Para aumentar a capacidade acessível ao usuário em ambos os nós de um par de HA, duas operações de adição de storage devem ser executadas, uma para cada nó. Cada operação de adição de storage requer espaço adicional em ambos os nós. O espaço total necessário em cada nó é igual ao espaço necessário no nó 1, mais o espaço necessário no nó 2.
+
+A configuração inicial é com dois nós, cada nó tem dois datastores com 30TB MB de espaço em cada datastore. O ONTAP Deploy cria um cluster de dois nós, com cada nó consumindo 10TB TB de espaço do datastore 1. O ONTAP Deploy configura cada nó com 5TB GB de espaço ativo por nó.
+
+A figura a seguir mostra os resultados de uma única operação de adição de storage para o nó 1. O ONTAP Select ainda usa uma quantidade igual de storage (15TB TB) em cada nó. No entanto, o nó 1 tem storage mais ativo (10TB) do que o nó 2 (5TB). Ambos os nós são totalmente protegidos à medida que cada nó hospeda uma cópia dos dados do outro nó. Há espaço livre adicional deixado no datastore 1, e o datastore 2 ainda está completamente livre.
+
+* Distribuição de capacidade: Alocação e espaço livre após uma única operação de armazenamento-add*
+
+image:ST_06.jpg["Distribuição de capacidade: Alocação e espaço livre após uma única operação de armazenamento-add"]
+
+Duas operações adicionais de adição de storage no nó 1 consomem o resto do datastore 1 e uma parte do datastore 2 (usando o limite de capacidade). A primeira operação de adição de storage consome 15TB GB de espaço livre no datastore 1. A figura a seguir mostra o resultado da segunda operação de adição de armazenamento. Nesse ponto, o nó 1 tem 50TB TB de dados ativos sob gerenciamento, enquanto o nó 2 tem o 5TB original.
+
+* Distribuição de capacidade: Alocação e espaço livre após duas operações adicionais de armazenamento adicional para o nó 1*
+
+image:ST_07.jpg["Distribuição de capacidade: Alocação e espaço livre após duas operações adicionais de armazenamento adicional para o nó 1"]
+
+O tamanho máximo do VMDK usado durante as operações de adição de capacidade é 16TB. O tamanho máximo do VMDK usado durante as operações de criação de cluster continua a ser 8TB. O ONTAP Deploy cria VMDKs de tamanho correto, dependendo da sua configuração (um cluster de nó único ou com vários nós) e da quantidade de capacidade adicionada. No entanto, o tamanho máximo de cada VMDK não deve exceder 8TB MB durante as operações de criação de cluster e 16TB MB durante as operações de adição de armazenamento.
+
+
+
+== Aumente a capacidade do ONTAP Select com RAID de software
+
+O assistente de adição de storage também pode ser usado para aumentar a capacidade de gerenciamento de nós ONTAP Select que usam RAID por software. O assistente apresenta apenas as unidades do sistema de diagnóstico guiado por sintomas (SDD) DAS que estão disponíveis e podem ser mapeadas como RDMs para a VM do ONTAP Select.
+
+Embora seja possível aumentar a licença de capacidade em um único TB, ao trabalhar com software RAID, não é possível aumentar fisicamente a capacidade em um único TB. Semelhante à adição de discos a um array FAS ou AFF, certos fatores determinam a quantidade mínima de storage que pode ser adicionada em uma única operação.
+
+Observe que, em um par de HA, adicionar storage ao nó 1 requer que um número idêntico de unidades também esteja disponível no par de HA do nó (nó 2). As unidades locais e os discos remotos são usados por uma operação de adição de armazenamento no nó 1. Ou seja, as unidades remotas são usadas para garantir que o novo armazenamento no nó 1 seja replicado e protegido no nó 2. Para adicionar storage utilizável localmente no nó 2, uma operação de adição de storage separada e um número separado e igual de unidades devem estar disponíveis em ambos os nós.
+
+O ONTAP Select particiona quaisquer novas unidades na mesma raiz, dados e partições de dados que as unidades existentes. A operação de particionamento ocorre durante a criação de um novo agregado ou durante a expansão em um agregado existente. O tamanho da faixa de partição raiz em cada disco é definido para corresponder ao tamanho da partição raiz existente nos discos existentes. Portanto, cada um dos dois tamanhos de partição de dados iguais pode ser calculado como a capacidade total do disco menos o tamanho da partição raiz dividido por dois. O tamanho da faixa de partição raiz é variável e é calculado durante a configuração inicial do cluster da seguinte forma. O espaço total de raiz necessário (68GB para um cluster de nó único e 136GB para pares de HA) é dividido pelo número inicial de discos menos quaisquer unidades sobressalentes e de paridade. O tamanho da faixa de partição raiz é mantido para ser constante em todas as unidades que estão sendo adicionadas ao sistema.
+
+Se você estiver criando um novo agregado, o número mínimo de unidades necessárias varia dependendo do tipo RAID e se o nó ONTAP Select faz parte de um par de HA.
+
+Se adicionar armazenamento a um agregado existente, algumas considerações adicionais são necessárias. É possível adicionar unidades a um grupo RAID existente, assumindo que o grupo RAID já não está no limite máximo. As práticas recomendadas tradicionais de FAS e AFF para adicionar fusos a grupos RAID existentes também se aplicam aqui, e criar um ponto de acesso no novo fuso é uma preocupação potencial. Além disso, apenas unidades de tamanhos de partição de dados iguais ou maiores podem ser adicionadas a um grupo RAID existente. Como explicado acima, o tamanho da partição de dados não é o mesmo que o tamanho bruto da unidade. Se as partições de dados que estão sendo adicionadas forem maiores do que as partições existentes, as novas unidades serão dimensionadas corretamente. Em outras palavras, uma parte da capacidade de cada nova unidade permanece não utilizada.
+
+Também é possível usar as novas unidades para criar um novo grupo RAID como parte de um agregado existente. Nesse caso, o tamanho do grupo RAID deve corresponder ao tamanho do grupo RAID existente.

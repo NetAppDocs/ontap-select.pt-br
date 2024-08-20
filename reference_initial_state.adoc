@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: reference_initial_state.html 
+keywords: install, installing, initial state, cluster initial state 
+summary: Você deve estar ciente do estado inicial de um cluster depois que ele for implantado e configurar o cluster conforme necessário para o seu ambiente. 
+---
+= Estado inicial do cluster após a implantação
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você deve estar ciente do estado inicial de um cluster depois que ele for implantado e configurar o cluster conforme necessário para o seu ambiente.
+
+Um cluster do ONTAP Select tem várias caraterísticas depois que ele é criado.
+
+
+NOTE: Restringir funções e permissões para a conta de administrador do ONTAP pode limitar a capacidade do ONTAP Select Deploy de gerenciar o cluster. Para obter mais informações, consulte o artigo da KB link:https://kb.netapp.com/onprem/ontap/ONTAP_Select/OTS_Deploy_cluster_refresh_fails_with_error%3A_ONTAPSelectSysCLIVersionFailed_zapi_returned_bad_status_0%3A_None["A atualização do cluster de implantação do OTS falha com erro"^].
+
+.LIFs
+Existem dois tipos de LIFs especificados pelo cliente atribuídos:
+
+* Gerenciamento de clusters (um por cluster)
+* Gerenciamento de nós (um por nó)
+
+
+.SVMs
+Duas SVMs administrativas estão ativas:
+
+* SVM padrão
+* SVM do cluster
+
+
+.Agregados
+O agregado raiz é criado.
+
+.Caraterísticas
+Todos os recursos estão licenciados e disponíveis. Tanto o SnapLock quanto o FabricPool exigem licenças separadas.
+
+
+NOTE: Não há SVMs de dados criadas. Além disso, o cluster de vários nós tem uma rede interna com LIFs gerados automaticamente.
+
+.Informações relacionadas
+* link:reference_lic_ontap_features.html["Recursos do ONTAP ativados por padrão"]
+
