@@ -3724,4 +3724,6 @@
   <block id="1c5ffa58ac07641f5cec5616c07b2ba2" category="sidebar">Adicione imagens ONTAP Select</block>
   <block id="0a15f7ba73868a32304fdf52855463c9" category="sidebar">Remover imagens ONTAP Select</block>
   <block id="afc9d68a1be701598b5ef94dc0be2844" category="sidebar">Recuperar o Deploy para um cluster de dois nós</block>
+  <block id="066308395ea593f82277b09bef1304dc" category="list-text">Salve a imagem original da máquina virtual implantar.</block>
+  <block id="f3d42eb73da0b3db6a0beb04d2f78c68" category="admonition">A imagem original da máquina virtual de implantação é necessária posteriormente neste procedimento quando você restaura os dados de configuração de implantação do original para a nova máquina virtual.</block>
 </blocks>

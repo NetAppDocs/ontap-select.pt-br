@@ -25,7 +25,13 @@ Este procedimento baseia-se na criação de uma nova máquina virtual que utiliz
 Você deve criar um backup dos dados de configuração de implantação como parte da migração da máquina virtual. Você também deve criar um backup depois de implantar um cluster do ONTAP Select. Os dados são guardados num único ficheiro encriptado que pode transferir para a estação de trabalho local.
 
 .Antes de começar
-Certifique-se de que o Deploy não está executando nenhuma outra tarefa durante a operação de backup.
+* Certifique-se de que o Deploy não está executando nenhuma outra tarefa durante a operação de backup.
+* Salve a imagem original da máquina virtual implantar.
++
+
+CAUTION: A imagem original da máquina virtual de implantação é necessária posteriormente neste procedimento quando você restaura os dados de configuração de implantação do original para a nova máquina virtual.
+
+
 
 .Sobre esta tarefa
 O arquivo de backup criado captura todos os dados de configuração da máquina virtual. Esses dados descrevem aspectos do seu ambiente de implantação, incluindo os clusters do ONTAP Select.
