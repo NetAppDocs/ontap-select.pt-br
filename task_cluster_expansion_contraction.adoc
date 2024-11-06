@@ -20,7 +20,7 @@ O procedimento é iniciado a partir do ONTAP Select Deploy usando a interface CL
 
 
 
-== Requisitos de hardware e armazenamento
+== Considerações sobre hardware e armazenamento
 
 As funcionalidades de expansão e contração do cluster são restritas das seguintes maneiras:
 
@@ -33,8 +33,12 @@ As funcionalidades de expansão e contração do cluster são restritas das segu
 ** ESXi 7,0
 
 
-* A expansão só é possível de clusters de seis nós para clusters de oito nós.
-* A contração só é possível de clusters de oito nós para clusters de seis nós.
+
+
+As seguintes expansões e contrações do cluster não são atualmente suportadas:
+
+* Expansões de clusters de um, dois ou quatro nós para clusters de seis ou oito nós.
+* Contrações de clusters de seis ou oito nós para clusters de um, dois ou quatro nós.
 
 
 

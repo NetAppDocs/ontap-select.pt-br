@@ -2030,9 +2030,7 @@
   <block id="e84b565f766d2b63406ea62dbdd12c66" category="list-text">A partir do ONTAP Select 9.15.1, a expansão e a redução do cluster são suportadas.</block>
   <block id="d535a23dc4caf42819a2764f917df8d4" category="list-text">Expansão de cluster de clusters de seis nós para oito nós</block>
   <block id="d59048f21fd887ad520398ce677be586" category="inline-link-macro">Saiba mais</block>
-  <block id="46784c9ba69d72d62e5ff719f2e75e3f" category="paragraph">Você pode aumentar o tamanho do cluster de um cluster de seis nós para um cluster de oito nós com o recurso de expansão do cluster. <block ref="fdb7564d24c88f6d96b0c17d886f76d8" category="inline-link-macro-rx"></block>.</block>
   <block id="5638b273dc7505c1415d93d081293984" category="list-text">Contração de clusters de oito nós para seis nós</block>
-  <block id="3fa352640216b35ee8eded7e2c07ca96" category="paragraph">Você pode diminuir o tamanho do cluster de oito nós para seis nós com o recurso de contração do cluster. <block ref="8a05acf96f393c0e4f159f197b97e2ff" category="inline-link-macro-rx"></block>.</block>
   <block id="e1ecf9e1ce05084dbe89253dda1abf54" category="admonition">O suporte para expansão e redução do cluster é limitado apenas aos clusters ESX.</block>
   <block id="40b6105bb7b93b6c729f3eca12a92208" category="section-title">ONTAP Select 9.14.1</block>
   <block id="fdd7ed667f9a504cda2e0866cdd90c23" category="paragraph">O ONTAP Select 9.14.1 inclui vários novos recursos e melhorias.</block>
@@ -3378,7 +3376,6 @@
   <block id="c5f80e69da9019e045ae59cca1c9ae22" category="doc">Expanda ou contraia o cluster</block>
   <block id="d6746c8c49fd9df73bbb168197689da8" category="paragraph">A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um cluster existente de seis para oito nós e diminuir o tamanho do cluster de oito para seis nós. Não há suporte para outros cenários de expansão ou contração do cluster.</block>
   <block id="f6ad6d358dd65a1da361069309b57e39" category="paragraph">O procedimento é iniciado a partir do ONTAP Select Deploy usando a interface CLI, API ou web.</block>
-  <block id="412c286ae37ff7a40b56dd84c3bf196c" category="section-title">Requisitos de hardware e armazenamento</block>
   <block id="c9dd95ac8795512f2d676118ba8def1a" category="paragraph">As funcionalidades de expansão e contração do cluster são restritas das seguintes maneiras:</block>
   <block id="03a645906298706d76817495f4d8708a" category="list-text">O suporte é limitado aos clusters criados em hosts de hypervisor ESX. As seguintes versões do ESX são compatíveis com o ONTAP Select 9.15.1:</block>
   <block id="ec65581eeb2dfa95316cf6a00d2ff593" category="list-text">ESXi 8.0U2</block>
@@ -3386,8 +3383,6 @@
   <block id="200d1894c9fd6ae53ee1224b58c879d1" category="list-text">ESXi 8,0GA</block>
   <block id="83796d186e6e678e53d65b677d9068ca" category="list-text">ESXi 7.0U3</block>
   <block id="ef179550c4eb9da6a82350b32d807ed9" category="list-text">ESXi 7,0</block>
-  <block id="2b2045e987020e440e1d72497530fdf6" category="list-text">A expansão só é possível de clusters de seis nós para clusters de oito nós.</block>
-  <block id="39503511d67e0af8ddd6049c24f164f7" category="list-text">A contração só é possível de clusters de oito nós para clusters de seis nós.</block>
   <block id="c0fa4ded01a6d24b2a77cd3a6b10e6e7" category="section-title">Expanda o cluster</block>
   <block id="c117993f1e48f58c366f6fe0873d958b" category="paragraph">Você pode aumentar o tamanho de um cluster existente de seis nós para um cluster de oito nós com o recurso de expansão do cluster.</block>
   <block id="679ac2592315c6e7c7320336fcda4a9c" category="paragraph">Em preparação para o procedimento de expansão do cluster, novos hosts ESX são adicionados ao inventário e os detalhes dos novos nós são atribuídos. Antes de iniciar o processo de expansão do cluster, uma verificação prévia da rede verifica a rede interna selecionada.</block>
@@ -3692,4 +3687,10 @@
   <block id="be0d4e27d8840d1c72235cf50443fb8d" category="inline-link-macro">informações de compatibilidade de software para hipervisores</block>
   <block id="49ea5cb7c3815d4c59fc6dcf8eca3da7" category="paragraph">Você deve instalar o sistema operacional Red Hat Enterprise Linux (RHEL) usando a imagem ISO. Consulte a <block ref="12b9dc433549f13cfe17d1a83c8c9209" category="inline-link-macro-rx"></block> para obter uma lista das versões RHEL suportadas. Durante a instalação, você deve configurar o sistema da seguinte forma:</block>
   <block id="97864053a66a3401d6a681c00bd2e4e3" category="paragraph">Para obter informações adicionais sobre os pacotes necessários e outros requisitos de configuração, consulte o <block ref="8929420574d68b861547fa3bcafe0ff2" category="inline-link-macro-rx"></block>.</block>
+  <block id="d62b4235cf2a29152b9bcb3eb1df59d8" category="paragraph">Você pode aumentar o tamanho do cluster de um cluster de seis nós para um cluster de oito nós com o recurso de expansão do cluster. As expansões de cluster de um, dois ou quatro nós para clusters de seis ou oito nós não são atualmente suportadas. <block ref="fdb7564d24c88f6d96b0c17d886f76d8" category="inline-link-macro-rx"></block>.</block>
+  <block id="185acadc91fc3b4d6d7a0f9ab8464c51" category="paragraph">Você pode diminuir o tamanho do cluster de oito nós para seis nós com o recurso de contração do cluster. Contrações de cluster de clusters de seis ou oito nós para clusters de um, dois ou quatro nós não são atualmente suportadas. <block ref="8a05acf96f393c0e4f159f197b97e2ff" category="inline-link-macro-rx"></block>.</block>
+  <block id="065e8e686a5cc9c043bea6a2b47a6dbc" category="section-title">Considerações sobre hardware e armazenamento</block>
+  <block id="04b2d3e0b04793e1eab99a7ce4905944" category="paragraph">As seguintes expansões e contrações do cluster não são atualmente suportadas:</block>
+  <block id="246664f02679d184f0608a4d7824502b" category="list-text">Expansões de clusters de um, dois ou quatro nós para clusters de seis ou oito nós.</block>
+  <block id="226d8636aca6bd1bdcac58203b8ddcd2" category="list-text">Contrações de clusters de seis ou oito nós para clusters de um, dois ou quatro nós.</block>
 </blocks>
