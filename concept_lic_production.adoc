@@ -4,7 +4,7 @@ permalink: concept_lic_production.html
 keywords: license, licensing, production, purchased, standard, premium, premium xl 
 summary: Depois de determinar que o ONTAP Select é adequado para sua organização, você pode comprar as licenças necessárias para dar suporte a uma implantação de produção. Você deve escolher as categorias de capacidade ou o modelo de licenciamento de pools de capacidade, bem como a capacidade de storage para cada implantação. 
 ---
-= Licenças adquiridas para implantações de produção
+= A ONTAP Select comprou licenças para implantações de produção
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

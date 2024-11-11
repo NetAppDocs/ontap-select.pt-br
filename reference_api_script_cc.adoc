@@ -4,7 +4,7 @@ permalink: reference_api_script_cc.html
 keywords: rest api, deploy rest api, rest, python script, create cluster 
 summary: Você pode usar o script a seguir para criar um cluster com base nos parâmetros definidos no script e em um arquivo de entrada JSON. 
 ---
-= Script para criar um cluster
+= Script para criar um cluster ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

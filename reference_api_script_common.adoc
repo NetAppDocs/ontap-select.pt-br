@@ -4,7 +4,7 @@ permalink: reference_api_script_common.html
 keywords: rest api, deploy rest api, rest, python script, common module 
 summary: Todos os scripts Python usam uma classe Python comum em um único módulo. 
 ---
-= Módulo de suporte comum
+= Suporte comum ao módulo ONTAP Select Python
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

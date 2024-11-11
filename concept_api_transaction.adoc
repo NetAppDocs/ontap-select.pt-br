@@ -4,7 +4,7 @@ permalink: concept_api_transaction.html
 keywords: rest api, deploy rest api, rest, transaction, request, response, headers, input, output 
 summary: Cada chamada de API de implantação é executada como uma solicitação HTTP para a máquina virtual de implantação que gera uma resposta associada ao cliente. Esse par de solicitação/resposta é considerado uma transação de API. Antes de usar a API Deploy, você deve estar familiarizado com as variáveis de entrada disponíveis para controlar uma solicitação e o conteúdo da saída de resposta. 
 ---
-= Transação de API de solicitação e resposta
+= Transação de API de solicitação e resposta para ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

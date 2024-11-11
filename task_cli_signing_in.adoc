@@ -4,7 +4,7 @@ permalink: task_cli_signing_in.html
 keywords: administer, administering, cli, deploy, sign in, signing in 
 summary: Você precisa fazer login no shell de gerenciamento de implantação usando SSH. Depois de fazer login, você pode emitir comandos CLI para criar um cluster ONTAP Select e executar procedimentos administrativos relacionados. 
 ---
-= Faça login para implantar usando SSH
+= Faça login no ONTAP Select Deploy usando SSH
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,7 +4,7 @@ permalink: concept_nw_supported_configs.html
 keywords: ontap select, supported network configurations 
 summary: Selecione o melhor hardware e configure sua rede para otimizar o desempenho e a resiliência. 
 ---
-= Configurações de rede suportadas
+= Configurações de rede ONTAP Select suportadas
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

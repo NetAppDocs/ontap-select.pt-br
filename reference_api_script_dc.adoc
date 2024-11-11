@@ -4,7 +4,7 @@ permalink: reference_api_script_dc.html
 keywords: rest api, deploy rest api, rest, python script, delete cluster 
 summary: Você pode usar o seguinte script CLI para excluir um cluster existente. 
 ---
-= Script para excluir um cluster
+= Script para excluir um cluster ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

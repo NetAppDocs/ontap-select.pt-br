@@ -4,7 +4,7 @@ permalink: reference_plan_ots_general.html
 keywords: plan, planning, general requirements 
 summary: Existem vários requisitos gerais que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select. 
 ---
-= Requisitos gerais e considerações de Planejamento
+= Requisitos do ONTAP Select e considerações de Planejamento
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

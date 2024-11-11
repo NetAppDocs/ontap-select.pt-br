@@ -4,7 +4,7 @@ permalink: concept_stor_swraid_local.html
 keywords: ontap select, software raid, local attached storage, protection 
 summary: RAID de software é uma camada de abstração RAID implementada dentro da pilha de software ONTAP. Ele fornece a mesma funcionalidade que a camada RAID em uma plataforma ONTAP tradicional, como o FAS. A camada RAID executa cálculos de paridade de unidade e fornece proteção contra falhas individuais de unidade em um nó ONTAP Select. 
 ---
-= Serviços RAID de software para armazenamento anexado local
+= Serviços de configuração RAID do software ONTAP Select para armazenamento anexado local
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

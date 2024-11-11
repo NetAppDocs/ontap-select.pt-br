@@ -4,7 +4,7 @@ permalink: concept_nw_data_mgmt_separation.html
 keywords: ontap select, traffic separation 
 summary: Isole o tráfego de dados e o tráfego de gerenciamento em redes de camada 2 separadas. 
 ---
-= Separação de tráfego de dados e gerenciamento
+= Separação de tráfego de gerenciamento e dados do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

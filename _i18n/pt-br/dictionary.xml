@@ -62,7 +62,6 @@
   <block id="2a883d1fe3d932e9f2fc25c99deaa4b9" category="inline-link-macro">Visão geral da atualização do ONTAP</block>
   <block id="c6747590f95713e2f203d616751eb4ea" category="list-text"><block ref="c6747590f95713e2f203d616751eb4ea" category="inline-link-macro-rx"></block></block>
   <block id="21771a7f7ffa01865e445543920a4a48" category="summary">Algumas das chamadas da API Deploy, particularmente aquelas que criam ou modificam um recurso, podem levar mais tempo para serem concluídas do que outras chamadas. O ONTAP Select Deploy processa essas solicitações de longa duração de forma assíncrona.</block>
-  <block id="8f4fc3addf595e93ce580272da612827" category="doc">Processamento assíncrono usando o objeto de tarefa</block>
   <block id="a220d1661d8edb698de8ce440de1d336" category="section-title">Solicitações assíncronas descritas usando o objeto Job</block>
   <block id="a553eaf717d815d40534f03a40971109" category="paragraph">Depois de fazer uma chamada de API que é executada de forma assíncrona, o código de resposta HTTP 202 indica que a solicitação foi validada e aceita com sucesso, mas ainda não foi concluída. A solicitação é processada como uma tarefa em segundo plano que continua a ser executada após a resposta HTTP inicial ao cliente. A resposta inclui o objeto Job ancorando a solicitação, incluindo seu identificador exclusivo.</block>
   <block id="cb67053771ba0db6003fcab5c33193fa" category="admonition">Você deve consultar a página de documentação on-line do ONTAP Select Deploy para determinar quais chamadas de API operam assincronamente.</block>
@@ -89,7 +88,6 @@
   <block id="0347794109580ef0b93925c162a6a1de" category="list-text">Se o trabalho estiver em um estado não terminal (em fila de espera, em execução), execute o loop novamente.</block>
   <block id="6caaacff3c8abae5d9b2e02a5e4d0829" category="list-text">Pare quando o trabalho atingir um estado terminal (sucesso, falha).</block>
   <block id="827fe6014df4dcd93529a1c8e73f3c37" category="summary">Há várias coisas que você deve estar ciente antes de usar a página implantar documentação on-line.</block>
-  <block id="150a67adb932e1a6edc3581e48ffcd17" category="doc">Antes de acessar a API com um navegador</block>
   <block id="9fd0cd7fbfcb835011bb94274ec501c7" category="section-title">Plano de implantação</block>
   <block id="9c771c110c94825e0edc6ce956cbaa82" category="paragraph">Se você pretende emitir chamadas de API como parte da execução de tarefas administrativas ou de implantação específicas, considere criar um plano de implantação. Esses planos podem ser formais ou informais, e geralmente contêm seus objetivos e as chamadas de API a serem usadas. Consulte processos de fluxo de trabalho usando a API REST de implantação para obter mais informações.</block>
   <block id="29460346c03d00036042893dd80489ad" category="section-title">Exemplos JSON e definições de parâmetros</block>
@@ -99,7 +97,6 @@
   <block id="564b7e56e433323571bde06fbe6a5d83" category="section-title">Cuidado ao emitir chamadas de API</block>
   <block id="cc7b50f7c16a19e77b53fc2c649a6a2c" category="paragraph">Todas as operações de API que você executa usando a página de documentação de implantação são operações ativas. Você deve ter cuidado para não criar, atualizar ou excluir configurações ou outros dados por engano.</block>
   <block id="0d746fcebf15f4b3e76f455166f550b9" category="summary">Você deve preparar o ambiente antes de executar os scripts Python de exemplo.</block>
-  <block id="29e9f19925f99f248473ca37ea546b64" category="doc">Antes de acessar a API usando Python</block>
   <block id="2440e78fcfb85444e37a4004b5713575" category="paragraph">Antes de executar os scripts Python, você deve certificar-se de que o ambiente está configurado corretamente:</block>
   <block id="1d8aeb8f4f16d51236639b4b9eab626b" category="list-text">A versão aplicável mais recente do python2 deve ser instalada. Os códigos de amostra foram testados usando python2. Eles também devem ser portáteis para Python3, mas não foram testados para compatibilidade.</block>
   <block id="f29e16eb01776ebacbbe7f1daa96109f" category="list-text">As solicitações e bibliotecas urllib3 devem ser instaladas. Você pode usar o pip ou outra ferramenta de gerenciamento Python conforme apropriado para o seu ambiente.</block>
@@ -108,7 +105,6 @@
   <block id="a361c1b4cc67946dba724c8e11e34b6c" category="list-text">Endereço IP da máquina virtual de implantação</block>
   <block id="1c94b818fb401809efbc30d02b88072b" category="list-text">Nome de usuário e senha de uma conta de administrador de implantação</block>
   <block id="c17dae9b9d3b729444b86ade708fe369" category="summary">Você deve se preparar para revisar e usar os processos de fluxo de trabalho.</block>
-  <block id="356a4d5d9ecf4143d145e008bc71423d" category="doc">Antes de usar os fluxos de trabalho da API</block>
   <block id="811d71286df166f702ec9b42c249d145" category="section-title">Entenda as chamadas de API usadas nos fluxos de trabalho</block>
   <block id="0224e614246b594584218c9734c56792" category="paragraph">A página de documentação on-line do ONTAP Select inclui os detalhes de cada chamada de API REST. Em vez de repetir esses detalhes aqui, cada chamada de API usada nos exemplos de fluxo de trabalho inclui apenas as informações necessárias para localizar a chamada na página de documentação. Depois de localizar uma chamada de API específica, você pode revisar os detalhes completos da chamada, incluindo os parâmetros de entrada, formatos de saída, códigos de status HTTP e tipo de processamento de solicitação.</block>
   <block id="457726be17407daf1c955d43ea661695" category="paragraph">As seguintes informações são incluídas para cada chamada de API dentro de um fluxo de trabalho para ajudar a localizar a chamada na página de documentação:</block>
@@ -118,7 +114,6 @@
   <block id="494bbba02a6f83c76ae18eeba756eafc" category="section-title">Crie um URL para acessar diretamente a API REST</block>
   <block id="87bd6f8ac1592b651399711e8b152c36" category="paragraph">Além da página de documentação do ONTAP Select, você também pode acessar a API REST de implantação diretamente por meio de uma linguagem de programação como Python. Neste caso, o URL principal é ligeiramente diferente do URL usado ao acessar a página de documentação on-line. Ao acessar a API diretamente, você deve anexar /api ao domínio e à cadeia de carateres da porta. Por exemplo:<block ref="7ed5ee3e1b1d1c49f265df88aa2ce098" prefix=" " category="inline-code"></block></block>
   <block id="7e50557ab7c128d61ddb8403a32e8516" category="summary">Devido à flexibilidade inerente dos serviços da Web REST, a API de implantação do ONTAP Select pode ser acessada de várias maneiras diferentes.</block>
-  <block id="36e08c3ba0ff6af9b23054262bc17cbe" category="doc">Como acessar a API Deploy</block>
   <block id="6a68fab02ba768915e168f24a76af71a" category="section-title">Implantar interface de usuário nativa do utilitário</block>
   <block id="5562f45da42fc2c23cc8991e41c4057f" category="paragraph">A principal maneira de acessar a API é por meio da interface de usuário da Web do ONTAP Select Deploy. O navegador faz chamadas para a API e reformata os dados de acordo com o design da interface do usuário. Você também acessa a API por meio da interface de linha de comando Deploy Utility.</block>
   <block id="43cdfff5e48aaf18476439cbd719586e" category="section-title">Página de documentação on-line do ONTAP Select Deploy</block>
@@ -126,7 +121,6 @@
   <block id="52759f63bdfc1fb77d852c8854912b25" category="section-title">Programa personalizado</block>
   <block id="3cb957d5ee7865143f204bb3ad62948d" category="paragraph">Você pode acessar a API Deploy usando qualquer uma das várias linguagens e ferramentas de programação diferentes. As escolhas populares incluem Python, Java e curl. Um programa, script ou ferramenta que usa a API atua como um cliente de serviços da Web REST. O uso de uma linguagem de programação permite que você entenda melhor a API e oferece a oportunidade de automatizar as implantações do ONTAP Select.</block>
   <block id="07c8a5b8b80ed7661d95b9bce5bd8b54" category="summary">Embora O REST estabeleça um conjunto comum de tecnologias e práticas recomendadas, os detalhes de cada API podem variar com base nas escolhas de design. Você deve estar ciente dos detalhes e das caraterísticas operacionais da API de implantação do ONTAP Select antes de usar a API.</block>
-  <block id="f9423483f907b342ce1d6b2a5646580f" category="doc">Caraterísticas operacionais básicas</block>
   <block id="ffc3a232eea6b80d3f2a2bcac9d3a918" category="section-title">Host de hipervisor versus nó ONTAP Select</block>
   <block id="0c7d5b426c6c1b387e77689e4c452553" category="paragraph">Um _hypervisor host_ é a plataforma de hardware principal que hospeda uma máquina virtual ONTAP Select. Quando uma máquina virtual ONTAP Select é implantada e ativa em um host de hipervisor, a máquina virtual é considerada um nó _ONTAP Select_. Com a versão 3 da API REST de implantação, os objetos de host e nó são separados e distintos. Isso permite uma relação um-para-muitos, em que um ou mais nós de ONTAP Select podem ser executados no mesmo host de hipervisor.</block>
   <block id="7f65a5bae7570e7d2a9cc75be01898fc" category="section-title">Identificadores de objeto</block>
@@ -149,7 +143,6 @@
   <block id="1993a29cd22f4d42c6925aedd2416473" category="list-text">Segurança da camada de transporte todo o tráfego enviado pela rede entre o servidor de implantação e o cliente é criptografado por meio do TLS. O uso do protocolo HTTP em um canal não criptografado não é suportado. O TLS versão 1,2 é suportado.</block>
   <block id="21392618546d9ab8ba4ef3600ae3644e" category="list-text">Autenticação HTTP a autenticação básica é usada para cada transação de API. Um cabeçalho HTTP, que inclui o nome de usuário e senha em uma cadeia de carateres base64, é adicionado a cada solicitação.</block>
   <block id="94c8034605d41dd846d36c99c7168f29" category="summary">Representational State Transfer (REST) é um estilo para a criação de aplicações web distribuídas. Quando aplicada ao design de uma API de serviços da Web, ela estabelece um conjunto de tecnologias e melhores práticas para expor recursos baseados em servidor e gerenciar seus estados. Ele usa protocolos e padrões convencionais para fornecer uma base flexível para implantar e gerenciar clusters ONTAP Select.</block>
-  <block id="8ed6428212b41847f33c5db651c2aa70" category="doc">Base de serviços web REST</block>
   <block id="7f5099080bd152e508b14b6ceb0c89d7" category="section-title">Arquitetura e restrições clássicas</block>
   <block id="e9c4f861f257833ba2ec75155047b6ed" category="inline-link">dissertação</block>
   <block id="f78efbd200eb44aed2f36fb9546571b4" category="paragraph">REST foi formalmente articulado por Roy Fielding em seu doutorado<block ref="569de733b44a9b461d00c6c9f5f028ce" category="inline-link-rx"></block> na UC Irvine em 2000. Ele define um estilo arquitetônico por meio de um conjunto de restrições, que coletivamente melhoraram as aplicações baseadas na Web e os protocolos subjacentes. As restrições estabelecem um aplicativo de serviços da Web RESTful com base em uma arquitetura cliente/servidor usando um protocolo de comunicação sem estado.</block>
@@ -166,7 +159,6 @@
   <block id="bd4c8bbdccbcb7826a3bc4ae421c0604" category="section-title">Formatação JSON</block>
   <block id="468b57dfd1e1664618873551b4d6ab01" category="paragraph">Embora as informações possam ser estruturadas e transferidas entre um cliente e um servidor de várias maneiras, a opção mais popular (e a usada com a API REST de implantação) é JavaScript Object Notation (JSON). JSON é um padrão da indústria para representar estruturas de dados simples em texto simples e é usado para transferir informações de estado descrevendo os recursos.</block>
   <block id="05ffc17c3e8a6fdd92e24a989e42e18a" category="summary">Cada chamada de API de implantação é executada como uma solicitação HTTP para a máquina virtual de implantação que gera uma resposta associada ao cliente. Esse par de solicitação/resposta é considerado uma transação de API. Antes de usar a API Deploy, você deve estar familiarizado com as variáveis de entrada disponíveis para controlar uma solicitação e o conteúdo da saída de resposta.</block>
-  <block id="fc068ae597c9019f5d61b19badc39991" category="doc">Transação de API de solicitação e resposta</block>
   <block id="ee083ff11ffc430b7230624e8985e88c" category="section-title">Variáveis de entrada que controlam uma solicitação de API</block>
   <block id="869e6dc728e38d775facad14a0c9efd3" category="paragraph">Você pode controlar como uma chamada de API é processada por meio de parâmetros definidos na solicitação HTTP.</block>
   <block id="736943e80c16e2be98d8595e6376e4ee" category="section-title">Cabeçalhos de solicitação</block>
@@ -263,7 +255,6 @@
   <block id="31a4cdc7a3905f0beb41dd7bd892b1dc" category="list-text">Se ocorrer um erro, um objeto de erro é sempre retornado. Por exemplo, você receberá um erro ao tentar criar um cluster com um nome que já existe.</block>
   <block id="8e45a3791461b3e6303e1b50c8f3b4b8" category="list-text">Vazio em certos casos, nenhum dado é retornado e o corpo de resposta está vazio. Por exemplo, o corpo da resposta está vazio depois de usar DELETE para excluir um host existente.</block>
   <block id="05a944109177d24696566c9b094c3cc5" category="summary">Os scripts Python de exemplo permitem que você execute várias tarefas diferentes. Você deve entender os scripts antes de usá-los em uma instância de implantação ao vivo.</block>
-  <block id="019cb69b9edb980de899952c0ec5e7e8" category="doc">Entenda os scripts Python</block>
   <block id="8fc0fb4eef277848c570c591691188e6" category="section-title">Caraterísticas comuns do projeto</block>
   <block id="0028192ee8f3f6bc6aed28f75fb9a5bd" category="paragraph">Os scripts foram projetados com as seguintes caraterísticas comuns:</block>
   <block id="337c832af1ed0854a555bf401ea03da3" category="list-text">Executar a partir da interface de linha de comando em uma máquina cliente você pode executar os scripts Python a partir de qualquer máquina cliente configurada corretamente. Consulte _antes de começar_ para obter mais informações.</block>
@@ -335,7 +326,6 @@
   <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link-macro">aqui</block>
   <block id="006a0a02171a296bf3a320f8991be24a" category="paragraph">Depois que o cluster do ONTAP Select for criado e executado usando as funções acima, você poderá utilizar o conjunto avançado de funções do ONTAP Ansible disponíveis para automatizar ainda mais os recursos e os recursos do ONTAP. As funções ONTAP disponíveis podem ser acessadas <block ref="4d400bdda09fce7a6e9e1a49c64cce9d" category="inline-link-macro-rx"></block>. Em resumo, as funções do ONTAP Select Ansible e as funções do ONTAP permitem automatizar totalmente seu fluxo de trabalho completo para gerenciar seu storage com o ONTAP Select.</block>
   <block id="e94fcecbba43e9dc52109bded1878e47" category="summary">Descubra as opções de alta disponibilidade para selecionar a melhor configuração de HA para o seu ambiente.</block>
-  <block id="a2aed8c01fc695836bd76d6f5b7a2ad9" category="doc">Configurações de alta disponibilidade</block>
   <block id="80ca7f43f3e672c21243bfefe6098be3" category="paragraph">Embora os clientes estejam começando a migrar workloads de aplicações de dispositivos de storage de classe empresarial para soluções baseadas em software executadas em hardware comum, as expectativas e necessidades relacionadas à resiliência e à tolerância de falhas não mudaram. Uma solução de HA que fornece um objetivo de ponto de restauração zero (RPO) protege o cliente da perda de dados devido a uma falha de qualquer componente do stack de infraestrutura.</block>
   <block id="0ef73cf573ab623e48c8765c1452e768" category="paragraph">Uma grande parte do mercado de SDS é baseada na noção de storage sem compartilhamento, com a replicação de software fornecendo resiliência de dados ao armazenar várias cópias de dados de usuários em diferentes silos de storage. O ONTAP Select se baseia nessa premissa usando os recursos de replicação síncrona (RAID SyncMirror) fornecidos pelo ONTAP para armazenar uma cópia extra dos dados do usuário no cluster. Isso ocorre no contexto de um par de HA. Cada par de HA armazena duas cópias de dados de usuário: Uma no storage fornecido pelo nó local e outra no storage fornecido pelo parceiro de HA. Em um cluster do ONTAP Select, a replicação síncrona e de HA são Unidas e o recurso dos dois não pode ser desacoplado ou usado de forma independente. Como resultado, a funcionalidade de replicação síncrona só está disponível na oferta multinode.</block>
   <block id="a8b7bdf88cbd08284f532780de97bdc9" category="admonition">Em um cluster ONTAP Select, a funcionalidade de replicação síncrona é uma função da implementação de HA, e não um substituto para os mecanismos de replicação assíncrona SnapMirror ou SnapVault. A replicação síncrona não pode ser usada independentemente do HA.</block>
@@ -362,7 +352,6 @@
   <block id="6aa8a3e3c7b01a983d682bcf568533c1" category="paragraph">O MetroCluster SDS é um recurso premium e requer uma licença Premium ou uma licença Premium XL. A licença Premium suporta a criação de VMs pequenas e médias, bem como suportes HDD e SSD. A licença Premium XL também dá suporte à criação de unidades NVMe.</block>
   <block id="526a514c4ab4ec984314911904c226e7" category="admonition">O MetroCluster SDS é compatível com storage anexado local (DAS) e storage compartilhado (vNAS). Observe que as configurações do vNAS geralmente têm uma latência inata maior devido à rede entre a VM do ONTAP Select e o armazenamento compartilhado. As configurações do MetroCluster SDS devem fornecer um máximo de 10ms ms de latência entre os nós, incluindo a latência de storage compartilhado. Em outras palavras, apenas medir a latência entre as VMs Select não é adequada, pois a latência de armazenamento compartilhado não é insignificante para essas configurações.</block>
   <block id="8e5c75406092b84c33a434dd62222ee5" category="summary">Evite a perda de dados usando RAID SyncMirror (RSM), agregados espelhados e caminho de gravação.</block>
-  <block id="f70ca9c3a2b7c6ae84a36a61f7d37661" category="doc">RSM DE HA e agregados espelhados</block>
   <block id="b56265ceb6311e42003e668438136a59" category="section-title">Replicação síncrona</block>
   <block id="04f481194539048ee85acd710271244a" category="paragraph">O modelo ONTAP HA foi desenvolvido com base no conceito de parceiros de HA. O ONTAP Select estende essa arquitetura para o mundo dos servidores comuns não compartilhados usando o recurso RAID SyncMirror (RSM) presente no ONTAP para replicar blocos de dados entre nós do cluster, fornecendo duas cópias de dados de usuários espalhados por um par de HA.</block>
   <block id="9a120d7276c6a36d543c5a161642b99e" category="inline-link-macro">Práticas recomendadas de HA (MetroCluster SDS) com dois nós esticados</block>
@@ -396,7 +385,6 @@
   <block id="9f5f5dc7b970257064e1b0a673449b10" category="list-text">As gravações são destagidas de NVRAM virtual para agregado de dados virtual.</block>
   <block id="22fe89dea72658d468cae7b570a6b8cb" category="list-text">O motor do espelho replica de forma síncrona os blocos em ambos os plexos.</block>
   <block id="6ffbeba2214fe0f52ca8488c037038f4" category="summary">O coração do DISCO HA, a caixa de correio HA, o coração do HA, o failover de HA e o Giveback trabalham para aprimorar a proteção de dados.</block>
-  <block id="da796475680dce8dcf08ecb11be0bd2c" category="doc">HA detalhes adicionais</block>
   <block id="b2120ef32dccd21d892e36f406fb2b0c" category="section-title">Coração do disco batendo</block>
   <block id="f5ca5b4a09ddc194aad480de87f04519" category="paragraph">Embora a arquitetura do ONTAP Select HA aproveite muitos dos caminhos de código usados pelos arrays FAS tradicionais, algumas exceções existem. Uma dessas exceções está na implementação do heartbeat baseado em disco, um método de comunicação não baseado em rede usado por nós de cluster para evitar que o isolamento da rede cause comportamento de split-brain. Um cenário de split-brain é o resultado do particionamento de cluster, normalmente causado por falhas de rede, em que cada lado acredita que o outro está inativo e tenta assumir recursos de cluster.</block>
   <block id="470f54a936a379ec05bfcd95c4063fdc" category="paragraph">As implementações de HA de classe empresarial devem lidar com esse tipo de cenário de forma graciosa. O ONTAP faz isso por meio de um método personalizado baseado em disco de batimentos cardíacos. Este é o trabalho da caixa de correio de HA, um local no storage físico usado pelos nós de cluster para passar mensagens de batimento cardíaco. Isso ajuda o cluster a determinar a conetividade e, portanto, definir quorum no caso de um failover.</block>
@@ -429,7 +417,6 @@
   <block id="1e8785eff311926f53d67ca62acdaa7b" category="section-title">Métricas de uso aprimoradas</block>
   <block id="c9e41b9dec6359fc66760c0eb4d6fa5f" category="paragraph">A interface de usuário da Web Deploy fornece informações de uso aprimoradas para os pools de capacidade. Você pode determinar rapidamente quanto storage é usado e disponível em um pool de capacidade, quais nós estão usando o storage de um pool e de quais pools o cluster está alocando capacidade.</block>
   <block id="f7cbb5649dbc857609b9017aafeee7f1" category="summary">Há várias diferenças entre os modelos de licenciamento de pools de capacidade e categorias de capacidade.</block>
-  <block id="641c499a9632bfe99299959cfd7c82f8" category="doc">Comparação do licenciamento de pools de capacidade e categorias de capacidade</block>
   <block id="bed7832e3f97e759fd2581b465169890" category="paragraph">A tabela a seguir compara os dois modelos de licenciamento de produção suportados pelo ONTAP Select.</block>
   <block id="40cc20fb536f79b4342dc02e04418031" category="cell">Categorias de capacidade</block>
   <block id="3824ce9b3abc70c7c5c21eda0ab912d0" category="cell">Pools de capacidade</block>
@@ -491,7 +478,6 @@
   <block id="c368765dd32d8b7199f9250b99a8087b" category="list-text">O agregado de dados é excluído</block>
   <block id="afcc04ba59c0e5b7c23adba80994022a" category="admonition">Se uma máquina virtual ONTAP Select for excluída, quaisquer locações ativas permanecerão em vigor até que expirem. Quando isso ocorre, a capacidade é retornada ao pool.</block>
   <block id="7807c1892c85ba4af2d3c779c7823c25" category="summary">As restrições que se aplicam ao usar o modelo de licenciamento de pool de capacidade são apresentadas abaixo.</block>
-  <block id="12a600320f268cb8d694ea9ca7d2f40b" category="doc">Restrições de implantação para licenciamento de pools de capacidade</block>
   <block id="06be3d2851694a8ac21502e41f3e4305" category="paragraph-title">Modelo de licenciamento consistente por cluster</block>
   <block id="3e786bde6715be4e14e3475dd6ed4cce" category="paragraph">Todos os nós em um único cluster do ONTAP Select precisam usar o mesmo modelo de licenciamento, de categorias de capacidade ou de pools de capacidade. Não é possível misturar os tipos de licenciamento para os nós em um único cluster.</block>
   <block id="4b0e422dcf415e37a99fb9240372b2e7" category="paragraph-title">Todos os nós em um cluster usam a mesma instância do Gerenciador de licenças</block>
@@ -563,7 +549,6 @@
   <block id="4241d8a2662be78b68fdfaf8b9daec1a" category="list-text">HDDs, SSDs ou unidades NVMe</block>
   <block id="884fb5a94a98010f0044edb08adfd51e" category="admonition">O uso do tipo de instância grande ou de unidades NVMe em uma configuração de SW-RAID não é compatível com KVM.</block>
   <block id="e4bd755214153474324cb3c791d0988e" category="summary">Depois de determinar que o ONTAP Select é adequado para sua organização, você pode comprar as licenças necessárias para dar suporte a uma implantação de produção. Você deve escolher as categorias de capacidade ou o modelo de licenciamento de pools de capacidade, bem como a capacidade de storage para cada implantação.</block>
-  <block id="234785d9563681501558a56194d2bf2d" category="doc">Licenças adquiridas para implantações de produção</block>
   <block id="3c868759d0863801160ccec7f31cd26a" category="section-title">Caraterísticas comuns de licenciamento</block>
   <block id="5f878954b0c63a957a4fca43d50b03b3" category="paragraph">Os modelos de licenciamento _níveis de capacidade_ e _pools de capacidade_ são muito diferentes em vários aspetos. No entanto, os dois modelos de licenciamento compartilham várias caraterísticas comuns, incluindo:</block>
   <block id="1e27a8e66b6c9b86c6097d597ad1aae5" category="list-text">Você precisa adquirir uma ou mais licenças conforme necessário ao implantar o ONTAP Select em um ambiente de produção.</block>
@@ -595,7 +580,6 @@
   <block id="a6483e971a591957efb5493b5bb42291" category="list-text">Cada nó aluga automaticamente a capacidade de storage para agregados de dados locais a partir de um pool de capacidade compartilhada.</block>
   <block id="4f1b3cd9fba2e292ff3f1a184f8331f0" category="paragraph">Para obter mais detalhes sobre o modelo de licenciamento de pools de capacidade, consulte o _modelo de licenciamento de pools de capacidade_ para obter mais informações.</block>
   <block id="545d5da191e6a6ba8756e03d9e72b5d9" category="summary">Você pode seguir um fluxo de trabalho para comprar e aplicar uma licença para sua implantação do ONTAP Select.</block>
-  <block id="6bf97a07b409df8a63f240116f097a26" category="doc">Fluxo de trabalho ao comprar uma licença</block>
   <block id="67f277ce98738f33f83293525780e9a2" category="paragraph">O fluxo de trabalho a seguir ilustra o processo de compra e aplicação de uma licença para a implantação do ONTAP Select. Ao comprar uma licença, você deve selecionar o modelo de licenciamento e a capacidade de armazenamento.</block>
   <block id="6fff1f3e41423b59b387036f1c43f446" category="paragraph">O processo exato varia de acordo com o uso de uma licença de camada de capacidade ou de pool de capacidade:</block>
   <block id="0062e2b8fb35cb9835391a2defa6a065" category="list-text">Número de série da licença de nove dígitos</block>
@@ -606,7 +590,6 @@
   <block id="d981b46179e3f91d5fe1f32dd9134fff" category="inline-image-macro">Descreve o processo usado para comprar e instalar uma licença de storage para uma implantação do ONTAP Select de produção.</block>
   <block id="87f55f3b9d86ff28fa332ac74ae68458" category="paragraph"><block ref="87f55f3b9d86ff28fa332ac74ae68458" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dc70eb9d82aec891b52c1c2a03dfea96" category="summary">Primeiro, familiarize-se com os conceitos gerais de rede que se aplicam ao ambiente ONTAP Select. Em seguida, explore as características e opções específicas disponíveis com os clusters de nó único e vários nós.</block>
-  <block id="3a3527263fe53ccc4b2cf49d117a3591" category="doc">Networking: Conceitos e caraterísticas gerais</block>
   <block id="5835673e7d17b0c7e15036e16b1efe5f" category="section-title">Rede física</block>
   <block id="2ded6502ab49fd8b23f16e584e9fea94" category="paragraph">A rede física dá suporte a uma implantação de cluster do ONTAP Select, fornecendo principalmente a infraestrutura de comutação da camada dois subjacente. A configuração relacionada à rede física inclui tanto o host do hypervisor quanto o ambiente de rede comutada mais amplo.</block>
   <block id="45587724cd205239d82e9cabe0fddf65" category="section-title">Opções de NIC do host</block>
@@ -675,7 +658,6 @@
   <block id="929f7d27410370d9a4c34db726705783" category="inline-image-macro">Separação de dados e gerenciamento usando VGT</block>
   <block id="f1f2f2af828f49b4c7eaa8f521667e90" category="paragraph"><block ref="f1f2f2af828f49b4c7eaa8f521667e90" category="inline-image-macro-rx" type="image"></block></block>
   <block id="cb16e4169a6cbd9a9f3a8db2dbd3c515" category="summary">Caraterísticas das redes ONTAP Select internas e externas.</block>
-  <block id="f8052d4042fcf2ccedd965352e0708f9" category="doc">Rede interna e externa do ONTAP Select</block>
   <block id="0aaccaa465e5456cbf8bc83d5fb5620a" category="paragraph">Caraterísticas das redes internas e externas da ONTAP Select.</block>
   <block id="506c7123ecf1cbba165386abd36670a3" category="section-title">Rede interna ONTAP Select</block>
   <block id="4f78507e0706b59fbf5476fd0c1e5e8a" category="paragraph">A rede ONTAP Select interna, que só está presente na variante multinode do produto, é responsável por fornecer ao cluster ONTAP Select comunicação de cluster, interconexão de HA e serviços de replicação síncrona. Esta rede inclui as seguintes portas e interfaces:</block>
@@ -738,7 +720,6 @@
   <block id="976b2628d60825feb0397b7cb29e1ab5" category="inline-image-macro">Configuração de rede usando vários switches físicos</block>
   <block id="1306b8baa2659a44b018c4c3cff7a2ed" category="paragraph"><block ref="1306b8baa2659a44b018c4c3cff7a2ed" category="inline-image-macro-rx" type="image"></block></block>
   <block id="57435ff6365b47bc940de014278612a6" category="summary">O ONTAP Select é compatível com configurações de rede de nó único e multinode.</block>
-  <block id="9c89b5b400ebea57f7d064e4d4b5bcf0" category="doc">Configurações de rede de nós único e múltiplo</block>
   <block id="08b30ce2561ab391962cd16fab9f7ade" category="section-title">Configuração de rede de nó único</block>
   <block id="0e84a49a4fa7dc25dea7bec248d98176" category="paragraph">As configurações de ONTAP Select de nó único não exigem a rede interna do ONTAP, porque não há tráfego de cluster, HA ou espelhamento.</block>
   <block id="8d03bc67b26ae98c7d860161278a65cf" category="paragraph">Ao contrário da versão multinode do produto ONTAP Select, cada VM ONTAP Select contém três adaptadores de rede virtuais, apresentados às portas de rede ONTAP e0a, e0b e e0c.</block>
@@ -803,7 +784,6 @@
   <block id="0da7190be1a9e3798540fce60b98cf54" category="paragraph">O tráfego de INTERCONEXÃO HA flui através desta porta de rede usando uma única interface de rede, colocando em camadas quadros RDMA (acesso remoto à memória direta) dentro de pacotes Ethernet.</block>
   <block id="6369a606085b8e0293e126372a6fa3a5" category="admonition">De forma semelhante à porta RSM (e0e), nem a porta física nem a interface de rede hospedada são visíveis para os usuários da CLI do ONTAP ou do Gerenciador de sistema. Como resultado, o endereço IP desta interface não pode ser modificado e o estado da porta não pode ser alterado. Esta porta de rede requer o uso de quadros jumbo (7500 a 9000 MTU).</block>
   <block id="ef063895a1ede73693b222ec3a2f0a63" category="summary">Selecione o melhor hardware e configure sua rede para otimizar o desempenho e a resiliência.</block>
-  <block id="2e9a99934aaba2c5ae48b142fa347861" category="doc">Configurações de rede suportadas</block>
   <block id="dceaaeb84342d2c83b2b279b2eb057a8" category="paragraph">Os fornecedores de servidores entendem que os clientes têm necessidades e opções diferentes é fundamental. Como resultado, ao comprar um servidor físico, há inúmeras opções disponíveis ao tomar decisões de conetividade de rede. A maioria dos sistemas de commodities vem com várias opções de NIC que fornecem opções de porta única e multiporta com permutações variáveis de velocidade e taxa de transferência. Isso inclui suporte para adaptadores NIC de 25GB GB/s e 40GB GB/s com VMware ESX.</block>
   <block id="1ff04d941ae1b8262465779276105e05" category="paragraph">Como o desempenho da VM ONTAP Select está vinculado diretamente às características do hardware subjacente, aumentar a taxa de transferência para a VM selecionando NICs de alta velocidade resulta em um cluster de maior desempenho e uma melhor experiência geral do usuário. Quatro placas de rede 10Gb ou duas placas de rede de alta velocidade (25/40 GB/s) podem ser usadas para obter um layout de rede de alto desempenho. Há várias outras configurações que também são suportadas. Para clusters de dois nós, há suporte para 4 portas de 1GB GbE ou 1 portas de 10Gb GbE. Para clusters de nó único, há suporte para portas de 2 x 1GB GbE.</block>
   <block id="801333bc71ada3c7b40aa384a24d7978" category="paragraph-title">Configurações mínimas e recomendadas de rede</block>
@@ -822,7 +802,6 @@
   <block id="e329a903fac418f23c3deeab45b989ff" category="paragraph">Quando há hardware suficiente disponível, a NetApp recomenda o uso da configuração multiswitch mostrada na figura a seguir, devido à proteção adicional contra falhas físicas do switch.</block>
   <block id="d08307744845f9100511e47ff88bc61a" category="paragraph"><block ref="d08307744845f9100511e47ff88bc61a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0f4f157087aaf0bd28aa76133fd9d2c3" category="summary">Políticas de configuração e balanceamento de carga do ONTAP Select vSwitch para configurações de duas NIC e quatro NIC.</block>
-  <block id="23c8c5fa3da694bf8895e27f3e0fd9dc" category="doc">Configuração do VMware vSphere vSwitch no ESXi</block>
   <block id="96600f2ed0fb970e508d5209faa2adc5" category="paragraph">O ONTAP Select suporta o uso de configurações vSwitch padrão e distribuído. Os vSwitches distribuídos suportam construções de agregação de links (LACP). Agregação de links é uma construção de rede comum usada para agregar largura de banda em vários adaptadores físicos. O LACP é um padrão neutro para fornecedores que fornece um protocolo aberto para endpoints de rede que agrupam grupos de portas de rede físicas em um único canal lógico. O ONTAP Select pode trabalhar com grupos de portas configurados como um grupo de agregação de links (LAG). No entanto, o NetApp recomenda usar as portas físicas individuais como portas uplink simples (trunk) para evitar a configuração do LAG. Nesses casos, as melhores práticas para vSwitches padrão e distribuído são idênticas.</block>
   <block id="10e7ad3863cdd2b48f9a7524784cedee" category="paragraph">Esta seção descreve a configuração do vSwitch e as políticas de balanceamento de carga que devem ser usadas nas configurações de duas NIC e quatro NIC.</block>
   <block id="da05a02ceee0169095d6250face3e1a6" category="paragraph">Ao configurar os grupos de portas a serem usados pelo ONTAP Select, as práticas recomendadas a seguir devem ser seguidas; a política de balanceamento de carga no nível do grupo de portas é Rota baseada no ID de porta virtual de origem. A VMware recomenda que o STP seja definido como Portfast nas portas do switch conetadas aos hosts ESXi.</block>
@@ -963,16 +942,8 @@
   <block id="3a621a06fd7d2a8267661a7bbea67799" category="paragraph">Cada nó em um cluster do ONTAP Select é licenciado automaticamente para usar vários recursos do ONTAP. Não é necessário instalar ou aplicar manualmente estas licenças de funcionalidades.</block>
   <block id="7718fb3bf518427efc070f44f598bda4" category="section-title">Os recursos do ONTAP não são suportados no ONTAP Select</block>
   <block id="614a7784cfcb44e896f7945455f42f95" category="paragraph">Vários recursos do ONTAP não são suportados com o ONTAP Select. Na maioria dos casos, esses recursos exigem hardware especial que não está disponível no ambiente virtualizado do ONTAP Select.</block>
-  <block id="7259cd6e0f46eebf9079f25f465a8c63" category="list-text">Proteção autônoma contra ransomware (ARP)</block>
-  <block id="a847af8ec24fb4acb1f1194041f1508f" category="list-text">Cluster IPspace qualquer modificação no Cluster IPspace, incluindo a adição ou remoção de portas, LANs virtuais (VLANs) ou grupos de agregação de links não é suportada.</block>
-  <block id="37730150d6378b2a0b04f20595d2d65a" category="list-text">ESXi 8,0 U3</block>
-  <block id="e400270296a47b2c68bd6e799fac399d" category="list-text">Fibre Channel e Fibre Channel over Ethernet não são compatíveis.</block>
-  <block id="4980ffa00c517c7cc63e35e9bb2badc8" category="list-text">O monitoramento tradicional de integridade usado com uma implantação de ONTAP baseada em hardware é específico dos componentes de hardware subjacentes. Devido ao ambiente virtualizado usado com o ONTAP Select, os monitores de integridade não estão ativos.</block>
-  <block id="f7ee707e6ddfc29288dbbbdf8cecd146" category="list-text">Grupos de interface grupos de interface não são suportados.</block>
   <block id="0eac7bd25176d9e38db43b4181062abe" category="list-text">Gerenciador de chaves multi-Tenant (MTKM)</block>
-  <block id="00bbd977d1e0bcd12815512c500c80c0" category="list-text">Devido ao ambiente virtualizado usado com o ONTAP Select, a instalação de descarga de NIC não é suportada.</block>
   <block id="aaeb4231dd9f4da475d71f9212010cdd" category="list-text">Unidades de criptografia de armazenamento NetApp</block>
-  <block id="ae17b3d1f56509708706e25dfd3adfc7" category="list-text">Propriedades da porta ONTAP a modificação das propriedades das portas ONTAP, incluindo velocidade, duplex e controle de fluxo, não é suportada.</block>
   <block id="b77e0c9663536ba98dbe087f083ddb67" category="list-text">Processadores de serviço</block>
   <block id="363ac709cba54fea743eb36bb06d23c7" category="list-text">Migração para SVM</block>
   <block id="c38c45e0a73411d375d048ee41944853" category="list-text">SnapLock Compliance</block>
@@ -988,7 +959,6 @@
   <block id="71408d9f3d3515fa8a651b1604736a6f" category="list-text">*Tipo de unidade e número de unidades no(s) grupo(s) RAID*.</block>
   <block id="f28d3f9b022a76395cd98dbce7787e03" category="list-text">*Versão do hipervisor e nível de patch*.</block>
   <block id="f601b21fb8e0d97eaf4f9b6866a264f6" category="summary">Informações de desempenho para o desempenho do ONTAP Select 9,6 - storage SSD de conexão direta de alta qualidade.</block>
-  <block id="f0b00c7331f322626690d4fd2e51c06f" category="doc">Desempenho: Storage SSD de conexão direta premium HA</block>
   <block id="2d1e1ff5065ae8a1f3c889ed2101b09c" category="paragraph">Informações de desempenho para a plataforma de referência.</block>
   <block id="e4491605377fcc65eaedf127cb13bb15" category="section-title">Plataforma de referência</block>
   <block id="1046c015c70060135ed38c7cc90d8b86" category="paragraph">Hardware ONTAP Select (Premium XL) (por nó)</block>
@@ -1086,7 +1056,6 @@
   <block id="a7422510d5a43585fa8699b39a3cb49e" category="paragraph">Se adicionar armazenamento a um agregado existente, algumas considerações adicionais são necessárias. É possível adicionar unidades a um grupo RAID existente, assumindo que o grupo RAID já não está no limite máximo. As práticas recomendadas tradicionais de FAS e AFF para adicionar fusos a grupos RAID existentes também se aplicam aqui, e criar um ponto de acesso no novo fuso é uma preocupação potencial. Além disso, apenas unidades de tamanhos de partição de dados iguais ou maiores podem ser adicionadas a um grupo RAID existente. Como explicado acima, o tamanho da partição de dados não é o mesmo que o tamanho bruto da unidade. Se as partições de dados que estão sendo adicionadas forem maiores do que as partições existentes, as novas unidades serão dimensionadas corretamente. Em outras palavras, uma parte da capacidade de cada nova unidade permanece não utilizada.</block>
   <block id="7b0a69ff25da57918670458098c0bcb2" category="paragraph">Também é possível usar as novas unidades para criar um novo grupo RAID como parte de um agregado existente. Nesse caso, o tamanho do grupo RAID deve corresponder ao tamanho do grupo RAID existente.</block>
   <block id="d295341492f739bc9ed31c2abfb0e417" category="summary">Descubra os conceitos gerais de storage que se aplicam ao ambiente ONTAP Select antes de explorar os componentes específicos de storage.</block>
-  <block id="43081fb9e7dc86bdd0d154bd2bb1e2fe" category="doc">Armazenamento: Conceitos gerais e caraterísticas</block>
   <block id="b907157cf0c2808be6ce5a2fcc58c979" category="section-title">Fases da configuração de armazenamento</block>
   <block id="ddde4d8b2043d435e0a29de48fbd9b26" category="paragraph">As principais fases de configuração do storage de host do ONTAP Select incluem:</block>
   <block id="2b98f2f535fa8cb839616d8a0892d5da" category="list-text">Pré-requisitos de pré-implantação</block>
@@ -1384,7 +1353,6 @@
   <block id="5b7407231012a40dd88287373070ae98" category="inline-image-macro">Logs de implantação do ONTAP</block>
   <block id="35f218ae1f484b62612317226b29e4b3" category="paragraph"><block ref="35f218ae1f484b62612317226b29e4b3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e5b41f4225b398db953f0053c56d6542" category="summary">À medida que você começa a explorar o ONTAP Select e Planejar uma implantação, é útil primeiro se familiarizar com a terminologia e os principais conceitos.</block>
-  <block id="c2bc0ae1706759fd80fd4a8f16903a8d" category="doc">Terminologia e conceitos-chave</block>
   <block id="391a56271aac0c7272e3e9bc2a840da1" category="list-text">O ONTAP Select Deploy é o utilitário de administração que você usa para implantar clusters do ONTAP Select. O utilitário deploy é executado em uma máquina virtual Linux dedicada. Você pode acessar o utilitário de implantação por meio da interface de usuário da Web, shell de gerenciamento de CLI e API REST.</block>
   <block id="0777708201aec678f0082eec3aa98c10" category="list-text">Kernel-Based Virtual Machine</block>
   <block id="067c35f1ba98a705741486402c1dac18" category="list-text">A KVM (kernel-Based Virtual Machine) é um recurso de virtualização do kernel Linux, que permite que ele atue como uma plataforma de hipervisor. Uma ampla gama de sistemas operacionais convidados são suportados.</block>
@@ -1446,7 +1414,6 @@
   <block id="cf86e8b21059cea7afe42d59893ab1bb" category="inline-link-macro">Adicione uma imagem ONTAP Select para implantar</block>
   <block id="2d7ef53b88b3d50ad2fb9bc27da95ee9" category="paragraph"><block ref="2d7ef53b88b3d50ad2fb9bc27da95ee9" category="inline-link-macro-rx"></block></block>
   <block id="ffc775822cbd19e463401855c97e8181" category="summary">O SDS da ONTAP Select MetroCluster oferece proteção aprimorada e uma implementação econômica.</block>
-  <block id="787fb8fbafed37b77c3881f9e0c851a0" category="doc">Storage definido por software MetroCluster</block>
   <block id="468c7067a5232ce7f7b5f71d1c6e1685" category="paragraph">Um cluster de dois nós pode ser estendido entre dois locais, se certos requisitos mínimos forem atendidos. Essa arquitetura se encaixa perfeitamente entre MetroCluster baseados em hardware e clusters de data center únicos (definidos por hardware ou definidos por software). Os requisitos da SDS do ONTAP Select MetroCluster destacam a flexibilidade geral das soluções de storage definidas por software, bem como as diferenças entre a TI e a MetroCluster SDS baseada em hardware. Nenhum hardware proprietário é necessário.</block>
   <block id="189f86e135df200ab301cdba9724b737" category="paragraph">Ao contrário do MetroCluster, o ONTAP Select usa a infraestrutura de rede existente e suporta uma latência de rede de até 5ms RTT com um jitter máximo de até 5ms ms, para um total de 10ms ms de latência máxima. Uma distância máxima de 10kmm também é um requisito, embora o perfil de latência seja mais importante. Os requisitos de separação no espaço de mercado têm mais a ver com a separação física do que a distância real. Em alguns casos, isso pode significar edifícios diferentes. Em outros casos, pode significar salas diferentes no mesmo edifício. Independentemente do posicionamento físico real, o que define um cluster de dois nós como um SDS do MetroCluster é que cada nó usa um switch de uplink separado.</block>
   <block id="c0a1eea8b1af6026a021d360f96c66d8" category="paragraph">Como parte da configuração de HA de dois nós, é necessário um mediador para identificar adequadamente o nó ativo durante um failover e evitar qualquer cenário de divisão de cérebros em que ambos os nós permanecem ativos independentemente durante uma partição de rede. Essa operação é idêntica à configuração normal de HA de dois nós disponível anteriormente. Para uma proteção adequada e failover durante a falha do local, o mediador não deve estar em um local diferente dos dois nós de HA. A latência máxima entre o mediador e cada nó do ONTAP Select não pode exceder 125ms ms.</block>
@@ -1500,7 +1467,6 @@
   <block id="f4e7ce7ba166f67f662306fe747a596e" category="paragraph">Você pode usar o fluxo de trabalho a seguir para implantar e administrar um cluster do ONTAP Select.</block>
   <block id="2c3df213abea0ad1cb494572704542f9" category="inline-image-macro">Descreve o fluxo de trabalho completo necessário para implantar um cluster ONTAP Select.</block>
   <block id="bc0723c49208cb7ede4ce6ea0a477957" category="paragraph"><block ref="bc0723c49208cb7ede4ce6ea0a477957" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="efacb1c7bc46252da0083e1f56cf260c" category="summary">O NetApp ONTAP Select é um dispositivo de storage definido por software que você pode implantar em uma variedade de servidores de hardware comuns que executam o hipervisor VMware ESXi ou Kernel-Based Virtual Machine (KVM). Ele oferece a agilidade de que você precisa para criar uma infraestrutura de nuvem privada flexível e dimensionável. Este site contém a documentação do ONTAP Select 9.15.1.</block>
   <block id="7436b418bed093768e360d32105591d2" category="doc">Documentação do ONTAP Select</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">Avisos legais</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">Avisos legais fornecem acesso a declarações de direitos autorais, marcas registradas, patentes e muito mais.</block>
@@ -1520,25 +1486,17 @@
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">Código aberto</block>
   <block id="33693ff3a7d631ea880e109dfc69ea97" category="paragraph">O arquivo de aviso fornece informações sobre direitos autorais de terceiros e licenças usadas no software NetApp.</block>
-  <block id="5dd0f07d9d4788b8a915f8ef9a65981c" category="inline-link-macro">Aviso para ONTAP Select 9.15.1</block>
-  <block id="4518f9d648d5f38c3a8b2bb401d25c94" category="list-text"><block ref="4518f9d648d5f38c3a8b2bb401d25c94" category="inline-link-macro-rx"></block></block>
   <block id="8e185b0f9eb37a6acf82cfda7db72a06" category="summary">Ao criar ou excluir um cluster do ONTAP Select usando as amostras de código Python, você deve fornecer um arquivo JSON como entrada para o script. Você pode copiar e modificar a amostra JSON apropriada com base em seus planos de implantação.</block>
-  <block id="5630f36ff5f09cf28a27a0cbdfb71362" category="doc">JSON para script para criar um cluster</block>
   <block id="c9a9a8f627d1d803e2e94b0b16e265f3" category="section-title">Cluster de nó único no ESXi</block>
   <block id="70771ca4958d1b97175631c548e5b806" category="section-title">Cluster de nó único no ESXi usando o vCenter</block>
   <block id="fa7d26728677ccb514c43b50b7837b1f" category="section-title">Cluster de nó único no KVM</block>
   <block id="0fffbf1f49b9c37a392538cc2cb48383" category="summary">Você pode usar o script a seguir para adicionar uma licença para um nó ONTAP Select.</block>
-  <block id="2bf177abb469873688866ee6cceff120" category="doc">Script para adicionar uma licença de nó</block>
   <block id="1bef0a056722dac4fff8d9e4eb9229d3" category="summary">Você pode usar o script a seguir para criar um cluster com base nos parâmetros definidos no script e em um arquivo de entrada JSON.</block>
-  <block id="e16c906ba61aeeafbcb69e14b4357d15" category="doc">Script para criar um cluster</block>
   <block id="ca91eb0ffb4e943653e46e9be3d1522e" category="summary">Todos os scripts Python usam uma classe Python comum em um único módulo.</block>
   <block id="66cebfc655fc14a70cafa6f4ef31ce39" category="doc">Módulo de suporte comum</block>
   <block id="6a7aaa66f1baaa0959a19ffc776263ea" category="summary">Você pode usar o seguinte script CLI para excluir um cluster existente.</block>
-  <block id="2eae914915da33251295bebf851092a9" category="doc">Script para excluir um cluster</block>
   <block id="b5a04f0b908059ef31247ca46d104984" category="summary">Você pode usar o script a seguir para redimensionar os nós em um cluster do ONTAP Select.</block>
-  <block id="87893408d1481a1bac18183ffec8cfa5" category="doc">Script para redimensionar nós de cluster</block>
   <block id="abba0f0dc82d61817731da74e40642c4" category="summary">Você pode implantar um cluster ONTAP Select de nó único em um host VMware ESXi gerenciado pelo vCenter. O cluster é criado com uma licença de avaliação.</block>
-  <block id="d3ee8e298b18494ee9d481e090eeabc0" category="doc">Fluxo de trabalho 1: Crie um cluster de avaliação de nó único no ESXi</block>
   <block id="7c5309706c244a069f293270807d94f9" category="paragraph">O fluxo de trabalho de criação de cluster difere nas seguintes situações:</block>
   <block id="31b7bb22df4e14e27e8d94676de87687" category="list-text">O host ESXi não é gerenciado pelo vCenter (host autônomo)</block>
   <block id="7f99b6195696eb3b2dd6306108e31199" category="list-text">Vários nós ou hosts são usados dentro do cluster</block>
@@ -1610,7 +1568,6 @@
   <block id="33ba2ef8157bb8f83fe7476e84b76be7" category="list-text">Entrada JSON (step10)</block>
   <block id="95ccb28342b6f78f3f3a3eb2dc5046d6" category="list-text">Você deve fornecer a senha para a conta de administrador do ONTAP.</block>
   <block id="aa2fcb2cdb811557a9850bad1ec5d893" category="summary">Antes de instalar o utilitário de administração implantar em um ambiente VMware, revise os requisitos básicos e prepare-se para uma implantação bem-sucedida.</block>
-  <block id="2f82cc35d2ad5d25ae152e29eeb2e413" category="doc">Informações necessárias para a instalação do utilitário de implantação</block>
   <block id="d5ee496328aece24f2ebb18c38c9fdc5" category="paragraph">Antes de instalar o utilitário de administração implantar em um ambiente de hipervisor, revise as informações de configuração necessárias e as informações de configuração de rede opcionais para se preparar para uma implantação bem-sucedida.</block>
   <block id="afb48a56af012ba490b6f0c683ca069d" category="section-title">Informações de configuração necessárias</block>
   <block id="d9185ee4415c568b0cdb77e572a7390e" category="paragraph">Como parte do Planejamento de implantação, você deve determinar as informações de configuração necessárias antes de instalar o utilitário de administração ONTAP Select Deploy.</block>
@@ -1640,7 +1597,6 @@
   <block id="8eece195bddb7ef51bf3e3aaa23e7345" category="cell">Pesquisar domínios</block>
   <block id="b07c79f371126a8737e35942d21d74c3" category="cell">Lista dos domínios de pesquisa a utilizar.</block>
   <block id="86b544aab279dcb98c0ac9a8a2cfce27" category="summary">Prepare cada um dos hosts do hypervisor em que um nó do ONTAP Select é implantado. Como parte da preparação dos hosts, avalie cuidadosamente o ambiente de implantação para garantir que os hosts estejam configurados e prontos para suportar a implantação de um cluster ONTAP Select.</block>
-  <block id="d6facbd23af86991ad37f5c0f75f8487" category="doc">Lista de verificação de configuração e preparação do host</block>
   <block id="2185b12253fdb08ce9e5bab96ce67841" category="admonition">O utilitário de administração ONTAP Select Deploy não executa a configuração de rede e armazenamento necessária dos hosts do hipervisor. Você deve preparar manualmente cada host antes de implantar um cluster ONTAP Select.</block>
   <block id="a623b323ce5bde34ceed491f235e772c" category="section-title">Preparação geral do hipervisor</block>
   <block id="4f70f438bc71ffe3cc266bbdbd64dd4c" category="paragraph">Você deve preparar os hosts do hipervisor.</block>
@@ -1782,7 +1738,6 @@
   <block id="3460276ef9eb483d13aa31b870077a0d" category="cell">Número de série</block>
   <block id="399660f543f1ae6a146da953a58688ab" category="cell">Se você estiver implantando com uma licença adquirida, o número de série exclusivo de nove dígitos fornecido pelo NetApp.</block>
   <block id="44c3d61a6cd78f834dce18458a846592" category="summary">Encontre respostas para perguntas comuns sobre o ONTAP Select.</block>
-  <block id="af2a4d2810d86aa0169c117f82682f9a" category="doc">Perguntas frequentes</block>
   <block id="79b30390c302fda3ec5ffb50b9c49328" category="paragraph">Você pode encontrar respostas para perguntas frequentes sobre o ONTAP Select.</block>
   <block id="c544f28388744c5e480876a75289180f" category="paragraph">A partir do ONTAP Select 9.14.1, o suporte ao hipervisor KVM foi reintegrado. Anteriormente, o suporte para a implantação de um novo cluster em um hipervisor KVM foi removido no ONTAP Select 9.10.1 e o suporte para o gerenciamento de clusters e hosts KVM existentes, exceto para ficar offline ou excluído, foi removido no ONTAP Select 9.11.1.</block>
   <block id="0db377921f4ce762c62526131097968f" category="section-title">Geral</block>
@@ -1969,7 +1924,6 @@
   <block id="830e3840fa2bc88cc12b99cba76ee4d3" category="paragraph"><block ref="82aa9c15f1551f89eb92d3d4b0470f4c" prefix="" category="inline-code"></block></block>
   <block id="6766f7a2e53a40ab3efd050bec084512" category="paragraph">O nome de usuário que tem acesso a este host. Isso é necessário somente se o host não for gerenciado por um servidor de gerenciamento (ou seja, um host ESX gerenciado por um vCenter).</block>
   <block id="76848919ab4ad9c5a51b5f29720a249f" category="summary">Você deve estar ciente do estado inicial de um cluster depois que ele for implantado e configurar o cluster conforme necessário para o seu ambiente.</block>
-  <block id="2bfa0c145c4d2b4004e481451529eb85" category="doc">Estado inicial do cluster após a implantação</block>
   <block id="4f8adfce07663fda787740d49cd25397" category="paragraph">Um cluster do ONTAP Select tem várias caraterísticas depois que ele é criado.</block>
   <block id="6c8b8cb454d3ccba7c258b15c1a29605" category="inline-link-macro">A atualização do cluster de implantação do OTS falha com erro</block>
   <block id="07c811008e90cffbb0d342cd1beb72b8" category="admonition">Restringir funções e permissões para a conta de administrador do ONTAP pode limitar a capacidade do ONTAP Select Deploy de gerenciar o cluster. Para obter mais informações, consulte o artigo da KB <block ref="e376689174188790c996782ceb328c45" category="inline-link-macro-rx"></block>.</block>
@@ -1990,7 +1944,6 @@
   <block id="f33b49f74fc8933d903baf71e893888b" category="doc">Caraterísticas DO ONTAP</block>
   <block id="0deac5caf37785bb3c3ce0d80f8d8d18" category="admonition">Os recursos do ONTAP que têm dependências específicas de hardware geralmente não são suportados com o ONTAP Select.</block>
   <block id="8132b1f57834df621ea1aedaa548729e" category="section-title">Os recursos do ONTAP são ativados automaticamente por padrão</block>
-  <block id="d4370df695508d400d73750728248ebe" category="paragraph">Os seguintes recursos estão incluídos no ONTAP Select e licenciados por padrão:</block>
   <block id="c6546b53840ec8245dd4d4d70fcdbc26" category="list-text">CIFS</block>
   <block id="37f51edec96ed159381e4d3d076a8787" category="list-text">Deduplicação e compactação</block>
   <block id="f24ce81f056d5acd59788df7f5ab36a1" category="list-text">FlexCache</block>
@@ -2004,24 +1957,17 @@
   <block id="82ef718f4ebe0c276814ee3d51e33361" category="list-text">SnapRestore</block>
   <block id="5bc075cee240a70af54270621d93765c" category="list-text">SnapVault</block>
   <block id="306a97cf9f5c4fb1198deb28baf7cf94" category="list-text">Recuperação de desastres de VM de storage (SVM DR)</block>
-  <block id="f99bb666310fb365b4d0029c161a384b" category="admonition">O ONTAP Select 9.12.1 e posterior agora é compatível com o SVM DR como origem e destino, no máximo 16 relacionamentos. A compatibilidade com SVM DR está limitada ao uso da versão de origem do ONTAP nas versões mais de 2. Por exemplo, a fonte ONTAP Select 9.12.1 pode se conetar ao ONTAP de destino versões 9.12.1, 9.13.1 ou 9.14.1.</block>
   <block id="a56a12489213d10b531398efee448f95" category="section-title">Recursos do ONTAP licenciados separadamente</block>
   <block id="585f4a038bba40a29999437c007446e9" category="paragraph">Você deve adquirir uma licença separada para qualquer recurso do ONTAP que não esteja habilitado por padrão, incluindo:</block>
-  <block id="cd4d0565c73e994a0df5b7c0a072acc6" category="list-text">Serviço de disponibilidade de dados</block>
   <block id="55449fd175613962d882ab450cfc5f3c" category="list-text">FabricPool</block>
   <block id="eab10597f9ef50e8058170729878869e" category="list-text">MetroCluster SDS (oferta de licença premium ONTAP Select)</block>
-  <block id="e1a514cdffca7e72189bc1b4d2b14cb1" category="list-text">ONTAP S3 (custo zero)</block>
   <block id="5498e86ddbc371087e391d7f3cae5701" category="list-text">SnapLock Enterprise (SnapLock Compliance não é suportado para ONTAP Select)</block>
   <block id="690f3dfc132299176ff75952d43e8d9d" category="list-text">Cópias Snapshot à prova de violações</block>
-  <block id="53b398e6d63ff4fbc7624b7d3737c3ea" category="list-text">SyncMirror (custo zero)</block>
-  <block id="b3575342fc6b994ce81d8810bb513442" category="admonition">Você não precisa de uma licença FabricPool ao utilizar o StorageGRID Webscale.</block>
   <block id="c3c1ba002ed4d0d1ae23559793a734bd" category="inline-link-macro">Comparando ONTAP Select e ONTAP 9</block>
   <block id="77aaedb7dde5f69b11a5683a958edbfc" category="list-text"><block ref="77aaedb7dde5f69b11a5683a958edbfc" category="inline-link-macro-rx"></block></block>
   <block id="ffa1963f0d0a25dfc04554dbe791a3b1" category="inline-link-macro">Chaves de licença principal do NetApp ONTAP</block>
   <block id="16f9dd2af311dfdedd3814899d379c54" category="list-text"><block ref="16f9dd2af311dfdedd3814899d379c54" category="inline-link-macro-rx"></block></block>
   <block id="3c5bdd4a077d520c4b4870fb15f37d1b" category="summary">A versão atual inclui vários novos recursos ou melhorias específicas do ONTAP Select.</block>
-  <block id="afa5543a0b0f6f0ebaeb44f21a75df52" category="doc">O que há de novo nesta versão</block>
-  <block id="1af8cafe7ba409845ae1075c9a509547" category="paragraph">O NetApp atualiza periodicamente o ONTAP Select para oferecer novos recursos e aprimoramentos.</block>
   <block id="f80570d561d36d2a6f83d903ac92764d" category="section-title">ONTAP Select 9.15.1</block>
   <block id="dd543e83687ed3c39447157a0f0e1822" category="paragraph">O ONTAP Select 9.15.1 inclui vários novos recursos e melhorias.</block>
   <block id="f588ddb32cd79889160082356416d2f3" category="list-text">Suporte ao hipervisor KVM atualizado</block>
@@ -2239,7 +2185,6 @@
   <block id="62a5303a3a11fbd7213daedd9ed6e5b5" category="list-text">Comando PING (ICMP)</block>
   <block id="a808fd43c31372cb5ef7ac1ac9224c52" category="list-text">Você deve atribuir um endereço IPv4 ao LIF de gerenciamento da máquina virtual implantar.</block>
   <block id="79bcd6ba5f33475a7941fe7ef0f5412c" category="summary">Existem vários requisitos gerais que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select.</block>
-  <block id="4ab8a0625187c6dcbc6d5dd9c17bc11b" category="doc">Requisitos gerais e considerações de Planejamento</block>
   <block id="640eb7f22428d70b36554194cebe2ea9" category="paragraph">Existem vários requisitos gerais que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select.</block>
   <block id="f091a7241376ec9602b657e6a2749d35" category="section-title">Conhecimento e habilidades do Linux necessárias para KVM</block>
   <block id="ec8a9f2ed200b86d6ba92efdcc80a46f" category="paragraph">O Linux com o hypervisor KVM é um ambiente complexo para trabalhar. Antes de implantar o ONTAP Select no KVM, você deve ter o conhecimento e as habilidades necessárias.</block>
@@ -2294,7 +2239,6 @@
   <block id="a4378567585e5f41b101707c9ab650d5" category="paragraph">A credencial *vcenter* é usada para autenticar um servidor vCenter como parte da implantação de um nó ONTAP Select no ESXi quando o host é gerenciado pelo VMware vCenter.</block>
   <block id="680e9e82137091017ba19fdaa5193e04" category="list-text"><block ref="680e9e82137091017ba19fdaa5193e04" category="inline-link-macro-rx"></block></block>
   <block id="57a8f1209a3d14eac0b8a5740de50115" category="summary">Há vários requisitos de hardware e problemas de Planejamento que você deve considerar relacionados ao ambiente VMware.</block>
-  <block id="c6be59d8f4c6188156fe9d80753e59f8" category="doc">Considerações sobre hardware e hipervisor VMware</block>
   <block id="87bdd4e6fa6d5e0e17df3587523ba7ff" category="section-title">Requisitos de hipervisor</block>
   <block id="2201b601170fae09063b228ee434fd74" category="paragraph">Existem vários requisitos relacionados ao hypervisor em que o ONTAP Select é executado.</block>
   <block id="05a313b0efed15c3b570da5e28d43277" category="admonition">Você deve rever as notas de versão atuais da sua versão do ONTAP Select para quaisquer restrições ou limitações conhecidas adicionais.</block>
@@ -2344,7 +2288,6 @@
   <block id="ccda35bfbfdd918d2a198f71367f7d9d" category="inline-link-macro">Armazenamento e RAID</block>
   <block id="9a44a4605ab254ea4e284ea83fc225b0" category="admonition">Existem requisitos de disco adicionais baseados na licença da plataforma. Consulte <block ref="a3c4eb4ff3e5c01e8b1b86f1b4351b6c" category="inline-link-macro-rx"></block> para obter mais informações.</block>
   <block id="c5b6d6b6c956a6cdab3c2b06ea62246a" category="summary">Existem vários problemas de Planejamento relacionados ao uso do hipervisor KVM que você deve considerar.</block>
-  <block id="2b809e6e28a276d80064529a78c549fa" category="doc">Requisitos da KVM</block>
   <block id="599de3930af582f0e333dbb63ff19c4b" category="paragraph">Você pode configurar o ONTAP Select no hipervisor KVM com um storage array externo.</block>
   <block id="aa5960e278cc090ee09a54daeb69b04f" category="section-title">Requisitos básicos e restrições</block>
   <block id="8f60aafa0069c40ecc0c5ae5234e215c" category="paragraph">Se você usar um array externo para os pools de armazenamento do ONTAP Select, as seguintes restrições de configuração se aplicam:</block>
@@ -2354,9 +2297,6 @@
   <block id="07631781f5db0609861ec2caaf896f03" category="list-text">A configuração não reconhece o armazenamento provisionado de forma fina.</block>
   <block id="10c8d042ce17abdbd1b2872cc10224fd" category="admonition">A capacidade de armazenamento especificada tem de estar dentro dos limites de armazenamento permitidos do armazenamento externo. Um erro ocorre se você não fornecer um limite de capacidade ou o armazenamento externo ficar sem espaço durante a operação de criação de disco.</block>
   <block id="c2ffe02d76c4f089648f1647b43e4ee5" category="section-title">Práticas recomendadas</block>
-  <block id="afd397f254d14ebaa4eb07b3b7d332fb" category="list-text">Verifique se todos os storage arrays externos usam os recursos de redundância e alta disponibilidade (HA) disponíveis, sempre que possível</block>
-  <block id="297413ed02fa3433b06a3824ddf5c4c8" category="summary">Há vários requisitos do MetroCluster SDS que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select.</block>
-  <block id="ebb5c8612468796c18d71f7263ce2f4f" category="doc">Preparando-se para uma implantação do MetroCluster SDS</block>
   <block id="f32f31f3f65cf8fd06f0af930a71a5a1" category="paragraph">O MetroCluster SDS é uma opção de configuração ao criar um cluster ONTAP Select de dois nós. É semelhante a uma implantação de escritório remoto/filial (ROBO), no entanto, a distância entre os dois nós pode ser de até 10 km. Essa implantação aprimorada de dois nós fornece cenários adicionais de caso de uso. Você deve estar ciente dos requisitos e restrições como parte da preparação para a implantação do MetroCluster SDS.</block>
   <block id="fb8668e0bc658a022bb57683502e41f4" category="paragraph">Antes de implantar o MetroCluster SDS, verifique se os seguintes requisitos são atendidos.</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="paragraph-title">Licenciamento</block>
@@ -2376,7 +2316,6 @@
   <block id="d6c73b916c498a2010460cc1dcfffcbc" category="admonition">Ao implantar o MetroCluster SDS, você não pode usar o VSAN em uma topologia distribuída ou "estendida".</block>
   <block id="193036e83646828d4e1cd41104fdee82" category="paragraph">Você deve atribuir um endereço IP estático ao utilitário de administração implantar. Esse requisito se aplica a todas as instâncias de implantação que gerenciam um ou mais clusters de dois nós do ONTAP Select.</block>
   <block id="8e18eb8cd4ab44854a5b30a491abc11b" category="summary">Você deve configurar a rede do hypervisor corretamente antes de implantar o ONTAP Select.</block>
-  <block id="44a7bba009f406b43fe0bf78279bd691" category="doc">Considerações de rede</block>
   <block id="75e93aaa8b7d5677986d65d277ddcb62" category="section-title">Opções de switch virtual</block>
   <block id="1aee248b6d7d9da8e0995fc76d5c4845" category="admonition">Para saber mais sobre como configurar um vSwitch em um host de hipervisor e o recurso de interface de alta velocidade, consulte a <block ref="6a6c3a35bed163956cd809e794515882" category="inline-link-macro-rx"></block>seção.</block>
   <block id="ddb3e9a5262cd471087b75501bb8e76f" category="section-title">Upgrade para VMXNET3 (somente ESXi)</block>
@@ -2455,7 +2394,6 @@
   <block id="7500b5713f13bc8f1704bb7da699f783" category="cell">ISCSI (3260)</block>
   <block id="486a5d62fc96d90727c1ed173ccfa4b5" category="cell">Disco de mediador/caixa de correio</block>
   <block id="a451fb0a81dc4fb9e6df8ff3f0cd6380" category="summary">Você pode implantar o ONTAP Select em um ambiente de escritório remoto/filial (ROBO). Como parte do Planejamento de uma implantação ROBO, você deve selecionar a configuração que suporta seus objetivos.</block>
-  <block id="e629f0dfc57ffa98b8aabae83c3e5032" category="doc">Implantações remotas e filiais</block>
   <block id="1cfe009dafaa293a83a8a143e8aeb868" category="paragraph">Há duas configurações principais disponíveis ao implantar o ONTAP Select em um ambiente ROBO.</block>
   <block id="c4f68953c4ccc7ea124ccc4e8eebd13a" category="admonition">Você pode usar qualquer licença do VMware vSphere ao implantar o ONTAP Select.</block>
   <block id="7e9f6a3ecc2e8ef83d7c15d09d7343f7" category="paragraph-title">Cluster de dois nós do ONTAP Select com ONTAP HA</block>
@@ -2571,7 +2509,6 @@
   <block id="7df4c22f834073378cbc7bda2a69e5d8" category="paragraph-title">Faça backup dos dados de configuração da implantação</block>
   <block id="f2b1b246e8c1326b576cc904e17de1bb" category="paragraph">É uma prática recomendada fazer backup dos dados de configuração de implantação regularmente, inclusive após a criação de um cluster. Isso se torna particularmente importante nos clusters de dois nós, devido aos dados de configuração do mediador incluídos no backup.</block>
   <block id="38fe5a7ac0941190856f04300c469ba4" category="summary">Há vários requisitos de Planejamento relacionados ao VMware vCenter que você deve considerar.</block>
-  <block id="9c0699278bca2da3487db4d6503a2d2d" category="doc">Servidor VMware vCenter no ESXi</block>
   <block id="ad09a727e87d60924d41059bc2e3512d" category="paragraph">Você deve definir uma conta do vCenter Server e associá-la a uma função que contenha o Privileges administrativo necessário.</block>
   <block id="6a176bf972e6c312a20100e72c6e9221" category="admonition">Você também precisa do nome de domínio ou endereço IP totalmente qualificado do servidor vCenter que gerencia os hosts do hypervisor ESXi onde o ONTAP Select é implantado.</block>
   <block id="932e043aa57bcad42e0294838a086f83" category="section-title">Privileges administrativo</block>
@@ -2596,7 +2533,6 @@
   <block id="89c3bcf0ecc1114f8d19734d9156cb40" category="list-text">Provisionamento</block>
   <block id="776c22edd71a94b798c726e47a0fce00" category="section-title">VApp</block>
   <block id="694d40220902b22c12e6697b843de1d6" category="summary">Há vários problemas de Planejamento relacionados ao uso do VMware ESXi que você deve considerar.</block>
-  <block id="2d35d1539bc69cac0c1cee98b2414b66" category="doc">Requisitos do VMware ESXi</block>
   <block id="bcee2262402cb4341eea3a827fc4df93" category="paragraph">O ONTAP Select vNAS é uma solução que permite que os armazenamentos de dados do ONTAP Select sejam externos ao host do hipervisor ESXi onde a máquina virtual ONTAP Select é executada. Esses armazenamentos de dados remotos podem ser acessados por meio do VMware VSAN ou de um storage array externo genérico.</block>
   <block id="8b1cceb8ee9ad88dd4930c9ece31698c" category="paragraph">A solução ONTAP Select vNAS pode ser usada com um cluster ONTAP Select de qualquer tamanho.</block>
   <block id="cabaafab34446bfc39babebeb820ad0a" category="paragraph">Todos os componentes de armazenamento relacionados, incluindo requisitos de hardware, software e recursos, devem cumprir os requisitos descritos <block ref="aaa18d9ccb38f09094f0c241a8585efd" category="inline-link-macro-rx"></block>no . Além disso, o ONTAP Select oferece suporte a todos os storage arrays externos descritos na documentação de compatibilidade de armazenamento/SAN do VMware, incluindo iSCSI, nas (NFSv3), Fibre Channel e Fibre Channel over Ethernet. O suporte a array externo é limitado pela versão ESXi suportada pelo ONTAP Select.</block>
@@ -2617,8 +2553,6 @@
   <block id="12f423cf4aa4ff75a7ca9220c1c56cd8" category="paragraph">As Notas de versão para ONTAP Select fornecem informações específicas de versão, incluindo novos recursos, configurações suportadas, notas de atualização, problemas conhecidos, problemas corrigidos e limitações conhecidas.</block>
   <block id="e1060dc2ca9dac04bf54c9156ff74480" category="admonition">Você precisa de uma conta para entrar no site de suporte da NetApp para acessar as Notas de versão.</block>
   <block id="9c62f110f4b589aa5470f4d43f3a8d6a" category="paragraph-title">Versão atual do ONTAP Select</block>
-  <block id="e967860b1a40b9dcdb66b252a950a240" category="inline-link">Notas de versão do ONTAP Select 9.15.1</block>
-  <block id="5eb820f5a922021204972230d9d4d93d" category="paragraph">Pode aceder ao<block ref="a879f440894cff34b3d87053560dcd34" category="inline-link-rx"></block> para visualizar os detalhes sobre a versão atual.</block>
   <block id="f0d06352d26117769577e30b4e00ca4a" category="summary">Há várias tarefas relacionadas que você pode executar para administrar um cluster do ONTAP Select.</block>
   <block id="c57ef2657d4baa07c3da17d9b8ee2e20" category="doc">Clusters de ONTAP Select</block>
   <block id="47546bf1e2847e2d81e73bde93926649" category="section-title">Mover um cluster do ONTAP Select offline e online</block>
@@ -2671,7 +2605,6 @@
   <block id="bd965e38a0c9cf27aa1bde099308e23f" category="paragraph-title">Depois de terminar</block>
   <block id="00b2b7cadccef92087c6e89de6d2b98a" category="paragraph">Se a operação for bem-sucedida, o campo _Last Refresh_ será atualizado. Você deve fazer backup dos dados de configuração de implantação após a conclusão da operação de atualização do cluster.</block>
   <block id="28b9f30c7414e6259d92ab5a236f3b94" category="summary">Você pode testar a conetividade de rede entre dois ou mais nós ONTAP Select na rede interna do cluster. Normalmente, você executa esse teste antes que um cluster de vários nós seja implantado para detetar problemas que possam causar falha na operação.</block>
-  <block id="ad302ee15c3654ff2341a130d6f2ef1d" category="doc">Confirmar a conetividade entre os nós do ONTAP Select</block>
   <block id="5f47ba8ca8ef153067865d84e604898c" category="paragraph">Todos os nós de ONTAP Select incluídos no teste devem ser configurados e ativados.</block>
   <block id="aa19db9725c19062530071e955bf0ff5" category="paragraph">Cada vez que você inicia um teste, uma nova execução de processo é criada em segundo plano e recebe um identificador de execução exclusivo. Apenas uma corrida pode estar ativa de cada vez.</block>
   <block id="c0dbf326273ddd678fd895913cfd5eda" category="paragraph">O teste tem dois modos que controlam o seu funcionamento:</block>
@@ -2755,14 +2688,12 @@
   <block id="a9a72d6af23763d014760a444a6e414b" category="inline-link-macro">Ative novos recursos adicionando chaves de licença</block>
   <block id="9737e258b60b8a3df4f9108391ab5366" category="paragraph">Para o produto ONTAP Select, as licenças complementares são aplicadas diretamente no ONTAP e não são gerenciadas por meio do ONTAP Select Deploy. <block ref="ce1ae1f692dcc386afa95c6f51ac8788" category="inline-link-macro-rx"></block>Consulte e <block ref="63870a99c743eac4250d67a3b291ca39" category="inline-link-macro-rx"></block> para obter mais informações.</block>
   <block id="91aa5b39bd8d304000ad6cf707ff5199" category="summary">Cada cluster de dois nós do ONTAP Select é monitorado pelo serviço de mediador, que ajuda a gerenciar a funcionalidade de HA compartilhada pelos nós.</block>
-  <block id="0b253a63a4195e231d9a02c6cc09633a" category="doc">Administração dos serviços de mediação de implantação</block>
   <block id="403c94a11e9f3b463bb8ab8ee8b5f368" category="section-title">Ver o status do serviço mediador</block>
   <block id="ec375faaeed9700625fb11b50ed43dfb" category="paragraph">É possível visualizar o status do serviço de mediador em relação a cada um dos clusters de dois nós definidos no utilitário ONTAP Select Deploy.</block>
   <block id="a189b1798d5dd355b7cd9b133818f948" category="paragraph">É possível exibir a configuração de cada mediador, incluindo o status atual, os dois nós de ONTAP Select e o destino iSCSI em que as informações de controle de HA são armazenadas. Passe o Mouse sobre os objetos na página para exibir informações detalhadas.</block>
   <block id="f87388cf978697c3ac7481dbc4873ff2" category="list-text">Clique no separador *Administration* (Administração) na parte superior da página e clique em *Mediators* (mediadores).</block>
   <block id="6044814c7a587821319834b99a883a82" category="list-text">Opcionalmente, clique em *filtro* para personalizar a visualização dos clusters de dois nós monitorados pelo serviço de mediador.</block>
   <block id="acd7d62c9b810f0d5861712e738fb732" category="summary">Quando uma unidade falha usando RAID de software, o ONTAP Select usa uma unidade sobressalente (se uma estiver disponível) e inicia o processo de reconstrução automaticamente. Isso é semelhante a como o ONTAP no FAS e AFF funciona. No entanto, se nenhuma unidade sobressalente estiver disponível, você precisará adicionar uma ao nó ONTAP Select.</block>
-  <block id="fdb78ae39a7d24e3f6a476f95e63e228" category="doc">Substitua uma unidade com falha ao usar o SW RAID</block>
   <block id="6dec3523c85f378f79fcf83c82e21868" category="paragraph">Quando uma unidade que usa software RAID falha, o ONTAP Select atribui uma unidade sobressalente, se uma estiver disponível, e inicia o processo de reconstrução automaticamente. Isso é semelhante a como o ONTAP funciona no FAS e no AFF. No entanto, se nenhuma unidade sobressalente estiver disponível, você precisará adicionar uma ao nó ONTAP Select.</block>
   <block id="483b2bdf1e13fa583e93f86544ae9ee4" category="admonition">Tanto a remoção da unidade com falha quanto a adição de uma nova unidade (marcada como sobressalente) devem ser realizadas por meio do ONTAP Select Deploy. Anexar uma unidade à VM do ONTAP Select usando o vSphere não é compatível.</block>
   <block id="d790a7cfad60ef9c4cf133fdbf5d8644" category="section-title">Identifique a unidade com falha</block>
@@ -2961,7 +2892,6 @@
   <block id="a5a3a8aa215340d20759cef169110a02" category="paragraph">A cada pacote AutoSupport é atribuído um número de identificação de sequência único.</block>
   <block id="7253da97bc820e0a0b3571962a546eca" category="list-text">Opcionalmente, em *Histórico do AutoSupport*, selecione o pacote correto e clique no ícone de download para salvar o arquivo AutoSupport em sua estação de trabalho local.</block>
   <block id="b87a9c9ea368680a72e263613450dbb4" category="summary">A VMware não oferece suporte a uma atualização no local do VMFS 5 para o VMFS 6. Você pode usar o Storage vMotion para fazer a transição de um datastore VMFS 5 para um datastore VMFS 6 para um nó ONTAP Select existente.</block>
-  <block id="02b4891c4b93fe81ec27859912d41df5" category="doc">Atualize para VMFS6 usando o Storage vMotion</block>
   <block id="f4695bdb8876fc952051ba7b1a91f1a1" category="paragraph">Para máquinas virtuais ONTAP Select, o Storage vMotion pode ser usado para clusters de nó único e de vários nós. Ele pode ser usado tanto para migrações de storage quanto para computação e storage.</block>
   <block id="10b5b21ed1ee90eca305b558caf7d03b" category="inline-image-macro">Migrar</block>
   <block id="9ab1e79cc9779bc5566c1e669988d5d4" category="paragraph"><block ref="9ab1e79cc9779bc5566c1e669988d5d4" category="inline-image-macro-rx" type="image"></block></block>
@@ -2986,7 +2916,6 @@
   <block id="fca10b3343f9573370e7b5847480727d" category="list-text">Navegue até o local apropriado na hierarquia para localizar a máquina virtual ONTAP Select.</block>
   <block id="c7355380c1acbf2b9e7bd76a544b208f" category="list-text">Clique com o botão direito do Mouse na máquina virtual e selecione *Open Console*.</block>
   <block id="32ddafc35da243c0e169cfbcc318e4a2" category="summary">Você deve acessar a página de documentação on-line do ONTAP Select Deploy para exibir a documentação da API, bem como para emitir manualmente uma chamada de API.</block>
-  <block id="6e1fab791497eb1c198f0a275c2c4fcc" category="doc">Acesse a página implantar documentação</block>
   <block id="a08d0039b6defc60dd0db0aebca289d8" category="paragraph">Você deve ter o seguinte:</block>
   <block id="ef66bf99541025571abbb87b7d12b231" category="list-text">Endereço IP ou nome de domínio da máquina virtual ONTAP Select Deploy</block>
   <block id="fd05e9902f9be7f6207dff670722887e" category="list-text">Nome de utilizador e palavra-passe do administrador</block>
@@ -2996,13 +2925,11 @@
   <block id="8eea62084ca7e541d918e823422bd82e" category="paragraph-title">Resultado</block>
   <block id="170642fbcbe38a8399a61da4c01bbf98" category="paragraph">A página da Web implantar documentação é exibida com as chamadas organizadas por categoria na parte inferior da página.</block>
   <block id="f5b241fc250b3d06edf589b105596935" category="summary">Os detalhes de todas as chamadas de API são documentados e exibidos usando um formato comum na página da Web de documentação on-line do ONTAP Select Deploy. Ao entender uma única chamada de API, você pode acessar e interpretar os detalhes de todas as chamadas de API.</block>
-  <block id="a014ccb07c2af2c09a7ecd6338210973" category="doc">Compreender e executar uma chamada de API</block>
   <block id="f88210d2eab3d233e5af40136f634e78" category="paragraph">Você deve estar conetado à página da Web de documentação on-line do ONTAP Select Deploy. Você deve ter o identificador exclusivo atribuído ao cluster do ONTAP Select quando o cluster foi criado.</block>
   <block id="a1f5081f3dbf077035f1e845de86d7f2" category="paragraph">Você pode recuperar as informações de configuração que descrevem um cluster ONTAP Select usando seu identificador exclusivo. Neste exemplo, todos os campos classificados como baratos são devolvidos. No entanto, como prática recomendada, você deve solicitar apenas os campos específicos necessários.</block>
   <block id="6d998d9ff628e2b0fde654239468060c" category="list-text">Na página principal, role até a parte inferior e clique em *Cluster*.</block>
   <block id="2fa8b95c0280fa208e02bcfc35b2d714" category="list-text">Clique em *GET /clusters/(cluster_id)* para exibir os detalhes da chamada de API usada para retornar informações sobre um cluster ONTAP Select.</block>
   <block id="b77f8745ee9c36f9805514d75ac8967e" category="summary">Se você planeja usar unidades NVMe com software RAID, será necessário configurar o host para reconhecer as unidades.</block>
-  <block id="b900e11169e321903e8c21e89df3cebe" category="doc">Configuração de um host para usar unidades NVMe</block>
   <block id="d713613f7887118583b019301c1d2427" category="paragraph">Use a passagem de I/o do VMDirectPath nos dispositivos NVMe para maximizar a eficiência de dados. Esta configuração expõe as unidades à máquina virtual ONTAP Select, permitindo que o ONTAP tenha acesso direto à PCI ao dispositivo.</block>
   <block id="29ddeaafb3734d2cd4a59921d590cdfa" category="paragraph">Certifique-se de que seu ambiente de implantação atenda aos seguintes requisitos mínimos:</block>
   <block id="a811207ba17996dc78a58667cd177a13" category="inline-link-macro">lista de verificação de preparação do anfitrião</block>
@@ -3197,7 +3124,6 @@
   <block id="7460f05e2350b8a56240561f0787e129" category="open-title">Exemplo ESXi</block>
   <block id="a6690185d6d60ba77823b380d0cf9b40" category="open-title">Exemplo de KVM</block>
   <block id="4497c744476a3b6774a7e4659e36bb37" category="summary">Se o utilitário ONTAP Select Deploy falhar ou ficar indisponível por algum motivo, você perderá a capacidade de administrar clusters e nós do ONTAP Select. Além disso, todos os clusters de dois nós perdem a funcionalidade de HA porque o serviço de mediador incluído no Deploy não está disponível. Se ocorrer uma falha irrecuperável, você deverá recuperar a instância do utilitário implantar para restaurar a funcionalidade administrativa e de HA.</block>
-  <block id="afbc29c7f8aad9966ac37317832c084c" category="doc">Recupere o utilitário implantar para um cluster de dois nós</block>
   <block id="732fff5218e24bea555b4f8de50d2d22" category="paragraph">Você deve se preparar antes de tentar recuperar uma instância do utilitário de implantação para garantir o sucesso.</block>
   <block id="201d6cf1ba171c49bcdcb0766d20f3f9" category="paragraph-title">Habilidades e informações necessárias</block>
   <block id="4e5bd66d05ea6e0425032aae26d54f07" category="paragraph">Você deve estar familiarizado com vários procedimentos administrativos e ter as informações necessárias.</block>
@@ -3265,7 +3191,6 @@
   <block id="9731a2aaf926f5fd46b5a7343839efb4" category="list-text"><block ref="9731a2aaf926f5fd46b5a7343839efb4" category="inline-link-macro-rx"></block></block>
   <block id="88e1ef271e0da2ef1b1734cbd286219c" category="list-text"><block ref="88e1ef271e0da2ef1b1734cbd286219c" category="inline-link-macro-rx"></block></block>
   <block id="010b1bb88703436584f35ee315ce708a" category="summary">Você pode migrar uma instância existente do utilitário de administração implantar para uma nova máquina virtual usando a interface de linha de comando.</block>
-  <block id="0fc15ad6985cb27854c8843683f4e035" category="doc">Migrar uma instância de implantação para uma nova máquina virtual</block>
   <block id="55327b42261932bc23e2c7dff5397072" category="paragraph">Este procedimento baseia-se na criação de uma nova máquina virtual que utilize os dados de configuração da máquina virtual original. As máquinas virtuais novas e originais devem executar a mesma versão e versão do utilitário de implantação. Não é possível migrar para uma versão e versão diferente do utilitário de implementação.</block>
   <block id="50292085f30b7587c02bf7a7bdb68a00" category="paragraph">Você deve criar um backup dos dados de configuração de implantação como parte da migração da máquina virtual. Você também deve criar um backup depois de implantar um cluster do ONTAP Select. Os dados são guardados num único ficheiro encriptado que pode transferir para a estação de trabalho local.</block>
   <block id="a2223560f3daace4da811f50f2f76708" category="paragraph">Certifique-se de que o Deploy não está executando nenhuma outra tarefa durante a operação de backup.</block>
@@ -3329,7 +3254,6 @@
   <block id="f5fb71abd32be9bc904db11637b6b903" category="paragraph"><block ref="1299ca75bdbf03e068a6eb77561752df" prefix="" category="inline-code"></block></block>
   <block id="3b21e87e0ddc0bee4fd0ebb1cd063173" category="paragraph">Antes que o procedimento de atualização seja concluído, você será solicitado a criar um backup da configuração da máquina virtual de implantação. Além disso, você deve limpar o cache do navegador para que você possa visualizar as páginas de implantação recém-criadas.</block>
   <block id="be89bf0bd68c0f721ab7e25e408b6fa7" category="summary">Se você estiver executando o ONTAP Select no VMware ESXi, poderá atualizar o software ESXi de uma versão anterior suportada para o ESXi 7,0 ou posterior. Antes de atualizar, você deve entender o processo e selecionar o procedimento de atualização apropriado.</block>
-  <block id="9f1c979d59442571f79d81b7fb84e9eb" category="doc">Atualize o VMware ESXi para a versão 7,0 ou posterior</block>
   <block id="ce78f638c1329fc432323298fd5ab053" category="paragraph">Antes de atualizar o software ESXi nos hipervisores que hospedam um cluster ONTAP Select, você deve preparar e selecionar o procedimento de atualização apropriado para o seu ambiente.</block>
   <block id="a74a74cc9eac206cd17b389aebee1edf" category="admonition">Se você optar por atualizar para o VMware ESXi 6,5, você deve atualizar para o ESXi U2 (compilação 8294253) ou superior. O uso do ESXi 6,5 U1 pode expô-lo a uma falha de máquina virtual devido a um bug conhecido da VMware.</block>
   <block id="84bee6f12ed24b78dc6e3d711f489517" category="section-title">Familiarize-se com como atualizar o VMware ESXi</block>
@@ -3373,11 +3297,9 @@
   <block id="42fd4c247ebbe7dfca417006d76edd84" category="paragraph">Você pode atualizar os hypervisors do VMware ESXi hospedando um cluster de vários nós do ONTAP Select sem usar o utilitário de administração implantar.</block>
   <block id="c94bc3200f704807c4c41ce4c2e2b2d8" category="paragraph">Você deve executar o procedimento de atualização para cada host usado no cluster do ONTAP Select.</block>
   <block id="e35a91dc5473bf4a53204a2bd1366d7e" category="summary">A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um cluster existente de seis para oito nós e diminuir o tamanho do cluster de oito para seis nós.</block>
-  <block id="c5f80e69da9019e045ae59cca1c9ae22" category="doc">Expanda ou contraia o cluster</block>
   <block id="d6746c8c49fd9df73bbb168197689da8" category="paragraph">A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um cluster existente de seis para oito nós e diminuir o tamanho do cluster de oito para seis nós. Não há suporte para outros cenários de expansão ou contração do cluster.</block>
   <block id="f6ad6d358dd65a1da361069309b57e39" category="paragraph">O procedimento é iniciado a partir do ONTAP Select Deploy usando a interface CLI, API ou web.</block>
   <block id="c9dd95ac8795512f2d676118ba8def1a" category="paragraph">As funcionalidades de expansão e contração do cluster são restritas das seguintes maneiras:</block>
-  <block id="03a645906298706d76817495f4d8708a" category="list-text">O suporte é limitado aos clusters criados em hosts de hypervisor ESX. As seguintes versões do ESX são compatíveis com o ONTAP Select 9.15.1:</block>
   <block id="ec65581eeb2dfa95316cf6a00d2ff593" category="list-text">ESXi 8.0U2</block>
   <block id="43629b681eab8f23e6624067ec8d1fde" category="list-text">ESXi 8.0U1</block>
   <block id="200d1894c9fd6ae53ee1224b58c879d1" category="list-text">ESXi 8,0GA</block>
@@ -3392,7 +3314,6 @@
   <block id="70be200347cc17e3939c72792fe71b15" category="list-text">Selecione a guia *Cluster* na parte superior da página e selecione o cluster desejado na lista.</block>
   <block id="83d473b2e8f1c324b60e13d720cac51a" category="list-text">Na página de detalhes do cluster, selecione o ícone de engrenagem à direita da página e selecione *expandir cluster*.</block>
   <block id="a2679fd7f07d0e73429d2f594d234f4c" category="list-text">Navegue até a seção *par HA 4*.</block>
-  <block id="a178d91d9200ff6349b3f22118c06cb0" category="list-text">Escolha os detalhes de configuração do par de alta disponibilidade (HA) para o quarto par de HA, incluindo:</block>
   <block id="1e4f0991fe8c17eeb30a08a567b6faeb" category="list-text">Tipo de instância</block>
   <block id="a6e676c0f85b36df0562598d228a5630" category="list-text">Nomes de nós</block>
   <block id="c9a8d463f626f4f28398b6c8c018fae3" category="list-text">Hosts de hypervisor associados</block>
@@ -3579,7 +3500,6 @@
   <block id="e65eef77c34710d04f651265a36f1383" category="list-text">Clique em *OK* na janela de confirmação de entrega.</block>
   <block id="f9398cacd5f1ebcc0aca8d8b93299cb5" category="paragraph">Você deve carregar o arquivo de licença para o utilitário de administração implantar antes que o pool de capacidade possa ser usado por um nó ONTAP Select.</block>
   <block id="6fad90e28618e0a28b3096e32fc10067" category="summary">Ao usar o licenciamento de categorias de capacidade, você precisa adquirir um arquivo de licença para cada nó do ONTAP Select. O arquivo de licença define a capacidade de armazenamento para o nó e é bloqueado para o nó através do número de série exclusivo de nove dígitos atribuído pelo NetApp.</block>
-  <block id="6d1a0d7c1d5f3f225d0b6d9969fd7d36" category="doc">Adquirir uma licença de categoria de capacidade</block>
   <block id="b83de81d9df2daba7b299079440e4a70" category="paragraph">Você deve ter o número de série da licença de nove dígitos atribuído ao nó pela NetApp. Antes de tentar adquirir um arquivo de licença, você deve esperar pelo menos vinte e quatro horas após a data de envio do seu pedido de compra.</block>
   <block id="6bb55d7bed113bc9f1eb1ceaa56c67c3" category="paragraph">Você deve executar esta tarefa para cada nó do ONTAP Select que requer uma licença de categoria de capacidade.</block>
   <block id="f1119e2a8337db49fe7086c2b2267602" category="list-text">Acesse o site de licença do ONTAP Select usando um navegador da Web:</block>
@@ -3608,10 +3528,8 @@
   <block id="5c7750df890d8a1ae46102a5c56d163d" category="sidebar">ONTAP Select blogs</block>
   <block id="bafb5d4f7ed06fcf88f3e77fadecc81b" category="sidebar">ONTAP Select comunidade</block>
   <block id="dd3d71b5f68ad8da8831a0b5ea514e35" category="sidebar">Matriz de interoperabilidade</block>
-  <block id="526263eea2f04c1872d7038c1d10f65d" category="sidebar">Documentos do ONTAP Select 9.15.1</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Notas de versão</block>
   <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">Conceitos</block>
-  <block id="4b983fff716674f120176e09551dd445" category="sidebar">Visão geral do produto</block>
   <block id="5f42eee1bf54c8d4553c2d542932b451" category="sidebar">Casos de uso comercial</block>
   <block id="e182a8a3f2adf774fb1c959df71b8600" category="sidebar">Terminologia</block>
   <block id="0b6cbdf7ad2928078f1600a3e8979485" category="sidebar">Plano</block>
@@ -3637,12 +3555,9 @@
   <block id="4600201a9747257f7c0a61cab77f2664" category="sidebar">Estado inicial do cluster</block>
   <block id="10a6be92e43e8ae9229f893030d4ea66" category="sidebar">Administrar</block>
   <block id="d50d859ff252ad32f47de6b350e22874" category="sidebar">Atualizar nós</block>
-  <block id="2e97b5e5f53687c2edc46f6cfe0a5451" category="sidebar">Mediadores</block>
   <block id="9b99bf7d2bfd4b09363304c166832734" category="sidebar">Clusters</block>
   <block id="7e3d719bcb3cf1e6efaf87b0f0178a1c" category="sidebar">Nós e hosts</block>
-  <block id="8e0eac20b9bb9c269b705f9e82fe448c" category="sidebar">Console de vídeo VM</block>
   <block id="f2efd2b383af9a0515aa1f64f9691215" category="sidebar">Redimensione os nós do cluster</block>
-  <block id="35ddd67f3a5bb23914781ff67bff489e" category="sidebar">Substituir unidades RAID SW com falha</block>
   <block id="cdedd922b30b9f8699ea17f5d0045e3d" category="sidebar">Atualize para VMFS6</block>
   <block id="ab1dbd991ec3af1b1aef9ee96144657a" category="sidebar">Mergulho profundo</block>
   <block id="37abdde639d495af54acf1d9128ed4b5" category="sidebar">Conceitos e caraterísticas gerais</block>
@@ -3676,7 +3591,6 @@
   <block id="46fc1cf655dd8158b6b58910cf88e653" category="sidebar">Automatize com o Ansible</block>
   <block id="8a9e0f8224695e94f0988f444488877b" category="sidebar">Use a CLI</block>
   <block id="89c5ba6f9355d2da97bb00bdf0ec66e5" category="sidebar">Faça login usando SSH</block>
-  <block id="b4196422f4798acbaffd27a9839f9143" category="sidebar">Atualizando o ESXi para 6,5 e posterior</block>
   <block id="8c45b8a7e3dd4094586773bc09fc8842" category="sidebar">Utilitário de implantação</block>
   <block id="e7729142d65683c0eba63c471ec57c8f" category="sidebar">Migrar uma instância de implantação</block>
   <block id="1c5ffa58ac07641f5cec5616c07b2ba2" category="sidebar">Adicione imagens ONTAP Select</block>
@@ -3693,4 +3607,146 @@
   <block id="04b2d3e0b04793e1eab99a7ce4905944" category="paragraph">As seguintes expansões e contrações do cluster não são atualmente suportadas:</block>
   <block id="246664f02679d184f0608a4d7824502b" category="list-text">Expansões de clusters de um, dois ou quatro nós para clusters de seis ou oito nós.</block>
   <block id="226d8636aca6bd1bdcac58203b8ddcd2" category="list-text">Contrações de clusters de seis ou oito nós para clusters de um, dois ou quatro nós.</block>
+  <block id="054e946fb0b83b6a666a6ad91e898f0a" category="doc">Processamento assíncrono usando o objeto trabalho para ONTAP Select</block>
+  <block id="1203a64f6c4121eab9dbc97f2336a51b" category="doc">Antes de acessar a API ONTAP Select Deploy com um navegador</block>
+  <block id="d507d585a3bf4790d7db816f3a8055fe" category="doc">Antes de acessar a API ONTAP Select Deploy usando Python</block>
+  <block id="0efdd662738a644a15c7b4b5f469d2e9" category="doc">Antes de usar os fluxos de trabalho de API do ONTAP Select Deploy</block>
+  <block id="c0edc4a15c9a8f5add1ff16d8cb1a838" category="doc">Como acessar a API ONTAP Select Deploy</block>
+  <block id="fe0458f6f4e5f651de36cf8596142eb6" category="doc">ONTAP Select Deploy API basic operational characteristics</block>
+  <block id="231ed5a6a889053c28b06cb17cb1e4ee" category="doc">Base de serviços da Web REST para implantar e gerenciar clusters do ONTAP Select</block>
+  <block id="b71dcac4419af40029253724c36ca33b" category="doc">Transação de API de solicitação e resposta para ONTAP Select</block>
+  <block id="f8b6aa0580faab5529017cf022ac2d16" category="doc">Entenda os scripts Python para o ONTAP Select Deploy</block>
+  <block id="ff400bf48d4e0ff31885d4734fd059f8" category="doc">ONTAP Select Deploy versão da API</block>
+  <block id="bbc20c2ea315836d08b392ce75c91d0b" category="doc">Configurações de alta disponibilidade do ONTAP Select</block>
+  <block id="c849264ebb01817c7925cd0a068007af" category="doc">ONTAP Select HA RSM e agregados espelhados</block>
+  <block id="ec8ac2a2aba486a14f418e0d73aa199d" category="doc">O ONTAP Select HA aprimora a proteção de dados</block>
+  <block id="2f1f8f7609cf43a281fbca2068eb08b8" category="paragraph">O coração do disco de alta disponibilidade (HA), a caixa de correio de HA, o coração do HA, o failover de HA e o Giveback trabalham para aprimorar a proteção de dados.</block>
+  <block id="f2bf1c1269a6e0c1a495f75b5c9f308e" category="doc">Resumo dos benefícios do licenciamento de pools de capacidade do ONTAP Select</block>
+  <block id="747313594c8e769ed4bf654668df2753" category="doc">Comparar o licenciamento de pools de capacidade e categorias de capacidade do ONTAP Select</block>
+  <block id="61750e2717477039b22a307414c9311b" category="doc">Detalhes operacionais do modelo de licenciamento de pools de capacidade do ONTAP Select</block>
+  <block id="0a00b84f2a503924f11abc21254dffab" category="doc">Restrições de implantação para licenciamento de pools de capacidade do ONTAP Select</block>
+  <block id="6cc6c24434af53794977cd3f0355096d" category="doc">Números de série do nó para o modelo de licenciamento de pools de capacidade do ONTAP Select</block>
+  <block id="55734e2f86357f8b0f60cd204e105d21" category="paragraph">Você pode implantar o ONTAP Select com uma licença de avaliação ou uma licença adquirida. A licença escolhida deve ser aplicada a cada um dos nós no cluster do ONTAP Select e, portanto, a todo o cluster. Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação.</block>
+  <block id="38a6a854a485660aa1ba2f3d554e2bfe" category="paragraph">Há várias considerações ao implantar e dar suporte a um cluster de avaliação:</block>
+  <block id="9ccdbbc209e0eddfaf9f0b5a4154a78d" category="list-text">Você só pode usar o cluster para fins de avaliação. Não é necessário usar um cluster com uma licença de avaliação em um ambiente de produção.</block>
+  <block id="b559f8a2bbcf90e70f60847fb3cce85f" category="list-text">Você deve usar o utilitário de administração ONTAP Select Deploy da seguinte forma ao configurar cada host:</block>
+  <block id="1b2bebf50d8caf7cae03b0a936752188" category="list-text">Não forneça um número de série</block>
+  <block id="f5010a0b3197d474a3b4618b60c0fd03" category="list-text">Configure para usar uma licença de avaliação</block>
+  <block id="21f27b191f1f034aa81e5f786bf9829c" category="doc">Entenda as ofertas de licença da plataforma para ONTAP Select</block>
+  <block id="1b1ede8baae6a15d3ba60611103509a4" category="doc">A ONTAP Select comprou licenças para implantações de produção</block>
+  <block id="711f738f1281862e087807884aa5cd1c" category="doc">Fluxo de trabalho ao comprar uma licença ONTAP Select</block>
+  <block id="8c2b226cf8dfc01c2d5885e6b1dc9fd2" category="paragraph"><block ref="8c2b226cf8dfc01c2d5885e6b1dc9fd2" category="inline-link-macro-rx"></block></block>
+  <block id="5a61239e15d4a26620f5d89e4b1a8f7f" category="doc">Conceitos e caraterísticas de redes ONTAP Select</block>
+  <block id="73a89e5a391bfad2dcfbcec41e378787" category="doc">Separação de tráfego de gerenciamento e dados do ONTAP Select</block>
+  <block id="f84037cae3830b722ecf096ad5fd58ef" category="doc">Redes internas e externas da ONTAP Select</block>
+  <block id="cdbec6ebc0adb389f5f7740d68cc0d81" category="doc">Configuração do switch físico ONTAP Select</block>
+  <block id="2bb27df795334f1f46635aacd832d5af" category="doc">Configurações de rede de nós único e múltiplo do ONTAP Select</block>
+  <block id="2f5bf8718ec3eb79af5786d5a5e02b91" category="doc">Configurações de rede ONTAP Select suportadas</block>
+  <block id="1f053a2cf9a1403f4126065fd9ff2506" category="doc">Configuração do vSwitch do VMware vSphere ONTAP Select no ESXi</block>
+  <block id="43895330af3a182b4940cdadaa21ecd3" category="list-text">Atualizações automáticas para Autonomous ransomware Protection (ARP)</block>
+  <block id="6a76ab85545289c2356c31794c26b907" category="admonition">A partir do ONTAP Select 9.16.1, são suportadas atualizações manuais para ARP e a licença de recurso ARP está incluída no arquivo de licença NetApp (NLF).</block>
+  <block id="669de74d3083480bce94ddebfeab68bf" category="list-text">IPspace do cluster</block>
+  <block id="cfdc468c86afde8f42c1710059a2c83a" category="paragraph">Não há suporte para qualquer modificação no IPspace de cluster, incluindo a adição ou remoção de portas, LANs virtuais (VLANs) ou grupos de agregação de links.</block>
+  <block id="d1a3b3306889b878e71ae42b7b83d579" category="list-text">Fibre Channel</block>
+  <block id="1e22be0f75b87d08066f1d2e528397c1" category="paragraph">Fibre Channel e Fibre Channel over Ethernet não são compatíveis.</block>
+  <block id="a034be002e436cffc1cd7bbac92b5374" category="list-text">Monitores de saúde</block>
+  <block id="42b068f44f6d145cd3cd4ded8c28c08e" category="paragraph">O monitoramento tradicional de integridade usado com uma implantação de ONTAP baseada em hardware é específico dos componentes de hardware subjacentes. Devido ao ambiente virtualizado usado com o ONTAP Select, os monitores de integridade não estão ativos.</block>
+  <block id="09ab988c99cc61af08cebf0d39a00ac5" category="list-text">Grupos de interfaces</block>
+  <block id="31d5a7195f52da745d1a05721c5d8ac9" category="paragraph">Os grupos de interface não são suportados.</block>
+  <block id="1af9f18205353c901764421f1287bb63" category="list-text">Suporte para descarga de NIC</block>
+  <block id="e1822392dfeb820c1cca38e5e718a61f" category="paragraph">Devido ao ambiente virtualizado usado com o ONTAP Select, a instalação de descarga de NIC não é suportada.</block>
+  <block id="6c9348bc5d04685460e6acda750ab989" category="list-text">Propriedades da porta ONTAP</block>
+  <block id="b360fb78c737d920cd251b2f7358f606" category="paragraph">A modificação das propriedades das portas ONTAP, incluindo velocidade, duplex e controle de fluxo, não é suportada.</block>
+  <block id="89661a8f5ae5f3b88ab1a6ba4ba0dbf0" category="paragraph"><block ref="89661a8f5ae5f3b88ab1a6ba4ba0dbf0" category="inline-link-macro-rx"></block></block>
+  <block id="fcc22b4e3de45bbac50b32226efb8e8c" category="doc">Visão geral do desempenho do ONTAP Select</block>
+  <block id="40bfcfb823eef6d953345bec6901d94b" category="doc">Desempenho do ONTAP Select 9,6: Storage SSD de conexão direta premium HA</block>
+  <block id="5b7b913b9183b40db3cdac93dcffe3d9" category="doc">Aumentar a capacidade de storage do ONTAP Select</block>
+  <block id="180d14e1cfcab830c1ec4fafd5097838" category="doc">Armazenamento ONTAP Select: Conceitos e caraterísticas gerais</block>
+  <block id="4c09693df54f78ec01dcfce83626b988" category="doc">Suporte à eficiência de storage da ONTAP Select</block>
+  <block id="e85029c6308bf8469ad5d2bf5ac5a6da" category="doc">Serviços RAID de hardware para armazenamento anexado local ONTAP Select</block>
+  <block id="72270ae5ad1efa50cbda87b77a2b8c8d" category="inline-link-macro">Substitua uma unidade com falha em uma configuração RAID do software ONTAP Select</block>
+  <block id="9e21cea65d2285f38de1d74bb5ebe82c" category="admonition">Não é possível separar discos virtuais das VMs ONTAP Select que estão usando a configuração RAID de hardware. A remoção de discos só é suportada para VMs ONTAP Select que estão usando a configuração RAID do software. Consulte <block ref="2a48fe6fcfd810b54ef07e2d1e2a735b" category="inline-link-macro-rx"></block> para obter mais informações.</block>
+  <block id="07c6a664d186f44a90042e2245e46aad" category="doc">Serviços de configuração RAID do software ONTAP Select para armazenamento anexado local</block>
+  <block id="3e1672f186d30598b8343a9dbdd833ae" category="doc">ONTAP Select VSAN e configurações de array externo</block>
+  <block id="e263536030472b1b884032009157f00c" category="doc">Terminologia ONTAP Select e conceitos-chave</block>
+  <block id="fac92aa1bceedd34bdbd54ea3a5c1d41" category="doc">Storage definido por software ONTAP Select MetroCluster</block>
+  <block id="b993d6b1ae8a2148a7be773127a7d668" category="doc">Necessidades de negócios e cenários de uso da ONTAP Select</block>
+  <block id="18ea6d668ccbbc1b64935d2ae14d9c63" category="doc">Suporte da ONTAP Select para data centers e nuvem privada</block>
+  <block id="567999f9c71634f001a831b733088bbc" category="doc">Use o ONTAP Select em escritórios remotos e filiais</block>
+  <block id="ecef17057a10f9337620a1aee67c110f" category="summary">O NetApp ONTAP Select é um dispositivo de storage definido por software que você pode implantar em uma variedade de servidores de hardware comuns que executam o hipervisor VMware ESXi ou Kernel-Based Virtual Machine (KVM). Ele oferece a agilidade de que você precisa para criar uma infraestrutura de nuvem privada flexível e dimensionável. Este site contém a documentação do ONTAP Select 9.16.1.</block>
+  <block id="b38f50fa2d7eac1d0761ec2b46339f62" category="inline-link-macro">Aviso para ONTAP Select 9.16.1</block>
+  <block id="561a04c4081432fad02b159522e1d02c" category="list-text"><block ref="561a04c4081432fad02b159522e1d02c" category="inline-link-macro-rx"></block></block>
+  <block id="de0887504497c1f3eb64ac5f23488612" category="doc">JSON para script para criar um cluster ONTAP Select</block>
+  <block id="79ebef96ee386ef1a7dba01d303ce759" category="doc">Script para adicionar uma licença de nó ONTAP Select</block>
+  <block id="be1f2ab308d7f936426d71ac4b257096" category="doc">Script para criar um cluster ONTAP Select</block>
+  <block id="41cfd9e48a1b6c66998391efe14f06f2" category="doc">Suporte comum ao módulo ONTAP Select Python</block>
+  <block id="d066221405020e2f85c198e0b44e228b" category="doc">Script para excluir um cluster ONTAP Select</block>
+  <block id="3a029b8899590dc6c31883e4d8b049d0" category="doc">Script para redimensionar nós de cluster do ONTAP Select</block>
+  <block id="f2b54f29c4af2bc66f70b4a5a52b0e2b" category="doc">Fluxo de trabalho 1: Crie um cluster de avaliação de nó único do ONTAP Select no ESXi</block>
+  <block id="169dafc7979793a9e61147f233aa45c3" category="doc">Informações necessárias para a instalação do utilitário ONTAP Select Deploy</block>
+  <block id="952cea38c1f18dae7e337ec5342feda3" category="doc">Lista de verificação de configuração e preparação do host ONTAP Select</block>
+  <block id="d94db1fe93dcae57541a64d1d1664af0" category="doc">Perguntas frequentes sobre o ONTAP Select</block>
+  <block id="cddb93cf729be75720f6155855c70d38" category="doc">Modificar um servidor de gerenciamento de host para implantação do ONTAP Select</block>
+  <block id="7ccffa1050dd38b57df1fa0990bb72a7" category="doc">Estado inicial do cluster ONTAP Select após a implantação</block>
+  <block id="c05931b717a76d4cc74840146d98c8ce" category="doc">Suporte do ONTAP Select para recursos do ONTAP</block>
+  <block id="b1c0fbe7ae4d4da25057b44b579da0f7" category="paragraph">Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciados por padrão:</block>
+  <block id="f6d1a5bbfc21cf8963e7008a59fa0a5c" category="list-text">Proteção autônoma contra ransomware (ARP) (atualizações manuais)</block>
+  <block id="1716834171e243de0f898a67621b6624" category="list-text">ONTAP S3</block>
+  <block id="2511ead16bda3bbe0040b8814548bb87" category="list-text">S3 SnapMirror</block>
+  <block id="487fd69570cd112ebad6d395cb41a5e9" category="admonition">O ONTAP Select é compatível com o SVM DR como origem e destino, no máximo 16 relacionamentos. A compatibilidade com SVM DR está limitada ao uso da versão de origem do ONTAP nas versões mais de 2. Por exemplo, a fonte ONTAP Select 9.12.1 pode se conetar ao ONTAP de destino versões 9.12.1, 9.13.1 ou 9.14.1.</block>
+  <block id="d8d124daaa3196fc86bdde707e37359d" category="admonition">Você não precisa de uma licença FabricPool ao utilizar o StorageGRID.</block>
+  <block id="bf2c241347c4076c2039076b440d75de" category="doc">O que há de novo para o ONTAP Select</block>
+  <block id="8a4d972efa4a178e4f23653b4b6a1b69" category="paragraph">Saiba mais sobre os novos recursos e aprimoramentos nas versões suportadas do ONTAP Select.</block>
+  <block id="fa9e744025392ca74a15477f1e137192" category="section-title">ONTAP Select 9.16.1</block>
+  <block id="26c0a25ef0a35983894d134dbe992481" category="paragraph">O ONTAP Select 9.16.1 inclui vários novos recursos e melhorias.</block>
+  <block id="6c1d79ac25f0c97bc720f88ff0f156e0" category="list-text">Suporte atualizado ao arquivo de licença do NetApp</block>
+  <block id="a1a2f3308f6033087cf20e84356aa4ac" category="list-text">A partir do ONTAP Select 9.16.1, o suporte ao ficheiro de licença NetApp (NLF) é atualizado. O novo formato NLF inclui licenças para os recursos ARP, ONTAP S3 e S3 SnapMirror. <block ref="b5ed3fe3b9ec5f0e955203c12216c0fe" category="inline-link-macro-rx"></block>.</block>
+  <block id="9fc3a2fe374c89216150309f04d52677" category="paragraph">Para uma nova implantação do ONTAP Select 9.16.1, o novo formato NLF é aplicado automaticamente. Quando você atualiza uma implantação ONTAP Select existente para 9.16.1, o novo formato NLF não é aplicado. Para obter as licenças de recurso ARP, ONTAP S3 e S3 SnapMirror, você deve baixar o NLF atualizado após a atualização. Se você reverter para o ONTAP Select 9.15.1 ou anterior, será necessário reinstalar as licenças de recurso que você tinha antes da atualização.</block>
+  <block id="9ff1c34bad1597cf08ab1c4399ae7496" category="list-text">Suporte para Autonomous ransomware Protection</block>
+  <block id="0d42d1fa24a02ff9cf9230752f2e8dbc" category="list-text">O ONTAP Select 9.16.1 introduz suporte para a proteção autônoma contra ransomware (ARP). O ONTAP Select 9.16.1 suporta apenas atualizações manuais para ARP, não são suportadas atualizações automáticas. A licença de recurso ARP está incluída no NLF para ONTAP Select 9.16.1. <block ref="b5ed3fe3b9ec5f0e955203c12216c0fe" category="inline-link-macro-rx"></block>.</block>
+  <block id="432f71c7f4f95547896f41e4d812805f" category="list-text">O ONTAP Select 9.16.1 inclui suporte para VMware ESXi 8,0 U3.</block>
+  <block id="a011a191055a233d6e8de3b11aacb53c" category="doc">Resumo das práticas recomendadas para implantação do ONTAP Select</block>
+  <block id="5a4ab7845b9d12a7fe46ca9fb4f76647" category="doc">Considerações sobre o ONTAP Select implantar o host do hypervisor</block>
+  <block id="152e476cb4a1b119a2151b522e1e4d7a" category="doc">Requisitos do ONTAP Select e considerações de Planejamento</block>
+  <block id="48a12050df5598419d91adabdefe2dfc" category="doc">Considerações sobre hardware e hypervisor VMware do ONTAP Select</block>
+  <block id="6936e9ae6a69079458269b7d98990e88" category="list-text">VMware ESXi 8,0 U2</block>
+  <block id="834b02e64c437c938996a121579bbd87" category="list-text">VMware ESXi 8,0 U3</block>
+  <block id="ef923b29283b1cc0b1380d25efddbc92" category="doc">Requisitos de KVM da ONTAP Select</block>
+  <block id="91aac4a7f60b41d08a32c5e3e97fd852" category="list-text">Verifique se todos os storages externos usam os recursos de redundância e alta disponibilidade (HA) disponíveis, sempre que possível</block>
+  <block id="e3527493b496eac4476a36800671c21b" category="summary">Há vários requisitos para o MetroCluster SDS que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select.</block>
+  <block id="61134acc5ec932d98d83e0b1968f4ba0" category="doc">Prepare-se para uma implantação do ONTAP Select MetroCluster SDS</block>
+  <block id="42696bcb531049bc468130ae11afc8ee" category="doc">Considerações sobre redes ONTAP Select</block>
+  <block id="42e12ad664d00b6d50a44dac72efaa21" category="doc">Implantações remotas e filiais da ONTAP Select</block>
+  <block id="852ae4fc33b89c5131b8050b8ab9b9de" category="doc">Considerações sobre armazenamento ONTAP Select e RAID</block>
+  <block id="744c7aceadded1b7d2f7dbabcbe794a8" category="doc">Servidor ONTAP Select VMware vCenter no ESXi</block>
+  <block id="634920e565b06acb85fcaff73d20a15d" category="doc">Requisitos do ONTAP Select VMware ESXi</block>
+  <block id="0edc199faf78056856f9f042ee780e07" category="inline-link">Notas de versão do ONTAP Select 9.16.1</block>
+  <block id="a1fe17f34ab508f2ef781ee6a7c0421b" category="paragraph">Pode aceder ao<block ref="dcda9204a0d7995e0d0246096082b5ee" category="inline-link-rx"></block> para visualizar os detalhes sobre a versão atual.</block>
+  <block id="023deab3a8c9b82a9bfd452c0b68af9b" category="doc">Confirme a conetividade entre os nós do ONTAP Select</block>
+  <block id="8a96228950f9c48cb7f24c3b98404d49" category="doc">Administrar os serviços de mediador do ONTAP Select Deploy</block>
+  <block id="d2bdabf740cddb35328041a6ee746b12" category="doc">Substituir unidades RAID de software com falha para ONTAP Select</block>
+  <block id="d2d9b29d15ac79b034bfba1cc5f636be" category="doc">Proteja uma implantação do ONTAP Select</block>
+  <block id="7bce3fa777739691b187f554fac27625" category="doc">Diagnóstico e suporte do ONTAP Select</block>
+  <block id="ecc7a573e63ad51d6c5b87c50988984a" category="doc">Atualize o nó ONTAP Select para VMFS6 usando o Storage vMotion</block>
+  <block id="2d17a30222011fb034c3d9e239fbd264" category="doc">Acesse a página de documentação do ONTAP Select Deploy</block>
+  <block id="4560429c3136b530a65edc28b99c356a" category="doc">Compreender e executar uma chamada de API de implantação do ONTAP Select</block>
+  <block id="59ac0a318fbbcf7e80be836166e1fb06" category="doc">Configurar um host ONTAP Select para usar unidades NVMe</block>
+  <block id="f114cf6a5de4bed1ba2a33f09512be59" category="doc">Recupere o utilitário ONTAP Select Deploy para um cluster de dois nós</block>
+  <block id="e3bfc1919cc23daba80c8010e3175d9c" category="doc">Migrar uma instância de implantação do ONTAP Select para uma nova máquina virtual</block>
+  <block id="43e827b042cf746a0442b15558031d99" category="doc">Faça login no ONTAP Select Deploy usando SSH</block>
+  <block id="6a72bf96d9b994589542338ffd146590" category="doc">Atualizar uma instância do ONTAP Select Deploy</block>
+  <block id="c71000b965f24ab9f5c3995026415d28" category="doc">Atualize o VMware ESXi ONTAP Select para a versão 7,0 ou posterior</block>
+  <block id="bd633f5da3bfc77af90d4c908e9bf8ac" category="doc">Expanda ou contraia um cluster ONTAP Select</block>
+  <block id="e6bf3ba5fe1006a55faeef44787ee469" category="list-text">O suporte é limitado aos clusters criados em hosts de hypervisor ESX. As seguintes versões do ESX são compatíveis com o ONTAP Select 9.15.1 e posterior:</block>
+  <block id="d4597f95391a261a44459b6a1ddb6a8e" category="list-text">Escolha os detalhes de configuração do par de alta disponibilidade (HA) para o quarto par de HA, incluindo:</block>
+  <block id="e3d070f7498c7e147dc4f645a0d0165d" category="doc">Adquirir uma licença de pool de capacidade do ONTAP Select</block>
+  <block id="28f937bb8b94ebdea4af2d6d321d545b" category="doc">Adquirir uma licença do nível de capacidade do ONTAP Select</block>
+  <block id="269ec7d71e2b69e0e1efbee545e82252" category="sidebar">Documentos do ONTAP Select 9.16.1</block>
+  <block id="10094bc8718a18a18fcc32e3cd50df4c" category="sidebar">Proteja o ONTAP Select</block>
+  <block id="70ea48dd9234010492aec1d6e7a0d297" category="sidebar">Confirme a conetividade da rede</block>
+  <block id="4ce7782445b66c31b4b4d786806ae7a1" category="sidebar">Administrar serviços de mediador</block>
+  <block id="697112fb0ffb252e40d60a5a007943a2" category="sidebar">Expanda ou contraia um cluster</block>
+  <block id="9cc3c3055efc6fc5a45cfce6ac3eda87" category="sidebar">Acesse o console de vídeo da VM</block>
+  <block id="5a3a053ae34a79fb35028f001babbf25" category="sidebar">Substituir unidades RAID de software com falha</block>
+  <block id="e2e19484d2146649c758acb6e826707f" category="sidebar">Atualize o ESXi para 6,5 e superior</block>
 </blocks>

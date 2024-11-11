@@ -4,7 +4,7 @@ permalink: reference_plan_ots_robo.html
 keywords: plan, planning, remote and branch office, robo 
 summary: 'Você pode implantar o ONTAP Select em um ambiente de escritório remoto/filial (ROBO). Como parte do Planejamento de uma implantação ROBO, você deve selecionar a configuração que suporta seus objetivos.' 
 ---
-= Implantações remotas e filiais
+= Implantações remotas e filiais da ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

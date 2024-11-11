@@ -4,7 +4,7 @@ permalink: reference_lic_ontap_features.html
 keywords: license, licensing, ontap features, default ontap features 
 summary: O ONTAP Select oferece suporte completo para a maioria das funcionalidades do ONTAP. Muitos dos recursos do ONTAP são licenciados automaticamente para cada nó ao implantar um cluster. No entanto, alguns recursos exigem uma licença separada. 
 ---
-= Caraterísticas DO ONTAP
+= Suporte do ONTAP Select para recursos do ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -23,8 +23,9 @@ NOTE: Os recursos do ONTAP que têm dependências específicas de hardware geral
 
 == Os recursos do ONTAP são ativados automaticamente por padrão
 
-Os seguintes recursos estão incluídos no ONTAP Select e licenciados por padrão:
+Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciados por padrão:
 
+* Proteção autônoma contra ransomware (ARP) (atualizações manuais)
 * CIFS
 * Deduplicação e compactação
 * FlexCache
@@ -35,13 +36,15 @@ Os seguintes recursos estão incluídos no ONTAP Select e licenciados por padrã
 * NFS
 * NVMe sobre TCP
 * Funcionalidade de alocação a vários clientes da ONTAP
+* ONTAP S3
 * SnapMirror
+* S3 SnapMirror
 * SnapRestore
 * SnapVault
 * Recuperação de desastres de VM de storage (SVM DR)
 +
 
-NOTE: O ONTAP Select 9.12.1 e posterior agora é compatível com o SVM DR como origem e destino, no máximo 16 relacionamentos. A compatibilidade com SVM DR está limitada ao uso da versão de origem do ONTAP nas versões mais de 2. Por exemplo, a fonte ONTAP Select 9.12.1 pode se conetar ao ONTAP de destino versões 9.12.1, 9.13.1 ou 9.14.1.
+NOTE: O ONTAP Select é compatível com o SVM DR como origem e destino, no máximo 16 relacionamentos. A compatibilidade com SVM DR está limitada ao uso da versão de origem do ONTAP nas versões mais de 2. Por exemplo, a fonte ONTAP Select 9.12.1 pode se conetar ao ONTAP de destino versões 9.12.1, 9.13.1 ou 9.14.1.
 
 
 
@@ -51,20 +54,17 @@ NOTE: O ONTAP Select 9.12.1 e posterior agora é compatível com o SVM DR como o
 
 Você deve adquirir uma licença separada para qualquer recurso do ONTAP que não esteja habilitado por padrão, incluindo:
 
-* Serviço de disponibilidade de dados
 * FabricPool
 * MetroCluster SDS (oferta de licença premium ONTAP Select)
-* ONTAP S3 (custo zero)
 * SnapLock Enterprise (SnapLock Compliance não é suportado para ONTAP Select)
 +
 ** Cópias Snapshot à prova de violações
 
 
-* SyncMirror (custo zero)
 
 
 
-NOTE: Você não precisa de uma licença FabricPool ao utilizar o StorageGRID Webscale.
+NOTE: Você não precisa de uma licença FabricPool ao utilizar o StorageGRID.
 
 .Informações relacionadas
 * link:concept_ots_overview.html#comparing-ontap-select-and-ontap-9["Comparando ONTAP Select e ONTAP 9"]

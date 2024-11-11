@@ -4,7 +4,7 @@ permalink: task_cli_deploy_recover_two_node.html
 keywords: administer, administering, cli, two node cluster, recover, recovering 
 summary: Se o utilitário ONTAP Select Deploy falhar ou ficar indisponível por algum motivo, você perderá a capacidade de administrar clusters e nós do ONTAP Select. Além disso, todos os clusters de dois nós perdem a funcionalidade de HA porque o serviço de mediador incluído no Deploy não está disponível. Se ocorrer uma falha irrecuperável, você deverá recuperar a instância do utilitário implantar para restaurar a funcionalidade administrativa e de HA. 
 ---
-= Recupere o utilitário implantar para um cluster de dois nós
+= Recupere o utilitário ONTAP Select Deploy para um cluster de dois nós
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

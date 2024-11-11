@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: reference_plan_ots_mcc_sds.html 
 keywords: plan, planning, metrocluster, metrocluster sds 
-summary: Há vários requisitos do MetroCluster SDS que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select. 
+summary: Há vários requisitos para o MetroCluster SDS que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select. 
 ---
-= Preparando-se para uma implantação do MetroCluster SDS
+= Prepare-se para uma implantação do ONTAP Select MetroCluster SDS
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

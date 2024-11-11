@@ -4,7 +4,7 @@ permalink: concept_ha_other.html
 keywords: ontap select, ha, high availability, disk heartbeating, heartbeating, mailbox, failover, giveback 
 summary: O coração do DISCO HA, a caixa de correio HA, o coração do HA, o failover de HA e o Giveback trabalham para aprimorar a proteção de dados. 
 ---
-= HA detalhes adicionais
+= O ONTAP Select HA aprimora a proteção de dados
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: O coração do DISCO HA, a caixa de correio HA, o coração do HA, o fa
 
 
 [role="lead"]
-O coração do DISCO HA, a caixa de correio HA, o coração do HA, o failover de HA e o Giveback trabalham para aprimorar a proteção de dados.
+O coração do disco de alta disponibilidade (HA), a caixa de correio de HA, o coração do HA, o failover de HA e o Giveback trabalham para aprimorar a proteção de dados.
 
 
 

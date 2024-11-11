@@ -4,7 +4,7 @@ permalink: concept_lic_cp_serial_number.html
 keywords: license, licensing, capacity pools, node serial numbers 
 summary: Com o modelo de licenciamento de categorias de capacidade, o número de série do nó de nove dígitos é o mesmo que o número de série da licença atribuído ao nó. No entanto, os números de série atribuídos aos nós que usam o modelo de licenciamento de pools de capacidade têm um formato diferente. 
 ---
-= Números de série do nó
+= Números de série do nó para o modelo de licenciamento de pools de capacidade do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

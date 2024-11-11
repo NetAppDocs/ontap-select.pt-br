@@ -4,7 +4,7 @@ permalink: reference_api_script_resize.html
 keywords: rest api, deploy rest api, rest, python script, resize nodes 
 summary: Você pode usar o script a seguir para redimensionar os nós em um cluster do ONTAP Select. 
 ---
-= Script para redimensionar nós de cluster
+= Script para redimensionar nós de cluster do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,12 +4,12 @@ indexpage:
     você pode implantar em uma variedade de servidores de hardware comuns que executam
     o hipervisor VMware ESXi ou Kernel-Based Virtual Machine (KVM). Ele oferece a
     agilidade de que você precisa para criar uma infraestrutura de nuvem privada flexível
-    e dimensionável. Este site contém a documentação do ONTAP Select 9.15.1.
+    e dimensionável. Este site contém a documentação do ONTAP Select 9.16.1.
   tiles:
   - title: Comece agora
     links:
     - title: Notas de lançamento
-      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3318065
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3330673
     - title: O que há de novo
       url: "/reference_new_ots.html"
     - title: Saiba mais sobre o ONTAP Select

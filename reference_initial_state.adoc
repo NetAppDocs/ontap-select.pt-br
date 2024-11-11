@@ -4,7 +4,7 @@ permalink: reference_initial_state.html
 keywords: install, installing, initial state, cluster initial state 
 summary: Você deve estar ciente do estado inicial de um cluster depois que ele for implantado e configurar o cluster conforme necessário para o seu ambiente. 
 ---
-= Estado inicial do cluster após a implantação
+= Estado inicial do cluster ONTAP Select após a implantação
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

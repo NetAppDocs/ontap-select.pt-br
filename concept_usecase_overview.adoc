@@ -4,7 +4,7 @@ permalink: concept_usecase_overview.html
 keywords: ontap select, business use case overview, deployment, storage, development and testing 
 summary: O ONTAP Select é adequado para vários tipos diferentes de aplicativos com base na flexibilidade inerente fornecida pela virtualização do hipervisor. 
 ---
-= Necessidades de negócios e cenários de uso
+= Necessidades de negócios e cenários de uso da ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

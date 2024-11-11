@@ -4,7 +4,7 @@ permalink: concept_api_rest.html
 keywords: rest api, deploy rest api, rest, architecture, resources, state, uri, http, json 
 summary: 'Representational State Transfer (REST) é um estilo para a criação de aplicações web distribuídas. Quando aplicada ao design de uma API de serviços da Web, ela estabelece um conjunto de tecnologias e melhores práticas para expor recursos baseados em servidor e gerenciar seus estados. Ele usa protocolos e padrões convencionais para fornecer uma base flexível para implantar e gerenciar clusters ONTAP Select.' 
 ---
-= Base de serviços web REST
+= Base de serviços da Web REST para implantar e gerenciar clusters do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

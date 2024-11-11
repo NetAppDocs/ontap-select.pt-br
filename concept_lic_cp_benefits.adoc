@@ -4,7 +4,7 @@ permalink: concept_lic_cp_benefits.html
 keywords: license, licensing, capacity pools, benefits 
 summary: Há vários benefícios ao usar o modelo de licenciamento de pools de capacidade em vez do modelo de licenciamento de categorias de capacidade. 
 ---
-= Resumo dos benefícios
+= Resumo dos benefícios do licenciamento de pools de capacidade do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

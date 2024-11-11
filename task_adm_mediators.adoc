@@ -4,7 +4,7 @@ permalink: task_adm_mediators.html
 keywords: administer, administering, web, mediators 
 summary: Cada cluster de dois nós do ONTAP Select é monitorado pelo serviço de mediador, que ajuda a gerenciar a funcionalidade de HA compartilhada pelos nós. 
 ---
-= Administração dos serviços de mediação de implantação
+= Administrar os serviços de mediador do ONTAP Select Deploy
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

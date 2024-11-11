@@ -4,7 +4,7 @@ permalink: reference_api_script_anl.html
 keywords: rest api, deploy rest api, rest, python script, add node license 
 summary: Você pode usar o script a seguir para adicionar uma licença para um nó ONTAP Select. 
 ---
-= Script para adicionar uma licença de nó
+= Script para adicionar uma licença de nó ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

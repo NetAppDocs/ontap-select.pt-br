@@ -85,16 +85,37 @@ Cada nó em um cluster do ONTAP Select é licenciado automaticamente para usar v
 
 Vários recursos do ONTAP não são suportados com o ONTAP Select. Na maioria dos casos, esses recursos exigem hardware especial que não está disponível no ambiente virtualizado do ONTAP Select.
 
-* Proteção autônoma contra ransomware (ARP)
-* Cluster IPspace qualquer modificação no Cluster IPspace, incluindo a adição ou remoção de portas, LANs virtuais (VLANs) ou grupos de agregação de links não é suportada.
-* ESXi 8,0 U3
-* Fibre Channel e Fibre Channel over Ethernet não são compatíveis.
-* O monitoramento tradicional de integridade usado com uma implantação de ONTAP baseada em hardware é específico dos componentes de hardware subjacentes. Devido ao ambiente virtualizado usado com o ONTAP Select, os monitores de integridade não estão ativos.
-* Grupos de interface grupos de interface não são suportados.
+* Atualizações automáticas para Autonomous ransomware Protection (ARP)
++
+
+NOTE: A partir do ONTAP Select 9.16.1, são suportadas atualizações manuais para ARP e a licença de recurso ARP está incluída no arquivo de licença NetApp (NLF).
+
+* IPspace do cluster
++
+Não há suporte para qualquer modificação no IPspace de cluster, incluindo a adição ou remoção de portas, LANs virtuais (VLANs) ou grupos de agregação de links.
+
+* Fibre Channel
++
+Fibre Channel e Fibre Channel over Ethernet não são compatíveis.
+
+* Monitores de saúde
++
+O monitoramento tradicional de integridade usado com uma implantação de ONTAP baseada em hardware é específico dos componentes de hardware subjacentes. Devido ao ambiente virtualizado usado com o ONTAP Select, os monitores de integridade não estão ativos.
+
+* Grupos de interfaces
++
+Os grupos de interface não são suportados.
+
 * Gerenciador de chaves multi-Tenant (MTKM)
-* Devido ao ambiente virtualizado usado com o ONTAP Select, a instalação de descarga de NIC não é suportada.
+* Suporte para descarga de NIC
++
+Devido ao ambiente virtualizado usado com o ONTAP Select, a instalação de descarga de NIC não é suportada.
+
 * Unidades de criptografia de armazenamento NetApp
-* Propriedades da porta ONTAP a modificação das propriedades das portas ONTAP, incluindo velocidade, duplex e controle de fluxo, não é suportada.
+* Propriedades da porta ONTAP
++
+A modificação das propriedades das portas ONTAP, incluindo velocidade, duplex e controle de fluxo, não é suportada.
+
 * Processadores de serviço
 * Migração para SVM
 * SnapLock Compliance
@@ -102,5 +123,4 @@ Vários recursos do ONTAP não são suportados com o ONTAP Select. Na maioria do
 
 
 .Informações relacionadas
-* link:reference_lic_ontap_features.html["Recursos do ONTAP ativados por padrão"]
-
+link:reference_lic_ontap_features.html#ontap-features-automatically-enabled-by-default["Recursos do ONTAP ativados por padrão"]

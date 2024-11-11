@@ -9,20 +9,20 @@ settings:
     pdf_enabled: true
     harmony_enabled: false
   versions:
-  - version-number: 9.15.1
+  - version-number: 9.16.1
     url: "/ontap-select"
+  - version-number: 9.15.1
+    url: "/ontap-select-9151"
   - version-number: 9.14.1
     url: "/ontap-select-9141"
   - version-number: 9.13.1
     url: "/ontap-select-9131"
   - version-number: 9.12.1
     url: "/ontap-select-9121"
-  - version-number: 9.11.1
-    url: "/ontap-select-9111"
   langs: pt-br,us-en,ja-jp,ko-kr,zh-cn,zh-tw,de-de,es-es,fr-fr,it-it
 sidebar:
   entries:
-  - title: Documentos do ONTAP Select 9.15.1
+  - title: Documentos do ONTAP Select 9.16.1
     url: "/index.html"
   - title: Notas de versão
     entries:
@@ -32,7 +32,7 @@ sidebar:
       url: "/reference_new_ots.html"
   - title: Conceitos
     entries:
-    - title: Visão geral do produto
+    - title: Visão geral do ONTAP Select
       url: "/concept_ots_overview.html"
     - title: ONTAP Select Deploy
       url: "/concept_ots_deploy.html"
@@ -142,25 +142,25 @@ sidebar:
       url: "/concept_adm_upgrading_nodes.html"
     - title: Diagnóstico e suporte
       url: "/task_adm_support.html"
-    - title: Segurança
+    - title: Proteja o ONTAP Select
       url: "/task_adm_security.html"
-    - title: Conetividade de rede
+    - title: Confirme a conetividade da rede
       url: "/task_adm_connectivity.html"
-    - title: Mediadores
+    - title: Administrar serviços de mediador
       url: "/task_adm_mediators.html"
     - title: Clusters
       entries:
       - title: Clusters de ONTAP Select
         url: "/task_adm_clusters.html"
-      - title: Expanda ou contraia o cluster
+      - title: Expanda ou contraia um cluster
         url: "/task_cluster_expansion_contraction.html"
     - title: Nós e hosts
       entries:
-      - title: Console de vídeo VM
+      - title: Acesse o console de vídeo da VM
         url: "/task_adm_video_console.html"
       - title: Redimensione os nós do cluster
         url: "/task_adm_resize.html"
-      - title: Substituir unidades RAID SW com falha
+      - title: Substituir unidades RAID de software com falha
         url: "/task_adm_replace_drives_swraid.html"
       - title: Atualize para VMFS6
         url: "/task_adm_upgrade_vmfs6.html"
@@ -278,7 +278,7 @@ sidebar:
       url: "/task_cli_clusters.html"
     - title: Nós e hosts
       entries:
-      - title: Atualizando o ESXi para 6,5 e posterior
+      - title: Atualize o ESXi para 6,5 e superior
         url: "/task_cli_upgrade_esxi65.html"
       - title: Modificar um servidor de gerenciamento de host
         url: "/reference_host_modify_command.html"

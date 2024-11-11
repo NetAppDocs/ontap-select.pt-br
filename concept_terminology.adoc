@@ -4,7 +4,7 @@ permalink: concept_terminology.html
 keywords: terminology, key concepts, concepts 
 summary: À medida que você começa a explorar o ONTAP Select e Planejar uma implantação, é útil primeiro se familiarizar com a terminologia e os principais conceitos. 
 ---
-= Terminologia e conceitos-chave
+= Terminologia ONTAP Select e conceitos-chave
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -95,6 +95,9 @@ As configurações padrão do vNAS permitem um recurso de otimização de grava�
 --
 Atualização de cluster:: Depois de criar um cluster, você pode fazer alterações na configuração do cluster ou da máquina virtual fora do utilitário implantar usando as ferramentas de administração do ONTAP ou do hypervisor. Você também pode migrar uma máquina virtual que causa alterações de configuração. Quando essas alterações ocorrem, o utilitário implantar não é atualizado automaticamente e pode ficar fora de sincronia com o estado do cluster. Você pode usar o recurso de atualização de cluster para atualizar o banco de dados de configuração de implantação. A atualização de cluster está disponível por meio da interface de usuário da Web Deploy, do shell de gerenciamento da CLI e da API REST.
 RAID de software:: Ao usar o armazenamento de conexão direta (DAS), a funcionalidade RAID é tradicionalmente fornecida por meio de uma controladora RAID de hardware local. Em vez disso, você pode configurar um nó para usar _software RAID_ onde o nó ONTAP Select fornece a funcionalidade RAID. Se você usar software RAID, uma controladora RAID de hardware não será mais necessária.
+
+
+[[ontap-select-image-install]]
 Instalação de imagem ONTAP Select:: A partir do ONTAP Select Deploy 2,8, o utilitário de administração implantar contém apenas uma versão única do ONTAP Select. A versão incluída é a mais atual disponível no momento do lançamento. O recurso de instalação de imagens do ONTAP Select permite adicionar versões anteriores do ONTAP Select à instância do utilitário implantar, que pode ser usado ao implantar um cluster do ONTAP Select. link:task_cli_deploy_image_add.html["Adicione imagens ONTAP Select para obter mais informações"]Consulte .
 
 

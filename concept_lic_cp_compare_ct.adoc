@@ -4,7 +4,7 @@ permalink: concept_lic_cp_compare_ct.html
 keywords: license, licensing, capacity pools, capacity tiers, comparing 
 summary: Há várias diferenças entre os modelos de licenciamento de pools de capacidade e categorias de capacidade. 
 ---
-= Comparação do licenciamento de pools de capacidade e categorias de capacidade
+= Comparar o licenciamento de pools de capacidade e categorias de capacidade do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

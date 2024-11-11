@@ -4,7 +4,7 @@ permalink: concept_nw_concepts_chars.html
 keywords: ontap select, networking concepts, cluster characteristics 
 summary: Primeiro, familiarize-se com os conceitos gerais de rede que se aplicam ao ambiente ONTAP Select. Em seguida, explore as características e opções específicas disponíveis com os clusters de nó único e vários nós. 
 ---
-= Networking: Conceitos e caraterísticas gerais
+= Conceitos e caraterísticas de redes ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

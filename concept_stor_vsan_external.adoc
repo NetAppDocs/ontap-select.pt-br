@@ -4,7 +4,7 @@ permalink: concept_stor_vsan_external.html
 keywords: ontap select, vsan and external array configurations, vnas architecture 
 summary: 'As implantações nas virtuais (vNAS) são compatíveis com clusters ONTAP Select no VSAN, em alguns produtos HCI, com tecnologia NetApp HCI e com tipos de datastores de array externo. A infraestrutura subjacente dessas configurações fornece resiliência do datastore.' 
 ---
-= Configurações de VSAN e array externo
+= ONTAP Select VSAN e configurações de array externo
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

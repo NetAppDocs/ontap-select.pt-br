@@ -4,7 +4,7 @@ permalink: reference_plan_ots_storage.html
 keywords: plan, planning, storage, software raid, hardware raid, raid, nvme 
 summary: Há vários problemas de Planejamento relacionados ao storage de host do ONTAP Select que você deve considerar. 
 ---
-= Considerações sobre armazenamento e RAID
+= Considerações sobre armazenamento ONTAP Select e RAID
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

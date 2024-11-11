@@ -4,7 +4,7 @@ permalink: task_cli_migrate_deploy.html
 keywords: administer, administering, cli, deploy, deploy instance, migrate 
 summary: Você pode migrar uma instância existente do utilitário de administração implantar para uma nova máquina virtual usando a interface de linha de comando. 
 ---
-= Migrar uma instância de implantação para uma nova máquina virtual
+= Migrar uma instância de implantação do ONTAP Select para uma nova máquina virtual
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

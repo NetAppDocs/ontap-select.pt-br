@@ -4,7 +4,7 @@ permalink: concept_ha_mirroring.html
 keywords: ontap select, ha, high availability, synchronous replication, mirrored aggregates, write path, raid syncmirror, rsm 
 summary: 'Evite a perda de dados usando RAID SyncMirror (RSM), agregados espelhados e caminho de gravação.' 
 ---
-= RSM DE HA e agregados espelhados
+= ONTAP Select HA RSM e agregados espelhados
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

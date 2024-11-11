@@ -14,7 +14,18 @@ summary: Você pode usar uma licença de avaliação se quiser avaliar o ONTAP S
 
 
 [role="lead"]
-Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação.
+Você pode implantar o ONTAP Select com uma licença de avaliação ou uma licença adquirida. A licença escolhida deve ser aplicada a cada um dos nós no cluster do ONTAP Select e, portanto, a todo o cluster. Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação.
+
+Há várias considerações ao implantar e dar suporte a um cluster de avaliação:
+
+* Você só pode usar o cluster para fins de avaliação. Não é necessário usar um cluster com uma licença de avaliação em um ambiente de produção.
+* Você deve usar o utilitário de administração ONTAP Select Deploy da seguinte forma ao configurar cada host:
++
+** Não forneça um número de série
+** Configure para usar uma licença de avaliação
+
+
+
 
 
 

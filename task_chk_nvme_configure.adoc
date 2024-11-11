@@ -4,7 +4,7 @@ permalink: task_chk_nvme_configure.html
 keywords: ontap select, nvme storage, host preparation 
 summary: Se você planeja usar unidades NVMe com software RAID, será necessário configurar o host para reconhecer as unidades. 
 ---
-= Configuração de um host para usar unidades NVMe
+= Configurar um host ONTAP Select para usar unidades NVMe
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
