@@ -68,7 +68,7 @@ O ONTAP Select 9.14.1 inclui vários novos recursos e melhorias.
 Suporte para hipervisor KVM:: A partir do ONTAP Select 9.14.1, o suporte ao hipervisor KVM foi reintegrado. Anteriormente, o suporte para a implantação de um novo cluster em um hipervisor KVM foi removido no ONTAP Select 9.10.1 e o suporte para o gerenciamento de clusters e hosts KVM existentes, exceto para ficar offline ou excluído, foi removido no ONTAP Select 9.11.1.
 Implantar o plug-in do VMware vCenter não é mais compatível:: A partir do ONTAP Select 9.14.1, o plug-in de implantação do VMware vCenter não é mais compatível.
 Suporte ao ONTAP Select Deploy atualizado:: Se você estiver executando uma versão do ONTAP Select Deploy 9.14.1 menor que 9.14.1P2, você deve atualizar para o ONTAP Select Deploy 9.14.1P2 o mais rápido possível. Para obter mais informações, consulte link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886733["Notas de versão do ONTAP Select 9.14.1"^].
-Suporte aprimorado ao VMware ESXi:: O ONTAP Select 9.14.1 inclui suporte para VMware ESXi 8,0.2.
+Suporte aprimorado ao VMware ESXi:: O ONTAP Select 9.14.1 inclui suporte para VMware ESXi 8,0 U2.
 
 
 

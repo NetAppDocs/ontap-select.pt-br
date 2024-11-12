@@ -1987,7 +1987,6 @@
   <block id="f371e1e74365e433f105f30c886225bf" category="inline-link-macro">Notas de versão do ONTAP Select 9.14.1</block>
   <block id="2dbcb54e47dfd070743afb26077cdc91" category="list-text">Se você estiver executando uma versão do ONTAP Select Deploy 9.14.1 menor que 9.14.1P2, você deve atualizar para o ONTAP Select Deploy 9.14.1P2 o mais rápido possível. Para obter mais informações, consulte <block ref="6635db952aa4480bb5bc591b4d6d32f6" category="inline-link-macro-rx"></block>.</block>
   <block id="aacb1ad8ec74092a13074108a4e20c02" category="list-text">Suporte aprimorado ao VMware ESXi</block>
-  <block id="78fb396e8c541b492002e6b94963fe83" category="list-text">O ONTAP Select 9.14.1 inclui suporte para VMware ESXi 8,0.2.</block>
   <block id="1e2be71e8b4858c0b3e832cba35731d1" category="section-title">ONTAP Select 9.13.1</block>
   <block id="cdbcb12eafeb6cc1f6a058e9c52a7f8d" category="paragraph">O ONTAP Select 9.13.1 inclui vários novos recursos e melhorias.</block>
   <block id="58c277c116ff23ffb9879debb95b4968" category="list-text">Suporte para NVMe sobre TCP</block>
@@ -3300,10 +3299,6 @@
   <block id="d6746c8c49fd9df73bbb168197689da8" category="paragraph">A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um cluster existente de seis para oito nós e diminuir o tamanho do cluster de oito para seis nós. Não há suporte para outros cenários de expansão ou contração do cluster.</block>
   <block id="f6ad6d358dd65a1da361069309b57e39" category="paragraph">O procedimento é iniciado a partir do ONTAP Select Deploy usando a interface CLI, API ou web.</block>
   <block id="c9dd95ac8795512f2d676118ba8def1a" category="paragraph">As funcionalidades de expansão e contração do cluster são restritas das seguintes maneiras:</block>
-  <block id="ec65581eeb2dfa95316cf6a00d2ff593" category="list-text">ESXi 8.0U2</block>
-  <block id="43629b681eab8f23e6624067ec8d1fde" category="list-text">ESXi 8.0U1</block>
-  <block id="200d1894c9fd6ae53ee1224b58c879d1" category="list-text">ESXi 8,0GA</block>
-  <block id="83796d186e6e678e53d65b677d9068ca" category="list-text">ESXi 7.0U3</block>
   <block id="ef179550c4eb9da6a82350b32d807ed9" category="list-text">ESXi 7,0</block>
   <block id="c0fa4ded01a6d24b2a77cd3a6b10e6e7" category="section-title">Expanda o cluster</block>
   <block id="c117993f1e48f58c366f6fe0873d958b" category="paragraph">Você pode aumentar o tamanho de um cluster existente de seis nós para um cluster de oito nós com o recurso de expansão do cluster.</block>
@@ -3721,7 +3716,6 @@
   <block id="744c7aceadded1b7d2f7dbabcbe794a8" category="doc">Servidor ONTAP Select VMware vCenter no ESXi</block>
   <block id="634920e565b06acb85fcaff73d20a15d" category="doc">Requisitos do ONTAP Select VMware ESXi</block>
   <block id="0edc199faf78056856f9f042ee780e07" category="inline-link">Notas de versão do ONTAP Select 9.16.1</block>
-  <block id="a1fe17f34ab508f2ef781ee6a7c0421b" category="paragraph">Pode aceder ao<block ref="dcda9204a0d7995e0d0246096082b5ee" category="inline-link-rx"></block> para visualizar os detalhes sobre a versão atual.</block>
   <block id="023deab3a8c9b82a9bfd452c0b68af9b" category="doc">Confirme a conetividade entre os nós do ONTAP Select</block>
   <block id="8a96228950f9c48cb7f24c3b98404d49" category="doc">Administrar os serviços de mediador do ONTAP Select Deploy</block>
   <block id="d2bdabf740cddb35328041a6ee746b12" category="doc">Substituir unidades RAID de software com falha para ONTAP Select</block>
@@ -3749,4 +3743,11 @@
   <block id="9cc3c3055efc6fc5a45cfce6ac3eda87" category="sidebar">Acesse o console de vídeo da VM</block>
   <block id="5a3a053ae34a79fb35028f001babbf25" category="sidebar">Substituir unidades RAID de software com falha</block>
   <block id="e2e19484d2146649c758acb6e826707f" category="sidebar">Atualize o ESXi para 6,5 e superior</block>
+  <block id="b374e4bbc5d3bd65f35605cc784ed685" category="list-text">O ONTAP Select 9.14.1 inclui suporte para VMware ESXi 8,0 U2.</block>
+  <block id="b7d2c3ffb4e7ab988d8422ff889440b1" category="paragraph">Pode aceder ao <block ref="cf1ab4e8632efa681982f5c2d85eebd4" category="inline-link-macro-rx"></block> para visualizar os detalhes sobre a versão atual.</block>
+  <block id="37730150d6378b2a0b04f20595d2d65a" category="list-text">ESXi 8,0 U3</block>
+  <block id="3a13e6fcb6840db51e3e181c41dff37b" category="list-text">ESXi 8,0 U2</block>
+  <block id="084ef93eebe5fd52d657e556b4305619" category="list-text">ESXi 8,0 U1</block>
+  <block id="4ec8056f2f2bfb0ffa0104fc43edb1da" category="list-text">ESXi 8,0GA</block>
+  <block id="8d224631a5a87c64caecc71fee6fb612" category="list-text">ESXi 7,0 U3</block>
 </blocks>
