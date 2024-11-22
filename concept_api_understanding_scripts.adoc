@@ -34,13 +34,6 @@ Os scripts foram projetados com as seguintes caraterísticas comuns:
 
 Você pode criar um cluster ONTAP Select usando o script cluster.py. Com base nos parâmetros CLI e no conteúdo do arquivo de entrada JSON, você pode modificar o script para seu ambiente de implantação da seguinte forma:
 
-[NOTE]
-====
-* A partir do ONTAP Select 9.10.1, você não pode mais implantar um novo cluster no hipervisor KVM.
-* A partir do ONTAP Select 9.11.1, toda a funcionalidade de gerenciamento não está mais disponível para clusters e hosts KVM existentes, exceto para as funções de remoção e exclusão offline.
-
-
-====
 * Hypervisor você pode implantar no ESXI ou KVM (dependendo da versão de implantação). Ao implantar no ESXi, o hypervisor pode ser gerenciado pelo vCenter ou pode ser um host autônomo.
 * Tamanho do cluster você pode implantar um cluster de nó único ou de vários nós.
 * Avaliação ou licença de produção você pode implantar um cluster com uma licença de avaliação ou adquirida para produção.

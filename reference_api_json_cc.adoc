@@ -167,13 +167,6 @@ Ao criar ou excluir um cluster do ONTAP Select usando as amostras de código Pyt
 
 == Cluster de nó único no KVM
 
-[NOTE]
-====
-* A partir do ONTAP Select 9.10.1, você não pode mais implantar um novo cluster no hipervisor KVM.
-* A partir do ONTAP Select 9.11.1, toda a funcionalidade de gerenciamento não está mais disponível para clusters e hosts KVM existentes, exceto para as funções de remoção e exclusão offline.
-
-
-====
 [source, json]
 ----
 {
