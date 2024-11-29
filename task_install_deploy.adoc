@@ -219,5 +219,5 @@ Você deve fazer login na interface do usuário da Web para confirmar que o util
 
 .Informações relacionadas
 * link:task_cli_signing_in.html["Faça login para implantar usando SSH"]
-* link:task_quick_start_for_ovf_template_deployments.html["Início rápido do ONTAP Select para implantações de modelos OVF"]
+* link:deploy-evaluation-ontap-select-ovf-template.html["Implantar uma instância de avaliação de 90 dias de um cluster do ONTAP Select"]
 

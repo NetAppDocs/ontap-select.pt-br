@@ -56,4 +56,4 @@ Você pode atualizar um cluster de avaliação do ONTAP Select para usar uma lic
 Consulte link:task_adm_licenses.html["Converter uma licença de avaliação em uma licença de produção"] para obter mais informações.
 
 .Informações relacionadas
-link:task_quick_start_for_ovf_template_deployments.html["Início rápido do ONTAP Select para implantações de modelos OVF"]
+link:deploy-evaluation-ontap-select-ovf-template.html["Implantar uma instância de avaliação de 90 dias de um cluster do ONTAP Select"]
