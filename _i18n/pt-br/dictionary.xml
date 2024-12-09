@@ -35,7 +35,6 @@
   <block id="42cac712a9acf93c75659c9fa981f95f" category="paragraph-title">Licenças compradas com capacidade de armazenamento</block>
   <block id="c644c0897d8dc8d07dc010b0a5d1b341" category="paragraph">Se você decidiu não instalar os arquivos de licença com capacidade de armazenamento como parte da implantação do cluster ONTAP Select, você deve adquirir e instalar os arquivos de licença antes que o período de carência expire para clusters executados com uma licença adquirida.</block>
   <block id="a273e800cc2132ad1d962e51194e96e5" category="paragraph-title">Agregados espelhados</block>
-  <block id="92d7efa0a9c4eca7052897e58341d0b6" category="paragraph">Há discos sobressalentes de dados criados pelo utilitário de administração implantar em cada nó do ONTAP Select a partir do espaço utilizável do datastore (como, Pool0 e Pool1). Para implementar a alta disponibilidade dos dados em um cluster de vários nós, é necessário criar um agregado espelhado usando essas peças sobressalentes.</block>
   <block id="5cd0ad520dbcfbdeee9d38a1ad945c17" category="summary">Depois de implantar um cluster ONTAP Select, você pode atualizar a imagem ONTAP de cada nó conforme necessário usando o procedimento de atualização padrão do software ONTAP.</block>
   <block id="f300769ad7ade3ee1597c88f58750b97" category="doc">Atualizar os nós de ONTAP Select</block>
   <block id="047bc25615b74f5ee9ad03d531e71221" category="paragraph">Depois de implantar um cluster do ONTAP Select, você pode atualizar a imagem do ONTAP em cada nó do cluster conforme necessário.</block>
@@ -2079,7 +2078,6 @@
   <block id="f30bc4e85b9bb354d7f8cfeba876a8ba" category="paragraph">É uma prática recomendada fazer backup dos dados de configuração de implantação regularmente, inclusive após a criação de um cluster. Isso se torna particularmente importante nos clusters de dois nós, porque os dados de configuração do mediador estão incluídos no backup.</block>
   <block id="af57810cccc926c446851c6408c6667b" category="paragraph">Depois de criar ou implantar um cluster, você deve fazer backup dos dados de configuração do ONTAP Select Deploy.</block>
   <block id="65af935cd1eb18bdc5fd96837e0ae492" category="paragraph">Embora a existência do agregado espelhado seja necessária para fornecer uma cópia atualizada (RPO 0) do agregado primário, tenha cuidado para que o agregado primário não seja executado com pouco espaço livre. Uma condição de baixo espaço no agregado primário pode fazer com que o ONTAP exclua a cópia Snapshot comum usada como linha de base para o armazenamento de giveback. Isso funciona como projetado para acomodar gravações de clientes. No entanto, a falta de uma cópia Snapshot comum no failback requer que o nó ONTAP Select faça uma linha de base completa a partir do agregado espelhado. Esta operação pode levar uma quantidade significativa de tempo em um ambiente de nada compartilhado.</block>
-  <block id="2d27e76da02804de2afe9d209e5cbb1c" category="admonition">É recomendável manter pelo menos 20% de espaço livre para agregados espelhados para performance e disponibilidade ideais de storage. Embora a recomendação seja de 10% para agregados não espelhados, os 10% adicionais de espaço podem ser usados pelo sistema de arquivos para absorver alterações incrementais. Mudanças incrementais aumentam a utilização de espaço para agregados espelhados devido à arquitetura baseada em Snapshot copy-on-write da ONTAP. O não cumprimento destas práticas recomendadas pode ter um impactos negativo no desempenho.</block>
   <block id="9dc41c2a99c45941a7b6c4298a4ba9a5" category="section-title">Agregação de NIC, agrupamento e failover</block>
   <block id="27294906efe978d2e7d613739082d7c5" category="paragraph">O ONTAP Select suporta um único link 10Gb para clusters de dois nós; no entanto, é uma prática recomendada do NetApp ter redundância de hardware por meio de agregação de NIC ou agrupamento de NIC nas redes internas e externas do cluster ONTAP Select.</block>
   <block id="d29b03a7fc61c6e1f42a47018afc8bcb" category="paragraph">Se uma NIC tiver vários circuitos integrados específicos de aplicativos (ASICs), selecione uma porta de rede de cada ASIC ao criar construções de rede por meio de agrupamento NIC para as redes internas e externas.</block>
@@ -3345,11 +3343,7 @@
   <block id="7df2592d21ee2d7b12cfa029e519d7b9" category="list-text">Versão ONTAP Select</block>
   <block id="07c910df832eed07eccb9da18112e34b" category="list-text">Preparação do anfitrião</block>
   <block id="37d0d8277e2cec2cf18d723f103fbca0" category="list-text">Você deve preparar os hosts de hipervisor nos quais os nós do ONTAP Select serão executados e ter os arquivos de licença de storage necessários com base no modelo de licenciamento. Para visualizar os requisitos de preparação:</block>
-  <block id="c93ac09febb4264dc3b4e28bc4aa22ba" category="list-text">Inicie sessão na interface de utilizador da Web Deploy.</block>
   <block id="9c3a59d6f34c8cd48494cf65ab055e67" category="inline-image-macro">Ponto de interrogação</block>
-  <block id="34d1b92a9bea981532796b3947d5c933" category="list-text">Clique <block ref="597586a3d1dcebe6ad038a4dde446a9e" category="inline-image-macro-rx" type="image"></block> no topo da página.</block>
-  <block id="557b212863af34dee6642f1dd8feef4c" category="list-text">Clique em *Pré-requisitos*.</block>
-  <block id="a08bb19599dcb78fd73e7aa3b405980f" category="list-text">Role para baixo para rever os requisitos e clique em *OK*.</block>
   <block id="d5b05ba2463ff6cca0078e72e50f28e7" category="list-text">Ficheiros de licença</block>
   <block id="85341d624e9b0303539956bd22bfd4d4" category="list-text">Se você pretende implantar o cluster em um ambiente de produção, você deve adquirir os arquivos de licença de armazenamento com base no modelo de licenciamento.</block>
   <block id="f0d5638b299d1abdeea7e3509c4a29b5" category="list-text">Implantar credenciais de instalação e conta</block>
@@ -3362,7 +3356,6 @@
   <block id="8562cdbdbba76b21c630f16efd9cf0cd" category="list-text">Adicione hosts ao inventário</block>
   <block id="7b8833fb04a6b84fadcfe679b52ce68b" category="list-text">Pré-verificação da rede</block>
   <block id="caed535f5a1e318fff54ea6d8139100c" category="list-text">Implante o cluster</block>
-  <block id="4a27c1e90fe3acd696c1f0934ce7e3b5" category="admonition">Você pode executar as mesmas etapas de forma independente clicando nas guias na parte superior da página (clusters, hosts do hipervisor, Administração).</block>
   <block id="9dae84e581f54bbd3529b1a828393655" category="list-text">Verificador de rede</block>
   <block id="18889d3b7d7412c773430265b3f7a703" category="list-text">Se você implantar um cluster de vários nós, você deve estar familiarizado com o verificador de rede.</block>
   <block id="4680945aec88d9bcced06d39ec485a67" category="list-text">Depois de implantar um cluster</block>
@@ -3370,42 +3363,23 @@
   <block id="dd2d1f8e815a8070f320c0a14ed24f71" category="paragraph">Você pode usar a interface de usuário da Web ONTAP Select Deploy para implantar um cluster ONTAP Select de nó único ou de vários nós.</block>
   <block id="5287736167b026a88e404d8ebf5a4615" category="paragraph">Consulte <block ref="6dd97e1bd4c3fafba8bd8a1033c5617c" category="inline-link-macro-rx"></block> para se preparar para implantar o cluster. A administração de implantação deve ser instalada e configurada inicialmente (senha, AutoSupport e vCenter).</block>
   <block id="3c67dfd58666f1caf15b0490aaa8b0fc" category="paragraph">Um cluster do ONTAP Select com um ou mais nós é criado para uma implantação de produção.</block>
-  <block id="688b22352a3e9f8c2d13a096f7e721fb" category="paragraph">As etapas a seguir dependem se deseja criar um cluster de nó único ou um cluster de vários nós.</block>
   <block id="55e9b658bcd6b4ca65de5ed9557f68db" category="list-text">Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador (admin).</block>
-  <block id="f419e9f320490f02ec41e0cead19dc2a" category="list-text">Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme que você atendeu aos pré-requisitos de configuração e clique em *OK*.</block>
-  <block id="ba7cc5d6bb74cdd0aaa5fe5a9bc4b4d3" category="list-text">Se a página de inicialização do cluster *Getting Started* não for exibida, clique <block ref="597586a3d1dcebe6ad038a4dde446a9e" category="inline-image-macro-rx" type="image"></block> na parte superior da página e clique em *Getting Started*.</block>
-  <block id="5d0652261e3e13ff5041f1c875d60d9c" category="list-text">Na página *Introdução*, clique em *carregar* e selecione uma licença da estação de trabalho local e clique em *abrir* para carregar a licença.</block>
-  <block id="3f4187941dcc4a52259a3955f138c314" category="list-text">Clique em *Refresh* (Atualizar) e confirme que a licença foi adicionada.</block>
-  <block id="f11dc7320c4209cdff4f85de946666bf" category="list-text">Clique em *Next* para adicionar um host de hipervisor e, em seguida, clique em *Add*.</block>
   <block id="af001d5d1284580cf117e021e667742a" category="paragraph">Você pode adicionar o host do hypervisor diretamente ou conetando-se a um servidor vCenter. Forneça os detalhes e as credenciais do host apropriados, conforme necessário.</block>
-  <block id="180a2ecafc5641b9bb33d5a6fe6ba41d" category="list-text">Clique em *Refresh* e confirme se o valor *Type* para o host é *ESX*.</block>
   <block id="4693647f83597e4a631ffdc39034b06d" category="paragraph">Todas as credenciais de conta fornecidas são adicionadas ao banco de dados de credenciais de implantação.</block>
-  <block id="b46a9a6d9c38c08d97979def3d4a6e23" category="list-text">Clique em *Next* para iniciar o processo de criação do cluster.</block>
-  <block id="a291fbe570213bb24c1d06ffc86d2dc0" category="list-text">Na seção *Detalhes do cluster*, forneça todas as informações necessárias que descrevem o cluster e clique em *Concluído*.</block>
   <block id="0f602d7fe375d87b4dfff619bb7a3b50" category="list-text">Em *Configuração do nó*, forneça o endereço IP de gerenciamento do nó e selecione a licença para o nó; você pode carregar uma nova licença, se necessário. Você também pode alterar o nome do nó, se necessário.</block>
   <block id="a57c05031d6102136a8bfe300ea61093" category="list-text">Forneça a configuração *Hypervisor* e *rede*.</block>
   <block id="f1928401d0f38929a4645cc2dbff7269" category="paragraph">Há três configurações de nós que definem o tamanho da máquina virtual e o conjunto de recursos disponíveis. Esses tipos de instância são suportados pelas ofertas XL padrão, premium e premium da licença adquirida, respetivamente. A licença selecionada para o nó deve corresponder ou exceder o tipo de instância.</block>
   <block id="77bd5556fc873a5f14bb16bd6159b24f" category="paragraph">Selecione o host do hipervisor, bem como as redes de gerenciamento e dados.</block>
-  <block id="3118e59890d54fc6e861b3ed19f01dd1" category="list-text">Forneça a configuração *Storage* e clique em *Done*.</block>
   <block id="1a61adfd179794f0468e7cc27a3731c5" category="paragraph">Você pode selecionar as unidades com base no nível de licença da plataforma e na configuração do host.</block>
   <block id="83b2958f895c780b1ce04a69f29fa14f" category="list-text">Reveja e confirme a configuração do cluster.</block>
-  <block id="fc27442e8051c88f8a185d91ced22a20" category="paragraph">Você pode alterar a configuração clicando <block ref="cd4fada87571e8da586532fce60b382a" category="inline-image-macro-rx" type="image"></block>na seção aplicável.</block>
-  <block id="674ac8fe871dc102602a9bf96882a339" category="list-text">Clique em *seguinte* e forneça a senha de administrador do ONTAP.</block>
-  <block id="6e4ee895001e74a8e30d8d23a8ef73a4" category="list-text">Clique em *Create Cluster* para iniciar o processo de criação de cluster e, em seguida, clique em *OK* na janela pop-up.</block>
   <block id="18c27fdda3b31de582a5c418705a0eab" category="paragraph">Pode levar até 30 minutos para que o cluster seja criado.</block>
   <block id="aa28e7538205e834e26c77f5630f8893" category="list-text">Monitorize o processo de criação de cluster em várias etapas para confirmar que o cluster foi criado com sucesso.</block>
   <block id="037cb8cf634438a48c4a376dd2eaecea" category="paragraph">A página é atualizada automaticamente em intervalos regulares.</block>
   <block id="c29c0fa60d66b44a13904899d8712c68" category="open-title">Cluster de vários nós</block>
-  <block id="1c9615c8466b4b5438d388b4200a58b4" category="list-text">Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme se você atendeu aos pré-requisitos de configuração e clique em *OK*.</block>
-  <block id="736cb4ef7019568859d8e044e044c906" category="list-text">Na página *Introdução*, clique em *carregar* e selecione uma licença da estação de trabalho local e clique em *abrir* para carregar a licença. Repita para adicionar uma segunda licença.</block>
-  <block id="663e3ab8cb2a9c950e625cc8e58cc007" category="list-text">Clique em *Refresh* (Atualizar) e confirme que as licenças foram adicionadas.</block>
-  <block id="390100b77c52acdfcd83e4a92be2c51f" category="list-text">Clique em *Next* para adicionar dois hosts de hypervisor e, em seguida, clique em *Add*.</block>
   <block id="a8e01b7b0fcfbd7a1465f0baad70fa81" category="paragraph">Você pode adicionar os hosts do hypervisor diretamente ou conetando-se a um servidor vCenter. Forneça os detalhes e as credenciais do host apropriados, conforme necessário.</block>
-  <block id="6c5e52865ab96c25cdda81fff9412d0f" category="list-text">Na seção *Detalhes do cluster*, selecione *cluster de nós 2* para o *tamanho do cluster*, forneça todas as informações necessárias descrevendo os clusters e clique em *Concluído*.</block>
   <block id="87f7f104547967da3e1d18965e33ecbe" category="list-text">Em *Configuração do nó*, forneça os endereços IP de gerenciamento de nós e selecione as licenças para cada nó; você pode carregar uma nova licença, se necessário. Você também pode alterar os nomes dos nós, se necessário.</block>
   <block id="c2ec94d47c341f2cb886dfa96e0ac4bb" category="paragraph">Há três configurações de nós que definem o tamanho da máquina virtual e o conjunto de recursos disponíveis. Esses tipos de instância são suportados pelas ofertas XL padrão, premium e premium da licença adquirida, respetivamente. A licença selecionada para os nós deve corresponder ou exceder o tipo de instância.</block>
   <block id="5bcde1d421c75145a52950096b7fb58f" category="paragraph">Selecione os hosts do hipervisor, bem como o gerenciamento, os dados e as redes internas.</block>
-  <block id="48c8bfc451162cecf207d3586032c355" category="list-text">Clique em *seguinte* e execute a Pré-verificação da rede clicando em *Executar*. Isso valida que a rede interna selecionada para o tráfego de cluster do ONTAP está funcionando corretamente.</block>
   <block id="5ca1e08722935cc52d1e20fcea7b5428" category="paragraph">Pode levar até 45 minutos para que o cluster seja criado.</block>
   <block id="8e8ec233d7d8b1670dc404b61b73a0b1" category="list-text">Monitorize o processo de criação de cluster em várias etapas para confirmar que o cluster foi criado com êxito.</block>
   <block id="d92261c550ee327019eb3a3ca7a78e30" category="paragraph">Você deve confirmar que o recurso ONTAP Select AutoSupport está configurado e, em seguida, fazer backup dos dados de configuração do ONTAP Select Deploy.</block>
@@ -3784,4 +3758,32 @@
   <block id="8ca84893979a849d9d51eac372cc15a9" category="inline-link-macro">Implantar uma instância de avaliação de 90 dias de um cluster do ONTAP Select</block>
   <block id="cb5e9657db1221bb8eb7f5be5287d604" category="paragraph"><block ref="cb5e9657db1221bb8eb7f5be5287d604" category="inline-link-macro-rx"></block></block>
   <block id="ac951fbceb082ef32560a291949a4015" category="sidebar">Implantar uma instância de avaliação de 90 dias de um cluster</block>
+  <block id="ad152885aafb9bc53df5849eb7ca2f93" category="paragraph">O utilitário de administração implantar cria discos sobressalentes de dados em cada nó do ONTAP Select a partir do espaço utilizável do armazenamento de dados (como Pool0 e Pool1). Para implementar a alta disponibilidade dos dados em um cluster de vários nós, é necessário criar um agregado espelhado usando essas peças sobressalentes.</block>
+  <block id="8e5126a524085c2d504ecc6a9ee619cb" category="admonition">A aquisição de alta disponibilidade só é suportada quando agregados de dados são configurados como agregados espelhados.</block>
+  <block id="5da001c2cdc95a4311e28cf37673f6ba" category="admonition">A NetApp recomenda que você mantenha pelo menos 20% de espaço livre para agregados espelhados para oferecer disponibilidade e performance de storage ideais. Embora a recomendação seja de 10% para agregados não espelhados, o sistema de arquivos pode usar os 10% adicionais de espaço para absorver alterações incrementais. Mudanças incrementais aumentam a utilização de espaço para agregados espelhados devido à arquitetura baseada em Snapshot copy-on-write da ONTAP. A não adesão a estas melhores práticas pode ter um impactos negativo no desempenho. A aquisição de alta disponibilidade só é suportada quando agregados de dados são configurados como agregados espelhados.</block>
+  <block id="40164cee4e237bb78398a5485589b913" category="list-text">Inicie sessão na IU da Web Deploy.</block>
+  <block id="a46f1a6ef7f27e34e2b1ade44c188257" category="list-text"><block ref="597586a3d1dcebe6ad038a4dde446a9e" category="inline-image-macro-rx" type="image"></block>Selecione na parte superior da página.</block>
+  <block id="fe8dec8b217b332b88e66ecdf5472b01" category="list-text">Selecione *Pré-requisitos*.</block>
+  <block id="3929bbc1e55fa3a638006eb8e6566b4d" category="list-text">Role para baixo para rever os requisitos e selecione *OK*.</block>
+  <block id="1339b9f22cb64ff9975ba4df2d3c543b" category="admonition">Você pode executar as mesmas etapas independentemente selecionando as guias na parte superior da página (clusters, hosts do hipervisor, Administração).</block>
+  <block id="f79319ec1d7b82161a58de3096cafdd0" category="paragraph">As etapas a seguir dependem se deseja criar um cluster de nó único ou um cluster de vários nós. Um cluster de vários nós pode ter dois, quatro, seis ou oito nós.</block>
+  <block id="555e1ae22bd894e4a9fe23fc5bb1ca5e" category="list-text">Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme se você atendeu aos pré-requisitos de configuração e selecione *OK*.</block>
+  <block id="1ade53760ce0b2b9ced3db48b79b4e51" category="list-text">Se a página de inicialização do cluster *Getting Started* não for exibida, selecione <block ref="597586a3d1dcebe6ad038a4dde446a9e" category="inline-image-macro-rx" type="image"></block> na parte superior da página e selecione *Getting Started*.</block>
+  <block id="820d1873bef6998cbee232163b828a57" category="list-text">Na página *Introdução*, selecione *carregar* e, em seguida, selecione uma licença da estação de trabalho local e selecione *abrir* para carregar a licença.</block>
+  <block id="68488b2b0b0bac78cf8e946ef52da267" category="list-text">Selecione *Atualizar* e confirme que a licença foi adicionada.</block>
+  <block id="3d549ad86001c792e0804733ec4c2957" category="list-text">Selecione *Next* para adicionar um host de hipervisor e, em seguida, selecione *Add*.</block>
+  <block id="d44b6331867f2132b1d71fa39b6807b4" category="list-text">Selecione *Refresh* e confirme se o valor *Type* para o host é *ESX*.</block>
+  <block id="c62cb76848266877f290be96b3ff294e" category="list-text">Selecione *Next* para iniciar o processo de criação do cluster.</block>
+  <block id="6c7b66882eb92b081bda7b0b837ecadc" category="list-text">Na seção *Detalhes do cluster*, forneça todas as informações necessárias descrevendo o cluster e selecione *Concluído*.</block>
+  <block id="e1c524d61c650626841b4dcb765c3916" category="list-text">Forneça a configuração *Storage* e selecione *Done*.</block>
+  <block id="aaa33d34d1d725c0a59b5dc1da1a9741" category="paragraph">Pode alterar a configuração selecionando <block ref="cd4fada87571e8da586532fce60b382a" category="inline-image-macro-rx" type="image"></block> na secção aplicável.</block>
+  <block id="83cce49c4543a6bd5a93689ecad56e5e" category="list-text">Selecione *seguinte* e forneça a senha de administrador do ONTAP.</block>
+  <block id="d66205342799ff313cc08b6f66303456" category="list-text">Selecione *Create Cluster* para iniciar o processo de criação do cluster e, em seguida, selecione *OK* na janela pop-up.</block>
+  <block id="9108f18e4fb1ca838b140d2c60144a07" category="list-text">Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme se você atendeu aos pré-requisitos de configuração e selecione *OK*.</block>
+  <block id="875185b48917f696df4ff8fa2783728c" category="list-text">Na página *Introdução*, selecione *carregar* e selecione uma licença da estação de trabalho local e selecione *abrir* para carregar a licença. Repita para adicionar licenças adicionais.</block>
+  <block id="7b22f8bd9968f64a1c7b9264a85c020c" category="list-text">Selecione *Atualizar* e confirme que as licenças foram adicionadas.</block>
+  <block id="7c5fd8d9b8b6482272535e13665a25a8" category="list-text">Selecione *Next* para adicionar todos os hosts de hypervisor e selecione *Add*.</block>
+  <block id="944a1b1080e2860bd56c15282a8e476e" category="list-text">Na seção *Detalhes do cluster*, selecione o *tamanho do cluster* desejado, forneça todas as informações necessárias descrevendo os clusters e selecione *Concluído*.</block>
+  <block id="8b5ceafca01d3a14f09a0d742cbb2cfb" category="list-text">Selecione *seguinte* e execute a Pré-verificação da rede selecionando *Executar*. Isso valida que a rede interna selecionada para o tráfego de cluster do ONTAP está funcionando corretamente.</block>
+  <block id="2735f745a89477a2abc1f435e606bde3" category="list-text">Selecione *criar cluster* para iniciar o processo de criação de cluster e, em seguida, selecione *OK* na janela pop-up.</block>
 </blocks>

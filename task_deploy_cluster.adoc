@@ -41,10 +41,10 @@ Planejamento inicial:: Revise as seções _Plan_ e _License_ da documentação. 
 Preparação do anfitrião:: Você deve preparar os hosts de hipervisor nos quais os nós do ONTAP Select serão executados e ter os arquivos de licença de storage necessários com base no modelo de licenciamento. Para visualizar os requisitos de preparação:
 +
 --
-. Inicie sessão na interface de utilizador da Web Deploy.
-. Clique image:icon_question_mark.gif["Ponto de interrogação"] no topo da página.
-. Clique em *Pré-requisitos*.
-. Role para baixo para rever os requisitos e clique em *OK*.
+. Inicie sessão na IU da Web Deploy.
+. image:icon_question_mark.gif["Ponto de interrogação"]Selecione na parte superior da página.
+. Selecione *Pré-requisitos*.
+. Role para baixo para rever os requisitos e selecione *OK*.
 
 
 --
@@ -65,7 +65,7 @@ Página inicial de introdução:: A página inicial *Introdução ao ONTAP Selec
 
 
 
-NOTE: Você pode executar as mesmas etapas de forma independente clicando nas guias na parte superior da página (clusters, hosts do hipervisor, Administração).
+NOTE: Você pode executar as mesmas etapas independentemente selecionando as guias na parte superior da página (clusters, hosts do hipervisor, Administração).
 
 Verificador de rede:: Se você implantar um cluster de vários nós, você deve estar familiarizado com o verificador de rede.
 Depois de implantar um cluster:: Você deve fazer backup dos dados de configuração do ONTAP Select Deploy.
@@ -84,27 +84,27 @@ Consulte link:task_deploy_cluster.html#before-you-begin["Antes de começar"] par
 Um cluster do ONTAP Select com um ou mais nós é criado para uma implantação de produção.
 
 .Passos
-As etapas a seguir dependem se deseja criar um cluster de nó único ou um cluster de vários nós.
+As etapas a seguir dependem se deseja criar um cluster de nó único ou um cluster de vários nós. Um cluster de vários nós pode ter dois, quatro, seis ou oito nós.
 
 [role="tabbed-block"]
 ====
 .Cluster de nó único
 --
 . Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador (admin).
-. Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme que você atendeu aos pré-requisitos de configuração e clique em *OK*.
-. Se a página de inicialização do cluster *Getting Started* não for exibida, clique image:icon_question_mark.gif["Ponto de interrogação"] na parte superior da página e clique em *Getting Started*.
-. Na página *Introdução*, clique em *carregar* e selecione uma licença da estação de trabalho local e clique em *abrir* para carregar a licença.
-. Clique em *Refresh* (Atualizar) e confirme que a licença foi adicionada.
-. Clique em *Next* para adicionar um host de hipervisor e, em seguida, clique em *Add*.
+. Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme se você atendeu aos pré-requisitos de configuração e selecione *OK*.
+. Se a página de inicialização do cluster *Getting Started* não for exibida, selecione image:icon_question_mark.gif["Ponto de interrogação"] na parte superior da página e selecione *Getting Started*.
+. Na página *Introdução*, selecione *carregar* e, em seguida, selecione uma licença da estação de trabalho local e selecione *abrir* para carregar a licença.
+. Selecione *Atualizar* e confirme que a licença foi adicionada.
+. Selecione *Next* para adicionar um host de hipervisor e, em seguida, selecione *Add*.
 +
 Você pode adicionar o host do hypervisor diretamente ou conetando-se a um servidor vCenter. Forneça os detalhes e as credenciais do host apropriados, conforme necessário.
 
-. Clique em *Refresh* e confirme se o valor *Type* para o host é *ESX*.
+. Selecione *Refresh* e confirme se o valor *Type* para o host é *ESX*.
 +
 Todas as credenciais de conta fornecidas são adicionadas ao banco de dados de credenciais de implantação.
 
-. Clique em *Next* para iniciar o processo de criação do cluster.
-. Na seção *Detalhes do cluster*, forneça todas as informações necessárias que descrevem o cluster e clique em *Concluído*.
+. Selecione *Next* para iniciar o processo de criação do cluster.
+. Na seção *Detalhes do cluster*, forneça todas as informações necessárias descrevendo o cluster e selecione *Concluído*.
 . Em *Configuração do nó*, forneça o endereço IP de gerenciamento do nó e selecione a licença para o nó; você pode carregar uma nova licença, se necessário. Você também pode alterar o nome do nó, se necessário.
 . Forneça a configuração *Hypervisor* e *rede*.
 +
@@ -113,16 +113,16 @@ Há três configurações de nós que definem o tamanho da máquina virtual e o 
 +
 Selecione o host do hipervisor, bem como as redes de gerenciamento e dados.
 
-. Forneça a configuração *Storage* e clique em *Done*.
+. Forneça a configuração *Storage* e selecione *Done*.
 +
 Você pode selecionar as unidades com base no nível de licença da plataforma e na configuração do host.
 
 . Reveja e confirme a configuração do cluster.
 +
-Você pode alterar a configuração clicando image:icon_pencil.gif["Editar"]na seção aplicável.
+Pode alterar a configuração selecionando image:icon_pencil.gif["Editar"] na secção aplicável.
 
-. Clique em *seguinte* e forneça a senha de administrador do ONTAP.
-. Clique em *Create Cluster* para iniciar o processo de criação de cluster e, em seguida, clique em *OK* na janela pop-up.
+. Selecione *seguinte* e forneça a senha de administrador do ONTAP.
+. Selecione *Create Cluster* para iniciar o processo de criação do cluster e, em seguida, selecione *OK* na janela pop-up.
 +
 Pode levar até 30 minutos para que o cluster seja criado.
 
@@ -136,20 +136,20 @@ A página é atualizada automaticamente em intervalos regulares.
 .Cluster de vários nós
 --
 . Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador (admin).
-. Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme se você atendeu aos pré-requisitos de configuração e clique em *OK*.
-. Se a página de inicialização do cluster *Getting Started* não for exibida, clique image:icon_question_mark.gif["Ponto de interrogação"] na parte superior da página e clique em *Getting Started*.
-. Na página *Introdução*, clique em *carregar* e selecione uma licença da estação de trabalho local e clique em *abrir* para carregar a licença. Repita para adicionar uma segunda licença.
-. Clique em *Refresh* (Atualizar) e confirme que as licenças foram adicionadas.
-. Clique em *Next* para adicionar dois hosts de hypervisor e, em seguida, clique em *Add*.
+. Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme se você atendeu aos pré-requisitos de configuração e selecione *OK*.
+. Se a página de inicialização do cluster *Getting Started* não for exibida, selecione image:icon_question_mark.gif["Ponto de interrogação"] na parte superior da página e selecione *Getting Started*.
+. Na página *Introdução*, selecione *carregar* e selecione uma licença da estação de trabalho local e selecione *abrir* para carregar a licença. Repita para adicionar licenças adicionais.
+. Selecione *Atualizar* e confirme que as licenças foram adicionadas.
+. Selecione *Next* para adicionar todos os hosts de hypervisor e selecione *Add*.
 +
 Você pode adicionar os hosts do hypervisor diretamente ou conetando-se a um servidor vCenter. Forneça os detalhes e as credenciais do host apropriados, conforme necessário.
 
-. Clique em *Refresh* e confirme se o valor *Type* para o host é *ESX*.
+. Selecione *Refresh* e confirme se o valor *Type* para o host é *ESX*.
 +
 Todas as credenciais de conta fornecidas são adicionadas ao banco de dados de credenciais de implantação.
 
-. Clique em *Next* para iniciar o processo de criação do cluster.
-. Na seção *Detalhes do cluster*, selecione *cluster de nós 2* para o *tamanho do cluster*, forneça todas as informações necessárias descrevendo os clusters e clique em *Concluído*.
+. Selecione *Next* para iniciar o processo de criação do cluster.
+. Na seção *Detalhes do cluster*, selecione o *tamanho do cluster* desejado, forneça todas as informações necessárias descrevendo os clusters e selecione *Concluído*.
 . Em *Configuração do nó*, forneça os endereços IP de gerenciamento de nós e selecione as licenças para cada nó; você pode carregar uma nova licença, se necessário. Você também pode alterar os nomes dos nós, se necessário.
 . Forneça a configuração *Hypervisor* e *rede*.
 +
@@ -158,17 +158,17 @@ Há três configurações de nós que definem o tamanho da máquina virtual e o 
 +
 Selecione os hosts do hipervisor, bem como o gerenciamento, os dados e as redes internas.
 
-. Forneça a configuração *Storage* e clique em *Done*.
+. Forneça a configuração *Storage* e selecione *Done*.
 +
 Você pode selecionar as unidades com base no nível de licença da plataforma e na configuração do host.
 
 . Reveja e confirme a configuração do cluster.
 +
-Você pode alterar a configuração clicando image:icon_pencil.gif["Editar"]na seção aplicável.
+Pode alterar a configuração selecionando image:icon_pencil.gif["Editar"] na secção aplicável.
 
-. Clique em *seguinte* e execute a Pré-verificação da rede clicando em *Executar*. Isso valida que a rede interna selecionada para o tráfego de cluster do ONTAP está funcionando corretamente.
-. Clique em *seguinte* e forneça a senha de administrador do ONTAP.
-. Clique em *Create Cluster* para iniciar o processo de criação de cluster e, em seguida, clique em *OK* na janela pop-up.
+. Selecione *seguinte* e execute a Pré-verificação da rede selecionando *Executar*. Isso valida que a rede interna selecionada para o tráfego de cluster do ONTAP está funcionando corretamente.
+. Selecione *seguinte* e forneça a senha de administrador do ONTAP.
+. Selecione *criar cluster* para iniciar o processo de criação de cluster e, em seguida, selecione *OK* na janela pop-up.
 +
 Pode levar até 45 minutos para que o cluster seja criado.
 

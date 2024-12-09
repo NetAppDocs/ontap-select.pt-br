@@ -72,4 +72,7 @@ Há várias opções disponíveis ao configurar o cluster, incluindo as seguinte
 Se você decidiu não instalar os arquivos de licença com capacidade de armazenamento como parte da implantação do cluster ONTAP Select, você deve adquirir e instalar os arquivos de licença antes que o período de carência expire para clusters executados com uma licença adquirida.
 
 .Agregados espelhados
-Há discos sobressalentes de dados criados pelo utilitário de administração implantar em cada nó do ONTAP Select a partir do espaço utilizável do datastore (como, Pool0 e Pool1). Para implementar a alta disponibilidade dos dados em um cluster de vários nós, é necessário criar um agregado espelhado usando essas peças sobressalentes.
+O utilitário de administração implantar cria discos sobressalentes de dados em cada nó do ONTAP Select a partir do espaço utilizável do armazenamento de dados (como Pool0 e Pool1). Para implementar a alta disponibilidade dos dados em um cluster de vários nós, é necessário criar um agregado espelhado usando essas peças sobressalentes.
+
+
+NOTE: A aquisição de alta disponibilidade só é suportada quando agregados de dados são configurados como agregados espelhados.
