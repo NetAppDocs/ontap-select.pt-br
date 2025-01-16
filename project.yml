@@ -262,8 +262,6 @@ sidebar:
         url: "/reference_api_script_common.html"
       - title: Redimensionar nós de cluster
         url: "/reference_api_script_resize.html"
-  - title: Automatize com o Ansible
-    url: "/concept_automate_ansible.html"
   - title: Use a CLI
     entries:
     - title: Faça login usando SSH

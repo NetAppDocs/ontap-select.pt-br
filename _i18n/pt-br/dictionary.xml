@@ -287,43 +287,10 @@
   <block id="04de579c1894992d6db449edfae40cea" category="list-text">Implantar o 2.7.2 e versões anteriores</block>
   <block id="90d8a60c5d8da54341e7fbd934d3024e" category="list-text">O ONTAP Select Deploy 2.7.2 e todas as versões anteriores incluem a versão 2 da API REST.</block>
   <block id="1e65c8b003833561b006ff8f81c74d0a" category="admonition">As versões 2 e 3 da API REST não são compatíveis. Se você atualizar para implantar o 2,8 ou posterior a partir de uma versão anterior que inclua a versão 2 da API, você deve atualizar qualquer código existente que acesse diretamente a API, bem como quaisquer scripts usando a interface de linha de comando.</block>
-  <block id="c32e557727d87dabd26419e2d74fd541" category="summary">Use as funções do Ansible para automatizar implantações do ONTAP Select.</block>
-  <block id="6a7bceb6d2b5ceedce475be4f9b01f70" category="doc">Automatize implantações de ONTAP Select com o Ansible</block>
-  <block id="ef4813ca7c0fc0ff31c081f95744fca3" category="paragraph">Use as funções e os manuais do Ansible para automatizar implantações do ONTAP Select.</block>
-  <block id="53e3f47e6ca445e9be6f8424cc405d08" category="paragraph">Uma função do Ansible é uma coleção lógica de tarefas, modelos, manipuladores e variáveis em uma estrutura de arquivos padronizada. Use essas funções para facilitar, reutilizar e modularizar a funcionalidade que pode ser usada de forma independente. Inclua funções e a lista de hosts nos quais você deseja que elas sejam executadas, em um manual de estratégia para execução. Depois de instalar o Ansible, atualizar os módulos necessários e entender os manuais, você estará pronto para baixar as funções do ONTAP Select (OTS) do NetApp GitHub para criar e executar seu próprio manual de estratégia para implantar clusters do ONTAP Select.</block>
-  <block id="a5cd3ed116608dac017f14c046ea56bf" category="section-title">Funções</block>
-  <block id="826d466edf75a6e091340a11b737b650" category="paragraph">Há duas funções disponíveis para o ONTAP Select:</block>
-  <block id="efd9faa12026d5475636db4e69b74c88" category="section-title">na_ots_deploy</block>
-  <block id="43240aa487d9e87740e23d626da1a362" category="paragraph">Essa função faz o download do arquivo de instalação do ONTAP Select Deploy em um host vCenter ou ESXi. Em seguida, ele cria e executa a VM de implantação.</block>
-  <block id="295abdb722ec58f88548a860f1de3615" category="paragraph">Esta função utiliza os seguintes valores de entrada:</block>
-  <block id="ce32e2e59fbccdfecf9783e364821344" category="list-text">Credenciais de host do vCenter ou ESXi</block>
-  <block id="bcac6351d7ffa20621625e884ac48eef" category="list-text">Implantar a criação de VM, incluindo informações como:</block>
-  <block id="75ba8d70e3692ba200f0e0df37b4d2ae" category="list-text">Endereço IP</block>
   <block id="dae4a538d4ca7b6c0789932062fe718d" category="list-text">Nome do host</block>
-  <block id="99dea78007133396a7b8ed70578ac6ae" category="list-text">Iniciar sessão</block>
   <block id="dc647eb65e6711e155375218212b3964" category="list-text">Palavra-passe</block>
   <block id="8a5227cc82d14862956938caffc1acf2" category="list-text">Armazenamento de dados</block>
   <block id="eec89088ee408b80387155272b113256" category="list-text">Rede</block>
-  <block id="53c3b66ec700ff4dc91986d0dd8b16ac" category="list-text">Caminho local para o arquivo OVA</block>
-  <block id="a494e509586e66c9858cd2b0032bbb59" category="paragraph">Certifique-se de que o arquivo de instalação esteja disponível antes de executar o manual de estratégia, incluindo a função).</block>
-  <block id="67b626a26e85af31687eb59b04a92d36" category="admonition">A maneira mais simples de fornecer esses valores de entrada é através de um arquivo de variáveis globais no formato YML. Passe esse arquivo YML no manual de estratégia.</block>
-  <block id="62f436a0c8a1102605e3a87bed8fb9bb" category="paragraph">A função tem uma única tarefa que importa o arquivo OVA de implantação para o host, cria a VM e o executa. Você pode acessar e baixar essa função no GitHub do NetApp Ansible aqui: <block ref="76046f5222ce385c10b6d73a03e82ba7" category="inline-link-macro-rx"></block></block>
-  <block id="844c277ee2d3a4ab83ef1f113352e100" category="section-title">na_ots_cluster</block>
-  <block id="7fd297e1f0beaa7151bd9285d7dff546" category="paragraph">Essa função usa as APIs de implantação do ONTAP Select para criar e implantar o cluster do ONTAP Select. Ele assume que a VM deploy foi criada e está funcionando manualmente ou usando a função *na_ots_Deploy*. Além disso, a função assume que os hosts Select estão configurados adequadamente com a rede e o armazenamento necessários para o cluster ONTAP Select.</block>
-  <block id="f0257515d53312c2d8028409069c5d84" category="paragraph">A função usa os valores de entrada para as credenciais do vCenter ou ESXI e implementa credenciais de VM para acessar as APIs e todas as informações pertinentes necessárias para criar o cluster do ONTAP Select e a VM do nó.</block>
-  <block id="ea6e2b68eae559d20093f0d7eae85fb8" category="paragraph">A função executa as seguintes tarefas:</block>
-  <block id="de939cf4d4a045633c8a520b501bb40e" category="list-text">Adição de credenciais de host (vCenter ou esxi)</block>
-  <block id="0b67a16a8394599f4eecf8683ef0d301" category="list-text">Obter e Registrar as IDs de host</block>
-  <block id="fa8c1aa26c03157b5e62997fd0fdaa14" category="list-text">Validar a rede interna (para clusters de vários nós)</block>
-  <block id="d7494ab1ca8800562b8faee8d3a4984e" category="list-text">Criando o cluster</block>
-  <block id="073dd452840b7a9881432728f959cd2c" category="list-text">Configurando os nós</block>
-  <block id="5b6e8147fdc6caa0b27d7fc75489608f" category="list-text">Configurando a rede e o pool de armazenamento</block>
-  <block id="b6877b94a1e530ab0fc6b8d1545fd166" category="list-text">Implantando o cluster</block>
-  <block id="f8cac4cf1b1201d6a9386323183ca9c8" category="paragraph">Como resultado, a função é concluída com a VM do cluster em execução e o cluster do ONTAP Select totalmente implantado. Você pode acessar e baixar essa função no GitHub do NetApp Ansible aqui: <block ref="56a4d28e5b01605b6b865a56dead08da" category="inline-link-macro-rx"></block></block>
-  <block id="043194e296799e8dbefda7f37d0e101e" category="section-title">Exemplo de Playbook</block>
-  <block id="483b9ffc2547d862835719e69821ce3e" category="paragraph">A seguir está um exemplo de manual de estratégia que chama essas duas funções do ONTAP Select. Observe que as variáveis de entrada são definidas em arquivos yml e passadas via "vars_files". Você pode encontrar mais detalhes nos arquivos README em cada uma das funções.</block>
-  <block id="6c92285fa6d3e827b198d120ea3ac674" category="inline-link-macro">aqui</block>
-  <block id="006a0a02171a296bf3a320f8991be24a" category="paragraph">Depois que o cluster do ONTAP Select for criado e executado usando as funções acima, você poderá utilizar o conjunto avançado de funções do ONTAP Ansible disponíveis para automatizar ainda mais os recursos e os recursos do ONTAP. As funções ONTAP disponíveis podem ser acessadas <block ref="4d400bdda09fce7a6e9e1a49c64cce9d" category="inline-link-macro-rx"></block>. Em resumo, as funções do ONTAP Select Ansible e as funções do ONTAP permitem automatizar totalmente seu fluxo de trabalho completo para gerenciar seu storage com o ONTAP Select.</block>
   <block id="e94fcecbba43e9dc52109bded1878e47" category="summary">Descubra as opções de alta disponibilidade para selecionar a melhor configuração de HA para o seu ambiente.</block>
   <block id="80ca7f43f3e672c21243bfefe6098be3" category="paragraph">Embora os clientes estejam começando a migrar workloads de aplicações de dispositivos de storage de classe empresarial para soluções baseadas em software executadas em hardware comum, as expectativas e necessidades relacionadas à resiliência e à tolerância de falhas não mudaram. Uma solução de HA que fornece um objetivo de ponto de restauração zero (RPO) protege o cliente da perda de dados devido a uma falha de qualquer componente do stack de infraestrutura.</block>
   <block id="0ef73cf573ab623e48c8765c1452e768" category="paragraph">Uma grande parte do mercado de SDS é baseada na noção de storage sem compartilhamento, com a replicação de software fornecendo resiliência de dados ao armazenar várias cópias de dados de usuários em diferentes silos de storage. O ONTAP Select se baseia nessa premissa usando os recursos de replicação síncrona (RAID SyncMirror) fornecidos pelo ONTAP para armazenar uma cópia extra dos dados do usuário no cluster. Isso ocorre no contexto de um par de HA. Cada par de HA armazena duas cópias de dados de usuário: Uma no storage fornecido pelo nó local e outra no storage fornecido pelo parceiro de HA. Em um cluster do ONTAP Select, a replicação síncrona e de HA são Unidas e o recurso dos dois não pode ser desacoplado ou usado de forma independente. Como resultado, a funcionalidade de replicação síncrona só está disponível na oferta multinode.</block>
@@ -1484,7 +1451,6 @@
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">Código aberto</block>
-  <block id="33693ff3a7d631ea880e109dfc69ea97" category="paragraph">O arquivo de aviso fornece informações sobre direitos autorais de terceiros e licenças usadas no software NetApp.</block>
   <block id="8e185b0f9eb37a6acf82cfda7db72a06" category="summary">Ao criar ou excluir um cluster do ONTAP Select usando as amostras de código Python, você deve fornecer um arquivo JSON como entrada para o script. Você pode copiar e modificar a amostra JSON apropriada com base em seus planos de implantação.</block>
   <block id="c9a9a8f627d1d803e2e94b0b16e265f3" category="section-title">Cluster de nó único no ESXi</block>
   <block id="70771ca4958d1b97175631c548e5b806" category="section-title">Cluster de nó único no ESXi usando o vCenter</block>
@@ -1925,20 +1891,15 @@
   <block id="76848919ab4ad9c5a51b5f29720a249f" category="summary">Você deve estar ciente do estado inicial de um cluster depois que ele for implantado e configurar o cluster conforme necessário para o seu ambiente.</block>
   <block id="4f8adfce07663fda787740d49cd25397" category="paragraph">Um cluster do ONTAP Select tem várias caraterísticas depois que ele é criado.</block>
   <block id="6c8b8cb454d3ccba7c258b15c1a29605" category="inline-link-macro">A atualização do cluster de implantação do OTS falha com erro</block>
-  <block id="07c811008e90cffbb0d342cd1beb72b8" category="admonition">Restringir funções e permissões para a conta de administrador do ONTAP pode limitar a capacidade do ONTAP Select Deploy de gerenciar o cluster. Para obter mais informações, consulte o artigo da KB <block ref="e376689174188790c996782ceb328c45" category="inline-link-macro-rx"></block>.</block>
   <block id="bfa10f7c5e846fdab9228aa316c04549" category="paragraph-title">LIFs</block>
   <block id="e6d9b928e48b5e5a2538b2bcdc515c95" category="paragraph">Existem dois tipos de LIFs especificados pelo cliente atribuídos:</block>
   <block id="7e8ceade9e54e9a912c6f9a52ea87658" category="list-text">Gerenciamento de clusters (um por cluster)</block>
   <block id="5e3a8851b34912653fbf0e9bbf3fc9d0" category="list-text">Gerenciamento de nós (um por nó)</block>
   <block id="642223473862db290604321fe2ebe763" category="paragraph-title">SVMs</block>
-  <block id="3013e63917da83ac89d317625e960fa3" category="paragraph">Duas SVMs administrativas estão ativas:</block>
-  <block id="38cd25d85c8a7e96abb2aaf9d4009eb2" category="list-text">SVM padrão</block>
-  <block id="c6117cdbee2307d85ed57db8a195f4f8" category="list-text">SVM do cluster</block>
   <block id="d5350d8759b1ec84607e47908809058e" category="paragraph-title">Agregados</block>
   <block id="ebeedb9721ef0e0966825fecfef52bb5" category="paragraph">O agregado raiz é criado.</block>
   <block id="98f770b0af18ca763421bac22b4b6805" category="paragraph-title">Caraterísticas</block>
   <block id="d5daa4c0e0a3988a633eb5273b984697" category="paragraph">Todos os recursos estão licenciados e disponíveis. Tanto o SnapLock quanto o FabricPool exigem licenças separadas.</block>
-  <block id="076515078e25047da0c60bc6f27e2c68" category="admonition">Não há SVMs de dados criadas. Além disso, o cluster de vários nós tem uma rede interna com LIFs gerados automaticamente.</block>
   <block id="d0730ff14b2f6fb53d9e49978a76660e" category="summary">O ONTAP Select oferece suporte completo para a maioria das funcionalidades do ONTAP. Muitos dos recursos do ONTAP são licenciados automaticamente para cada nó ao implantar um cluster. No entanto, alguns recursos exigem uma licença separada.</block>
   <block id="f33b49f74fc8933d903baf71e893888b" category="doc">Caraterísticas DO ONTAP</block>
   <block id="0deac5caf37785bb3c3ce0d80f8d8d18" category="admonition">Os recursos do ONTAP que têm dependências específicas de hardware geralmente não são suportados com o ONTAP Select.</block>
@@ -3555,7 +3516,6 @@
   <block id="bd4d64691f933fac8c76e72632b62944" category="sidebar">Amostras de código Python</block>
   <block id="d7d5441f14743f0457740d73bd580cfa" category="sidebar">JSON para criar um cluster</block>
   <block id="1ca48c398b8c739a9815d44011185388" category="sidebar">Redimensionar nós de cluster</block>
-  <block id="46fc1cf655dd8158b6b58910cf88e653" category="sidebar">Automatize com o Ansible</block>
   <block id="8a9e0f8224695e94f0988f444488877b" category="sidebar">Use a CLI</block>
   <block id="89c5ba6f9355d2da97bb00bdf0ec66e5" category="sidebar">Faça login usando SSH</block>
   <block id="8c45b8a7e3dd4094586773bc09fc8842" category="sidebar">Utilitário de implantação</block>
@@ -3642,7 +3602,6 @@
   <block id="567999f9c71634f001a831b733088bbc" category="doc">Use o ONTAP Select em escritórios remotos e filiais</block>
   <block id="ecef17057a10f9337620a1aee67c110f" category="summary">O NetApp ONTAP Select é um dispositivo de storage definido por software que você pode implantar em uma variedade de servidores de hardware comuns que executam o hipervisor VMware ESXi ou Kernel-Based Virtual Machine (KVM). Ele oferece a agilidade de que você precisa para criar uma infraestrutura de nuvem privada flexível e dimensionável. Este site contém a documentação do ONTAP Select 9.16.1.</block>
   <block id="b38f50fa2d7eac1d0761ec2b46339f62" category="inline-link-macro">Aviso para ONTAP Select 9.16.1</block>
-  <block id="561a04c4081432fad02b159522e1d02c" category="list-text"><block ref="561a04c4081432fad02b159522e1d02c" category="inline-link-macro-rx"></block></block>
   <block id="de0887504497c1f3eb64ac5f23488612" category="doc">JSON para script para criar um cluster ONTAP Select</block>
   <block id="79ebef96ee386ef1a7dba01d303ce759" category="doc">Script para adicionar uma licença de nó ONTAP Select</block>
   <block id="be1f2ab308d7f936426d71ac4b257096" category="doc">Script para criar um cluster ONTAP Select</block>
@@ -3786,4 +3745,16 @@
   <block id="944a1b1080e2860bd56c15282a8e476e" category="list-text">Na seção *Detalhes do cluster*, selecione o *tamanho do cluster* desejado, forneça todas as informações necessárias descrevendo os clusters e selecione *Concluído*.</block>
   <block id="8b5ceafca01d3a14f09a0d742cbb2cfb" category="list-text">Selecione *seguinte* e execute a Pré-verificação da rede selecionando *Executar*. Isso valida que a rede interna selecionada para o tráfego de cluster do ONTAP está funcionando corretamente.</block>
   <block id="2735f745a89477a2abc1f435e606bde3" category="list-text">Selecione *criar cluster* para iniciar o processo de criação de cluster e, em seguida, selecione *OK* na janela pop-up.</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">Os arquivos de aviso fornecem informações sobre direitos autorais de terceiros e licenças usadas no software NetApp.</block>
+  <block id="4d5e19ca322ec82f576cffa70356d45b" category="paragraph"><block ref="4d5e19ca322ec82f576cffa70356d45b" category="inline-link-rx"></block></block>
+  <block id="dba6192da7444fc9e5fd32119193b12b" category="admonition">Restringir funções e permissões para a conta de administrador do ONTAP pode limitar a capacidade do ONTAP Select Deploy de gerenciar o cluster. Para obter mais informações, consulte o artigo da base de dados de Conhecimento <block ref="e376689174188790c996782ceb328c45" category="inline-link-macro-rx"></block>.</block>
+  <block id="a97a40851f37ebfbf5db3d3bf28da58b" category="admonition">Um cluster de vários nós tem uma rede interna com LIFs gerados automaticamente.</block>
+  <block id="0f1007666fd5cc7934baffbdef1287d0" category="paragraph">Três SVMs estão ativas:</block>
+  <block id="070848ec049722b444235c5db132a1bb" category="list-text">SVM admin</block>
+  <block id="9392c5507686114a0bba1e8e0b5be096" category="list-text">SVM de nó</block>
+  <block id="d78477ac5628a6dd2fb8c046564b2227" category="list-text">Sistema (cluster) SVM</block>
+  <block id="93b1520005778e826c33efa7132d61c9" category="inline-link">Criar um SVM</block>
+  <block id="e0d52f0658828de62020550252885d55" category="admonition">Os SVMs de dados não são criados como parte da implantação do cluster do ONTAP Select. Eles devem ser criados pelo administrador do cluster após a implantação. Para obter mais informações,<block ref="35df8afad8b7a7c75a74b08ae370be2a" category="inline-link-rx"></block>consulte .</block>
+  <block id="c472d49cae1aabcbf09d7e5fe0e34c87" category="inline-link-macro">Tipos de SVMs contidos em um cluster</block>
+  <block id="2e6bba9624b33764642b52b2cab65274" category="list-text"><block ref="2e6bba9624b33764642b52b2cab65274" category="inline-link-macro-rx"></block></block>
 </blocks>
