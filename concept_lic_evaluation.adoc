@@ -4,7 +4,7 @@ permalink: concept_lic_evaluation.html
 keywords: license, licensing, evaluation, upgrade license 
 summary: Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação. 
 ---
-= Licenças de avaliação
+= Licenças de avaliação para implantações ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -16,6 +16,15 @@ summary: Você pode usar uma licença de avaliação se quiser avaliar o ONTAP S
 [role="lead"]
 Você pode implantar o ONTAP Select com uma licença de avaliação ou uma licença adquirida. A licença escolhida deve ser aplicada a cada um dos nós no cluster do ONTAP Select e, portanto, a todo o cluster. Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação.
 
+[NOTE]
+====
+Para baixar o utilitário de administração ONTAP Select Deploy, você precisa do seguinte:
+
+* Uma conta do site de suporte da NetApp registrada. Se você não tiver uma conta, https://mysupport.netapp.com/site/user/registration["Registo do utilizador"^] consulte .
+* Para https://mysupport.netapp.com/site/downloads/evaluation/ontap-select["Aceite o contrato de licença do utilizador final"^] uma implantação do ONTAP Select com uma licença de avaliação.
+
+
+====
 Há várias considerações ao implantar e dar suporte a um cluster de avaliação:
 
 * Você só pode usar o cluster para fins de avaliação. Não é necessário usar um cluster com uma licença de avaliação em um ambiente de produção.
@@ -49,7 +58,7 @@ A licença de avaliação ONTAP Select tem as seguintes caraterísticas:
 Você pode atualizar um cluster de avaliação do ONTAP Select para usar uma licença de produção. Você deve estar ciente das seguintes restrições:
 
 * Você deve usar o utilitário de administração implantar para executar a atualização da licença
-* Uma licença de nível de capacidade pode ser usada, no entanto, o licenciamento de pools de capacidade não é suportado
+* Uma licença de camada de capacidade pode ser usada, no entanto, o licenciamento de pools de capacidade não é suportado
 * Cada nó precisa ter storage suficiente alocado para dar suporte ao mínimo necessário para uma licença de produção, com base no tamanho do cluster
 
 

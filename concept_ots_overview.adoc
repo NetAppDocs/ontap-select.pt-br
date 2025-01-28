@@ -51,7 +51,7 @@ NOTE: O utilitário de administração implantar não tem um número de versão 
 
 == Ilustração de uma implantação típica
 
-A figura a seguir ilustra o utilitário de administração ONTAP Select Deploy que está sendo usado para implantar e dar suporte a um cluster ONTAP Select de quatro nós. O utilitário Deploy e os nós ONTAP Select são executados como máquinas virtuais separadas em hosts de hypervisor dedicados.
+A figura a seguir ilustra o utilitário de administração NetApp ONTAP Select Deploy que está sendo usado para implantar e dar suporte a um cluster ONTAP Select de quatro nós. O utilitário Deploy e os nós ONTAP Select são executados como máquinas virtuais separadas em hosts de hypervisor dedicados.
 
 image:ots_architecture.png["A ilustra um cluster de quatro nós do ONTAP Select criado com o utilitário de administração implantar."]
 

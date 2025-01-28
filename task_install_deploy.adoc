@@ -22,6 +22,9 @@ Você precisa instalar o utilitário de administração ONTAP Select Deploy e us
 
 Pode transferir o pacote ONTAP Select a partir do site de suporte da NetApp.
 
+.Antes de começar
+https://mysupport.netapp.com/site/user/registration["Você tem uma conta registrada no site de suporte da NetApp"^].
+
 .Sobre esta tarefa
 O utilitário de administração ONTAP Select Deploy é empacotado como uma máquina virtual (VM) baseada no padrão OVF (Open Virtualization Format). O único arquivo compactado tem o sufixo `ova`. A VM fornece o servidor de implantação e as imagens de instalação para nós do ONTAP Select.
 
@@ -118,7 +121,7 @@ As etapas a seguir dependem se você usa um hipervisor ESXi ou KVM.
 +
 Tem de definir a palavra-passe da conta de administrador. Você precisa fornecer essa senha ao fazer login no utilitário implantar.
 
-. Depois que a VM for implantada, selecione a nova VM e ligue-a se ela ainda não estiver ativada com base na sua entrada para o assistente de implantação.
+. Depois que a VM for implantada, selecione a nova VM. Se ainda não estiver ligado com base na sua entrada para o assistente de implementação, ligue-o manualmente.
 . Se necessário, você pode configurar a rede de implantação usando o console da VM:
 +
 .. Clique na guia *Console* para acessar o shell de configuração do host ESXi e monitorar o processo de inicialização.
