@@ -2573,22 +2573,13 @@
   <block id="4d072981d0459a6e8dddc5e65d85a19d" category="paragraph">Você pode adicionar, editar e excluir licenças do nível de capacidade do ONTAP Select conforme necessário.</block>
   <block id="d1da5ae38aafefba216edae24c73845b" category="list-text">Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador.</block>
   <block id="8466d9c8baffa8020cd2061f9cb4929e" category="list-text">Clique na guia *Administration* na parte superior da página.</block>
-  <block id="27de07fc9b7f932f0181131e79ec3569" category="list-text">Clique em *licenças* e clique em *nível de capacidade*.</block>
-  <block id="c1a597c101487100214a5f749a6f3e48" category="list-text">Opcionalmente, clique em *Filter* e para limitar as licenças exibidas.</block>
-  <block id="4c1cad05d7febe049143598de4b3847d" category="list-text">Para substituir uma licença existente; selecione uma licença, clique <block ref="8bad975decfb5a8958ec55339559e376" category="inline-image-macro-rx" type="image"></block>em e selecione *Atualizar*.</block>
-  <block id="6ee0553d617caf0c18d95b731d38d14f" category="list-text">Para adicionar uma nova licença, clique em *Add* no topo da página e, em seguida, clique em *Upload License(s)* e selecione um ficheiro de licença na sua estação de trabalho local.</block>
   <block id="8332a78d15667768802110db7d461f39" category="section-title">Gerenciar as licenças do pool de capacidade</block>
   <block id="2a1af40a05dbd3e59e7040a6aba474e2" category="paragraph">Você pode adicionar, editar e excluir licenças de pool de capacidade do ONTAP Select conforme necessário.</block>
-  <block id="7be3eed19afb6e3f04dc4fe18d053f2c" category="list-text">Clique em *licenças* e clique em *pools de capacidade*.</block>
-  <block id="22296b7841252645a75ccd1c4032738e" category="list-text">Opcionalmente, selecione uma licença e clique <block ref="8bad975decfb5a8958ec55339559e376" category="inline-image-macro-rx" type="image"></block> para gerenciar uma licença existente.</block>
-  <block id="8e2791365de62e59e56b5d6fcdd0f3e2" category="list-text">Para adicionar uma nova licença ou renovar uma licença existente, clique em *Add* no topo da página e, em seguida, clique em *Upload License(s)* e selecione um ficheiro de licença na estação de trabalho local.</block>
   <block id="d26363bf70cc27dd1ba8f09739b8f116" category="list-text">Para ver uma lista dos pools de capacidade:</block>
-  <block id="b14052b3af7caf15ec0beb76766be24f" category="list-text">Clique em *Summary*.</block>
   <block id="e034cc23606a54a163075931f70dbbab" category="list-text">Selecione e expanda um pool para ver os clusters e nós que estão alugando o storage a partir do pool.</block>
   <block id="8797856e9d86b8ee20026b14229ca29a" category="list-text">Veja o status atual da licença sob *informações da licença*.</block>
   <block id="21b26341db1dfa394a993c5d152ccf13" category="list-text">Você pode alterar a duração dos arrendamentos emitidos para o pool sob expiração de leasing.</block>
   <block id="a0d12512fae580ca38325fe122b9f447" category="list-text">Para ver uma lista dos clusters:</block>
-  <block id="8ab91110ae01f9e5c2c34364ebb2da32" category="list-text">Clique em *Detalhes*.</block>
   <block id="31881fb30a812ef998d7f2111d7bcc44" category="list-text">Selecione e expanda o cluster para ver a utilização do storage.</block>
   <block id="86e72ee91d7354c4e08385ba07861bd9" category="section-title">Reinstale uma licença de pool de capacidade</block>
   <block id="844c5fe8a900e62416848502a4af7fdf" category="paragraph">Cada licença de pool de capacidade ativa é bloqueada para uma instância específica do Gerenciador de licenças, que está contida em uma instância do utilitário de administração implantar. Se você estiver usando uma licença de pool de capacidade e, em seguida, restaurar ou recuperar a instância de implantação, a licença original não será mais válida. Você deve gerar um novo arquivo de licença de capacidade e instalar a licença na nova instância de implantação.</block>
@@ -2602,8 +2593,6 @@
   <block id="a04752e304246fb808d9263e3b56379b" category="inline-link-macro">Adquirir uma licença de pool de capacidade</block>
   <block id="659d7307965808b9de5245b56fa7b572" category="paragraph">Consulte <block ref="4548fbfe7e75938d91eeeb4f1520ad00" category="inline-link-macro-rx"></block> para obter mais informações.</block>
   <block id="8018479e33974a2b0f774cf42ec399e5" category="list-text">Instale as licenças do pool de capacidade na nova instância de implantação:</block>
-  <block id="99683d4e14f8df30b153000825273e2d" category="list-text">Clique em *Licenses* e, em seguida, clique em *Capacity Pool*.</block>
-  <block id="095bb96ffb3551a58960c96316107d76" category="list-text">Clique em *Adicionar* e em *carregar Licença(s)* para selecionar e carregar as licenças.</block>
   <block id="e05566aa3784020545c76d92dcb376ab" category="list-text">Se você criou a nova instância de implantação sem restaurar um backup ou usou um backup que não era atual e atualizado, você deve atualizar o número de sequência de série:</block>
   <block id="1c4bd3e7e2bc88b1415fade6249d5a46" category="list-text">Inicie sessão na interface de linha de comando do utilitário Deploy utilizando a conta de administrador.</block>
   <block id="1de9bd334d99fc24b79e751ee32ab23c" category="list-text">Exiba o número de série de um nó criado mais recentemente pela instância de implantação original:</block>
@@ -2624,11 +2613,7 @@
   <block id="bc882e7be43ec2480a6be229d77c8eaf" category="list-text">Cada nó precisa ter storage suficiente alocado para dar suporte ao mínimo necessário para uma licença de produção.</block>
   <block id="b94a9bad5ae121ac9e7cd292197b59e1" category="list-text">Você precisa ter licenças de nível de capacidade para cada nó no cluster de avaliação.</block>
   <block id="f5d5a8d93d0ff3b80b514c776adc3d06" category="paragraph">Executar uma modificação da licença de cluster para um cluster de nó único é disruptivo. No entanto, este não é o caso de um cluster de vários nós porque o processo de conversão reinicializa cada nó um de cada vez para aplicar a licença.</block>
-  <block id="2bb59383631b39d52464741628ce0ca4" category="list-text">Clique na guia *clusters* a na parte superior da página e selecione o cluster desejado.</block>
-  <block id="2b92ba791b5d35e9921e9be06d12553c" category="list-text">Na parte superior da página de detalhes do cluster, clique em *clique aqui* para modificar a licença do cluster.</block>
-  <block id="3ec0b37e2f174766469a343ec8265983" category="paragraph">Você também pode clicar em *Modificar* ao lado de licença de avaliação na seção *Detalhes do cluster*.</block>
   <block id="5a3b7bb229a1d7655341b191f93fef35" category="list-text">Selecione uma licença de produção disponível para cada nó ou carregue licenças adicionais conforme necessário.</block>
-  <block id="36d90e9baa4dfd0dda8eeaac2623f12c" category="list-text">Forneça as credenciais do ONTAP e clique em *Modificar*.</block>
   <block id="7d7d0d771e408e152fe9f59aa783a245" category="paragraph">A atualização de licença para o cluster pode levar vários minutos. Permita que o processo seja concluído antes de sair da página ou fazer quaisquer outras alterações.</block>
   <block id="58c19e610497280d55686885113b1e5a" category="paragraph">Os números de série de vinte dígitos atribuídos originalmente a cada nó para a implantação da avaliação são substituídos pelos números de série de nove dígitos das licenças de produção usadas para a atualização.</block>
   <block id="9a74a1f7ca60edeb651edcb6f305db61" category="section-title">Gerenciar uma licença de pool de capacidade expirada</block>
@@ -3767,4 +3752,28 @@
   <block id="914500048ffed1428cdb2b9c357cc238" category="paragraph"><block ref="a25ad1701b82327b9cc6269d54c24597" category="inline-link-rx"></block>.</block>
   <block id="6e0cb8704cabb0eb79ea7580ba166b3e" category="list-text">Depois que a VM for implantada, selecione a nova VM. Se ainda não estiver ligado com base na sua entrada para o assistente de implementação, ligue-o manualmente.</block>
   <block id="28258323eaa4732b0beafbc8b083a5ab" category="list-text">Se essa for a primeira vez que você fizer login e não instalar o Deploy usando o assistente disponível com o vCenter, forneça as seguintes informações de configuração quando solicitado:</block>
+  <block id="c2fffdb7e5db1a96deec5901fd1a882b" category="list-text">Selecione a guia *Administration* na parte superior da página.</block>
+  <block id="7f73b891b6f89493a9a42f78c96dfbde" category="list-text">Selecione *licenças* e selecione *nível de capacidade*.</block>
+  <block id="ac058bee21b19fb7d5683b470b430bce" category="list-text">Opcionalmente, selecione *Filter* e para limitar as licenças exibidas.</block>
+  <block id="f76e9a144df7cb5bf308e94a6e908da4" category="list-text">Para substituir uma licença existente; selecione uma licença, selecione <block ref="8bad975decfb5a8958ec55339559e376" category="inline-image-macro-rx" type="image"></block>e selecione *Atualizar*.</block>
+  <block id="2a312f34de3de288696c20c1e8fdab8c" category="list-text">Para adicionar uma nova licença, selecione *Adicionar* na parte superior da página e, em seguida, selecione *carregar Licença(s)* e selecione um ficheiro de licença na sua estação de trabalho local.</block>
+  <block id="e138becae13ca9b3317ae72cd807b7ed" category="list-text">Selecione *licenças* e selecione *pools de capacidade*.</block>
+  <block id="e4dbf5646ea0f3591d85a89dcc220112" category="list-text">Opcionalmente, selecione *Filter* e para limitar as licenças exibidas.</block>
+  <block id="0238150d48dcbb89f61418a79faf879c" category="list-text">Opcionalmente, selecione uma licença e <block ref="8bad975decfb5a8958ec55339559e376" category="inline-image-macro-rx" type="image"></block>selecione para gerenciar uma licença existente.</block>
+  <block id="f675b264e07a6d56cc74839352166e25" category="list-text">Adicione uma nova licença ou renove uma licença existente:</block>
+  <block id="e1ff67a9ee704536271bf20bae768184" category="open-title">Adicionar nova licença</block>
+  <block id="85c89e836071c9255062f2c7b147db6a" category="paragraph">Para adicionar uma nova licença, selecione *Adicionar* no topo da página.</block>
+  <block id="bbb047a51418944f835ae59b4e145de5" category="open-title">Renove a licença existente</block>
+  <block id="612b39eeafbac7f4962e5513903d070d" category="paragraph">Para renovar uma licença existente:</block>
+  <block id="6e1121544cd3144bdf088e3fc4c6d58e" category="list-text"><block ref="8bad975decfb5a8958ec55339559e376" category="inline-image-macro-rx" type="image"></block>Selecione em uma licença existente.</block>
+  <block id="1f20356b85cdefac297216209ca2bcb1" category="list-text">Selecione *Upload License(s)*.</block>
+  <block id="7d2e20d8c3e5ebfbdbd81ec85b9c313e" category="list-text">Selecione um ficheiro de licença na estação de trabalho local.</block>
+  <block id="3e4b3d97ed721fa6c588b33d67e7327a" category="list-text">Selecione *Summary*.</block>
+  <block id="522aeaf73b031c733a2277fe9eadd494" category="list-text">Selecione *Detalhes*.</block>
+  <block id="055dab4754e0e1d62a339ad80dcac225" category="list-text">Selecione *licenças* e, em seguida, selecione *pool de capacidade*.</block>
+  <block id="8ad539dc195e039c5437c07b3d810ad8" category="list-text">Selecione *Adicionar* e, em seguida, *carregar Licença(s)* para selecionar e carregar as licenças.</block>
+  <block id="1a9274360bc45212a6a014b4c6df1e9c" category="list-text">Selecione a guia *clusters* a na parte superior da página e selecione o cluster desejado.</block>
+  <block id="e951843bb1ba0912165bd527e8312bec" category="list-text">Na parte superior da página de detalhes do cluster, selecione *clique aqui* para modificar a licença do cluster.</block>
+  <block id="17d9cc4f645deac6e5e367f0ef6fd4ee" category="paragraph">Você também pode selecionar *Modificar* ao lado da licença de avaliação na seção *Detalhes do cluster*.</block>
+  <block id="380ce7f967546f46005a7cb8b03e358c" category="list-text">Forneça as credenciais ONTAP e selecione *Modificar*.</block>
 </blocks>

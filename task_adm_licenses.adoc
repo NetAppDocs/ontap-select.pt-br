@@ -24,11 +24,11 @@ Você pode adicionar, editar e excluir licenças do nível de capacidade do ONTA
 
 .Passos
 . Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador.
-. Clique na guia *Administration* na parte superior da página.
-. Clique em *licenças* e clique em *nível de capacidade*.
-. Opcionalmente, clique em *Filter* e para limitar as licenças exibidas.
-. Para substituir uma licença existente; selecione uma licença, clique image:icon_kebab.gif["Opções"]em e selecione *Atualizar*.
-. Para adicionar uma nova licença, clique em *Add* no topo da página e, em seguida, clique em *Upload License(s)* e selecione um ficheiro de licença na sua estação de trabalho local.
+. Selecione a guia *Administration* na parte superior da página.
+. Selecione *licenças* e selecione *nível de capacidade*.
+. Opcionalmente, selecione *Filter* e para limitar as licenças exibidas.
+. Para substituir uma licença existente; selecione uma licença, selecione image:icon_kebab.gif["Opções"]e selecione *Atualizar*.
+. Para adicionar uma nova licença, selecione *Adicionar* na parte superior da página e, em seguida, selecione *carregar Licença(s)* e selecione um ficheiro de licença na sua estação de trabalho local.
 
 
 
@@ -39,14 +39,33 @@ Você pode adicionar, editar e excluir licenças de pool de capacidade do ONTAP 
 
 .Passos
 . Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador.
-. Clique na guia *Administration* na parte superior da página.
-. Clique em *licenças* e clique em *pools de capacidade*.
-. Opcionalmente, clique em *Filter* e para limitar as licenças exibidas.
-. Opcionalmente, selecione uma licença e clique image:icon_kebab.gif["Opções"] para gerenciar uma licença existente.
-. Para adicionar uma nova licença ou renovar uma licença existente, clique em *Add* no topo da página e, em seguida, clique em *Upload License(s)* e selecione um ficheiro de licença na estação de trabalho local.
+. Selecione a guia *Administration* na parte superior da página.
+. Selecione *licenças* e selecione *pools de capacidade*.
+. Opcionalmente, selecione *Filter* e para limitar as licenças exibidas.
+. Opcionalmente, selecione uma licença e image:icon_kebab.gif["Opções"]selecione para gerenciar uma licença existente.
+. Adicione uma nova licença ou renove uma licença existente:
++
+[role="tabbed-block"]
+====
+.Adicionar nova licença
+--
+Para adicionar uma nova licença, selecione *Adicionar* no topo da página.
+
+--
+.Renove a licença existente
+--
+Para renovar uma licença existente:
+
+.. image:icon_kebab.gif["Opções"]Selecione em uma licença existente.
+.. Selecione *Upload License(s)*.
+.. Selecione um ficheiro de licença na estação de trabalho local.
+
+
+--
+====
 . Para ver uma lista dos pools de capacidade:
 +
-.. Clique em *Summary*.
+.. Selecione *Summary*.
 .. Selecione e expanda um pool para ver os clusters e nós que estão alugando o storage a partir do pool.
 .. Veja o status atual da licença sob *informações da licença*.
 .. Você pode alterar a duração dos arrendamentos emitidos para o pool sob expiração de leasing.
@@ -54,7 +73,7 @@ Você pode adicionar, editar e excluir licenças de pool de capacidade do ONTAP 
 
 . Para ver uma lista dos clusters:
 +
-.. Clique em *Detalhes*.
+.. Selecione *Detalhes*.
 .. Selecione e expanda o cluster para ver a utilização do storage.
 
 
@@ -85,9 +104,9 @@ Consulte link:task_lic_acquire_cp.html["Adquirir uma licença de pool de capacid
 . Instale as licenças do pool de capacidade na nova instância de implantação:
 +
 .. Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-.. Clique na guia *Administration* na parte superior da página.
-.. Clique em *Licenses* e, em seguida, clique em *Capacity Pool*.
-.. Clique em *Adicionar* e em *carregar Licença(s)* para selecionar e carregar as licenças.
+.. Selecione a guia *Administration* na parte superior da página.
+.. Selecione *licenças* e, em seguida, selecione *pool de capacidade*.
+.. Selecione *Adicionar* e, em seguida, *carregar Licença(s)* para selecionar e carregar as licenças.
 
 
 . Se você criou a nova instância de implantação sem restaurar um backup ou usou um backup que não era atual e atualizado, você deve atualizar o número de sequência de série:
@@ -140,13 +159,13 @@ Executar uma modificação da licença de cluster para um cluster de nó único 
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique na guia *clusters* a na parte superior da página e selecione o cluster desejado.
-. Na parte superior da página de detalhes do cluster, clique em *clique aqui* para modificar a licença do cluster.
+. Selecione a guia *clusters* a na parte superior da página e selecione o cluster desejado.
+. Na parte superior da página de detalhes do cluster, selecione *clique aqui* para modificar a licença do cluster.
 +
-Você também pode clicar em *Modificar* ao lado de licença de avaliação na seção *Detalhes do cluster*.
+Você também pode selecionar *Modificar* ao lado da licença de avaliação na seção *Detalhes do cluster*.
 
 . Selecione uma licença de produção disponível para cada nó ou carregue licenças adicionais conforme necessário.
-. Forneça as credenciais do ONTAP e clique em *Modificar*.
+. Forneça as credenciais ONTAP e selecione *Modificar*.
 +
 A atualização de licença para o cluster pode levar vários minutos. Permita que o processo seja concluído antes de sair da página ou fazer quaisquer outras alterações.
 
