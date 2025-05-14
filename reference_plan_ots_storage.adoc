@@ -134,7 +134,7 @@ Você deve configurar cada nó ONTAP Select e host de hipervisor da seguinte for
 
 Como parte do Planejamento de uma implantação do ONTAP Select, você deve estar ciente das restrições relacionadas à alocação e uso do storage.
 
-As restrições de armazenamento mais importantes são apresentadas abaixo. Você também deve rever o link:https://mysupport.netapp.com/matrix/["Ferramenta de Matriz de interoperabilidade do NetApp"^] para obter informações mais detalhadas.
+As restrições de armazenamento mais importantes são apresentadas abaixo. Você também deve rever o link:https://mysupport.netapp.com/matrix/["Ferramenta de Matriz de interoperabilidade"^] para obter informações mais detalhadas.
 
 
 TIP: O ONTAP Select impõe várias restrições relacionadas à alocação e uso de storage. Antes de implantar um cluster do ONTAP Select ou comprar uma licença, você deve estar familiarizado com essas restrições. Consulte link:https://docs.netapp.com/us-en/ontap-select/concept_lic_evaluation.html["Licença"]a secção para obter mais informações.

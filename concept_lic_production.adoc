@@ -41,7 +41,7 @@ Há várias características exclusivas do modelo de licenciamento de camadas de
 
 * Você precisa adquirir uma licença para cada nó do ONTAP Select.
 * O valor mínimo que você pode comprar é de 1 TB.
-* Cada licença de categoria de capacidade tem uma capacidade de storage e é bloqueada para um nó específico.
+* Cada licença do nível de capacidade tem uma capacidade de storage e é bloqueada para um nó específico.
 * Um número de série de licença de nove dígitos é gerado pelo NetApp para cada nó do ONTAP Select.
 * O storage alocado a um nó é perpétuo (nenhuma renovação necessária).
 * O número de série do nó é de nove dígitos e igual ao número de série da licença.
@@ -56,11 +56,11 @@ Existem várias caraterísticas exclusivas do modelo de licenciamento de pools d
 
 * Você precisa comprar uma licença para cada pool de capacidade compartilhada.
 * O valor mínimo que você pode comprar é de 2 TB.
-* Cada licença de pool de capacidade tem uma capacidade de armazenamento e é bloqueada para uma instância específica do Gerenciador de licenças.
+* Cada licença do pool de capacidade tem uma capacidade de armazenamento e é bloqueada para uma instância específica do Gerenciador de licenças.
 * Um número de série de licença de nove dígitos é gerado pelo NetApp para cada pool de capacidade.
 * O storage alocado a um pool de capacidade é válido apenas por um tempo específico com base na compra (renovação necessária).
 * O número de série do nó é de vinte dígitos e é gerado pelo Gerenciador de licenças com base no número de série da licença do pool de capacidade.
-* Cada nó aluga automaticamente a capacidade de storage para agregados de dados locais a partir de um pool de capacidade compartilhada.
+* Cada nó aluga automaticamente a capacidade de storage para agregados de dados locais a partir de um pool de capacidade compartilhado.
 
 
 Para obter mais detalhes sobre o modelo de licenciamento de pools de capacidade, consulte o _modelo de licenciamento de pools de capacidade_ para obter mais informações.

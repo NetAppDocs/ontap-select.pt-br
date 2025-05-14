@@ -95,7 +95,7 @@ A atualização para o ONTAP Select Deploy 2,6 permite o suporte a essas altera�
 A modificação dos detalhes de rede da instância de implantação após a execução em um ambiente não é suportada. Para obter mais informações, consulte link:https://kb.netapp.com/onprem/ontap/ONTAP_Select/Modifying_DNS_configuration_of_ONTAP_Deploy_instance["artigo da base de conhecimento - Modificação da configuração DNS da instância de implantação do ONTAP"^].
 
 .Como o Deploy deteta que as licenças do ONTAP Select são renovadas?
-O método é o mesmo para todas as licenças, embora as especificidades variem dependendo se é uma licença de nível de capacidade ou pool de capacidade.
+O método é o mesmo para todas as licenças, embora as especificações variem dependendo se é uma licença de nível de capacidade ou de pool de capacidade.
 
 * O ONTAP Select Deploy deteta se as licenças e os contratos de suporte são renovados com a compra de um arquivo de licença atualizado da NetApp. O arquivo de licença (.NLF) inclui a capacidade, as datas de início e de fim; e é gerado no link:https://mysupport.netapp.com/site/["Site de suporte da NetApp"^]e, em seguida, atualizado no servidor de implantação.
 +
@@ -108,18 +108,18 @@ CAUTION: Não tente modificar o arquivo de licença. Isso invalida a chave de se
 
 * A licença *Capacity Tier* é uma licença permanente por nó vinculada ao número de série do nó ONTAP Select. Ele é vendido com um contrato de suporte separado. Embora a licença seja permanente, o contrato de suporte deve ser renovado para acessar os upgrades do ONTAP Select e receber assistência do suporte técnico da NetApp. Um contrato de suporte atual também é necessário para alterar parâmetros de licença, como capacidade ou tamanho do nó.
 +
-A compra de uma atualização de licença do nível de capacidade, alteração de parâmetro ou renovação de contrato de suporte requer o número de série do nó como parte do pedido. Os números de série do nó da camada de capacidade têm nove dígitos e começam com o número '32'.
+A compra de uma atualização de licença do nível de capacidade, alteração de parâmetros ou renovação de contrato de suporte requer o número de série do nó como parte do pedido. Os números de série do nó do nível de capacidade têm nove dígitos e começam com o número '32'.
 
 +
 Quando a compra estiver concluída e o arquivo de licença gerado, ele será carregado para o servidor de implantação usando a função *Update*.
 
-* Uma licença de pool de capacidade* é uma assinatura para o direito de usar um pool específico de capacidade e tamanho de nó (XL padrão, premium, premium) para implantar um ou mais clusters. A assinatura inclui o direito de usar uma licença e suporte para um período especificado. O direito de usar uma licença e o contrato de suporte especificaram datas de início e término.
+* A licença *Capacity Pool* é uma assinatura para o direito de usar um pool específico de capacidade e tamanho de nó (XL padrão, premium, premium) para implantar um ou mais clusters. A assinatura inclui o direito de usar uma licença e suporte para um período especificado. O direito de usar uma licença e o contrato de suporte especificaram datas de início e término.
 
 
 .Como o Deploy deteta se os nós têm licenças renovadas ou contrato de suporte?
 Comprar, gerar e carregar um arquivo de licença atualizado é como o Deploy deteta licenças renovadas e contratos de suporte.
 
-Se a data de término do contrato de suporte de nível de capacidade tiver passado, o nó poderá continuar em execução, mas você não poderá baixar e instalar atualizações do ONTAP, ou ligue para o suporte técnico da NetApp para obter assistência sem primeiro atualizar o contrato de suporte.
+Se a data de término de um contrato de suporte de nível de capacidade tiver passado, o nó poderá continuar em execução, mas você não poderá baixar e instalar atualizações do ONTAP, ou ligue para o suporte técnico da NetApp para obter assistência sem primeiro atualizar o contrato de suporte.
 
 Se uma assinatura do pool de capacidade expirar, o sistema avisará você primeiro, mas após 30 dias, se o sistema desligar, ele não será reinicializado até que uma assinatura atualizada seja instalada no servidor de implantação.
 

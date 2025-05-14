@@ -4,7 +4,7 @@ permalink: concept_ots_overview.html
 keywords: overview, software defined storage, sds, typical deployment, ontap 9 
 summary: O ONTAP Select é uma versão somente de software do ONTAP que você implanta como uma máquina virtual em um host de hipervisor. Ele complementa o conjunto de ofertas de FAS e AFF ONTAP mainstream, bem como outras opções somente de software, como o Cloud Volumes ONTAP. 
 ---
-= Visão geral do ONTAP Select
+= Saiba mais sobre o ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,21 @@ summary: O ONTAP Select é uma versão somente de software do ONTAP que você im
 
 
 [role="lead"]
-O ONTAP Select é uma versão somente de software do ONTAP que você pode implantar como uma máquina virtual em um host de hipervisor. Ele complementa o conjunto de ofertas de FAS e AFF ONTAP mainstream, bem como outras opções somente de software, como o Cloud Volumes ONTAP.
+O ONTAP Select é uma versão somente de software do ONTAP que você pode implantar como uma máquina virtual em um host de hipervisor. Ele complementa o pacote de ofertas de FAS, AFF e ASA ONTAP mainstream, bem como outras opções somente de software, como o Cloud Volumes ONTAP.
+
+O ONTAP Select converte unidades de disco internas, NVMe, SSD ou HDD e storage de array externo em um sistema de storage flexível com muitos dos mesmos benefícios oferecidos por sistemas de storage dedicados da ONTAP. Você também pode implantar o ONTAP Select em novos servidores ou em sua infraestrutura de servidor existente. O ONTAP Select é fácil de gerenciar e utiliza o mesmo software de gerenciamento das soluções baseadas em ONTAP, o que significa redução da sobrecarga operacional e dos requisitos de treinamento.
+
+O ONTAP Select adapta-se às suas necessidades de consumo de capacidade com dois modelos de licenciamento complementares: Camadas de capacidade e pools de capacidade completamente flexíveis. Ambos os modelos de licenciamento permitem que você aumente a capacidade em incrementos de apenas 1TB TB. Por exemplo, você pode começar com alguns terabytes e adicionar capacidade dinamicamente à medida que seu projeto cresce. Se você estiver usando pools de capacidade, poderá redistribuir a capacidade conforme desejar quando o projeto for concluído.
+
+O ONTAP Select é integrado a estruturas de gerenciamento de nuvem, como o VMware vSphere. Isso ajuda a acelerar a implantação de novos projetos, como serviços de arquivos, diretórios base, ambientes de desenvolvimento de software e teste de aplicações.
+
+O software SnapMirror permite mover dados entre o storage da ONTAP na nuvem híbrida para que você possa acessar facilmente seus dados onde quiser. Por exemplo, você pode criar um ambiente rapidamente para provar uma ideia. Posteriormente, você pode migrar o projeto para uma plataforma de storage dedicada para implantação de produção ou torná-lo mais acessível na nuvem como parte de um fluxo de trabalho de desenvolvimento.
 
 
 
 == Storage definido por software
 
-A implementação e entrega de SERVIÇOS DE TI por meio de software permite que os administradores provisionem rapidamente recursos com uma velocidade e agilidade que antes não era possível. À medida que os data centers modernos migram para uma arquitetura de infraestrutura definida por software (SDI), os ativos DE TI mais valiosos podem ser separados da infraestrutura física subjacente, proporcionando flexibilidade, escalabilidade e programabilidade.
+A implementação e entrega de SERVIÇOS DE TI por meio de software permite que os administradores provisionem rapidamente recursos com uma velocidade e agilidade que antes não era possível. À medida que os data centers modernos migram para uma arquitetura de infraestrutura definida por software (SDI), você pode separar os ativos DE TI mais valiosos da infraestrutura física subjacente, fornecendo flexibilidade, escalabilidade e programabilidade.
 
 Em um mundo comum em que os dados são fragmentados entre silos de storage com conexão direta (DAS), a mobilidade e o gerenciamento de dados se tornaram problemas mais complexos. O armazenamento definido por software (SDS) surgiu como uma parte importante do cenário SDI para lidar com esses e outros problemas.
 
@@ -71,7 +79,7 @@ Dependendo do número de nós que você define em um cluster, o ONTAP Select for
 
 === Licenciamento de capacidade
 
-A ONTAP Select introduz um modelo de licenciamento baseado no consumo. Você precisa adquirir uma licença com capacidade de storage para cada nó ou pool de capacidade compartilhada ao implantar um cluster do ONTAP Select em um ambiente de produção. Usando o utilitário implantar, você deve aplicar os arquivos de licença que estabelecem a capacidade de storage para os nós de cluster.
+A ONTAP Select introduz um modelo de licenciamento baseado no consumo. Você deve adquirir uma licença com capacidade de storage para cada nó ou pool de capacidade compartilhada ao implantar um cluster do ONTAP Select em um ambiente de produção. Usando o utilitário implantar, você deve aplicar os arquivos de licença que estabelecem a capacidade de storage para os nós de cluster.
 
 
 
@@ -123,4 +131,4 @@ A modificação das propriedades das portas ONTAP, incluindo velocidade, duplex 
 
 
 .Informações relacionadas
-link:reference_lic_ontap_features.html#ontap-features-automatically-enabled-by-default["Recursos do ONTAP ativados por padrão"]
+link:reference_lic_ontap_features.html#ontap-features-automatically-enabled-by-default["Saiba mais sobre os recursos do ONTAP ativados por padrão"] link:concept_lic_evaluation.html["Saiba mais sobre as opções de licença do ONTAP Select"]

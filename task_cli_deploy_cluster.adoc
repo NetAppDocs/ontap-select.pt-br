@@ -255,7 +255,7 @@ node modify -name test-cluster-01 -cluster-name test-cluster -host-name 10.234.8
 A configuração RAID para o nó é indicada com o parâmetro _passthrough-disks_. Se você estiver usando uma controladora RAID de hardware local, esse valor deve ser falso. Se você estiver usando RAID de software, esse valor deve ser verdadeiro.
 
 +
-Uma licença de camada de capacidade é usada para o nó ONTAP Select.
+Uma licença de nível de capacidade é usada para o nó ONTAP Select.
 
 . Exibir a configuração de rede disponível no host:
 +

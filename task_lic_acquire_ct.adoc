@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: task_lic_acquire_ct.html 
-keywords: license, licensing, acquire, capacity tiers 
+keywords: license, licensing, acquire, Capacity Tiers 
 summary: Ao usar o licenciamento de categorias de capacidade, você precisa adquirir um arquivo de licença para cada nó do ONTAP Select. O arquivo de licença define a capacidade de armazenamento para o nó e é bloqueado para o nó através do número de série exclusivo de nove dígitos atribuído pelo NetApp. 
 ---
 = Adquirir uma licença do nível de capacidade do ONTAP Select

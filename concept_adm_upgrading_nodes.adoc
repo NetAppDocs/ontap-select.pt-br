@@ -54,5 +54,4 @@ O ONTAP Select 9,8 está inicialmente instalado:: Não é possível reverter par
 VMXNet3 é o driver de rede padrão incluído com novas implantações de cluster no VMware ESXi. Se você atualizar um nó ONTAP Select existente executando o ONTAP Select 9,4 ou anterior, o driver de rede não será atualizado automaticamente. Você deve atualizar manualmente para VMXNET3. Você deve entrar em Contato com o suporte da NetApp para obter assistência com a atualização.
 
 .Informações relacionadas
-* link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Visão geral da atualização do ONTAP"^]
-
+link:https://docs.netapp.com/us-en/ontap/upgrade/index.html["Visão geral da atualização do ONTAP"^]

@@ -35,7 +35,7 @@ Você pode adicionar, editar e excluir licenças do nível de capacidade do ONTA
 
 == Gerenciar as licenças do pool de capacidade
 
-Você pode adicionar, editar e excluir licenças de pool de capacidade do ONTAP Select conforme necessário.
+Você pode adicionar, editar e excluir licenças do pool de capacidade do ONTAP Select conforme necessário.
 
 .Passos
 . Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador.
@@ -81,9 +81,9 @@ Para renovar uma licença existente:
 
 
 
-== Reinstale uma licença de pool de capacidade
+== Reinstale uma licença do pool de capacidade
 
-Cada licença de pool de capacidade ativa é bloqueada para uma instância específica do Gerenciador de licenças, que está contida em uma instância do utilitário de administração implantar. Se você estiver usando uma licença de pool de capacidade e, em seguida, restaurar ou recuperar a instância de implantação, a licença original não será mais válida. Você deve gerar um novo arquivo de licença de capacidade e instalar a licença na nova instância de implantação.
+Cada licença do pool de capacidade ativo é bloqueada para uma instância específica do Gerenciador de licenças, que está contida em uma instância do utilitário de administração implantar. Se você estiver usando uma licença do pool de capacidade e, em seguida, restaurar ou recuperar a instância de implantação, a licença original não será mais válida. Você deve gerar um novo arquivo de licença de capacidade e instalar a licença na nova instância de implantação.
 
 .Antes de começar
 * Determine todas as licenças do pool de capacidade usadas pela instância de implantação original.
@@ -93,7 +93,7 @@ Cada licença de pool de capacidade ativa é bloqueada para uma instância espec
 
 
 .Sobre esta tarefa
-A um nível elevado, esta tarefa é composta por três partes. Você deve regenerar e instalar todas as licenças de pool de capacidade usadas pela instância de implantação. Depois de todas as licenças terem sido reinstaladas na nova instância de implantação, você pode redefinir o número de sequência de série, se necessário. Por fim, se o endereço IP de implantação tiver sido alterado, você deverá atualizar todos os nós do ONTAP Select que usam uma licença de pools de capacidade.
+A um nível elevado, esta tarefa é composta por três partes. Você deve regenerar e instalar todas as licenças do pool de capacidade usadas pela instância de implantação. Depois de todas as licenças terem sido reinstaladas na nova instância de implantação, você pode redefinir o número de sequência de série, se necessário. Por fim, se o endereço IP de implantação tiver sido alterado, você deverá atualizar todos os nós do ONTAP Select que usam uma licença de pools de capacidade.
 
 .Passos
 . Entre em Contato com o suporte da NetApp e tenha todas as licenças do pool de capacidade para a instância de implantação original não-registrada e não-vinculada.
@@ -147,7 +147,7 @@ Consulte link:task_lic_acquire_cp.html["Adquirir uma licença de pool de capacid
 
 == Converter uma licença de avaliação em uma licença de produção
 
-Você pode atualizar um cluster de avaliação do ONTAP Select para usar uma licença de camada de capacidade de produção com o utilitário de administração implantar.
+Você pode atualizar um cluster de avaliação do ONTAP Select para usar uma licença de nível de capacidade de produção com o utilitário de administração implantar.
 
 .Antes de começar
 * Cada nó precisa ter storage suficiente alocado para dar suporte ao mínimo necessário para uma licença de produção.

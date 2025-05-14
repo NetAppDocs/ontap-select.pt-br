@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: task_lic_acquire_cp.html 
-keywords: license, licensing, acquire, capacity pools 
+keywords: license, licensing, acquire, Capacity Pools 
 summary: Você precisa adquirir um arquivo de licença para cada pool de capacidade usado pelos nós do ONTAP Select. O arquivo de licença define a capacidade de armazenamento e a expiração do pool. Ele é bloqueado para o Gerenciador de licenças por meio de uma combinação do número de série de licença exclusivo atribuído pelo NetApp e o ID de bloqueio de licença associado à instância de implantação. 
 ---
-= Adquirir uma licença de pool de capacidade do ONTAP Select
+= Adquirir uma licença do pool de capacidade do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

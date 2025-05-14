@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept_lic_cp_benefits.html 
-keywords: license, licensing, capacity pools, benefits 
+keywords: license, licensing, Capacity Pools, benefits 
 summary: Há vários benefícios ao usar o modelo de licenciamento de pools de capacidade em vez do modelo de licenciamento de categorias de capacidade. 
 ---
 = Resumo dos benefícios do licenciamento de pools de capacidade do ONTAP Select
@@ -28,7 +28,7 @@ E como a capacidade está ancorada em um pool central, ela pode ser compartilhad
 
 == Reduziu significativamente a sobrecarga administrativa, resultando em menor custo
 
-Se você usar licenças de categoria de capacidade, terá que obter e instalar uma licença para cada nó. Ao usar pools de capacidade, há uma licença para cada pool compartilhado. Isso pode reduzir drasticamente a sobrecarga administrativa e resultar em menor custo.
+Se você usar licenças de nível de capacidade, terá de obter e instalar uma licença para cada nó. Ao usar pools de capacidade, há uma licença para cada pool compartilhado. Isso pode reduzir drasticamente a sobrecarga administrativa e resultar em menor custo.
 
 
 

@@ -37,8 +37,8 @@ Para implantar um cluster do ONTAP Select, sua organização deve ter uma licen�
 
 O ONTAP Select pode ser implantado nos seguintes hipervisores:
 
-* KVM no Red Hat Enterprise Linux 8,6, 8,7, 8,8, 9,0, 9,1, 9,2 e 9,4
-* KVM em Rocky Linux 8,6, 8,7, 8,8, 8,9, 9,0, 9,1, 9,2, 9,3 e 9,4
+* KVM no Red Hat Enterprise Linux 8,6, 8,7, 8,8, 9,0, 9,1, 9,2, 9,4 e 9,5
+* KVM em Rocky Linux 8,6, 8,7, 8,8, 8,9, 9,0, 9,1, 9,2, 9,3, 9,4 e 9,5
 * VMware ESXi 7,0 GA (versão 15843807 ou superior), incluindo 7,0 U1, U2 e U3C
 * VMware ESXi 8,0 GA (compilação 20513097)
 * VMware ESXi 8,0 U1 (compilação 21495797)
@@ -67,7 +67,7 @@ O host do hypervisor físico onde você implantar o ONTAP Select deve atender a 
 
 NOTE: A partir do ONTAP Select 9.9.1, apenas são suportados modelos de CPU baseados no Intel Xeon Sandy Bridge ou posterior.
 
-Consulte a https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade do NetApp, em branco"] para obter mais informações.
+Consulte a https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade, janela em branco"] para obter mais informações.
 
 
 

@@ -41,7 +41,7 @@ Você deve ser capaz de restaurar um backup dos dados de configuração de impla
 Você deve saber o endereço IP da máquina virtual do utilitário de implantação original que falhou.
 
 .Licenciamento de capacidade de storage
-É necessário determinar se o licenciamento de pools de capacidade ou categorias de capacidade é usado. Se você usar o licenciamento de pools de capacidade, será necessário reinstalar cada licença de pool de capacidade depois de recuperar ou restaurar a instância de implantação.
+É necessário determinar se o licenciamento de pools de capacidade ou categorias de capacidade é usado. Se você usar o licenciamento de pools de capacidade, será necessário reinstalar cada licença do pool de capacidade depois de recuperar ou restaurar a instância de implantação.
 
 .Decidir qual procedimento de recuperação usar
 Você deve decidir qual procedimento usar ao recuperar uma instância do utilitário ONTAP Select Deploy. A sua decisão baseia-se na existência ou não de um backup dos dados de configuração do utilitário de implementação com falha original que contém o cluster de dois nós do ONTAP Select.
@@ -115,7 +115,7 @@ disk assign -disk <mediator-disk2-name> -owner <node2-name>
 
 
 .Depois de terminar
-Se você usar o licenciamento de pools de capacidade, precisará reinstalar cada licença de pool de capacidade. Consulte _reinstalação de uma licença de pool de capacidade_ para obter detalhes adicionais.
+Se você usar o licenciamento de pools de capacidade, precisará reinstalar cada licença do pool de capacidade. Consulte _reinstalação de uma licença de pool de capacidade_ para obter detalhes adicionais.
 
 
 
@@ -207,10 +207,10 @@ disk assign -disk <mediator-disk2-name> -owner <node2-name>
 
 
 .Depois de terminar
-Se você usar o licenciamento de pools de capacidade, precisará reinstalar cada licença de pool de capacidade. Consulte reinstalação de uma licença de pool de capacidade para obter detalhes adicionais.
+Se você usar o licenciamento de pools de capacidade, precisará reinstalar cada licença do pool de capacidade. Consulte reinstalar uma licença do pool de capacidade para obter detalhes adicionais.
 
 .Informações relacionadas
 * link:task_install_deploy.html["Instale o ONTAP Select Deploy"]
 * link:task_cli_migrate_deploy.html#restoring-the-deploy-configuration-data-to-the-new-virtual-machine["Restaure os dados de configuração de implantação para a nova máquina virtual"]
-* link:task_adm_licenses.html#reinstalling-a-capacity-pool-license["Reinstale uma licença de pool de capacidade"]
+* link:task_adm_licenses.html#reinstalling-a-capacity-pool-license["Reinstale uma licença do pool de capacidade"]
 
