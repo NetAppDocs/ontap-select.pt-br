@@ -121,7 +121,11 @@ sidebar:
     - title: Lista de verificação de pré-instalação
       entries:
       - title: Lista de verificação de preparação do anfitrião
-        url: "/reference_chk_host_prep.html"
+        entries:
+        - title: Lista de verificação do host KVM
+          url: "/kvm-host-configuration-and-preparation-checklist.html"
+        - title: Lista de verificação do host ESXi
+          url: "/esxi-host-configuration-and-preparation-checklist.html"
       - title: Implantar informações necessárias do utilitário
         url: "/reference_chk_deploy_req_info.html"
       - title: ONTAP Select informações necessárias

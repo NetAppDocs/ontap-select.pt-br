@@ -27,7 +27,7 @@ Certifique-se de que seu ambiente de implantação atenda aos seguintes requisit
 * Dispositivos NVMe em conformidade com a especificação 1,0 ou posterior
 
 
-Siga o link:reference_chk_host_prep.html["lista de verificação de preparação do anfitrião"], reveja o link:reference_chk_deploy_req_info.html["Informações necessárias para a instalação do utilitário de implantação"]e link:reference_chk_select_req_info.html["Informações necessárias para a instalação do ONTAP Select"]os tópicos para obter mais informações.
+Siga o link:kvm-host-configuration-and-preparation-checklist.html["lista de verificação de preparação do anfitrião"], reveja o link:reference_chk_deploy_req_info.html["Informações necessárias para a instalação do utilitário de implantação"]e link:reference_chk_select_req_info.html["Informações necessárias para a instalação do ONTAP Select"]os tópicos para obter mais informações.
 
 .Sobre esta tarefa
 Este procedimento foi concebido para ser executado antes de criar um novo cluster ONTAP Select. Você também pode executar o procedimento para configurar unidades NVMe adicionais para um cluster NVMe SW-RAID existente. Nesse caso, após configurar as unidades, você deve adicioná-las por meio da implantação, como faria com unidades SSD adicionais. A principal diferença é que o Deploy deteta as unidades NVMe e reinicializa os nós. Ao adicionar unidades NVMe a um cluster existente, observe o seguinte sobre o processo de reinicialização:

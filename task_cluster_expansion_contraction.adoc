@@ -14,9 +14,24 @@ summary: A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um 
 
 
 [role="lead"]
-A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um cluster existente de seis para oito nós e diminuir o tamanho do cluster de oito para seis nós. Não há suporte para outros cenários de expansão ou contração do cluster.
+A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um cluster existente de seis para oito nós e diminuir o tamanho do cluster de oito para seis nós.
 
-O procedimento é iniciado a partir do ONTAP Select Deploy usando a interface CLI, API ou web.
+As seguintes expansões e contrações de cluster não são suportadas:
+
+* Expansões de clusters de um, dois ou quatro nós para clusters de seis ou oito nós.
+* Contrações de clusters de seis ou oito nós para clusters de um, dois ou quatro nós.
+
+
+[NOTE]
+====
+Para alterar o número de nós em um cluster para um tamanho que não é suportado pela expansão ou contração do cluster, você precisa executar as seguintes tarefas:
+
+. Implante um novo cluster de vários nós usando o link:task_cli_deploy_cluster.html["CLI"] ou o link:task_deploy_cluster.html["interface de usuário da web"] fornecido com o utilitário de administração ONTAP Select Deploy.
+. Se aplicável, migre os dados para o novo cluster usando link:https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-disaster-recovery-concept.html["Replicação SnapMirror"^] .
+
+
+====
+Você inicia os procedimentos de expansão e contração do cluster no ONTAP Select Deploy usando a CLI, a API ou a interface da web.
 
 
 
@@ -36,12 +51,6 @@ As funcionalidades de expansão e contração do cluster são restritas das segu
 
 
 
-As seguintes expansões e contrações do cluster não são atualmente suportadas:
-
-* Expansões de clusters de um, dois ou quatro nós para clusters de seis ou oito nós.
-* Contrações de clusters de seis ou oito nós para clusters de um, dois ou quatro nós.
-
-
 
 
 == Expanda o cluster
@@ -52,7 +61,7 @@ Você pode aumentar o tamanho de um cluster existente de seis nós para um clust
 Em preparação para o procedimento de expansão do cluster, novos hosts ESX são adicionados ao inventário e os detalhes dos novos nós são atribuídos. Antes de iniciar o processo de expansão do cluster, uma verificação prévia da rede verifica a rede interna selecionada.
 
 .Antes de começar
-* Ao implantar um cluster de vários nós, você deve estar familiarizado com o link:https://docs.netapp.com/us-en/ontap-select/task_adm_connectivity.html["verificador de conetividade de rede"].
+* Ao implantar um cluster de vários nós, você deve estar familiarizado com o verificador de conectividade de rede. Você pode executar o verificador de conectividade de rede usando o link:task_adm_connectivity.html["interface de usuário da web"] ou o link:task_cli_connectivity.html["CLI"] .
 * Verifique se você tem os detalhes da licença para os novos nós.
 
 

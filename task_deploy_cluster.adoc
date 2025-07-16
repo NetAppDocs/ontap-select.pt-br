@@ -23,62 +23,76 @@ TIP: Você também link:https://docs.netapp.com/us-en/ontap-select/task_cli_depl
 
 
 
-== Antes de começar
+== Etapa 1: preparar para a implantação
 
-Você deve se preparar para a implantação para garantir que ela seja bem-sucedida.
+Prepare-se para a implantação para garantir que ela seja bem-sucedida.
 
-Planejamento inicial:: Revise as seções _Plan_ e _License_ da documentação. Com base nisso, você pode tomar decisões sobre o cluster, incluindo:
+.Passos
+. Planejamento inicial.
 +
---
-* Hipervisor
-* Número de nós
-* Tipo de licença
-* Tamanho da plataforma (tipo de instância)
-* Versão ONTAP Select
+Revise o link:concept_workflow_deploy.html["Plano"] e link:concept_lic_evaluation.html["Licença"] seções. Com base nessa análise, você pode tomar decisões sobre o cluster, incluindo:
 
-
---
-Preparação do anfitrião:: Você deve preparar os hosts de hipervisor nos quais os nós do ONTAP Select serão executados e ter os arquivos de licença de storage necessários com base no modelo de licenciamento. Para visualizar os requisitos de preparação:
 +
---
-. Inicie sessão na IU da Web Deploy.
-. image:icon_question_mark.gif["Ponto de interrogação"]Selecione na parte superior da página.
-. Selecione *Pré-requisitos*.
-. Role para baixo para rever os requisitos e selecione *OK*.
+** Hipervisor
+** Número de nós
+** Tipo de licença
+** Tamanho da plataforma (tipo de instância)
+** Versão ONTAP Select
 
 
---
-Ficheiros de licença:: Se você pretende implantar o cluster em um ambiente de produção, você deve adquirir os arquivos de licença de armazenamento com base no modelo de licenciamento.
-Implantar credenciais de instalação e conta:: Você deve instalar o utilitário de administração implantar e executar a configuração inicial. Consulte link:task_install_deploy.html["Instale o ONTAP Select Deploy"] para obter mais informações. Você precisa ter a senha para a conta de administrador de implantação que foi configurada como parte do processo de instalação.
-Instalar imagens de nós do ONTAP Select anteriores:: Por padrão, o utilitário de administração implantar contém a versão mais atual do ONTAP Select no momento do lançamento. Se você quiser implantar clusters usando uma versão anterior do ONTAP Select, será necessário adicionar a imagem do ONTAP Select à instância de implantação. Consulte link:task_cli_deploy_image_add.html["Adicione uma imagem ONTAP Select para implantar"] para obter mais informações.
-Página inicial de introdução:: A página inicial *Introdução ao ONTAP Select Deploy* orienta você pelo processo de várias etapas de criação de um cluster. Existem cinco passos principais, incluindo:
+. Prepare o anfitrião.
 +
---
-* Adicione licenças
-* Adicione hosts ao inventário
-* Crie um cluster
-* Pré-verificação da rede
-* Implante o cluster
+Você deve preparar os hosts de hipervisor nos quais os nós do ONTAP Select serão executados e ter os arquivos de licença de storage necessários com base no modelo de licenciamento. Para visualizar os requisitos de preparação:
+
++
+.. Inicie sessão na IU da Web Deploy.
+.. image:icon_question_mark.gif["Ponto de interrogação"]Selecione na parte superior da página.
+.. Selecione *Pré-requisitos*.
+.. Role para baixo para rever os requisitos e selecione *OK*.
 
 
---
+. Adquira os arquivos de licença.
++
+Se você pretende implantar o cluster em um ambiente de produção, você deve adquirir os arquivos de licença de armazenamento com base no modelo de licenciamento.
 
+. Implante as credenciais de instalação e conta.
++
+link:task_install_deploy.html["Instale o utilitário de administração Deploy e execute a configuração inicial"]. Você precisa ter a senha para a conta de administrador de implantação que foi configurada como parte do processo de instalação.
 
+. Opcionalmente, instale imagens de nó ONTAP Select anteriores.
++
+Por padrão, o utilitário de administração implantar contém a versão mais atual do ONTAP Select no momento do lançamento. Se você deseja implantar clusters usando uma versão anterior do ONTAP Select, você precisa link:task_cli_deploy_image_add.html["adicione a imagem ONTAP Select à sua instância Deploy"] .
+
+. Saiba mais sobre a página de lançamento "Introdução".
++
+A página inicial *Introdução ao ONTAP Select Deploy* orienta você pelo processo de várias etapas de criação de um cluster. Existem cinco passos principais, incluindo:
+
++
+** Adicione licenças
+** Adicione hosts ao inventário
+** Crie um cluster
+** Pré-verificação da rede
+** Implante o cluster
++
 
 NOTE: Você pode executar as mesmas etapas independentemente selecionando as guias na parte superior da página (clusters, hosts do hipervisor, Administração).
 
-Verificador de rede:: Se você implantar um cluster de vários nós, você deve estar familiarizado com o verificador de rede.
-Depois de implantar um cluster:: Você deve fazer backup dos dados de configuração do ONTAP Select Deploy.
+
+
+. Revise o verificador de rede.
++
+Se você estiver implantando um cluster de vários nós, deverá estar familiarizado com o verificador de rede. Você pode executar o verificador de conectividade de rede usando o link:task_adm_connectivity.html["interface de usuário da web"] ou o link:task_cli_connectivity.html["CLI"] .
 
 
 
 
-== Crie um cluster de nó único ou de vários nós
+
+== Etapa 2: criar um cluster de nó único ou de vários nós
 
 Você pode usar a interface de usuário da Web ONTAP Select Deploy para implantar um cluster ONTAP Select de nó único ou de vários nós.
 
 .Antes de começar
-Consulte link:task_deploy_cluster.html#before-you-begin["Antes de começar"] para se preparar para implantar o cluster. A administração de implantação deve ser instalada e configurada inicialmente (senha, AutoSupport e vCenter).
+Verifique se você instalou a administração do Deploy e concluiu a configuração inicial (senha, AutoSupport e vCenter).
 
 .Sobre esta tarefa
 Um cluster do ONTAP Select com um ou mais nós é criado para uma implantação de produção.
@@ -99,7 +113,7 @@ As etapas a seguir dependem se deseja criar um cluster de nó único ou um clust
 +
 Você pode adicionar o host do hypervisor diretamente ou conetando-se a um servidor vCenter. Forneça os detalhes e as credenciais do host apropriados, conforme necessário.
 
-. Selecione *Refresh* e confirme se o valor *Type* para o host é *ESX*.
+. Selecione *Atualizar* e confirme que o valor *Tipo* do host é *ESX* ou *KVM*.
 +
 Todas as credenciais de conta fornecidas são adicionadas ao banco de dados de credenciais de implantação.
 
@@ -144,7 +158,7 @@ A página é atualizada automaticamente em intervalos regulares.
 +
 Você pode adicionar os hosts do hypervisor diretamente ou conetando-se a um servidor vCenter. Forneça os detalhes e as credenciais do host apropriados, conforme necessário.
 
-. Selecione *Refresh* e confirme se o valor *Type* para o host é *ESX*.
+. Selecione *Atualizar* e confirme que o valor *Tipo* do host é *ESX* ou *KVM*.
 +
 Todas as credenciais de conta fornecidas são adicionadas ao banco de dados de credenciais de implantação.
 
@@ -180,7 +194,10 @@ A página é atualizada automaticamente em intervalos regulares.
 
 --
 ====
-.Depois de terminar
+
+
+== Etapa 3: depois de terminar
+
 Você deve confirmar que o recurso ONTAP Select AutoSupport está configurado e, em seguida, fazer backup dos dados de configuração do ONTAP Select Deploy.
 
 [TIP]

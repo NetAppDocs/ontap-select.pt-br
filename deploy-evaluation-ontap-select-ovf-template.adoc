@@ -32,7 +32,7 @@ Use os seguintes requisitos para preparar o host ESXi onde o cluster ONTAP Selec
 
 image:prepare_ESXi_host_requirements.png["Requisitos para preparar o host ESXi"]
 
-Para obter informações adicionais sobre as opções de configuração do host, consulte link:reference_chk_host_prep.html["Documentação de instalação do ONTAP Select"].
+Para obter informações adicionais sobre as opções de configuração do host, consulte link:esxi-host-configuration-and-preparation-checklist.html["Documentação de instalação do ONTAP Select"].
 
 
 
