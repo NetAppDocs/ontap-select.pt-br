@@ -20,4 +20,4 @@ As Notas de versão para ONTAP Select fornecem informações específicas de ver
 NOTE: Você precisa de uma conta para entrar no site de suporte da NetApp para acessar as Notas de versão.
 
 .Versão atual do ONTAP Select
-Pode aceder ao link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3332465["Notas de versão do ONTAP Select 9.16.1"^] para visualizar os detalhes sobre a versão atual.
+Você pode acessar o link:https://library.netapp.com/ecm/ecm_download_file/ECMLP3351669["Notas de versão do ONTAP Select 9.17.1"^] para ver os detalhes sobre a versão atual.

@@ -14,7 +14,7 @@ summary: A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um 
 
 
 [role="lead"]
-A partir do ONTAP Select 9.15.1, é possível aumentar o tamanho de um cluster existente de seis para oito nós e diminuir o tamanho do cluster de oito para seis nós.
+Você pode aumentar o tamanho do cluster de um cluster ONTAP Select existente de um cluster de seis nós para um cluster de oito nós e diminuir o tamanho de um cluster de oito nós para um cluster de seis nós
 
 As seguintes expansões e contrações de cluster não são suportadas:
 
@@ -37,28 +37,45 @@ Você inicia os procedimentos de expansão e contração do cluster no ONTAP Sel
 
 == Considerações sobre hardware e armazenamento
 
-As funcionalidades de expansão e contração do cluster são restritas das seguintes maneiras:
+O recurso de expansão e contração de cluster é suportado em hosts de hipervisor KVM e ESXi.
 
-* O suporte é limitado aos clusters criados em hosts de hypervisor ESX. As seguintes versões do ESX são compatíveis com o ONTAP Select 9.15.1 e posterior:
-+
-** ESXi 8,0 U3
-** ESXi 8,0 U2
-** ESXi 8,0 U1
-** ESXi 8,0GA
-** ESXi 7,0 U3
-** ESXi 7,0
+[role="tabbed-block"]
+====
+.KVM
+--
+A partir do ONTAP Select 9.17.1, a expansão e a contração de cluster são suportadas em hosts do hipervisor KVM.
+
+A expansão e a contração de cluster são suportadas pelas seguintes versões do hipervisor KVM:
+
+* Red Hat Enterprise Linux 64 bits 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.8, 8.7 e 8.6
+* Rocky Linux 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7 e 8.6
 
 
+--
+.ESXi
+--
+A partir do ONTAP Select 9.15.1, a expansão e a contração de cluster são suportadas em hosts de hipervisor ESXi.
+
+A expansão e a contração de cluster são suportadas nas seguintes versões do hipervisor ESXi:
+
+* ESXi 8,0 U3
+* ESXi 8,0 U2
+* ESXi 8,0 U1
+* ESXi 8,0GA
+* ESXi 7,0 U3
+* ESXi 7,0
 
 
+--
+====
 
 
 == Expanda o cluster
 
-Você pode aumentar o tamanho de um cluster existente de seis nós para um cluster de oito nós com o recurso de expansão do cluster.
+Use o recurso de expansão de cluster para aumentar o tamanho de um cluster existente de seis para oito nós.
 
 .Sobre esta tarefa
-Em preparação para o procedimento de expansão do cluster, novos hosts ESX são adicionados ao inventário e os detalhes dos novos nós são atribuídos. Antes de iniciar o processo de expansão do cluster, uma verificação prévia da rede verifica a rede interna selecionada.
+Em preparação para a expansão do cluster, novos hosts ESXi e KVM são adicionados ao inventário e os detalhes dos novos nós são atribuídos. Antes de iniciar o processo de expansão do cluster, uma pré-verificação de rede verifica a rede interna selecionada.
 
 .Antes de começar
 * Ao implantar um cluster de vários nós, você deve estar familiarizado com o verificador de conectividade de rede. Você pode executar o verificador de conectividade de rede usando o link:task_adm_connectivity.html["interface de usuário da web"] ou o link:task_cli_connectivity.html["CLI"] .
@@ -70,7 +87,7 @@ Em preparação para o procedimento de expansão do cluster, novos hosts ESX sã
 . Selecione a guia *Cluster* na parte superior da página e selecione o cluster desejado na lista.
 . Na página de detalhes do cluster, selecione o ícone de engrenagem à direita da página e selecione *expandir cluster*.
 . Navegue até a seção *par HA 4*.
-. Escolha os detalhes de configuração do par de alta disponibilidade (HA) para o quarto par de HA, incluindo:
+. Escolha os seguintes detalhes de configuração do par de alta disponibilidade (HA) para o quarto par de HA:
 +
 ** Tipo de instância
 ** Nomes de nós
@@ -82,7 +99,7 @@ Em preparação para o procedimento de expansão do cluster, novos hosts ESX sã
 
 
 . Selecione *Save HA Pair* (Guardar par de HA) para guardar os detalhes de configuração.
-. Forneça as credenciais do ONTAP e selecione *expandir cluster*.
+. Forneça as credenciais do ONTAP e selecione *Expandir cluster*.
 . Selecione *Next* e execute a pré-verificação da rede selecionando *Run*.
 +
 A pré-verificação da rede valida se a rede interna selecionada para o tráfego do cluster ONTAP está a funcionar corretamente.
@@ -102,7 +119,7 @@ Depois de expandir o cluster, você deve fazer backup dos dados de configuraçã
 
 == Contrate o cluster
 
-Você pode diminuir o tamanho de um cluster existente de oito nós para um cluster de seis nós com o recurso de contração do cluster.
+Use o recurso de contração de cluster para diminuir o tamanho de um cluster existente de oito para seis nós.
 
 .Sobre esta tarefa
 O par de nós de HA desejado no cluster é selecionado para se preparar para a contração do cluster durante o procedimento.

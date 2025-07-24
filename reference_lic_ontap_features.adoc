@@ -37,8 +37,9 @@ Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciado
 * NVMe sobre TCP
 * Funcionalidade de alocação a vários clientes da ONTAP
 * ONTAP S3
-* SnapMirror
 * S3 SnapMirror
+* SnapMirror
+* Nuvem SnapMirror
 * SnapRestore
 * SnapVault
 * Recuperação de desastres de VM de storage (SVM DR)
