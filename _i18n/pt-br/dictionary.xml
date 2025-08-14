@@ -3790,7 +3790,6 @@
   <block id="1b5226a9b144cf3cfc703d8ec6db57ef" category="section-title">Etapa 3: depois de terminar</block>
   <block id="f3a5d576716c34a4548a66aa3126c77d" category="sidebar">Lista de verificação do host KVM</block>
   <block id="935f419c21e41ca992af1333488fd110" category="sidebar">Lista de verificação do host ESXi</block>
-  <block id="e7413dab214cef43694e01b289962db2" category="admonition">O uso do tipo de instância grande em uma configuração RAID de software não é suportado em uma Máquina Virtual Baseada em Kernel (KVM).</block>
   <block id="891e3168577f6225cc6bf3c35aafa9e2" category="cell">VMware vSphere 8.0GA e atualizações de 1 a 3 VMware vSphere 7.0GA e atualizações de 1 a 3C</block>
   <block id="1a847c26edb3f3d6892cfa25198b2272" category="cell">Red Hat Enterprise Linux 64 bits (KVM) 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.8, 8.7 e 8.6 Rocky Linux (KVM) 9.6 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7 e 8.6</block>
   <block id="637c87a94a9976e074cd8762dd5e83ec" category="list-text">Os discos de serviço são discos virtuais (VMDKs) usados na VM ONTAP Select para atender a vários itens, como clustering, inicialização e assim por diante.</block>
@@ -3903,4 +3902,5 @@
   <block id="1baec4831214642ebba2ccfdd8a785df" category="list-text">Forneça as credenciais do ONTAP e selecione *Expandir cluster*.</block>
   <block id="e6ed9ac65d6ce64c42573257cebe103e" category="paragraph">Use o recurso de contração de cluster para diminuir o tamanho de um cluster existente de oito para seis nós.</block>
   <block id="7cf2e3fec3d1629805de3aab60343896" category="sidebar">Documentação do ONTAP Select 9.17.1</block>
+  <block id="968414ab46d3b1a79f89163fe1c9a955" category="admonition">O uso do tipo de instância grande não é suportado em uma Máquina Virtual Baseada em Kernel (KVM).</block>
 </blocks>
