@@ -473,7 +473,6 @@
   <block id="0ffe501fe086c67c3769d18d093b040d" category="list-text">SDS do MetroCluster</block>
   <block id="68ed39572b6546b2a8f65e38fa4e4683" category="section-title">XL premium</block>
   <block id="3df6de2a26f1404ca45737431d2a4afb" category="paragraph">A oferta Premium XL oferece os seguintes recursos:</block>
-  <block id="1bacbb36e2afde0c7a93da85daa18ef1" category="list-text">Tipo de instância pequena, média ou grande</block>
   <block id="4241d8a2662be78b68fdfaf8b9daec1a" category="list-text">HDDs, SSDs ou unidades NVMe</block>
   <block id="3c868759d0863801160ccec7f31cd26a" category="section-title">Caraterísticas comuns de licenciamento</block>
   <block id="1e27a8e66b6c9b86c6097d597ad1aae5" category="list-text">Você precisa adquirir uma ou mais licenças conforme necessário ao implantar o ONTAP Select em um ambiente de produção.</block>
@@ -3542,10 +3541,8 @@
   <block id="e73d640a676c83c4510d0212e506bb38" category="cell">18 núcleos / 136GB GB de RAM</block>
   <block id="522c4ec4d9d59e1a992d989c8d770589" category="cell">Rede (por nó)</block>
   <block id="d5fda742cbaf307ce4ca202b12335858" category="cell">Mínimo de duas portas de 1GbE GbE para um cluster de nó único, mínimo de quatro portas de 1GbE GbE para um cluster de dois nós (par de HA), no mínimo, de duas portas de 10GbE GbE para um cluster de quatro, seis ou oito nós</block>
-  <block id="c65eee5a4810d852ee01a79b87c993f3" category="paragraph">O 1 assume dois núcleos e 8GB GB de RAM para o hypervisor.</block>
   <block id="f0cb6783b152b19ceab16227ca3976a2" category="open-title">Tipo de armazenamento</block>
   <block id="5939197c86f855d26c9639db3b9a29d6" category="paragraph">A tabela a seguir fornece o tipo de licença mínimo necessário para o armazenamento especificado. </block>
-  <block id="1138bbb83d6525f914cbce8dccc4a874" category="cell">Pemium XL</block>
   <block id="e629ab9880aae245163ce498ab9e1389" category="cell">Pequeno e médio</block>
   <block id="a09a88160dc1591cac42ba911581e599" category="cell">Pequeno, médio e grande</block>
   <block id="93c34d5f173f74aeed0b64401f2a6edc" category="cell">DAS local com controladora RAID de hardware</block>
@@ -3566,7 +3563,6 @@
   <block id="049f7d1a5b523b8230ca21c727474d11" category="cell">Software de gerenciamento</block>
   <block id="f1680d42c94acc804fddda46a7e4602d" category="cell">Pacote de gerenciamento NetApp Active IQ Unified Manager ONTAP Select Deploy Utility SnapCenter (opcional)</block>
   <block id="bbf6609978bbf45921ea0dae059fde72" category="inline-link-macro">Saiba mais sobre os tipos de licença de nível de capacidade e pool de capacidade</block>
-  <block id="10aa5d1416b41ba5cd05d276a6c13328" category="paragraph"><block ref="6799f681592f9a0a7cf264c2b7bcd3d7" category="inline-link-macro-rx"></block>.</block>
   <block id="91d83e84a03b1a016f22b6743fa4a929" category="summary">Depois de determinar que o ONTAP Select é adequado para sua organização, você pode comprar as licenças necessárias para dar suporte a uma implantação de produção. Você deve escolher as categorias de capacidade ou o modelo de licenciamento de pools de capacidade, bem como a capacidade de storage para cada implantação.</block>
   <block id="580ede122197eca33afea87d209746f9" category="paragraph">Os modelos de licenciamento _níveis de capacidade_ e _pools de capacidade_ são muito diferentes em vários aspetos. No entanto, os dois modelos de licenciamento compartilham várias caraterísticas comuns, incluindo:</block>
   <block id="8e8e728e920aef8a8e61276592f8f07a" category="section-title">Modelo de licenciamento de categorias de capacidade</block>
@@ -3946,4 +3942,8 @@
   <block id="dbdf8658126f3cab82aa007ed31794d3" category="paragraph">Use o recurso de contração de cluster para diminuir o tamanho de um cluster ESXi ou KVM existente.</block>
   <block id="419d991bb53188641539fa8dfe55b258" category="paragraph">Você pode diminuir o tamanho de um cluster ESXi existente nos seguintes incrementos:</block>
   <block id="50261774776b49c62695c35def3230b0" category="paragraph">Você pode diminuir o tamanho de um cluster existente de oito para seis nós.</block>
+  <block id="64f27557c7c3169a5053aaf03c554939" category="list-text">Tipos de instância pequena, média ou grande</block>
+  <block id="4e59a04163b76608c718d51a77e0ab85" category="paragraph">^1^ Assume dois núcleos e 8 GB de RAM para o hipervisor.</block>
+  <block id="8b8284ef1bc414b0568b54a0a11232ad" category="cell">Aplicável</block>
+  <block id="6799f681592f9a0a7cf264c2b7bcd3d7" category="list-text"><block ref="6799f681592f9a0a7cf264c2b7bcd3d7" category="inline-link-macro-rx"></block></block>
 </blocks>
