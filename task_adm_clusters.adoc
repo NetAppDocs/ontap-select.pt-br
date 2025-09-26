@@ -83,7 +83,7 @@ Após uma migração de VM:: Depois que uma máquina virtual que executa o ONTAP
 Você pode executar uma atualização de cluster para atualizar o banco de dados de configuração de implantação usando a interface do usuário da Web.
 
 
-NOTE: Em vez de usar a GUI de implantação, você pode usar o comando de atualização de cluster no shell da CLI de implantação para atualizar um cluster.
+NOTE: Em vez de usar a UI de implantação, você pode usar o comando cluster refresh no shell da CLI de implantação para atualizar um cluster.
 
 Configuração de cluster e máquina virtual:: Alguns dos valores de configuração que podem ser alterados e fazer com que o banco de dados de implantação fique fora de sincronia incluem:
 +

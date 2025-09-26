@@ -41,7 +41,7 @@ Você tem várias opções disponíveis ao acessar o utilitário de administraç
 
 === Interface gráfica do usuário da Web
 
-Você pode acessar o utilitário implantar por meio de um navegador da Web moderno. A GUI da Web fornece uma interface intuitiva e fácil de usar, e na maioria dos casos será sua interface principal ao usar o utilitário.
+Você pode acessar o utilitário Deploy por meio de um navegador web moderno. A interface gráfica do usuário (UI) oferece uma interface intuitiva e fácil de usar e, na maioria dos casos, será sua interface principal ao usar o utilitário.
 
 
 

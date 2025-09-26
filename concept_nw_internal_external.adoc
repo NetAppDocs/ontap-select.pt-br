@@ -61,7 +61,7 @@ network connectivity-check show --run-id X (X is a number)
 ----
 Esta ferramenta só é útil para solucionar problemas da rede interna em um cluster multinode Select. A ferramenta não deve ser usada para solucionar problemas de clusters de nó único (incluindo configurações vNAS), implantação do ONTAP na conectividade ONTAP Select ou problemas de conectividade do lado do cliente.
 
-O assistente de criação de cluster (parte da GUI de implantação do ONTAP) inclui o verificador de rede interno como uma etapa opcional disponível durante a criação de clusters multinodes. Dado o importante papel que a rede interna desempenha nos clusters multinode, fazer desta etapa parte do fluxo de trabalho de criação de cluster melhora a taxa de sucesso das operações de criação de cluster.
+O assistente de criação de cluster (parte da interface de usuário do ONTAP Deploy) inclui o verificador de rede interno como uma etapa opcional disponível durante a criação de clusters multinós. Dada a importância da rede interna em clusters multinós, incluir essa etapa no fluxo de trabalho de criação de clusters melhora a taxa de sucesso das operações de criação de clusters.
 
 A partir do ONTAP Deploy 2,10, o tamanho da MTU usado pela rede interna pode ser definido entre 7.500 e 9.000. O verificador de conetividade de rede também pode ser usado para testar o tamanho da MTU entre 7.500 e 9.000. O valor MTU predefinido é definido para o valor do comutador de rede virtual. Esse padrão teria que ser substituído por um valor menor se uma sobreposição de rede como o VXLAN estiver presente no ambiente.
 

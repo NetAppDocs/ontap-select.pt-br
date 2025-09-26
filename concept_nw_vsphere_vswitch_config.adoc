@@ -66,7 +66,7 @@ A ordem das portas na lista de espera é importante. A tabela a seguir fornece u
 
 | Em espera 3 | vmnic3 | vmnic2 | vmnic1 | vmnic0 
 |===
-As figuras a seguir mostram as configurações dos grupos de portas de rede externas da GUI do vCenter (ONTAP-External e ONTAP-External2). Observe que os adaptadores ativos são de placas de rede diferentes. Nesta configuração, o vmnic 4 e o vmnic 5 são portas duplas na mesma NIC física, enquanto o vmnic 6 e o vminc 7 são portas duplas semelhantes em uma NIC separada (vnmics 0 a 3 não são usados neste exemplo). A ordem dos adaptadores de espera fornece um failover hierárquico com as portas da rede interna sendo a última. A ordem das portas internas na lista de espera é similarmente trocada entre os dois grupos de portas externas.
+As figuras a seguir mostram as configurações dos grupos de portas de rede externa da interface do usuário do vCenter (ONTAP-External e ONTAP-External2). Observe que os adaptadores ativos são de placas de rede diferentes. Nesta configuração, vmnic 4 e vmnic 5 são portas duplas na mesma placa de rede física, enquanto vmnic 6 e vminc 7 são portas duplas semelhantes em uma placa de rede separada (as vnmics de 0 a 3 não são usadas neste exemplo). A ordem dos adaptadores em espera fornece um failover hierárquico, com as portas da rede interna sendo as últimas. A ordem das portas internas na lista de espera é trocada de forma semelhante entre os dois grupos de portas externas.
 
 *Parte 1: Configurações de grupo de portas externas ONTAP Select*
 
