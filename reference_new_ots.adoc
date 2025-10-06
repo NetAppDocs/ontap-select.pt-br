@@ -65,23 +65,13 @@ Você pode diminuir o tamanho do cluster de um cluster ESXi existente nos seguin
 link:task_cluster_expansion_contraction.html["Saiba mais sobre expansão e contração de cluster e as versões de hipervisor KVM e ESXi suportadas"] .
 
 --
-Suporte para recursos ONTAP:: A partir do ONTAP Select 9.17.1, os seguintes recursos licenciados do ONTAP são suportados com o ONTAP Select:
+Suporte para nuvem SnapMirror:: A partir do ONTAP Select 9.17.1, o SnapMirror Cloud é compatível com o ONTAP Select. O SnapMirror Cloud é um recurso licenciado do ONTAP que é habilitado por padrão ao implantar um cluster do ONTAP Select 9.17.1 ou atualizar um cluster do ONTAP Select existente para a versão 9.17.1.
 +
 --
-* SnapLock Select
-+
-A partir do ONTAP Select 9.17.1, novas implantações terão o SnapLock Select licenciado automaticamente.  Para atualizações do ONTAP Select 9.16.1 e anteriores, você precisará baixar a licença SnapLock Select dolink:https://mysupport.netapp.com/site/["Site de suporte da NetApp"^] e aplicá-lo manualmente.
-
-* Nuvem SnapMirror
-+
-A partir do ONTAP Select 9.17.1, o SnapMirror Cloud é compatível com o ONTAP Select. O SnapMirror Cloud é um recurso licenciado do ONTAP que é habilitado por padrão ao implantar um cluster do ONTAP Select 9.17.1 ou atualizar um cluster do ONTAP Select existente para a versão 9.17.1.
-
-+
 https://docs.netapp.com/us-en/ontap/concepts/snapmirror-cloud-backups-object-store-concept.html["Saiba mais sobre backups em nuvem do SnapMirror para armazenamento de objetos"^] .
 
-
-
 --
+Suporte para SnapLock Select Enterprise:: A partir do ONTAP Select 9.17.1, novas implantações terão o SnapLock Select Enterprise (incluindo bloqueio de instantâneo à prova de violação) licenciado automaticamente.  Para atualizações do ONTAP Select 9.16.1 e anteriores, você precisa baixar a licença SnapLock Select dolink:https://mysupport.netapp.com/site/["Site de suporte da NetApp"^] e aplicá-lo manualmente.
 Suporte para vSAN ESA em clusters de vários nós:: A partir do ONTAP Select 9.17.1, o suporte para vSAN Express Storage Architecture (ESA) foi estendido para implantar clusters de vários nós.  Esse aprimoramento permite que você implante configurações do vSAN ESA.
 +
 --

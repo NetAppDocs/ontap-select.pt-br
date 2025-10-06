@@ -20,7 +20,7 @@ Você pode comprar uma licença do nível de capacidade ou do pool de capacidade
 
 == O que uma oferta de licença de plataforma oferece
 
-Uma oferta de licença específica define e restringe os recursos do host do hipervisor em duas áreas:
+Uma oferta de licença específica determina os recursos do host do hipervisor em duas áreas:
 
 * Tipo de instância (CPU, memória)
 * Recursos adicionais
@@ -28,52 +28,44 @@ Uma oferta de licença específica define e restringe os recursos do host do hip
 
 As ofertas de licença são organizadas em uma ordem crescente de capacidades, desde o padrão ao premium XL. Em geral, a opção de licença que você escolher concede a você os recursos desse nível e todos os níveis mais baixos. Por exemplo, o nível premium fornece as capacidades de premium e padrão.
 
+A tabela a seguir compara os recursos das ofertas de licença padrão, premium e premium XL.
+
+[cols="25,25,25,25,25"]
+|===
+2+| A licença suporta ... | Padrão | Premium | XL premium 
 
 
-== Ofertas de licença de plataforma
-
-Há três ofertas de licença de plataforma disponíveis.
+2+| Tipo de instância | Somente pequeno | Pequeno ou médio | Pequeno, médio ou grande 
 
 
-
-=== Padrão
-
-A oferta padrão oferece os seguintes recursos:
-
-* Apenas tipo de instância pequena
-* Apenas unidades de disco rígido (HDD)
-* Apenas controlador RAID de hardware local
-* VNAS
+.2+| Unidades de disco rígido (HDD) em um ... | Configuração RAID de hardware | Sim | Sim | Sim 
 
 
+| configuração vNAS | Sim | Sim | Sim 
 
 
-=== Premium
-
-A oferta premium oferece os seguintes recursos:
-
-* Tipo de instância pequena ou média
-* Unidades de disco rígido (HDD) ou unidades de estado sólido (SSD)
-* Controlador RAID de hardware local ou RAID de software
-* VNAS
-* SDS do MetroCluster
+.3+| Unidades de estado sólido (SSD) em um ... | Configuração RAID de hardware | Não | Sim | Sim 
 
 
+| Configuração RAID de software | Não | Sim | Sim 
 
 
-=== XL premium
-
-A oferta Premium XL oferece os seguintes recursos:
-
-* Tipos de instância pequena, média ou grande
-* HDDs, SSDs ou unidades NVMe
-* Controlador RAID de hardware local ou RAID de software
-* VNAS
-* SDS do MetroCluster
+| configuração vNAS | Sim | Sim | Sim 
 
 
+.3+| Unidades NVMe em um ... | Configuração RAID de hardware | Não | Não | Sim 
 
-NOTE: O uso do tipo de instância grande não é suportado em uma Máquina Virtual Baseada em Kernel (KVM).
+
+| Configuração RAID de software | Não | Não | Sim 
+
+
+| configuração vNAS | Sim | Sim | Sim 
+
+
+2+| SDS do MetroCluster | Não | Sim | Sim 
+|===
+
+NOTE: Máquinas virtuais baseadas em kernel (KVM) não suportam o tipo de instância grande.
 
 
 
