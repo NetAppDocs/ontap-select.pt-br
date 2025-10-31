@@ -17,6 +17,9 @@ summary: Devido à flexibilidade inerente dos serviços da Web REST, a API de im
 Devido à flexibilidade inerente dos serviços da Web REST, a API de implantação do ONTAP Select pode ser acessada de várias maneiras diferentes.
 
 
+NOTE: A API REST incluída no ONTAP Select Deploy recebe um número de versão. O número da versão da API é independente do número da versão do Deploy. O utilitário de administração Deploy do ONTAP Select 9.17.1 inclui a versão 3 da API REST.
+
+
 
 == Implantar interface de usuário nativa do utilitário
 

@@ -47,6 +47,7 @@ A partir do ONTAP Select 9.15.1, a expansão e a contração de cluster são sup
 
 A expansão e a contração de cluster são suportadas nas seguintes versões do hipervisor ESXi:
 
+* ESXi 9.0
 * ESXi 8,0 U3
 * ESXi 8,0 U2
 * ESXi 8,0 U1
@@ -131,7 +132,7 @@ Pode levar até 45 minutos para que o cluster seja expandido.
 
 
 .Depois de terminar
-Depois de expandir o cluster, você deve fazer backup dos dados de configuração do ONTAP Select Deploy.
+link:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."].
 
 
 

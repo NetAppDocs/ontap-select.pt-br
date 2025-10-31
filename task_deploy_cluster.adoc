@@ -196,15 +196,15 @@ A página é atualizada automaticamente em intervalos regulares.
 ====
 
 
-== Etapa 3: depois de terminar
+== Etapa 3: Conclua a implantação
 
-Você deve confirmar que o recurso ONTAP Select AutoSupport está configurado e, em seguida, fazer backup dos dados de configuração do ONTAP Select Deploy.
+Após implantar o cluster, confirme se o recurso ONTAP Select AutoSupport está configurado e entãolink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] .
 
 [TIP]
 ====
 Se a operação de criação de cluster for iniciada, mas não for concluída, a senha administrativa do ONTAP definida poderá não ser aplicada. Se isso ocorrer, você poderá determinar a senha administrativa temporária para o cluster ONTAP Select usando o seguinte comando CLI:
 
-[listing]
+[source, cli]
 ----
 (ONTAPdeploy) !/opt/netapp/tools/get_cluster_temp_credentials --cluster-name my_cluster
 ----

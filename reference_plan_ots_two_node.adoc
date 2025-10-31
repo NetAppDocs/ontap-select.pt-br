@@ -29,13 +29,12 @@ Você pode implantar um cluster de dois nós usando qualquer licença do VMware 
 Quando um cluster consiste em dois nós, não é possível alcançar o quorum necessário quando um nó falha ou perde a comunicação. Para resolver esses tipos de situações de split-brain, cada instância do utilitário ONTAP Select Deploy inclui um serviço de mediador. Esse serviço se conecta a cada nó nos clusters ativos de dois nós para monitorar os pares de HA e auxiliar no gerenciamento de falhas. O serviço de mediador mantém as informações de estado de HA em um destino iSCSI dedicado associado a cada cluster de dois nós.
 
 
-CAUTION: Se você tiver um ou mais clusters ativos de dois nós, a máquina virtual ONTAP Select Deploy que administra os clusters deve estar em execução o tempo todo. Se a máquina virtual implantar for interrompida ou falhar, o serviço de mediador não estará disponível e a funcionalidade de HA será perdida para os clusters de dois nós.
+CAUTION: Se você tiver um ou mais clusters de dois nós ativos, a máquina virtual ONTAP Select Deploy que administra os clusters deverá estar em execução o tempo todo. Se a máquina virtual do ONTAP Select Deploy for interrompida ou falhar, o serviço de mediação ficará indisponível e a capacidade de alta disponibilidade (HA) será perdida para os clusters de dois nós.
 
 .Localização do cluster e do serviço de mediador
-Como os clusters de dois nós geralmente são implantados em uma filial ou remota, eles podem ser remotos no data center corporativo e o utilitário implantar que fornece suporte administrativo. Com essa configuração, o tráfego de gerenciamento entre o utilitário de implantação e o cluster flui pela WAN. Consulte as notas de versão para obter mais informações sobre limitações e restrições.
+Como os clusters de dois nós são normalmente implantados em um escritório remoto ou filial, eles podem estar distantes do centro de dados corporativo e do utilitário ONTAP Select Deploy, que fornece suporte administrativo.  Com essa configuração, o tráfego de gerenciamento entre o utilitário ONTAP Select Deploy e o cluster flui pela WAN. Consulte as notas da versão para obter mais informações sobre limitações e restrições.
 
-.Faça backup dos dados de configuração da implantação
-É uma prática recomendada fazer backup dos dados de configuração de implantação regularmente, inclusive após a criação de um cluster. Isso se torna particularmente importante nos clusters de dois nós, devido aos dados de configuração do mediador incluídos no backup.
+. Endereço IP estático atribuído ao ONTAP Select Deploy
 
-.Endereço IP estático atribuído para implantação
-Você deve atribuir um endereço IP estático ao utilitário de administração implantar. Esse requisito se aplica a todas as instâncias de implantação que gerenciam um ou mais clusters de dois nós do ONTAP Select.
+
+Você deve atribuir um endereço IP estático ao utilitário de administração ONTAP Select Deploy.  Este requisito aplica-se a todas as instâncias do ONTAP Select Deploy que gerenciam um ou mais clusters ONTAP Select de dois nós.

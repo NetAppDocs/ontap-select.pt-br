@@ -148,9 +148,9 @@ Você deve considerar as práticas recomendadas a seguir para alta disponibilida
 
 === Implantar backups
 
-É uma prática recomendada fazer backup dos dados de configuração de implantação regularmente, inclusive após a criação de um cluster. Isso se torna particularmente importante nos clusters de dois nós, porque os dados de configuração do mediador estão incluídos no backup.
+É uma boa prática fazer backup regularmente dos dados de configuração do Deploy, inclusive após a criação de um cluster. Isso se torna particularmente importante em clusters de dois nós, pois os dados de configuração do mediador são incluídos no backup.
 
-Depois de criar ou implantar um cluster, você deve fazer backup dos dados de configuração do ONTAP Select Deploy.
+Após criar ou implantar um cluster, você develink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] .
 
 
 

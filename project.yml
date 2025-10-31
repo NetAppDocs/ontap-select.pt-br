@@ -224,8 +224,6 @@ sidebar:
         url: "/concept_api_rest.html"
       - title: Acesse a API Deploy
         url: "/concept_api_how_access.html"
-      - title: Implantar o controle de versão da API
-        url: "/concept_api_versions.html"
       - title: Operação básica
         url: "/concept_api_operation.html"
       - title: Transação de solicitação e resposta

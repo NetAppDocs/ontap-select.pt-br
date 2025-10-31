@@ -239,7 +239,7 @@ NOTE: O RAID de software com unidades DAS locais é compatível com a licença p
 
 Você pode configurar o RAID de software para usar unidades SSD NVMe. Seu ambiente precisa atender aos seguintes requisitos:
 
-* ONTAP Select 9,7 ou posterior com um utilitário de administração de implantação compatível
+* ONTAP Select com um utilitário de administração Deploy compatível
 * Oferta de licença de plataforma Premium XL ou uma licença de avaliação de 90 dias
 * VMware ESXi versão 6,7 ou posterior
 * Dispositivos NVMe em conformidade com a especificação 1,0 ou posterior

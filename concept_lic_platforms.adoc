@@ -162,7 +162,7 @@ A tabela a seguir fornece o tipo de licença mínimo necessário para o armazena
 2+| Tipo de software 3+| Descrição 
 
 
-2+| Suporte a hipervisor (VMware) 3+| VMware vSphere 8.0GA e atualizações de 1 a 3 VMware vSphere 7.0GA e atualizações de 1 a 3C 
+2+| Suporte a hipervisor (VMware) 3+| VMware vSphere 9.0, VMware vSphere 8.0GA e atualizações 1 a 3, VMware vSphere 7.0GA e atualizações 1 a 3C 
 
 
 2+| Suporte a hipervisor (KVM) 3+| Red Hat Enterprise Linux 64 bits (KVM) 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.8, 8.7 e 8.6 Rocky Linux (KVM) 9.6 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7 e 8.6 
