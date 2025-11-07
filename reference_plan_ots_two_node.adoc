@@ -34,7 +34,8 @@ CAUTION: Se você tiver um ou mais clusters de dois nós ativos, a máquina virt
 .Localização do cluster e do serviço de mediador
 Como os clusters de dois nós são normalmente implantados em um escritório remoto ou filial, eles podem estar distantes do centro de dados corporativo e do utilitário ONTAP Select Deploy, que fornece suporte administrativo.  Com essa configuração, o tráfego de gerenciamento entre o utilitário ONTAP Select Deploy e o cluster flui pela WAN. Consulte as notas da versão para obter mais informações sobre limitações e restrições.
 
-. Endereço IP estático atribuído ao ONTAP Select Deploy
+.Faça backup dos dados de configuração do Deploy
+É uma boa práticalink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] Regularmente, inclusive após a criação de um cluster. Isso se torna particularmente importante em clusters de dois nós, devido aos dados de configuração do mediador incluídos no backup.
 
-
+.Endereço IP estático atribuído para implantação
 Você deve atribuir um endereço IP estático ao utilitário de administração ONTAP Select Deploy.  Este requisito aplica-se a todas as instâncias do ONTAP Select Deploy que gerenciam um ou mais clusters ONTAP Select de dois nós.

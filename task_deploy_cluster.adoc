@@ -198,7 +198,7 @@ A página é atualizada automaticamente em intervalos regulares.
 
 == Etapa 3: Conclua a implantação
 
-Após implantar o cluster, confirme se o recurso ONTAP Select AutoSupport está configurado e entãolink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] .
+Após a implantação do cluster,link:https://docs.netapp.com/us-en/ontap/system-admin/setup-autosupport-task.html["Confirme se o recurso ONTAP Select AutoSupport está configurado."^] e entãolink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] .
 
 [TIP]
 ====

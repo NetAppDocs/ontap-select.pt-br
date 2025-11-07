@@ -44,7 +44,7 @@ Consulte as Notas de versão para obter informações adicionais e quaisquer pro
 Não é possível reverter um nó ONTAP Select para uma versão anterior à na qual ele foi originalmente instalado. Por exemplo:
 
 O ONTAP Select 9.16.1 é instalado inicialmente.:: Você pode atualizar o nó para a versão 9.17.1 e, em seguida, reverter para a versão 9.16.1, se necessário.
-O ONTAP Select 9.17.1 é instalado inicialmente.:: A reversão não é possível, pois não havia nenhuma versão anterior instalada.
+O ONTAP Select 9.17.1 é instalado inicialmente.:: Não é possível reverter a versão, pois não havia nenhuma versão anterior instalada.
 
 
 

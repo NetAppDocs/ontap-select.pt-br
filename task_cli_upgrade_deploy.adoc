@@ -55,7 +55,7 @@ Esta tarefa descreve um método para carregar o arquivo na máquina virtual ONTA
 
 
 .Passos
-. Em um shell de comando em sua estação de trabalho local, use o `scp` Utilitário (Secure Copy Protocol) para carregar o arquivo de imagem na máquina virtual ONTAP Select Deploy.
+. Em um terminal de comandos em sua estação de trabalho local, use o `scp` Utilitário (Secure Copy Protocol) para carregar o arquivo de imagem na máquina virtual ONTAP Select Deploy, conforme mostrado no exemplo a seguir:
 +
 ....
 scp ONTAPdeploy2.12_upgrade.tar.gz admin@10.228.162.221:/home/admin (provide password when prompted)
@@ -80,7 +80,12 @@ Depois de carregar o arquivo de atualização para a máquina virtual ONTAP Sele
 . Sign in no CLI do utilitário ONTAP Select Deploy usando SSH com a conta de administrador.
 . Execute a atualização usando o caminho do diretório e o nome do arquivo apropriados:
 +
-`deploy upgrade -package-path FILEPATH`
+[source, cli]
+----
+deploy upgrade -package-path <file_path>
+----
++
+Comando de exemplo:
 
 +
 ....

@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
-permalink: task_cli_upgrade_esxi65.html 
-keywords: administer, administering, cli, esxi, upgrade, esxi 6.5 
+permalink: cli-upgrade-esxi.html 
+keywords: administer, administering, cli, esxi, upgrade, esxi 7.0 
 summary: Se você estiver executando o ONTAP Select no VMware ESXi, poderá atualizar o software ESXi de uma versão anterior suportada para o ESXi 7,0 ou posterior. Antes de atualizar, você deve entender o processo e selecionar o procedimento de atualização apropriado. 
 ---
-= Atualize o VMware ESXi para a versão 7.0 ou posterior para o ONTAP Select.
+= Atualize para o VMware ESXi 7.0 ou posterior para o ONTAP Select.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -18,47 +18,46 @@ Se você estiver executando o ONTAP Select no VMware ESXi, poderá atualizar o s
 
 
 
-== Antes de começar
+== Prepare-se para atualizar o VMware ESXi
 
-Antes de atualizar o software ESXi nos hipervisores que hospedam um cluster ONTAP Select, você deve preparar e selecionar o procedimento de atualização apropriado para o seu ambiente.
+Antes de atualizar o software ESXi nos hipervisores que hospedam um cluster ONTAP Select, prepare e selecione o procedimento de atualização mais adequado ao seu ambiente.
 
-
-CAUTION: Se você optar por atualizar para o VMware ESXi 6,5, você deve atualizar para o ESXi U2 (compilação 8294253) ou superior. O uso do ESXi 6,5 U1 pode expô-lo a uma falha de máquina virtual devido a um bug conhecido da VMware.
-
-
-
-=== Familiarize-se com como atualizar o VMware ESXi
-
+.Passos
+. *Familiarize-se com o processo de atualização do VMware ESXi*
++
 A atualização do software ESXi é um processo descrito e suportado pela VMware. O processo de atualização do hipervisor faz parte do procedimento de atualização maior ao usar o ONTAP Select. Consulte a documentação da VMware para obter mais informações.
 
-
-
-=== Selecione um procedimento de atualização
-
+. *Selecione um procedimento de atualização*
++
 Vários procedimentos de atualização estão disponíveis. Você deve selecionar o procedimento aplicável com base nos seguintes critérios:
 
-* Tamanho do cluster do ONTAP Select: Clusters de nó único e de vários nós são compatíveis.
-* O uso do ONTAP Select Deploy Upgrade é possível com e sem o utilitário Deploy.
++
+** Tamanho do cluster do ONTAP Select: Clusters de nó único e de vários nós são compatíveis.
+** Utilização do ONTAP Select Deploy
++
+A atualização é possível tanto com quanto sem o utilitário Deploy.
 
-
++
 
 TIP: Você deve selecionar um procedimento de atualização que use o utilitário de administração implantar.
 
-Executar uma atualização ESXi usando o utilitário de administração implantar é a opção mais geral e resiliente. No entanto, pode haver casos em que a implantação não está disponível ou não pode ser usada. Por exemplo, a atualização para o ESXi 7,0 não é compatível com versões anteriores do ONTAP Select e com o utilitário de administração implantar.
++
+Executar uma atualização do ESXi usando o utilitário de administração Deploy é a opção mais geral e resiliente. No entanto, pode haver casos em que o Deploy esteja indisponível ou não possa ser usado. Por exemplo, a atualização para o ESXi 7.0 não é compatível com versões anteriores do ONTAP Select e do utilitário de administração Deploy.
 
++
 Se você estiver usando essas versões anteriores e tentar uma atualização, a máquina virtual ONTAP Select pode ser deixada em um estado em que não pode ser inicializada. Nesse caso, você deve selecionar um procedimento de atualização que não use o Deploy. link:https://mysupport.netapp.com/site/bugs-online/product/ONTAPSELECT/BURT/1172198["1172198"^]Consulte para obter mais informações.
 
 
 
-=== Atualize o utilitário de administração implantar
+. *Atualize o utilitário de administração do Deploy*
++
+Antes de executar um procedimento de atualização usando o utilitário Deploy, talvez seja necessário atualizar sua instância do Deploy. Em geral, você deve atualizar para a versão mais recente do Deploy. O utilitário Deploy deve ser compatível com a versão do ONTAP Select que você está usando.  Consulte olink:reference_release_notes.html["Notas de lançamento do ONTAP Select"] Para obter mais informações.
 
-Antes de executar um procedimento de atualização usando o utilitário implantar, talvez seja necessário atualizar sua instância de implantação. Em geral, você deve atualizar para a versão mais recente do Deploy. O utilitário implantar deve suportar a versão do ONTAP Select que você está usando. Consulte as notas de versão do ONTAP Select para obter mais informações.
-
-
-
-=== Depois de concluir o procedimento de atualização
-
+. *Após a conclusão do procedimento de atualização*
++
 Se selecionar um procedimento de atualização que utilize o utilitário Deploy, deverá efetuar uma operação de atualização de cluster utilizando Deploy (implementar) depois de todos os nós terem sido atualizados. Consulte Atualizar a configuração do cluster de implantação para obter mais informações.
+
+
 
 
 
@@ -68,27 +67,29 @@ Você pode usar o utilitário de administração implantar como parte do procedi
 
 .Passos
 . Inicie sessão na CLI do utilitário Deploy usando SSH com a conta de administrador.
-. Mova o nó para o estado offline.
+. Mova o nó para o estado offline:
 +
-Exemplo
-`node stop --cluster-name <CLUSTERNAME> --node-name <NODENAME>`
-
+[source, cli]
+----
+node stop --cluster-name <cluster_name> --node-name <node_name>
+----
 . Atualize o host do hypervisor em que o ONTAP Select está sendo executado para o ESXi 7,0 ou posterior usando o procedimento fornecido pela VMware.
-. Mova o nó para o estado online.
+. Mova o nó para o estado online:
 +
-Exemplo
-`node start --cluster-name <CLUSTERNAME> --node-name <NODENAME>`
-
+[source, cli]
+----
+node start --cluster-name <cluster_name> --node-name <node_name>
+----
 . Depois que o nó aparecer, verifique se o cluster está em bom estado.
 +
-Exemplo
+Exemplo:
 
 +
 ....
 ESX-1N::> cluster show
-Node Health Eligibility
---------------------- ------- ------------
-sdot-d200-011d true true
+Node           Health  Eligibility
+-------------- ------- ------------
+sdot-d200-011d true    true
 ....
 
 
@@ -106,26 +107,29 @@ Você deve executar este procedimento de atualização para cada um dos nós no 
 
 .Passos
 . Inicie sessão na CLI do utilitário Deploy usando SSH com a conta de administrador.
-. Mova o nó para o estado offline.
+. Mova o nó para o estado offline:
 +
-Exemplo
-`node stop --cluster-name <CLUSTERNAME> --node-name <NODENAME>`
-
+[source, cli]
+----
+node stop --cluster-name <cluster_name> --node-name <node_name>
+----
 . Atualize o host do hypervisor em que o ONTAP Select está sendo executado para o ESXi 7,0 ou posterior usando o procedimento fornecido pela VMware.
 +
 Consulte preparando-se para atualizar o VMware ESXi para obter mais informações.
 
-. Mova o nó para o estado online.
+. Mova o nó para o estado online:
 +
-Exemplo
-`node start --cluster-name <CLUSTERNAME> --node-name <NODENAME>`
-
+[source, cli]
+----
+node start --cluster-name <cluster_name> --node-name <node_name>
+----
 . Depois que o nó aparecer, verifique se o failover de armazenamento está ativado e se o cluster está em bom estado.
 +
-Exemplo
-
-+
-....
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
 ESX-2N_I2_N11N12::> storage failover show
 Takeover
 Node Partner Possible State Description
@@ -139,7 +143,8 @@ Node Health Eligibility
 sdot-d200-011d true true
 sdot-d200-012d true true
 2 entries were displayed.
-....
+----
+====
 
 
 .Depois de terminar
@@ -167,16 +172,17 @@ Consulte preparando-se para atualizar o VMware ESXi para obter mais informaçõe
 
 . Depois que o nó aparecer, verifique se o cluster está em bom estado.
 +
-Exemplo
+Exemplo:
 
-
-
++
 ....
 ESX-1N::> cluster show
-Node Health Eligibility
---------------------- ------- ------------
-sdot-d200-011d true true
+Node           Health  Eligibility
+-------------- ------- ------------
+sdot-d200-011d true    true
 ....
+
+
 .Depois de terminar
 Você deve executar uma operação de atualização de cluster usando o utilitário de administração implantar.
 
@@ -202,10 +208,11 @@ Você deve executar este procedimento de atualização para cada um dos nós no 
 
 . Depois que o nó aparecer, verifique se o failover de armazenamento está ativado e se o cluster está em bom estado.
 +
-Exemplo
-
-+
-....
+.Mostrar exemplo
+[%collapsible]
+====
+[listing]
+----
 ESX-2N_I2_N11N12::> storage failover show
 Takeover
 Node Partner Possible State Description
@@ -219,7 +226,8 @@ Node Health Eligibility
 sdot-d200-011d true true
 sdot-d200-012d true true
 2 entries were displayed.
-....
+----
+====
 
 
 .Depois de terminar

@@ -40,16 +40,20 @@ O arquivo de backup criado captura todos os dados de configuração da máquina 
 . Inicie sessão na CLI do utilitário Deploy usando SSH com a conta de administrador.
 . Crie um backup dos dados de configuração de implantação, que são armazenados em um diretório interno no servidor de implantação:
 +
-`deploy backup create`
-
+[source, cli]
+----
+deploy backup create
+----
 . Forneça uma senha para o backup quando solicitado.
 +
 O ficheiro de cópia de segurança é encriptado com base na palavra-passe.
 
 . Exibir os backups disponíveis no sistema:
 +
-`deploy backup show -detailed`
-
+[source, cli]
+----
+deploy backup show -detailed
+----
 . Selecione seu arquivo de backup com base na data no campo *criado* e Registre o valor *URL de download*.
 +
 Você pode acessar o arquivo de backup através do URL.
@@ -92,10 +96,7 @@ Você deve restaurar os dados de configuração da máquina virtual do utilitár
 Tem de ter os dados de configuração de uma cópia de segurança anterior. Os dados estão contidos em um único arquivo e devem estar disponíveis em sua estação de trabalho local.
 
 .Passos
-. Em um shell de comando em sua estação de trabalho local, use o utilitário sftp para carregar o arquivo de backup na máquina virtual implantar.
-+
-Exemplo
-
+. Em um terminal de comando em sua estação de trabalho local, use o utilitário sftp para enviar o arquivo de backup para a máquina virtual de implantação, conforme mostrado no exemplo a seguir:
 +
 ....
 sftp admin@10.234.81.101 (provide password when prompted)
@@ -103,12 +104,14 @@ put deploy_backup_20190601162151.tar.gz
 exit
 ....
 . Inicie sessão na CLI do utilitário Deploy usando SSH com a conta de administrador.
-. Restaure os dados de configuração.
+. Restaurar os dados de configuração:
 +
-`deploy backup restore -path PATHNAME -filename FILENAME`
-
+[source, cli]
+----
+deploy backup restore -path <path_name> -filename <file_name>
+----
 +
-Exemplo
+Comando de exemplo
 
 +
 `deploy backup restore -path /home/admin -filename deploy_backup_20180601162151.tar.gz`

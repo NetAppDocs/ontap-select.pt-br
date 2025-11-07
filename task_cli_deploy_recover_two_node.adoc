@@ -18,44 +18,37 @@ Se o utilitário ONTAP Select Deploy falhar ou ficar indisponível por algum mot
 
 
 
-== Antes de começar
+== Prepare-se para recuperar o utilitário Deploy.
 
-Você deve se preparar antes de tentar recuperar uma instância do utilitário de implantação para garantir o sucesso.
+Para garantir o sucesso, é necessário se preparar antes de tentar recuperar uma instância do utilitário Deploy.  Você deve estar familiarizado com diversos procedimentos administrativos e possuir as informações necessárias.
 
-.Habilidades e informações necessárias
-Você deve estar familiarizado com vários procedimentos administrativos e ter as informações necessárias.
+.Passos
+. Verifique se você consegue instalar uma nova instância do utilitário ONTAP Select Deploy em seu ambiente de hipervisor.
++
+link:task_install_deploy.html["Saiba mais sobre como instalar o utilitário ONTAP Select Deploy."]
 
-.Instalar a máquina virtual implantar
-Você deve ser capaz de instalar uma nova instância do utilitário ONTAP Select Deploy no seu ambiente de hypervisor.
+. Verifique se você consegue fazer login no cluster ONTAP Select e acessar o shell do cluster ONTAP (CLI).
+. Verifique se você possui um backup dos dados de configuração da instância do utilitário Deploy que apresentou falha e que contém o cluster ONTAP Select de dois nós. Você pode ter um backup que não contém o cluster.
+. Verifique se é possível restaurar um backup dos dados de configuração do Deploy, dependendo do procedimento de recuperação utilizado.
++
+link:task_cli_migrate_deploy.html#step-3-restore-the-deploy-configuration-data-to-the-new-virtual-machine["Saiba como restaurar os dados de configuração do Deploy para a nova máquina virtual."]
 
-.Interface de linha de comando ONTAP
-Você precisa ser capaz de fazer login na CLI do ONTAP do cluster do ONTAP Select e usar a interface do shell.
-
-.Disponibilidade do backup de configuração do utilitário de implantação
-Você deve determinar se você tem um backup dos dados de configuração da instância do utilitário de implantação com falha que contém o cluster de dois nós do ONTAP Select. Você pode ter um backup que não contém o cluster.
-
-.Restaurar uma cópia de segurança da configuração de implementação
-Você deve ser capaz de restaurar um backup dos dados de configuração de implantação, dependendo do procedimento de recuperação usado.
-
-.Endereço IP da máquina virtual de implantação original
-Você deve saber o endereço IP da máquina virtual do utilitário de implantação original que falhou.
-
-.Licenciamento de capacidade de storage
-É necessário determinar se o licenciamento de pools de capacidade ou categorias de capacidade é usado. Se você usar o licenciamento de pools de capacidade, será necessário reinstalar cada licença do pool de capacidade depois de recuperar ou restaurar a instância de implantação.
-
-.Decidir qual procedimento de recuperação usar
-Você deve decidir qual procedimento usar ao recuperar uma instância do utilitário ONTAP Select Deploy. A sua decisão baseia-se na existência ou não de um backup dos dados de configuração do utilitário de implementação com falha original que contém o cluster de dois nós do ONTAP Select.
-
+. Você possui o endereço IP da máquina virtual original do utilitário Deploy que apresentou falha.
+. Determine se o licenciamento utilizado é o de Pools de Capacidade ou o de Níveis de Capacidade. Se você usar o licenciamento por Pools de Capacidade, deverá reinstalar cada licença do Pool de Capacidade após recuperar ou restaurar a instância de Implantação.
+. Decida qual procedimento usar ao recuperar uma instância do utilitário ONTAP Select Deploy. Sua decisão depende se você possui ou não um backup dos dados de configuração do utilitário Deploy original com falha que contém o cluster de dois nós do ONTAP Select .
++
 [cols="35,65"]
 |===
-| Você tem um backup de implantação contendo o cluster de dois nós? | Procedimento de recuperação a utilizar 
+| Você tem um backup de implantação contendo o cluster de dois nós? | Utilize o procedimento de recuperação... 
 
 
-| Sim | Restaure uma instância de utilitário de implantação usando um backup de configuração 
+| Sim | <<restore-deploy-backup,Restaure uma instância de utilitário de implantação usando um backup de configuração>> 
 
 
-| Não | Reconfigure e recupere uma instância de utilitário de implantação 
+| Não | <<restore-and-recover-deploy,Reconfigure e recupere uma instância de utilitário de implantação>> 
 |===
+
+
 
 
 == Restaure uma instância de utilitário de implantação usando um backup de configuração
@@ -63,7 +56,7 @@ Você deve decidir qual procedimento usar ao recuperar uma instância do utilit�
 Se você tiver um backup da instância do utilitário de implantação com falha que contém o cluster de dois nós, poderá restaurar os dados de configuração para a nova instância de implantação de máquina virtual. Em seguida, concluir a recuperação executando a configuração adicional dos dois nós no cluster do ONTAP Select.
 
 .Antes de começar
-Você deve ter um backup dos dados de configuração da máquina virtual de implantação com falha original que contenha o cluster de dois nós. Você precisa ser capaz de fazer login na CLI do ONTAP do cluster de dois nós e conhecer os nomes de ONTAP dos dois nós.
+Faça backup dos dados de configuração da máquina virtual Deploy original que apresentou falha e que contém o cluster de dois nós. Você precisa conseguir fazer login na CLI do ONTAP do cluster de dois nós e saber os nomes ONTAP dos dois nós.
 
 .Sobre esta tarefa
 Como o backup de configuração que você restaurar contém o cluster de dois nós, os destinos iSCSI e as caixas de correio do mediador são recriados na nova máquina virtual do utilitário de implantação.
@@ -81,17 +74,26 @@ Consulte as tarefas relacionadas para obter informações mais detalhadas sobre 
 . Faça login na interface de linha de comando do ONTAP do cluster de dois nós do ONTAP Select.
 . Entrar no modo de privilégio avançado:
 +
-`set adv`
-
-. Se o endereço IP da nova máquina virtual implantar for diferente da máquina virtual implantar original, você deverá remover os destinos iSCSI antigos do mediador e adicionar novos destinos:
+[source, cli]
+----
+set adv
+----
+. Se o endereço IP da nova máquina virtual Deploy for diferente do endereço IP da máquina virtual Deploy original, remova os antigos destinos iSCSI do mediador e adicione novos destinos:
 +
-....
+[source, cli]
+----
 storage iscsi-initiator remove-target -node * -target-type mailbox
-
+----
++
+[source, cli]
+----
 storage iscsi-initiator add-target -node <node1_name> -label mediator -target-type mailbox -target-portal <ip_address> -target-name <target>
-
+----
++
+[source, cli]
+----
 storage iscsi-initiator add-target -node <node2_name> -label mediator -target-type mailbox -target-portal <ip_address> -target-name <target>
-....
+----
 +
 O `<ip_address>` parâmetro é o endereço IP da nova máquina virtual implantar.
 
@@ -100,31 +102,37 @@ Esses comandos permitem que os nós do ONTAP Select descubram os discos da caixa
 
 . Determine os nomes dos discos do mediador:
 +
-`disk show -container-type mediator`
-
+[source, cli]
+----
+disk show -container-type mediator
+----
 . Atribua os discos da caixa de correio aos dois nós:
 +
-....
+[source, cli]
+----
 disk assign -disk <mediator-disk1-name> -owner <node1-name>
+
 disk assign -disk <mediator-disk2-name> -owner <node2-name>
-....
+----
 . Verifique se o failover de armazenamento está ativado:
 +
-`storage failover show`
-
+[source, cli]
+----
+storage failover show
+----
 
 
 .Depois de terminar
-Se você usar o licenciamento de pools de capacidade, precisará reinstalar cada licença do pool de capacidade. Consulte _reinstalação de uma licença de pool de capacidade_ para obter detalhes adicionais.
+Se você utiliza o licenciamento de Pools de Capacidade, reinstale cada licença de Pool de Capacidade.  Verlink:task_adm_licenses.html#reinstall-a-capacity-pool-license["Reinstale uma licença do pool de capacidade"] Para obter mais detalhes.
 
 
 
 == Reconfigure e recupere uma instância de utilitário de implantação
 
-Se você não tiver um backup da instância do utilitário de implantação com falha contendo o cluster de dois nós, será necessário configurar o destino iSCSI e a caixa de correio do mediador na nova máquina virtual de implantação. Em seguida, concluir a recuperação executando a configuração adicional dos dois nós no cluster do ONTAP Select.
+Caso não possua um backup da instância do utilitário Deploy que apresentou falha e que contém o cluster de dois nós, configure o destino iSCSI do mediador e a caixa de correio na nova máquina virtual do Deploy.  Em seguida, você conclui a recuperação realizando configurações adicionais nos dois nós do cluster ONTAP Select .
 
 .Antes de começar
-Você deve ter o nome do destino do mediador para a nova instância do utilitário implantar. Você precisa ser capaz de fazer login na CLI do ONTAP do cluster de dois nós e conhecer os nomes de ONTAP dos dois nós.
+Verifique se você possui o nome do destino do mediador para a nova instância do utilitário Deploy. Você precisa conseguir fazer login na CLI do ONTAP do cluster de dois nós e saber os nomes ONTAP dos dois nós.
 
 .Sobre esta tarefa
 Você pode, opcionalmente, restaurar um backup de configuração para a nova máquina virtual implantar, mesmo que ela não contenha o cluster de dois nós. Como o cluster de dois nós não é recriado com a restauração, você deve adicionar manualmente o destino iSCSI mediador e a caixa de correio à nova instância do utilitário implantar por meio da página da Web de documentação on-line do ONTAP Select na implantação. Você precisa ser capaz de fazer login no cluster de dois nós e conhecer os nomes do ONTAP dos dois nós.
@@ -145,12 +153,16 @@ Se você restaurar um backup anterior, a nova instância de implantação não c
 . Faça login na interface de linha de comando do ONTAP do cluster de dois nós do ONTAP Select.
 . Entre no modo privilegiado avançado:
 +
-`set adv`
-
+[source, cli]
+----
+set adv
+----
 . Obtenha o nome de destino iSCSI do mediador:
 +
-`storage iscsi-initiator show -target-type mailbox`
-
+[source, cli]
+----
+storage iscsi-initiator show -target-type mailbox
+----
 . Acesse a página da Web da documentação on-line na nova máquina virtual do utilitário implantar e faça login usando a conta de administrador:
 +
 `\http://<ip_address>/api/ui`
@@ -158,59 +170,64 @@ Se você restaurar um backup anterior, a nova instância de implantação não c
 +
 Você deve usar o endereço IP da sua máquina virtual de implantação.
 
-. Clique em *Mediator* e depois em *GET /Mediators*.
-. Clique em *Experimente!* para exibir uma lista de mediadores mantidos pelo Deploy.
+. Selecione *Mediador* e depois *GET /mediadores*.
+. Selecione *Experimente!* para exibir uma lista de mediadores mantidos pelo Deploy.
 +
 Observe o ID da instância de mediador desejada.
 
-. Clique em *Mediator* e depois em *POST*.
+. Selecione *Mediador* e depois *PUBLICAR*.
 . Forneça o valor para mediator_id.
-. Clique no *Model* ao lado de `iscsi_target` e preencha o valor do nome.
+. Selecione o *Modelo* ao lado de `iscsi_target` e complete o valor do nome.
 +
 Use o nome de destino para o parâmetro iqn_name.
 
-. Clique em *Experimente!* para criar o destino iSCSI mediador.
+. Selecione *Experimente!* para criar o alvo iSCSI do mediador.
 +
 Se a solicitação for bem-sucedida, você receberá o código de status HTTP 200.
 
 . Se o endereço IP da nova máquina virtual implantar for diferente da máquina virtual implantar original, você deverá usar a CLI do ONTAP para remover os destinos iSCSI antigos e adicionar novos destinos:
 +
-....
+[source, cli]
+----
 storage iscsi-initiator remove-target -node * -target-type mailbox
-
+----
++
+[source, cli]
+----
 storage iscsi-initiator add-target -node <node1_name> -label mediator -target-type mailbox -target-portal <ip_address> -target-name <target>
-
+----
++
+[source, cli]
+----
 storage iscsi-initiator add-target -node <node2_name> -label mediator-target-type mailbox -target-portal <ip_address> -target-name <target>
-....
+----
 +
 O `<ip_address>` parâmetro é o endereço IP da nova máquina virtual implantar.
 
-
-
++
 Esses comandos permitem que os nós do ONTAP Select descubram os discos da caixa de correio na nova máquina virtual do utilitário Deploy.
 
 . Determine os nomes dos discos do mediador:
 +
-`disk show -container-type mediator`
-
+[source, cli]
+----
+disk show -container-type mediator
+----
 . Atribua os discos da caixa de correio aos dois nós:
 +
-....
+[source, cli]
+----
 disk assign -disk <mediator-disk1-name> -owner <node1-name>
 
 disk assign -disk <mediator-disk2-name> -owner <node2-name>
-....
+----
 . Verifique se o failover de armazenamento está ativado:
 +
-`storage failover show`
-
+[source, cli]
+----
+storage failover show
+----
 
 
 .Depois de terminar
-Se você usar o licenciamento de pools de capacidade, precisará reinstalar cada licença do pool de capacidade. Consulte reinstalar uma licença do pool de capacidade para obter detalhes adicionais.
-
-.Informações relacionadas
-* link:task_install_deploy.html["Instale o ONTAP Select Deploy"]
-* link:task_cli_migrate_deploy.html#restoring-the-deploy-configuration-data-to-the-new-virtual-machine["Restaure os dados de configuração de implantação para a nova máquina virtual"]
-* link:task_adm_licenses.html#reinstalling-a-capacity-pool-license["Reinstale uma licença do pool de capacidade"]
-
+Se você utiliza o licenciamento de Pools de Capacidade, reinstale cada licença de Pool de Capacidade.  Verlink:task_adm_licenses.html#reinstall-a-capacity-pool-license["Reinstale uma licença do pool de capacidade"] Para obter mais detalhes.
