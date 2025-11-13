@@ -65,7 +65,7 @@ Configuração de rede e vSwitch aberto:: Você deve estar familiarizado com os 
 
 Há vários problemas de Planejamento relacionados ao tamanho do cluster que você deve considerar.
 
-Número de nós no cluster:: Um cluster do ONTAP Select é composto por um, dois, quatro, seis ou oito nós. Você deve determinar o tamanho do cluster com base nos requisitos da aplicação. Por exemplo, se o recurso de HA for necessário para uma implantação empresarial, deve ser usado um cluster de vários nós.
+Número de nós no cluster:: Um cluster ONTAP Select é composto por um, dois, quatro, seis, oito, dez ou doze nós. Você deve determinar o tamanho do cluster com base nos requisitos da aplicação. Por exemplo, se a capacidade de alta disponibilidade for necessária para uma implantação corporativa, um cluster com vários nós deve ser usado.
 Dedicado versus colocado:: Com base no tipo de aplicativo, você deve determinar se a implantação segue o modelo dedicado ou colocalizado. Observe que o modelo colocalizado pode ser mais complexo devido à diversidade de carga de trabalho e integração mais restrita.
 
 

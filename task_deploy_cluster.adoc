@@ -98,7 +98,7 @@ Verifique se você instalou a administração do Deploy e concluiu a configuraç
 Um cluster do ONTAP Select com um ou mais nós é criado para uma implantação de produção.
 
 .Passos
-As etapas a seguir dependem se deseja criar um cluster de nó único ou um cluster de vários nós. Um cluster de vários nós pode ter dois, quatro, seis ou oito nós.
+As etapas a seguir dependem se você deseja criar um cluster de nó único ou um cluster de vários nós. Um cluster com vários nós pode ter dois, quatro, seis, oito, dez ou doze nós.
 
 [role="tabbed-block"]
 ====

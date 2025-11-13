@@ -28,7 +28,7 @@ Um cluster de dois nós com um mediador pode abranger dois data centers. Para ob
 
 == Agregados espelhados
 
-Um cluster do ONTAP Select é composto por dois a oito nós. Cada par de HA contém duas cópias de dados de usuário, espelhadas sincronamente entre nós em uma rede IP. Esse espelhamento é transparente para o usuário e é uma propriedade do agregado de dados, configurado automaticamente durante o processo de criação de agregados de dados.
+Um cluster ONTAP Select é composto de dois a doze nós. Cada par de HA contém duas cópias de dados do usuário, espelhadas de forma síncrona entre os nós por meio de uma rede IP.  Esse espelhamento é transparente para o usuário e é uma propriedade do agregado de dados, que é configurada automaticamente durante o processo de criação do agregado de dados.
 
 Todos os agregados em um cluster ONTAP Select devem ser espelhados para disponibilidade de dados em caso de failover de nó e para evitar um SPOF em caso de falha de hardware. Os agregados em um cluster ONTAP Select são criados a partir de discos virtuais fornecidos de cada nó no par de HA e usam os seguintes discos:
 

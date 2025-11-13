@@ -87,7 +87,7 @@ As ofertas de licença XL padrão, premium e premium suportam uma ampla gama de 
 2+| Protocolos de host 3+| NFS, SMB/CIFS, iSCSI e NVMe sobre TCP 
 
 
-2+| Opções de implantação 3+| Cluster de nó único de dois nós (par de HA) cluster de quatro, seis ou oito nós 
+2+| Opções de implantação 3+| Nó único; Cluster de dois nós (par HA); Cluster de quatro, seis, oito, dez ou doze nós 
 
 
 2+| Capacidade suportada (por nó) 3+| Até 400TB dados brutos (ESXi e KVM) 
@@ -114,7 +114,7 @@ As ofertas de licença XL padrão, premium e premium suportam uma ampla gama de 
 2+| Requisitos mínimos de CPU/memória do host 1 | 6 núcleos / 24GB GB de RAM | 10 núcleos / 72GB GB de RAM | 18 núcleos / 136GB GB de RAM 
 
 
-2+| Rede (por nó) 3+| Mínimo de duas portas de 1GbE GbE para um cluster de nó único, mínimo de quatro portas de 1GbE GbE para um cluster de dois nós (par de HA), no mínimo, de duas portas de 10GbE GbE para um cluster de quatro, seis ou oito nós 
+2+| Rede (por nó) 3+| No mínimo, duas portas 1GbE para um cluster de nó único. No mínimo, quatro portas 1GbE para um cluster de dois nós (par HA). No mínimo, duas portas 10GbE para um cluster de quatro, seis, oito, dez ou doze nós. 
 |===
 ^1^ Assume dois núcleos e 8 GB de RAM para o hipervisor.
 

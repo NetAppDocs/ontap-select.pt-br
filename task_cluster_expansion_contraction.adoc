@@ -14,12 +14,12 @@ summary: A partir do ONTAP Select 9.15.1, você pode aumentar ou diminuir o tama
 
 
 [role="lead"]
-Você pode aumentar o tamanho do cluster de um cluster ONTAP Select existente para hosts de hipervisor ESXi e KVM.  Para hosts KVM, você pode aumentar o tamanho do cluster de seis para oito nós e diminuir o tamanho de oito para seis nós.  Para hosts ESXi, você aumenta e diminui o tamanho do cluster em incrementos entre seis e doze nós.
+Aumentar ou diminuir o tamanho do cluster de um cluster ONTAP Select existente para hosts de hipervisor ESXi e KVM.  Para ambos os tipos de host, você pode aumentar e diminuir o tamanho do cluster em incrementos entre quatro e doze nós.
 
 As seguintes expansões e contrações de cluster não são suportadas para hosts ESXi e KVM:
 
-* Expansões de clusters de um, dois ou quatro nós para clusters de seis ou oito nós.
-* Contrações de clusters de seis ou oito nós para clusters de um, dois ou quatro nós.
+* Expansões de clusters de um ou dois nós para clusters de seis, oito, dez ou doze nós.
+* Contrações de clusters de seis, oito, dez ou doze nós para clusters de um ou dois nós.
 
 
 [NOTE]
@@ -52,8 +52,6 @@ A expansão e a contração de cluster são suportadas nas seguintes versões do
 * ESXi 8,0 U2
 * ESXi 8,0 U1
 * ESXi 8,0GA
-* ESXi 7,0 U3
-* ESXi 7,0
 
 
 --
@@ -73,26 +71,16 @@ A expansão e a contração de cluster são suportadas pelas seguintes versões 
 
 == Expanda o cluster
 
-Use o recurso de expansão de cluster para aumentar o tamanho de um cluster ESXi ou KVM existente.
+Utilize o recurso de expansão de cluster para aumentar o tamanho de um cluster ONTAP Select existente.
 
-[role="tabbed-block"]
-====
-.ESXi
---
-Você pode aumentar o tamanho de um cluster ESXi existente nos seguintes incrementos:
+Você pode aumentar o tamanho de um cluster existente em um host ESXi ou KVM nos seguintes incrementos:
 
+* De quatro nós para seis, oito, dez ou doze nós
 * De seis nós para oito, dez ou doze nós
 * De oito nós para dez ou doze nós
 * De dez a doze nós
 
 
---
-.KVM
---
-Você pode aumentar o tamanho de um cluster KVM existente de seis para oito nós.
-
---
-====
 .Sobre esta tarefa
 Em preparação para a expansão do cluster, novos hosts ESXi e KVM são adicionados ao inventário e os detalhes dos novos nós são atribuídos. Antes de iniciar o processo de expansão do cluster, uma pré-verificação de rede verifica a rede interna selecionada.
 
@@ -132,32 +120,22 @@ Pode levar até 45 minutos para que o cluster seja expandido.
 
 
 .Depois de terminar
-link:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."].
+Após expandir o cluster, você deverálink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] .
 
 
 
 == Contrate o cluster
 
-Use o recurso de contração de cluster para diminuir o tamanho de um cluster ESXi ou KVM existente.
+Utilize o recurso de contração de cluster para diminuir o tamanho de um cluster ONTAP Select existente.
 
-[role="tabbed-block"]
-====
-.ESXi
---
-Você pode diminuir o tamanho de um cluster ESXi existente nos seguintes incrementos:
+Você pode diminuir o tamanho de um cluster existente em um host ESXi ou KVM nos seguintes incrementos:
 
-* De doze nós para dez, oito ou seis nós
-* De dez nós para oito ou seis nós
-* De oito a seis nós
+* De doze nós para dez, oito, seis ou quatro nós
+* De dez nós para oito, seis ou quatro nós
+* De oito a seis ou quatro nós
+* De seis para quatro nós
 
 
---
-.KVM
---
-Você pode diminuir o tamanho de um cluster existente de oito para seis nós.
-
---
-====
 .Sobre esta tarefa
 O par de nós de HA desejado no cluster é selecionado para se preparar para a contração do cluster durante o procedimento.
 

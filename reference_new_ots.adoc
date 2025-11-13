@@ -19,9 +19,37 @@ Saiba mais sobre os novos recursos e aprimoramentos nas versões suportadas do O
 
 
 
-== ONTAP Select 9.17.1
+== ONTAP Select 9.18.1
 
-O ONTAP Select 9.17.1 inclui vários novos recursos e melhorias.
+Apoio reforçado para a expansão e contração de clusters:: A partir do ONTAP Select 9.18.1, a expansão e a contração de clusters são suportadas entre clusters ONTAP Select de quatro e doze nós em hosts de hipervisor ESXi e KVM.
++
+--
+--
+Você pode aumentar o tamanho do cluster existente em um host ESXi ou KVM nos seguintes incrementos:
+
+* De quatro nós para seis, oito, dez ou doze nós
+* De seis nós para oito, dez ou doze nós
+* De oito nós para dez ou doze nós
+* De dez a doze nós
+
+
+Você pode diminuir o tamanho do cluster existente em um host ESXi ou KVM nos seguintes incrementos:
+
+* De doze nós para dez, oito, seis ou quatro nós
+* De dez nós para oito, seis ou quatro nós
+* De oito a seis ou quatro nós
+* De seis para quatro nós
+
+
+--
+link:task_cluster_expansion_contraction.html["Saiba mais sobre expansão e contração de cluster e as versões de hipervisor KVM e ESXi suportadas"] .
+
+--
+
+
+
+
+== ONTAP Select 9.17.1
 
 Suporte RAID de software para discos NVMe conectados localmente em hosts KVM:: O ONTAP Select 9.17.1 apresenta suporte RAID de software para discos NVMe ONTAP Select conectados localmente em um host de hipervisor de máquina virtual baseada em kernel (KVM).
 +
@@ -43,7 +71,7 @@ Você pode usar o recurso de expansão e contração de cluster em um cluster ON
 link:task_cluster_expansion_contraction.html["Saiba mais sobre expansão e contração de cluster e as versões de hipervisor KVM e ESXi suportadas"] .
 
 --
-Suporte aprimorado para expansão e contração de cluster em hosts ESXi:: A partir do ONTAP Select 9.17.1, a expansão e a contração de clusters são suportadas para clusters de seis e doze nós em hosts ESXi:
+Suporte aprimorado para expansão e contração de cluster em hosts ESXi:: A partir do ONTAP Select 9.17.1, a expansão e a contração de clusters são suportadas entre clusters de seis e doze nós em hosts ESXi:
 +
 --
 --
@@ -101,8 +129,6 @@ Suporte aprimorado ao VMware ESXi:: O ONTAP Select 9.17.1 inclui suporte para VM
 
 == ONTAP Select 9.16.1
 
-O ONTAP Select 9.16.1 inclui vários novos recursos e melhorias.
-
 Suporte atualizado ao arquivo de licença do NetApp:: A partir do ONTAP Select 9.16.1, o suporte ao ficheiro de licença NetApp (NLF) é atualizado. O novo formato NLF inclui licenças para os recursos ARP, ONTAP S3 e S3 SnapMirror. link:reference_lic_ontap_features.html#ontap-features-automatically-enabled-by-default["Saiba mais"].
 +
 --
@@ -117,8 +143,6 @@ Suporte ao hipervisor KVM atualizado:: A partir do ONTAP Select 9.16.1, o hiperv
 
 
 == ONTAP Select 9.15.1
-
-O ONTAP Select 9.15.1 inclui vários novos recursos e melhorias.
 
 Suporte ao hipervisor KVM atualizado:: A partir do ONTAP Select 9.15.1, o hypervisor de máquina virtual (KVM) baseado em Kernel é suportado no RHEL 9,4 e no Rocky Linux 9,4.
 Suporte para expansão e redução do cluster:: A partir do ONTAP Select 9.15.1, a expansão e a redução do cluster são suportadas.
@@ -144,8 +168,6 @@ NOTE: O suporte para expansão e redução do cluster é limitado apenas aos clu
 
 == ONTAP Select 9.14.1
 
-O ONTAP Select 9.14.1 inclui vários novos recursos e melhorias.
-
 Suporte para hipervisor KVM:: A partir do ONTAP Select 9.14.1, o suporte ao hipervisor KVM foi reintegrado. Anteriormente, o suporte para a implantação de um novo cluster em um hipervisor KVM foi removido no ONTAP Select 9.10.1 e o suporte para o gerenciamento de clusters e hosts KVM existentes, exceto para ficar offline ou excluído, foi removido no ONTAP Select 9.11.1.
 Implantar o plug-in do VMware vCenter não é mais compatível:: A partir do ONTAP Select 9.14.1, o plug-in de implantação do VMware vCenter não é mais compatível.
 Suporte ao ONTAP Select Deploy atualizado:: Se você estiver executando uma versão do ONTAP Select Deploy 9.14.1 menor que 9.14.1P2, você deve atualizar para o ONTAP Select Deploy 9.14.1P2 o mais rápido possível. Para obter mais informações, consulte link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886733["Notas de versão do ONTAP Select 9.14.1"^].
@@ -155,8 +177,6 @@ Suporte aprimorado ao VMware ESXi:: O ONTAP Select 9.14.1 inclui suporte para VM
 
 
 == ONTAP Select 9.13.1
-
-O ONTAP Select 9.13.1 inclui vários novos recursos e melhorias.
 
 Suporte para NVMe sobre TCP:: Ao fazer a atualização para o ONTAP Select 9.13.1, você precisa ter a nova licença para dar suporte ao NVMe sobre TCP. Essa licença é incluída automaticamente quando você implantar o ONTAP Select pela primeira vez a partir da versão 9.13.1.
 Suporte ao VMware ESXi atualizado:: A partir do ONTAP 9.13,1, o VMware ESXi 8.0.1 GA (build 20513097) é compatível com o hardware versão 4 e posterior.
@@ -174,8 +194,6 @@ A partir de abril de 2024, o ONTAP Select Deploy 9.12.1 não está mais disponí
 
 
 == ONTAP Select 9.11.1
-
-O ONTAP Select 9.11.1 inclui vários novos recursos e melhorias.
 
 Suporte aprimorado ao VMware ESXi:: O ONTAP Select 9.11.1 inclui suporte para VMware ESXi 7,0 U3C.
 Suporte para VMware NSX-T:: O ONTAP Select 9.10.1 e versões posteriores foram qualificados para o VMware NSX-T versão 3,1.2. Não há problemas funcionais ou deficiências ao usar o NSX-T com um cluster de nó único do ONTAP Select implantado com um ARQUIVO OVA e o utilitário de administração ONTAP Select Deploy. No entanto, ao usar o NSX-T com um cluster de vários nós do ONTAP Select, você deve observar a seguinte limitação para o ONTAP Select 9.11.1:
@@ -205,8 +223,6 @@ A NetApp recomenda fortemente que os clientes planejem e executem uma migração
 
 == ONTAP Select 9.10.1
 
-O ONTAP Select 9.10.1 inclui vários novos recursos e melhorias.
-
 Suporte para VMware NSX-T:: O ONTAP Select 9.10.1 foi qualificado para o VMware NSX-T versão 3,1.2. Não há problemas funcionais ou deficiências ao usar o NSX-T com um cluster de nó único do ONTAP Select implantado com um ARQUIVO OVA e o utilitário de administração ONTAP Select Deploy. No entanto, ao usar o NSX-T com um cluster de vários nós do ONTAP Select, você deve observar os seguintes requisitos e limitações:
 +
 --
@@ -232,8 +248,6 @@ O hipervisor KVM não é mais compatível:: A partir do ONTAP Select 9.10.1, voc
 
 == ONTAP Select 9.9.1
 
-O ONTAP Select 9.9.1 inclui vários novos recursos e melhorias.
-
 Suporte à família de processadores:: A partir do ONTAP Select 9,9.1, apenas os modelos de CPU da Intel Xeon Sandy Bridge ou posterior são suportados para o ONTAP Select.
 Suporte ao VMware ESXi atualizado:: O suporte para VMware ESXi foi aprimorado com o ONTAP Select 9,9.1. As seguintes versões são agora suportadas:
 +
@@ -248,8 +262,6 @@ Suporte ao VMware ESXi atualizado:: O suporte para VMware ESXi foi aprimorado co
 
 
 == ONTAP Select 9,8
-
-Há vários recursos novos e alterados incluídos no ONTAP Select 9,8.
 
 Interface de alta velocidade:: O recurso de interface de alta velocidade melhora a conetividade de rede, fornecendo uma opção para 25G (25GbE) e 40G (40GbE). Para obter o melhor desempenho ao usar essas velocidades mais altas, siga as práticas recomendadas em relação às configurações de mapeamento de portas, conforme descrito na documentação do ONTAP Select.
 Suporte ao VMware ESXi atualizado:: Há duas alterações para o ONTAP Select 9,8 em relação ao suporte para o VMware ESXi.

@@ -57,14 +57,13 @@ O ONTAP Select oferece suporte às seguintes versões do hipervisor ESXi:
 * VMware ESXi 8,0 U2
 * VMware ESXi 8,0 U1 (compilação 21495797)
 * VMware ESXi 8,0 GA (compilação 20513097)
-* VMware ESXi 7.0 GA (compilação 15843807 ou superior), incluindo 7.0 U3C, U2 e U1
 
 
 
 NOTE: O NetApp oferece suporte ao ONTAP Select nas versões identificadas do ESXi, desde que o VMware continue a suportar as mesmas versões.
 
 
-NOTE: O ESXi 6,5 GA e o ESXi 6,7 GA atingiram o status de fim de disponibilidade. Se você tiver clusters do ONTAP Select com essas versões, será necessário atualizar para as versões com suporte de acordo com o https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade (IMT)"^].
+NOTE: O ESXi 7.0 GA atingiu o fim da sua disponibilidade.  Se você possui clusters ONTAP Select com esta versão, é necessário atualizar para as versões compatíveis, conforme indicado em [inserir aqui o caminho aqui]. https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade (IMT)"^] .
 
 --
 ====
@@ -111,7 +110,7 @@ Existem várias configurações Ethernet suportadas com base no tamanho do clust
 | Cluster de dois nós ou MetroCluster SDS | 4 x 1GbE ou 1 x 10GbE | 2 x 10GbE 
 
 
-| Cluster de quatro, seis ou oito nós | 2 x 10GbE | 4 x 10GbE ou 2 x 25/40GbE 
+| Cluster de quatro, seis, oito, dez ou doze nós | 2 x 10GbE | 4 x 10GbE ou 2 x 25/40GbE 
 |===
 
 

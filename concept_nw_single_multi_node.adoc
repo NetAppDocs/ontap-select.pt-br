@@ -67,7 +67,7 @@ A configuração de rede multinode ONTAP Select consiste em duas redes.
 
 Trata-se de uma rede interna, responsável pelo fornecimento de serviços de cluster e replicação interna, e de uma rede externa, responsável pelo fornecimento de serviços de acesso e gerenciamento de dados. O isolamento de ponta a ponta do tráfego que flui dentro dessas duas redes é extremamente importante para permitir que você crie um ambiente adequado para resiliência de cluster.
 
-Essas redes são representadas na figura a seguir, que mostra um cluster ONTAP Select de quatro nós em execução em uma plataforma VMware vSphere. Os clusters de seis e oito nós têm um layout de rede semelhante.
+Essas redes são representadas na figura a seguir, que mostra um cluster ONTAP Select de quatro nós em execução em uma plataforma VMware vSphere. Clusters de seis, oito, dez e doze nós possuem um layout de rede semelhante.
 
 
 NOTE: Cada instância do ONTAP Select reside em um servidor físico separado. O tráfego interno e externo é isolado usando grupos de portas de rede separados, que são atribuídos a cada interface de rede virtual e permitem que os nós de cluster compartilhem a mesma infraestrutura de switch físico.
@@ -135,7 +135,7 @@ As portas ONTAP e0c e e0d são delegadas como portas residenciais para interface
 
 NOTE: Não é possível atribuir a essas interfaces endereços IP estáticos e não devem ser criadas interfaces de cluster adicionais.
 
-O tráfego de rede do cluster deve fluir através de uma rede da camada 2 não roteada de baixa latência. Devido à taxa de transferência do cluster e aos requisitos de latência, espera-se que o cluster ONTAP Select esteja fisicamente próximo (por exemplo, multipack, data center único). A criação de configurações de cluster elástico de quatro nós, seis nós ou oito nós separando nós de HA em uma WAN ou em distâncias geográficas significativas não é suportada. Há suporte para uma configuração de dois nós estendida com um mediador.
+O tráfego de rede do cluster deve fluir por meio de uma rede de camada 2 de baixa latência e sem roteamento. Devido aos requisitos de taxa de transferência e latência do cluster, espera-se que o cluster ONTAP Select esteja fisicamente localizado em proximidade (por exemplo, multipacote, data center único).  Não é possível criar configurações de cluster estendido com quatro, seis, oito, dez ou doze nós, separando nós de alta disponibilidade em uma WAN ou em distâncias geográficas significativas. Uma configuração estendida de dois nós com um mediador é compatível.
 
 Para obter mais detalhes, consulte a secção link:reference_plan_best_practices.html#two-node-stretched-ha-metrocluster-sds-best-practices["Práticas recomendadas de HA (MetroCluster SDS) com dois nós esticados"].
 

@@ -14,7 +14,7 @@ summary: O SDS da ONTAP Select MetroCluster oferece proteção aprimorada e uma 
 
 
 [role="lead"]
-O ONTAP Select foi desenvolvido com base no software de storage ONTAP para fornecer serviços de storage empresarial com eficiência e uma arquitetura com escalabilidade horizontal, sem compartilhamento e altamente disponível. É possível implantar uma solução com um, dois, quatro, seis ou oito nós com até 400TB TB de capacidade bruta para storage conectado por NFS, SMB/CIFS e iSCSI por nó. Você pode utilizar a deduplicação e a compactação nativas para reduzir os custos de storage aumentando sua capacidade efetiva. A arquitetura com escalabilidade horizontal permite alta disponibilidade e mobilidade de dados sem interrupções para balanceamento de carga ou manutenção de hardware.
+O ONTAP Select foi desenvolvido com base no software de armazenamento ONTAP para fornecer serviços de armazenamento corporativo de forma eficiente, com uma arquitetura escalável de alta disponibilidade e sem compartilhamento. Você pode implementar uma solução com um, dois, quatro, seis, oito, dez ou doze nós, com até 400 TB de capacidade bruta para armazenamento conectado via NFS, SMB/CIFS e iSCSI por nó. Você pode aproveitar a desduplicação e a compactação nativas para reduzir os custos de armazenamento, aumentando sua capacidade efetiva. A arquitetura escalável permite alta disponibilidade e mobilidade de dados sem interrupções para balanceamento de carga ou para manutenção de hardware.
 
 
 

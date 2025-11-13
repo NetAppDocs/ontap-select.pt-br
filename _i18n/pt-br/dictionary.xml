@@ -90,7 +90,6 @@
   <block id="564b7e56e433323571bde06fbe6a5d83" category="section-title">Cuidado ao emitir chamadas de API</block>
   <block id="cc7b50f7c16a19e77b53fc2c649a6a2c" category="paragraph">Todas as operações de API que você executa usando a página de documentação de implantação são operações ativas. Você deve ter cuidado para não criar, atualizar ou excluir configurações ou outros dados por engano.</block>
   <block id="0d746fcebf15f4b3e76f455166f550b9" category="summary">Você deve preparar o ambiente antes de executar os scripts Python de exemplo.</block>
-  <block id="2440e78fcfb85444e37a4004b5713575" category="paragraph">Antes de executar os scripts Python, você deve certificar-se de que o ambiente está configurado corretamente:</block>
   <block id="1d8aeb8f4f16d51236639b4b9eab626b" category="list-text">A versão aplicável mais recente do python2 deve ser instalada. Os códigos de amostra foram testados usando python2. Eles também devem ser portáteis para Python3, mas não foram testados para compatibilidade.</block>
   <block id="f29e16eb01776ebacbbe7f1daa96109f" category="list-text">As solicitações e bibliotecas urllib3 devem ser instaladas. Você pode usar o pip ou outra ferramenta de gerenciamento Python conforme apropriado para o seu ambiente.</block>
   <block id="2a9daccbc0444242913ee7d6c42e3eb4" category="list-text">A estação de trabalho cliente em que os scripts são executados deve ter acesso à rede à máquina virtual ONTAP Select Deploy.</block>
@@ -281,7 +280,6 @@
   <block id="80ca7f43f3e672c21243bfefe6098be3" category="paragraph">Embora os clientes estejam começando a migrar workloads de aplicações de dispositivos de storage de classe empresarial para soluções baseadas em software executadas em hardware comum, as expectativas e necessidades relacionadas à resiliência e à tolerância de falhas não mudaram. Uma solução de HA que fornece um objetivo de ponto de restauração zero (RPO) protege o cliente da perda de dados devido a uma falha de qualquer componente do stack de infraestrutura.</block>
   <block id="0ef73cf573ab623e48c8765c1452e768" category="paragraph">Uma grande parte do mercado de SDS é baseada na noção de storage sem compartilhamento, com a replicação de software fornecendo resiliência de dados ao armazenar várias cópias de dados de usuários em diferentes silos de storage. O ONTAP Select se baseia nessa premissa usando os recursos de replicação síncrona (RAID SyncMirror) fornecidos pelo ONTAP para armazenar uma cópia extra dos dados do usuário no cluster. Isso ocorre no contexto de um par de HA. Cada par de HA armazena duas cópias de dados de usuário: Uma no storage fornecido pelo nó local e outra no storage fornecido pelo parceiro de HA. Em um cluster do ONTAP Select, a replicação síncrona e de HA são Unidas e o recurso dos dois não pode ser desacoplado ou usado de forma independente. Como resultado, a funcionalidade de replicação síncrona só está disponível na oferta multinode.</block>
   <block id="a8b7bdf88cbd08284f532780de97bdc9" category="admonition">Em um cluster ONTAP Select, a funcionalidade de replicação síncrona é uma função da implementação de HA, e não um substituto para os mecanismos de replicação assíncrona SnapMirror ou SnapVault. A replicação síncrona não pode ser usada independentemente do HA.</block>
-  <block id="09d3fcf3c714254bae4dd086fa373525" category="paragraph">Há dois modelos de implantação do ONTAP Select HA: Os clusters com vários nós (quatro, seis ou oito nós) e os clusters de dois nós. A caraterística principal de um cluster de ONTAP Select de dois nós é o uso de um serviço de mediador externo para resolver cenários de split-brain. A VM ONTAP Deploy serve como mediador padrão para todos os pares de HA de dois nós que ela configura.</block>
   <block id="804ffdef469129703e5227d67e21dd9c" category="paragraph">As duas arquiteturas são representadas nas figuras a seguir.</block>
   <block id="5d3c6cd71a8566de0c4154a7f8ca5e5f" category="paragraph">* Cluster ONTAP Select de dois nós com mediador remoto e usando armazenamento conetado local*</block>
   <block id="2940b0a833a0524f0732f30e82611b6b" category="inline-image-macro">Cluster ONTAP Select de dois nós com mediador remoto e uso de storage conectado local</block>
@@ -289,7 +287,6 @@
   <block id="d4e9645ad2fb7265e31744685cca3125" category="admonition">O cluster de dois nós do ONTAP Select é composto por um par de HA e um mediador. No par de HA, os agregados de dados em cada nó de cluster são espelhados de forma síncrona e, no caso de um failover, não há perda de dados.</block>
   <block id="95fab51ff3ed2ff90df7a55762547bbd" category="inline-image-macro">Cluster ONTAP Select de quatro nós que usa storage conectado local</block>
   <block id="ffb05b328379c1dffa641c1ba93aca3d" category="paragraph">* Cluster ONTAP Select de quatro nós usando armazenamento conetado local* <block ref="c354f89f34c66a854f2da4e182a40617" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="2831575438836cee124b33df55390d64" category="list-text">O cluster de quatro nós ONTAP Select é composto por dois pares de HA. Os clusters de seis nós e oito nós são compostos por três e quatro pares de HA, respetivamente. Em cada par de HA, os agregados de dados em cada nó de cluster são espelhados de forma síncrona e, em caso de failover, não há perda de dados.</block>
   <block id="225cc277f791638702a4dff29a2879c4" category="list-text">Apenas uma instância do ONTAP Select pode estar presente em um servidor físico ao usar o armazenamento DAS. O ONTAP Select requer acesso não compartilhado à controladora RAID local do sistema e foi projetado para gerenciar os discos conetados localmente, o que seria impossível sem conetividade física ao storage.</block>
   <block id="aa93950c1aed200eaa527c1dac76c135" category="section-title">Ha de dois nós versus HA de vários nós</block>
   <block id="ad2564443c4e9f2c60b5bb1417738d90" category="paragraph">Diferentemente dos arrays FAS, os nós ONTAP Select em um par de HA se comunicam exclusivamente pela rede IP. Isso significa que a rede IP é um único ponto de falha (SPOF), e proteger contra partições de rede e cenários de split-brain torna-se um aspeto importante do projeto. O cluster com vários nós pode sustentar falhas de nó único porque o quorum do cluster pode ser estabelecido pelos três ou mais nós sobreviventes. O cluster de dois nós conta com o serviço de mediador hospedado pela VM ONTAP Deploy para obter o mesmo resultado.</block>
@@ -308,7 +305,6 @@
   <block id="04f481194539048ee85acd710271244a" category="paragraph">O modelo ONTAP HA foi desenvolvido com base no conceito de parceiros de HA. O ONTAP Select estende essa arquitetura para o mundo dos servidores comuns não compartilhados usando o recurso RAID SyncMirror (RSM) presente no ONTAP para replicar blocos de dados entre nós do cluster, fornecendo duas cópias de dados de usuários espalhados por um par de HA.</block>
   <block id="9a120d7276c6a36d543c5a161642b99e" category="inline-link-macro">Práticas recomendadas de HA (MetroCluster SDS) com dois nós esticados</block>
   <block id="9d0822dcb8819654d0299cf79b2aaf37" category="paragraph">Um cluster de dois nós com um mediador pode abranger dois data centers. Para obter mais informações, consulte a <block ref="3a9138e6cecc138f508a809e03f2cd7a" category="inline-link-macro-rx"></block>seção .</block>
-  <block id="2ae182fb72e38e2c9be66cfbebaa28d7" category="paragraph">Um cluster do ONTAP Select é composto por dois a oito nós. Cada par de HA contém duas cópias de dados de usuário, espelhadas sincronamente entre nós em uma rede IP. Esse espelhamento é transparente para o usuário e é uma propriedade do agregado de dados, configurado automaticamente durante o processo de criação de agregados de dados.</block>
   <block id="7a188dd8dd5110cd2332e9e506fba4f2" category="paragraph">Todos os agregados em um cluster ONTAP Select devem ser espelhados para disponibilidade de dados em caso de failover de nó e para evitar um SPOF em caso de falha de hardware. Os agregados em um cluster ONTAP Select são criados a partir de discos virtuais fornecidos de cada nó no par de HA e usam os seguintes discos:</block>
   <block id="046eb77c326ce59ce04867fab6f58a61" category="list-text">Um conjunto local de discos (fornecido pelo nó ONTAP Select atual)</block>
   <block id="dfd8a61eb56b3cafcfb17614bf437df2" category="list-text">Um conjunto espelhado de discos (fornecido pelo parceiro de HA do nó atual)</block>
@@ -556,7 +552,6 @@
   <block id="7237980e33084af93c84d7c8f28a5410" category="list-text">Usando a VLAN nativa fornecida pelo switch upstream onde a VLAN nativa não é usada para nenhum outro tráfego (atribua um grupo de portas sem ID de VLAN, ou seja, modo EST)</block>
   <block id="b94aba06fef9275105a811a9294a71a4" category="paragraph">Em todos os casos, a marcação de VLAN para tráfego de rede interno é feita fora da VM ONTAP Select.</block>
   <block id="c915fa70e2bcea503f2392db36d95920" category="admonition">Somente vSwitches padrão e distribuídos do ESX são suportados. Outros switches virtuais ou conetividade direta entre hosts ESX não são suportados. A rede interna deve estar totalmente aberta; NAT ou firewalls não são suportados.</block>
-  <block id="be0b780dddb345678e56e3a577602164" category="paragraph">Dentro de um cluster ONTAP Select, o tráfego interno e o tráfego externo são separados usando objetos de rede de camada virtual 2 conhecidos como grupos de portas. A atribuição adequada do vSwitch desses grupos de portas é extremamente importante, especialmente para a rede interna, que é responsável por fornecer serviços de cluster, interconexão HA e replicação espelhada. A largura de banda de rede insuficiente para essas portas de rede pode causar degradação do desempenho e até afetar a estabilidade do nó do cluster. Portanto, os clusters de quatro nós, seis nós e oito nós exigem que a rede ONTAP Select interna use conectividade 10Gb GbE; as placas de rede 1GB não são compatíveis. No entanto, as compensações podem ser feitas para a rede externa, porque limitar o fluxo de dados recebidos para um cluster ONTAP Select não afeta sua capacidade de operar de forma confiável.</block>
   <block id="20d8c400c91f244c437959b1015faf77" category="paragraph">Um cluster de dois nós pode usar quatro portas 1GB para tráfego interno ou uma única porta 10Gb em vez das duas portas 10Gb exigidas pelo cluster de quatro nós. Em um ambiente em que as condições impedem que o servidor seja compatível com quatro placas NIC 10Gb, duas placas NIC 10Gb podem ser usadas para a rede interna e duas placas de rede 1GB podem ser usadas para a rede ONTAP externa.</block>
   <block id="2ce84fe48597ac937066a2883f19084f" category="section-title">Validação e resolução de problemas da rede interna</block>
   <block id="a3de182062915588646145ace36c3e22" category="paragraph">A rede interna em um cluster multinode pode ser validada usando a funcionalidade do verificador de conetividade de rede. Esta função pode ser invocada a partir da CLI de implantação que executa o<block ref="d97fa792aa248671eda4e390b1cdddcd" prefix=" " category="inline-code"></block> comando.</block>
@@ -627,7 +622,6 @@
   <block id="36e8927cc94b5812c317966274770785" category="section-title">Configuração de rede Multinode</block>
   <block id="1ee591758cd33f1794a210d72aa96988" category="paragraph">A configuração de rede multinode ONTAP Select consiste em duas redes.</block>
   <block id="d2529d252133c09f1894e648b4ad0b06" category="paragraph">Trata-se de uma rede interna, responsável pelo fornecimento de serviços de cluster e replicação interna, e de uma rede externa, responsável pelo fornecimento de serviços de acesso e gerenciamento de dados. O isolamento de ponta a ponta do tráfego que flui dentro dessas duas redes é extremamente importante para permitir que você crie um ambiente adequado para resiliência de cluster.</block>
-  <block id="7cb10733239aafdf1dec4b6fe3551ff7" category="paragraph">Essas redes são representadas na figura a seguir, que mostra um cluster ONTAP Select de quatro nós em execução em uma plataforma VMware vSphere. Os clusters de seis e oito nós têm um layout de rede semelhante.</block>
   <block id="a26bb398479258470974859a18564418" category="admonition">Cada instância do ONTAP Select reside em um servidor físico separado. O tráfego interno e externo é isolado usando grupos de portas de rede separados, que são atribuídos a cada interface de rede virtual e permitem que os nós de cluster compartilhem a mesma infraestrutura de switch físico.</block>
   <block id="a12d8dfe451f0b8f185a6eeda853cd32" category="paragraph">*Visão geral de uma configuração de rede de cluster multinode ONTAP Select*</block>
   <block id="e527595cf4df9c666be31f4431052de9" category="inline-image-macro">Visão geral de uma configuração de rede de cluster ONTAP Select multinode</block>
@@ -654,7 +648,6 @@
   <block id="e1279727a3e288e83709ff4d8d87a0bc" category="section-title">LIFs de rede de cluster (e0c, e0d)</block>
   <block id="c4e1348cd1cb2b94fa73f9f1024e7fdb" category="paragraph">As portas ONTAP e0c e e0d são delegadas como portas residenciais para interfaces de cluster. Em cada nó de cluster do ONTAP Select, duas interfaces de cluster são geradas automaticamente durante a configuração do ONTAP usando endereços IP locais de link (169,254.x.x).</block>
   <block id="4818cf4fe2c6f6879cfbca778f3edd50" category="admonition">Não é possível atribuir a essas interfaces endereços IP estáticos e não devem ser criadas interfaces de cluster adicionais.</block>
-  <block id="f30678c36ec577758e47a558db374927" category="paragraph">O tráfego de rede do cluster deve fluir através de uma rede da camada 2 não roteada de baixa latência. Devido à taxa de transferência do cluster e aos requisitos de latência, espera-se que o cluster ONTAP Select esteja fisicamente próximo (por exemplo, multipack, data center único). A criação de configurações de cluster elástico de quatro nós, seis nós ou oito nós separando nós de HA em uma WAN ou em distâncias geográficas significativas não é suportada. Há suporte para uma configuração de dois nós estendida com um mediador.</block>
   <block id="838ad6f06b85f4e42b1bb8d5e586f9ca" category="paragraph">Para obter mais detalhes, consulte a secção <block ref="3a9138e6cecc138f508a809e03f2cd7a" category="inline-link-macro-rx"></block>.</block>
   <block id="8e1717d402d473f63acfe5730635acde" category="admonition">Para garantir a taxa de transferência máxima para o tráfego de rede de cluster, esta porta de rede está configurada para usar quadros jumbo (7500 a 9000 MTU). Para uma operação adequada do cluster, verifique se os quadros jumbo estão ativados em todos os switches físicos e virtuais upstream que fornecem serviços de rede internos para nós de cluster ONTAP Select.</block>
   <block id="55e59e9fe203f6cf841ad620c7d26c2c" category="section-title">Tráfego RAID SyncMirror (e0e)</block>
@@ -802,7 +795,6 @@
   <block id="5e75bdbfd3f02cf9f655d512b767dc1f" category="section-title">Dois componentes de software</block>
   <block id="1524f7469af0e3274a12cb0f88c7e172" category="paragraph">O ONTAP Select é composto por dois principais componentes de software:</block>
   <block id="109a0fa65c0a46ffacf7a4a44e3904a2" category="section-title">Nó ONTAP Select</block>
-  <block id="30469533a5982c250fa502f71f9f958c" category="paragraph">Um cluster do ONTAP Select é composto por um, dois, quatro, seis ou oito nós. Cada nó de cluster é implantado como uma máquina virtual separada e executa uma versão especialmente projetada do software ONTAP 9.</block>
   <block id="440776946e3349ff3266a8cf25bef605" category="section-title">Utilitário de administração ONTAP Select Deploy</block>
   <block id="deeb67d546017625d12dfbcf3d817a5c" category="paragraph">O utilitário de administração de implantação é empacotado e instalado como uma máquina virtual Linux separada. Você deve usar o utilitário para implantar clusters do ONTAP Select em um ambiente de produção. Uma versão atual da imagem do nó ONTAP Select é fornecida com o utilitário Deploy.</block>
   <block id="20c8095e12a07086f2125bf30517c04c" category="admonition">O utilitário de administração implantar não tem um número de versão separado. O Deploy tem o mesmo número de versão que o lançamento do ONTAP Select associado. No entanto, cada atualização do utilitário de implantação dentro de uma versão específica do ONTAP Select tem um número de compilação exclusivo.</block>
@@ -1110,7 +1102,6 @@
   <block id="fe99eb72c703db69bd59615fd7424477" category="section-title">NVRAM virtualizada</block>
   <block id="27bc9c6bd3ac9bb967e654fb3c84a1fc" category="paragraph">Os sistemas NetApp FAS são tradicionalmente equipados com uma placa PCI NVRAM física, uma placa de alto desempenho que contém memória flash não volátil. Este cartão fornece um aumento significativo no desempenho de gravação, concedendo à ONTAP a capacidade de reconhecer imediatamente as gravações recebidas de volta ao cliente. Ele também pode programar o movimento de blocos de dados modificados de volta para a Mídia de armazenamento mais lenta em um processo conhecido como destaging.</block>
   <block id="c7a1b527f2affc268470a4d29cbe6ef4" category="paragraph">Os sistemas comuns normalmente não estão equipados com este tipo de equipamento. Portanto, a funcionalidade desta placa NVRAM foi virtualizada e colocada em uma partição no disco de inicialização do sistema ONTAP Select. É por esta razão que o posicionamento do disco virtual do sistema da instância é extremamente importante. É também por isso que o produto requer a presença de uma controladora RAID física com um cache resiliente para configurações de armazenamento conetadas locais.</block>
-  <block id="454a296bfdd606102c9381c7ff04eb44" category="paragraph">NVRAM é colocado em seu próprio VMDK. Dividir o NVRAM em seu próprio VMDK permite que a VM ONTAP Select use o driver vNVMe para se comunicar com seu VMDK NVRAM. Ele também requer que a VM ONTAP Select use a versão de hardware 13, que é compatível com o ESX 6,5 e mais recente.</block>
   <block id="5731426ad5932cbe2f0dc1563b3eeda2" category="section-title">Caminho de dados explicado: Controlador NVRAM e RAID</block>
   <block id="235a3c28a55ff3027b14ea0be4651791" category="paragraph">A interação entre a partição virtualizada do sistema NVRAM e o controlador RAID pode ser melhor destacada caminhando pelo caminho de dados tomado por uma solicitação de gravação à medida que entra no sistema.</block>
   <block id="fd6a67fa31f26828eb7267405a8e9da5" category="paragraph">As solicitações de gravação recebidas para a VM ONTAP Select são direcionadas para a partição NVRAM da VM. Na camada de virtualização, essa partição existe dentro de um disco do sistema ONTAP Select, um VMDK conetado à VM do ONTAP Select. Na camada física, essas solicitações são armazenadas em cache no controlador RAID local, como todas as alterações de bloco direcionadas aos fusos subjacentes. A partir daqui, a escrita é reconhecida de volta para o anfitrião.</block>
@@ -1121,7 +1112,6 @@
   <block id="dffb2b0c240d924b2e202dc3c0800a1a" category="paragraph">*Gravações recebidas na VM ONTAP Select*</block>
   <block id="dbca2124e685af6158dfb16fa4b1f333" category="inline-image-macro">Gravações recebidas na VM do ONTAP Select</block>
   <block id="bb4535bc16c1e303453a76a7d6669910" category="paragraph"><block ref="bb4535bc16c1e303453a76a7d6669910" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="83aee6fb82bd87d789e0851835b555f8" category="admonition">A partição NVRAM é separada em seu próprio VMDK. Esse VMDK é anexado usando o driver vNVME disponível nas versões ESX de 6,5 ou posterior. Essa alteração é mais significativa para instalações do ONTAP Select com software RAID, que não se beneficiam do cache da controladora RAID.</block>
   <block id="3db3547bcabe9c3ed4c1a8d9ade67c26" category="summary">RAID de software é uma camada de abstração RAID implementada dentro da pilha de software ONTAP. Ele fornece a mesma funcionalidade que a camada RAID em uma plataforma ONTAP tradicional, como o FAS. A camada RAID executa cálculos de paridade de unidade e fornece proteção contra falhas individuais de unidade em um nó ONTAP Select.</block>
   <block id="72516b350fb14e2e3d6c3218313ea038" category="doc">Serviços RAID de software para armazenamento anexado local</block>
   <block id="3687f8d0eeb8ce0b039211af5645386b" category="paragraph">Independente das configurações RAID de hardware, o ONTAP Select também fornece uma opção RAID de software. Uma controladora RAID de hardware pode não estar disponível ou pode ser indesejável em certos ambientes, como quando o ONTAP Select é implantado em um hardware comum de fator forma pequeno. O RAID de software expande as opções de implantação disponíveis para incluir esses ambientes. Para ativar o RAID de software em seu ambiente, aqui estão alguns pontos a serem lembrados:</block>
@@ -1208,7 +1198,6 @@
   <block id="067c35f1ba98a705741486402c1dac18" category="list-text">A KVM (kernel-Based Virtual Machine) é um recurso de virtualização do kernel Linux, que permite que ele atue como uma plataforma de hipervisor. Uma ampla gama de sistemas operacionais convidados são suportados.</block>
   <block id="153e118152db4eb4b3aaf5802efa8cfa" category="list-text">Um _hypervisor host_ é a plataforma de hardware principal que hospeda uma máquina virtual ONTAP Select. Quando uma máquina virtual ONTAP Select é implantada e ativa em um host de hipervisor, ela é considerada um nó _ONTAP Select_.</block>
   <block id="016402ba882e183fec09aa422afcb53e" category="list-text">Cluster ONTAP Select</block>
-  <block id="91881c8fd4a4fec4ec8625e86028b1b0" category="list-text">Você pode criar um cluster _ONTAP Select_ composto por um, dois, quatro, seis ou oito nós. Os clusters de vários nós sempre contêm um ou mais pares de HA. Por exemplo, um cluster de quatro nós consiste em dois pares de HA. Um cluster de nó único não fornece funcionalidade de HA.</block>
   <block id="85b0e2165794c108ba013b7cf182db29" category="list-text">Preparação do ambiente de host do hipervisor</block>
   <block id="6fad2c05f92dba415c7e46f30eb18bfb" category="list-text">Antes de usar o utilitário de administração implantar para implantar um cluster do ONTAP Select, você precisa preparar os hosts de hypervisor em que o ONTAP Select será executado, incluindo os ambientes de storage e rede. Essa pré-configuração do host é feita fora do produto ONTAP Select com base nos requisitos e limitações atuais.</block>
   <block id="a4a70d8adb3d58d565cfe32be8f1006c" category="list-text">Avaliação versus implantações de produção</block>
@@ -1745,7 +1734,6 @@
   <block id="16f9dd2af311dfdedd3814899d379c54" category="list-text"><block ref="16f9dd2af311dfdedd3814899d379c54" category="inline-link-macro-rx"></block></block>
   <block id="3c5bdd4a077d520c4b4870fb15f37d1b" category="summary">A versão atual inclui vários novos recursos ou melhorias específicas do ONTAP Select.</block>
   <block id="f80570d561d36d2a6f83d903ac92764d" category="section-title">ONTAP Select 9.15.1</block>
-  <block id="dd543e83687ed3c39447157a0f0e1822" category="paragraph">O ONTAP Select 9.15.1 inclui vários novos recursos e melhorias.</block>
   <block id="f588ddb32cd79889160082356416d2f3" category="list-text">Suporte ao hipervisor KVM atualizado</block>
   <block id="ff49a1a2875b63e18d60b0284fd713bf" category="list-text">Suporte para expansão e redução do cluster</block>
   <block id="e84b565f766d2b63406ea62dbdd12c66" category="list-text">A partir do ONTAP Select 9.15.1, a expansão e a redução do cluster são suportadas.</block>
@@ -1754,7 +1742,6 @@
   <block id="5638b273dc7505c1415d93d081293984" category="list-text">Contração de clusters de oito nós para seis nós</block>
   <block id="e1ecf9e1ce05084dbe89253dda1abf54" category="admonition">O suporte para expansão e redução do cluster é limitado apenas aos clusters ESX.</block>
   <block id="40b6105bb7b93b6c729f3eca12a92208" category="section-title">ONTAP Select 9.14.1</block>
-  <block id="fdd7ed667f9a504cda2e0866cdd90c23" category="paragraph">O ONTAP Select 9.14.1 inclui vários novos recursos e melhorias.</block>
   <block id="e1ae44499df6fcb90278dfe4d841d33c" category="list-text">Suporte para hipervisor KVM</block>
   <block id="b35bd0fa11c21a2e47930e24a2292b8f" category="list-text">Implantar o plug-in do VMware vCenter não é mais compatível</block>
   <block id="9eb8d318a230a18438382e0ea392ec2d" category="list-text">A partir do ONTAP Select 9.14.1, o plug-in de implantação do VMware vCenter não é mais compatível.</block>
@@ -1763,7 +1750,6 @@
   <block id="2dbcb54e47dfd070743afb26077cdc91" category="list-text">Se você estiver executando uma versão do ONTAP Select Deploy 9.14.1 menor que 9.14.1P2, você deve atualizar para o ONTAP Select Deploy 9.14.1P2 o mais rápido possível. Para obter mais informações, consulte <block ref="6635db952aa4480bb5bc591b4d6d32f6" category="inline-link-macro-rx"></block>.</block>
   <block id="aacb1ad8ec74092a13074108a4e20c02" category="list-text">Suporte aprimorado ao VMware ESXi</block>
   <block id="1e2be71e8b4858c0b3e832cba35731d1" category="section-title">ONTAP Select 9.13.1</block>
-  <block id="cdbcb12eafeb6cc1f6a058e9c52a7f8d" category="paragraph">O ONTAP Select 9.13.1 inclui vários novos recursos e melhorias.</block>
   <block id="58c277c116ff23ffb9879debb95b4968" category="list-text">Suporte para NVMe sobre TCP</block>
   <block id="db5f5d6e1e5a3e29724ce78258556ff1" category="list-text">Ao fazer a atualização para o ONTAP Select 9.13.1, você precisa ter a nova licença para dar suporte ao NVMe sobre TCP. Essa licença é incluída automaticamente quando você implantar o ONTAP Select pela primeira vez a partir da versão 9.13.1.</block>
   <block id="5f4c6121d4f63aaa5d6daebc2a2effee" category="list-text">Suporte ao VMware ESXi atualizado</block>
@@ -1773,7 +1759,6 @@
   <block id="05dd50ebf48db80deadf4c9a847c2ce4" category="paragraph">O ONTAP Select 9.12.1 beneficia da maioria dos novos desenvolvimentos na versão atual do produto ONTAP principal. Ele não inclui novos recursos ou melhorias específicas do ONTAP Select.</block>
   <block id="6e1144fb904fc4097d1a90d7908b66cc" category="paragraph">A partir de abril de 2024, o ONTAP Select Deploy 9.12.1 não está mais disponível no site de suporte da NetApp. Se você estiver executando o ONTAP Select Deploy 9.12.1, você deve atualizar para o ONTAP Select Deploy 9.14.1P2 o mais rápido possível. Para obter mais informações, consulte <block ref="6635db952aa4480bb5bc591b4d6d32f6" category="inline-link-macro-rx"></block>.</block>
   <block id="7802fb8cc2dd2205ca511b49141235e0" category="section-title">ONTAP Select 9.11.1</block>
-  <block id="719b97afa778e32343849808db915b66" category="paragraph">O ONTAP Select 9.11.1 inclui vários novos recursos e melhorias.</block>
   <block id="aa46a81eb495f6cb92e19c98c6d7383a" category="list-text">O ONTAP Select 9.11.1 inclui suporte para VMware ESXi 7,0 U3C.</block>
   <block id="5986999240906508e3084d84dd2552d8" category="list-text">Suporte para VMware NSX-T</block>
   <block id="1092b73fb287a831beb00918cbde5b6b" category="list-text">O ONTAP Select 9.10.1 e versões posteriores foram qualificados para o VMware NSX-T versão 3,1.2. Não há problemas funcionais ou deficiências ao usar o NSX-T com um cluster de nó único do ONTAP Select implantado com um ARQUIVO OVA e o utilitário de administração ONTAP Select Deploy. No entanto, ao usar o NSX-T com um cluster de vários nós do ONTAP Select, você deve observar a seguinte limitação para o ONTAP Select 9.11.1:</block>
@@ -1783,21 +1768,18 @@
   <block id="d2cc16162b6d3a24dc4a4501cf469cb0" category="inline-link">Aviso EOA</block>
   <block id="5370055608d6cbcb7f0776601a776aed" category="paragraph">A NetApp recomenda fortemente que os clientes planejem e executem uma migração completa de dados do ONTAP Select para KVM para qualquer outra plataforma ONTAP, incluindo o ONTAP Select para ESXi. Para obter mais informações, consulte a.<block ref="e7f4803e65543a8054dff75dc9e1166a" category="inline-link-rx"></block></block>
   <block id="bdcccc9d04bbc9b8540a1fbdebef3b93" category="section-title">ONTAP Select 9.10.1</block>
-  <block id="d7e7eb95caecb5dfc702a5f7d3cb0071" category="paragraph">O ONTAP Select 9.10.1 inclui vários novos recursos e melhorias.</block>
   <block id="4774053cb57a95a02a834cf823224b16" category="list-text">O ONTAP Select 9.10.1 foi qualificado para o VMware NSX-T versão 3,1.2. Não há problemas funcionais ou deficiências ao usar o NSX-T com um cluster de nó único do ONTAP Select implantado com um ARQUIVO OVA e o utilitário de administração ONTAP Select Deploy. No entanto, ao usar o NSX-T com um cluster de vários nós do ONTAP Select, você deve observar os seguintes requisitos e limitações:</block>
   <block id="ad136d3e5fb5acdd03500618ef8e1a95" category="paragraph">Você deve ajustar manualmente o tamanho da MTU do cluster para 8800 antes de implantar o cluster para ter em conta a sobrecarga adicional. A orientação da VMware é permitir um buffer de 200 bytes ao usar o NSX-T.</block>
   <block id="be4edc608044981ff1193ab01e2a80a8" category="list-text">Configuração de rede 4x10Gb</block>
   <block id="e3f9b3ee4bd0f7a9715c1acd839cb82b" category="paragraph">Para implantações do ONTAP Select em um host VMware ESXi configurado com quatro NICs, o utilitário de implantação solicitará que você siga a melhor prática de dividir o tráfego interno em dois grupos de portas diferentes e tráfego externo em dois grupos de portas diferentes. No entanto, ao usar uma rede de sobreposição, essa configuração não funciona e você deve ignorar a recomendação. Nesse caso, você deve usar apenas um grupo de portas interno e um grupo de portas externo.</block>
   <block id="2380ad5ce6796e080b2fcb896e8b4d72" category="list-text">A partir do ONTAP Select 9.10.1, você não pode mais implantar um novo cluster no hipervisor KVM. No entanto, se você atualizar um cluster de uma versão anterior para 9.10.1, ainda poderá usar o utilitário implantar para administrar o cluster.</block>
   <block id="5321c0bf4db2c41a876a8455e4fd3037" category="section-title">ONTAP Select 9.9.1</block>
-  <block id="2dc4c31981db6194573548002505f01d" category="paragraph">O ONTAP Select 9.9.1 inclui vários novos recursos e melhorias.</block>
   <block id="c92580bf4d34ad8667b38f18db6e63e5" category="list-text">Suporte à família de processadores</block>
   <block id="afe2fb2999af41d32655dc1f20500f66" category="list-text">A partir do ONTAP Select 9,9.1, apenas os modelos de CPU da Intel Xeon Sandy Bridge ou posterior são suportados para o ONTAP Select.</block>
   <block id="94f6b8f3b96f83ead9cf8f1fff27c5ba" category="list-text">O suporte para VMware ESXi foi aprimorado com o ONTAP Select 9,9.1. As seguintes versões são agora suportadas:</block>
   <block id="2a75a4bfd68197cf6684d89c95157677" category="list-text">ESXi 7,0 U2</block>
   <block id="aa3bb437d4c9050ad360819d6231b58e" category="list-text">ESXi 7,0 U1</block>
   <block id="c4537e24714e3ee09d3a03a894db75f4" category="section-title">ONTAP Select 9,8</block>
-  <block id="00ba796063aa024015a8e3a32ba25b3d" category="paragraph">Há vários recursos novos e alterados incluídos no ONTAP Select 9,8.</block>
   <block id="db16d4c1e494c28301de7f652ab007e8" category="list-text">Interface de alta velocidade</block>
   <block id="a15ac8498d522b4bdcfac7e79ef2e02f" category="list-text">O recurso de interface de alta velocidade melhora a conetividade de rede, fornecendo uma opção para 25G (25GbE) e 40G (40GbE). Para obter o melhor desempenho ao usar essas velocidades mais altas, siga as práticas recomendadas em relação às configurações de mapeamento de portas, conforme descrito na documentação do ONTAP Select.</block>
   <block id="420170376a4067e246c6c8ab8f967e8c" category="list-text">Há duas alterações para o ONTAP Select 9,8 em relação ao suporte para o VMware ESXi.</block>
@@ -1824,7 +1806,6 @@
   <block id="ceb3438393c3ac39fcf4c30b526b7fae" category="paragraph">Um disco sobressalente é opcional, mas recomendado. A NetApp também recomenda o uso de um sobressalente por grupo RAID; no entanto, as peças sobressalentes globais para todos os grupos RAID podem ser usadas. Por exemplo, você pode usar duas peças sobressalentes para cada três grupos RAID, com cada grupo RAID composto por oito a 12 unidades.</block>
   <block id="5ca7ce8323f7b11744e86ef1f4f9606f" category="paragraph">O ONTAP Select não recebe benefícios de desempenho ao aumentar o número de LUNs em um grupo RAID. Vários LUNs só devem ser usados para seguir as práticas recomendadas para configurações SATA/NL-SAS ou para ignorar as limitações do sistema de arquivos do hipervisor.</block>
   <block id="1089735339643620b5910924c5320981" category="section-title">Hosts do VMware ESXi</block>
-  <block id="2dfed98838decebcc7246099986d6886" category="paragraph">A NetApp recomenda o uso do ESX 6,5 U2 ou posterior e um disco NVMe para o datastore que hospeda os discos do sistema. Esta configuração fornece o melhor desempenho para a partição NVRAM.</block>
   <block id="883debc749a79a13f46992bc1c04b69a" category="paragraph">Defina portas de rede dedicadas, largura de banda e configurações vSwitch para as redes ONTAP Select e armazenamento externo (VMware VSAN e tráfego genérico de storage array ao usar iSCSI ou NFS).</block>
   <block id="7858be6b65b0176805cc934c2f21d6dd" category="paragraph">Configurar a opção capacidade para restringir a utilização do storage (o ONTAP Select não pode consumir toda a capacidade de um datastore vNAS externo).</block>
   <block id="8a7d1abfb409902e561b13c9ab0a53b7" category="paragraph">Certifique-se de que todos os storage arrays externos genéricos usem os recursos de redundância e HA disponíveis, sempre que possível.</block>
@@ -1981,7 +1962,6 @@
   <block id="4682505b28ef1baba1c84e29e768fa89" category="section-title">Tamanho do cluster e considerações relacionadas</block>
   <block id="449ea47c3ea62a2d3b303b4ef006b170" category="paragraph">Há vários problemas de Planejamento relacionados ao tamanho do cluster que você deve considerar.</block>
   <block id="54c5e966df9913966f5efaa8645540d7" category="list-text">Número de nós no cluster</block>
-  <block id="1ffcd0aa7083c89d25f318cedc05eba1" category="list-text">Um cluster do ONTAP Select é composto por um, dois, quatro, seis ou oito nós. Você deve determinar o tamanho do cluster com base nos requisitos da aplicação. Por exemplo, se o recurso de HA for necessário para uma implantação empresarial, deve ser usado um cluster de vários nós.</block>
   <block id="9c05d1783e3b3ca48efdac5091f94a6e" category="list-text">Dedicado versus colocado</block>
   <block id="a1243e7975c2ed7f07b0d3228b2e496e" category="list-text">Com base no tipo de aplicativo, você deve determinar se a implantação segue o modelo dedicado ou colocalizado. Observe que o modelo colocalizado pode ser mais complexo devido à diversidade de carga de trabalho e integração mais restrita.</block>
   <block id="33476e54e425c79d4fbac2f9f1b2b4aa" category="list-text">Tanto o ONTAP Select quanto o utilitário de administração do ONTAP Select Deploy são independentes de hipervisor. Os hypervisors a seguir são compatíveis com ambos.</block>
@@ -2017,7 +1997,6 @@
   <block id="9702dfddce9ca846a20b21815bd5bf71" category="list-text">VMware ESXi 8,0 U1 (compilação 21495797)</block>
   <block id="3522298772b42c1feed00428b1765cfd" category="admonition">O NetApp oferece suporte ao ONTAP Select nas versões identificadas do ESXi, desde que o VMware continue a suportar as mesmas versões.</block>
   <block id="c9dd6bad4c7d561872f2e2d498a990bf" category="inline-link">Ferramenta de Matriz de interoperabilidade (IMT)</block>
-  <block id="28986937787872c11df39e20ca126e8d" category="admonition">O ESXi 6,5 GA e o ESXi 6,7 GA atingiram o status de fim de disponibilidade. Se você tiver clusters do ONTAP Select com essas versões, será necessário atualizar para as versões com suporte de acordo com o<block ref="2b761b14db6e131ceb5a9ee87e5e085a" category="inline-link-rx"></block>.</block>
   <block id="5c4eab167cc470fbe0f1b2e9a2449486" category="section-title">VMware vCenter e hosts ESXi independentes</block>
   <block id="d8492e635eeb04bc232082f13805e768" category="paragraph">Se um host de hipervisor ESXi for gerenciado por um servidor vCenter, você deverá Registrar o host no utilitário de administração implantar usando as credenciais do vCenter. Não é possível Registrar o host como um host autônomo usando as credenciais ESXi.</block>
   <block id="d200a289a8ebcab27fa991f9d753e39c" category="section-title">Requisitos básicos de hardware</block>
@@ -2171,7 +2150,6 @@
   <block id="a8c35909c596f300717f783ae20a74e7" category="paragraph">Ao implantar um cluster ONTAP Select no hypervisor, você pode utilizar o recurso RAID de software fornecido pelo ONTAP Select em vez de um controlador RAID de hardware local. Há vários requisitos e restrições que você deve estar ciente antes de implantar um cluster usando RAID de software.</block>
   <block id="a1a264e616e24563d4b8f8b5795ea403" category="section-title">Requisitos gerais</block>
   <block id="1bc4b1f653eec748e8950fe95542c6c7" category="paragraph">O ambiente para uma implantação de RAID de software deve atender aos seguintes requisitos principais:</block>
-  <block id="8542ad0a9f97f96320929367de2b74cc" category="list-text">VMware ESXi 7,0 GA (compilação 15843807) ou posterior</block>
   <block id="c7e62b59424536b250d4579734abe7f1" category="list-text">Licença ONTAP Select premium ou superior</block>
   <block id="40bb7b952246e092adb4433dd74a65a0" category="list-text">Apenas unidades SSD locais</block>
   <block id="f489a72fa633e22d9930c4381f3d7832" category="list-text">Separação de discos do sistema dos agregados raiz e dados</block>
@@ -2236,7 +2214,6 @@
   <block id="e37c11f68e3397e2b860bdf79e536e7b" category="section-title">Unidades NVMe com software RAID</block>
   <block id="39172c8364665d2e8c9d51ed089aae52" category="paragraph">Você pode configurar o RAID de software para usar unidades SSD NVMe. Seu ambiente precisa atender aos seguintes requisitos:</block>
   <block id="dcf27857f687902ea701004a7410264f" category="list-text">Oferta de licença de plataforma Premium XL ou uma licença de avaliação de 90 dias</block>
-  <block id="dd95946e5f91bc0eefaa0662bef76947" category="list-text">VMware ESXi versão 6,7 ou posterior</block>
   <block id="67217e5ba4d416b3ec157550a03becb2" category="list-text">Dispositivos NVMe em conformidade com a especificação 1,0 ou posterior</block>
   <block id="b6702ccd9ee84a01dc2fbefaa450cd6f" category="inline-link-macro">Configurar um host para usar unidades NVMe</block>
   <block id="d00759fbc7ff77ceda8f3140254c588c" category="paragraph">Você precisa configurar manualmente as unidades NVMe antes de usá-las. Consulte <block ref="6615ae57a224e289b1c56f5bc1777c88" category="inline-link-macro-rx"></block> para obter mais informações.</block>
@@ -2721,7 +2698,6 @@
   <block id="7e0a8cfbb81693d645b2e510efe248df" category="admonition">Você só deve adicionar uma imagem ONTAP Select com uma versão anterior à versão original incluída na instância do utilitário de implantação. Adicionar versões posteriores do ONTAP Select à medida que elas se tornam disponíveis a partir do NetApp não é uma configuração suportada.</block>
   <block id="807ad9e65833a6b39b8d8286e8b783f8" category="paragraph">Para iniciar o processo de adição de uma imagem ONTAP Select a uma instância do utilitário implantar, você deve baixar a imagem de instalação do site de suporte da NetApp. A imagem de instalação do ONTAP Select é formatada como um único arquivo compactado.</block>
   <block id="a8601f098fd28588686f1b5ce31da2a1" category="list-text">Selecione a versão desejada do pacote de atualização.</block>
-  <block id="9bf3ac5f4cb6341117598df735958bdf" category="list-text">Reveja o Contrato de Licença de Utilizador final (EULA) e clique em *Accept &amp; continue* (aceitar e continuar).</block>
   <block id="def8f653fff47640d3bcce40244c6331" category="list-text">Selecione e baixe o pacote apropriado, respondendo a todas as solicitações conforme necessário para o seu ambiente.</block>
   <block id="219698a1df9fbd3c16f4a498102fbc3e" category="paragraph">Depois de adquirir a imagem de instalação do ONTAP Select, você deve fazer o upload do arquivo para a máquina virtual implantar.</block>
   <block id="2a5d9f3f5564baf37e1d1a8cf1a3b68c" category="paragraph">Tem de ter o ficheiro de imagem de instalação disponível na estação de trabalho local. Você também deve ter a senha para a conta de usuário do administrador de implantação.</block>
@@ -2821,17 +2797,14 @@
   <block id="d3a9739a4d6cf4fc9efd4b7704905c48" category="list-text">Reveja o Contrato de Licença de Utilizador final (EULA) e selecione *Accept &amp; continue* (aceitar e continuar).</block>
   <block id="4d31142bb7c8f427942e83be227bb1f0" category="paragraph">O arquivo de atualização é armazenado no diretório inicial do usuário admin.</block>
   <block id="ddd583d223b6cdfc7284a7d618756d41" category="list-text">Execute a atualização usando o caminho do diretório e o nome do arquivo apropriados:</block>
-  <block id="be89bf0bd68c0f721ab7e25e408b6fa7" category="summary">Se você estiver executando o ONTAP Select no VMware ESXi, poderá atualizar o software ESXi de uma versão anterior suportada para o ESXi 7,0 ou posterior. Antes de atualizar, você deve entender o processo e selecionar o procedimento de atualização apropriado.</block>
   <block id="879d008da9e1adcaebd71393252b5f05" category="paragraph">A atualização do software ESXi é um processo descrito e suportado pela VMware. O processo de atualização do hipervisor faz parte do procedimento de atualização maior ao usar o ONTAP Select. Consulte a documentação da VMware para obter mais informações.</block>
   <block id="a06d958d7c1e780db3a597737559b331" category="paragraph">Vários procedimentos de atualização estão disponíveis. Você deve selecionar o procedimento aplicável com base nos seguintes critérios:</block>
-  <block id="d98bf1b619a94ca49b2cf4e249269541" category="list-text">Tamanho do cluster do ONTAP Select: Clusters de nó único e de vários nós são compatíveis.</block>
   <block id="649ae0572dea5b8bc6208820d18b8e73" category="admonition">Você deve selecionar um procedimento de atualização que use o utilitário de administração implantar.</block>
   <block id="7040c3ccc544e203d76cb7ffe82f6911" category="inline-link-macro">1172198</block>
   <block id="2e6761a6be39f375b42a759a4e5b2ce9" category="paragraph">Se você estiver usando essas versões anteriores e tentar uma atualização, a máquina virtual ONTAP Select pode ser deixada em um estado em que não pode ser inicializada. Nesse caso, você deve selecionar um procedimento de atualização que não use o Deploy. <block ref="45788d744a81e57f6ed35cd7105ed791" category="inline-link-macro-rx"></block>Consulte para obter mais informações.</block>
   <block id="3020c5e4f7e244ad0af7d9b1e1c3f9cc" category="paragraph">Se selecionar um procedimento de atualização que utilize o utilitário Deploy, deverá efetuar uma operação de atualização de cluster utilizando Deploy (implementar) depois de todos os nós terem sido atualizados. Consulte Atualizar a configuração do cluster de implantação para obter mais informações.</block>
   <block id="5b8325e442ddd32629c86630fde418de" category="section-title">Atualizar um cluster de nó único usando o Deploy</block>
   <block id="2b02207ef454c2c6aeeedf7644fa1821" category="paragraph">Você pode usar o utilitário de administração implantar como parte do procedimento para atualizar o hypervisor do VMware ESXi que hospeda um cluster de nó único do ONTAP Select.</block>
-  <block id="f87065c0eaa86d23a9d0bc62defec91b" category="list-text">Atualize o host do hypervisor em que o ONTAP Select está sendo executado para o ESXi 7,0 ou posterior usando o procedimento fornecido pela VMware.</block>
   <block id="2bcdcfed9ba53c3c8ca4e481e1451e94" category="list-text">Depois que o nó aparecer, verifique se o cluster está em bom estado.</block>
   <block id="bba96a171c35e11e4bf7eb548e322d78" category="paragraph">Você deve executar uma operação de atualização de cluster usando o utilitário de administração implantar.</block>
   <block id="2863feac8b058188a45f49deaf504ce8" category="section-title">Atualizar um cluster de vários nós usando o Deploy</block>
@@ -2851,7 +2824,6 @@
   <block id="4724841b242993261d4bc5bf0b22e4da" category="section-title">Atualizar um cluster de vários nós sem implantar</block>
   <block id="42fd4c247ebbe7dfca417006d76edd84" category="paragraph">Você pode atualizar os hypervisors do VMware ESXi hospedando um cluster de vários nós do ONTAP Select sem usar o utilitário de administração implantar.</block>
   <block id="c94bc3200f704807c4c41ce4c2e2b2d8" category="paragraph">Você deve executar o procedimento de atualização para cada host usado no cluster do ONTAP Select.</block>
-  <block id="ef179550c4eb9da6a82350b32d807ed9" category="list-text">ESXi 7,0</block>
   <block id="c0fa4ded01a6d24b2a77cd3a6b10e6e7" category="section-title">Expanda o cluster</block>
   <block id="30230ebf7e780c11cfcde8274fc17934" category="list-text">Verifique se você tem os detalhes da licença para os novos nós.</block>
   <block id="70be200347cc17e3939c72792fe71b15" category="list-text">Selecione a guia *Cluster* na parte superior da página e selecione o cluster desejado na lista.</block>
@@ -3091,7 +3063,6 @@
   <block id="d62b4235cf2a29152b9bcb3eb1df59d8" category="paragraph">Você pode aumentar o tamanho do cluster de um cluster de seis nós para um cluster de oito nós com o recurso de expansão do cluster. As expansões de cluster de um, dois ou quatro nós para clusters de seis ou oito nós não são atualmente suportadas. <block ref="fdb7564d24c88f6d96b0c17d886f76d8" category="inline-link-macro-rx"></block>.</block>
   <block id="185acadc91fc3b4d6d7a0f9ab8464c51" category="paragraph">Você pode diminuir o tamanho do cluster de oito nós para seis nós com o recurso de contração do cluster. Contrações de cluster de clusters de seis ou oito nós para clusters de um, dois ou quatro nós não são atualmente suportadas. <block ref="8a05acf96f393c0e4f159f197b97e2ff" category="inline-link-macro-rx"></block>.</block>
   <block id="065e8e686a5cc9c043bea6a2b47a6dbc" category="section-title">Considerações sobre hardware e armazenamento</block>
-  <block id="226d8636aca6bd1bdcac58203b8ddcd2" category="list-text">Contrações de clusters de seis ou oito nós para clusters de um, dois ou quatro nós.</block>
   <block id="054e946fb0b83b6a666a6ad91e898f0a" category="doc">Processamento assíncrono usando o objeto trabalho para ONTAP Select</block>
   <block id="1203a64f6c4121eab9dbc97f2336a51b" category="doc">Antes de acessar a API ONTAP Select Deploy com um navegador</block>
   <block id="d507d585a3bf4790d7db816f3a8055fe" category="doc">Antes de acessar a API ONTAP Select Deploy usando Python</block>
@@ -3166,7 +3137,6 @@
   <block id="bf2c241347c4076c2039076b440d75de" category="doc">O que há de novo para o ONTAP Select</block>
   <block id="8a4d972efa4a178e4f23653b4b6a1b69" category="paragraph">Saiba mais sobre os novos recursos e aprimoramentos nas versões suportadas do ONTAP Select.</block>
   <block id="fa9e744025392ca74a15477f1e137192" category="section-title">ONTAP Select 9.16.1</block>
-  <block id="26c0a25ef0a35983894d134dbe992481" category="paragraph">O ONTAP Select 9.16.1 inclui vários novos recursos e melhorias.</block>
   <block id="6c1d79ac25f0c97bc720f88ff0f156e0" category="list-text">Suporte atualizado ao arquivo de licença do NetApp</block>
   <block id="a1a2f3308f6033087cf20e84356aa4ac" category="list-text">A partir do ONTAP Select 9.16.1, o suporte ao ficheiro de licença NetApp (NLF) é atualizado. O novo formato NLF inclui licenças para os recursos ARP, ONTAP S3 e S3 SnapMirror. <block ref="b5ed3fe3b9ec5f0e955203c12216c0fe" category="inline-link-macro-rx"></block>.</block>
   <block id="9fc3a2fe374c89216150309f04d52677" category="paragraph">Para uma nova implantação do ONTAP Select 9.16.1, o novo formato NLF é aplicado automaticamente. Quando você atualiza uma implantação ONTAP Select existente para 9.16.1, o novo formato NLF não é aplicado. Para obter as licenças de recurso ARP, ONTAP S3 e S3 SnapMirror, você deve baixar o NLF atualizado após a atualização. Se você reverter para o ONTAP Select 9.15.1 ou anterior, será necessário reinstalar as licenças de recurso que você tinha antes da atualização.</block>
@@ -3212,7 +3182,6 @@
   <block id="3a13e6fcb6840db51e3e181c41dff37b" category="list-text">ESXi 8,0 U2</block>
   <block id="084ef93eebe5fd52d657e556b4305619" category="list-text">ESXi 8,0 U1</block>
   <block id="4ec8056f2f2bfb0ffa0104fc43edb1da" category="list-text">ESXi 8,0GA</block>
-  <block id="8d224631a5a87c64caecc71fee6fb612" category="list-text">ESXi 7,0 U3</block>
   <block id="563074de50ee7515467ef30a7a16a15d" category="paragraph">Existem vários requisitos comuns de hardware que se aplicam a todas as plataformas, independentemente do tipo de instância do nó ou da oferta de licença.</block>
   <block id="f699f7e9ed69e5269a69fd9ec385c1ad" category="admonition">Os processadores Advanced Micro Devices (AMD) não são compatíveis com o ONTAP Select.</block>
   <block id="676477cfcc6ef4db97bbb95e9c75b57e" category="summary">Você pode implantar rapidamente uma instância de avaliação de 90 dias de um cluster ONTAP Select de nó único usando um modelo OVF no VMware ESXi.</block>
@@ -3220,7 +3189,6 @@
   <block id="591ba54105fed20bc4bc8e31cee68eb3" category="list-text">Você pode alocar a mesma quantidade de armazenamento para dados de usuário que uma licença adquirida.</block>
   <block id="10db4e06bde0886ecc0f97ce3a350d45" category="list-text">Não é possível atualizar o nó de uma licença de avaliação para uma licença adquirida.</block>
   <block id="de68e769353f85803d50af3ad5192201" category="list-text">Você só pode usar uma conta do vCenter para implantar o modelo OVF. A instalação diretamente em um host ESXi não é atualmente suportada.</block>
-  <block id="3becac3f3a46d46f0df7e4df7b69a359" category="list-text">Você deve instalar o modelo OVF (contido em um arquivo OVA) usando o cliente autônomo vSphere ou o cliente da Web vSphere (a única opção para ESXi 6,5 e posterior). Você não usa o utilitário de administração ONTAP Select Deploy.</block>
   <block id="324b9a453c1c067658adca4be37dbae0" category="section-title">Preparar o host do cluster do ONTAP Select</block>
   <block id="1ec19b1e234462f154c2312b865baa14" category="paragraph">Use os seguintes requisitos para preparar o host ESXi onde o cluster ONTAP Select é implantado. A descrição da plataforma é baseada na configuração do tipo de instância padrão ou pequena com armazenamento de conexão direta (DAS) local formatado usando o sistema de arquivos VMFS-5 ou VMFS-6.</block>
   <block id="7564075dd4184b322f666087a8172ae7" category="inline-image-macro">Requisitos para preparar o host ESXi</block>
@@ -3255,7 +3223,6 @@
   <block id="fe8dec8b217b332b88e66ecdf5472b01" category="list-text">Selecione *Pré-requisitos*.</block>
   <block id="3929bbc1e55fa3a638006eb8e6566b4d" category="list-text">Role para baixo para rever os requisitos e selecione *OK*.</block>
   <block id="1339b9f22cb64ff9975ba4df2d3c543b" category="admonition">Você pode executar as mesmas etapas independentemente selecionando as guias na parte superior da página (clusters, hosts do hipervisor, Administração).</block>
-  <block id="f79319ec1d7b82161a58de3096cafdd0" category="paragraph">As etapas a seguir dependem se deseja criar um cluster de nó único ou um cluster de vários nós. Um cluster de vários nós pode ter dois, quatro, seis ou oito nós.</block>
   <block id="555e1ae22bd894e4a9fe23fc5bb1ca5e" category="list-text">Se a janela pop-up *Welcome to ONTAP Select* for exibida, confirme se você atendeu aos pré-requisitos de configuração e selecione *OK*.</block>
   <block id="1ade53760ce0b2b9ced3db48b79b4e51" category="list-text">Se a página de inicialização do cluster *Getting Started* não for exibida, selecione <block ref="597586a3d1dcebe6ad038a4dde446a9e" category="inline-image-macro-rx" type="image"></block> na parte superior da página e selecione *Getting Started*.</block>
   <block id="820d1873bef6998cbee232163b828a57" category="list-text">Na página *Introdução*, selecione *carregar* e, em seguida, selecione uma licença da estação de trabalho local e selecione *abrir* para carregar a licença.</block>
@@ -3374,7 +3341,6 @@
   <block id="6bf08a2d2d231573eaa714b5221158e6" category="cell">Protocolos de host</block>
   <block id="d9271d1702d6357cd68d0248f2b98bfb" category="cell">NFS, SMB/CIFS, iSCSI e NVMe sobre TCP</block>
   <block id="e2c5a3645710b0ed6fec1053fdfe0ead" category="cell">Opções de implantação</block>
-  <block id="eb09c1a5eb262d090f2cc7e8158cae4e" category="cell">Cluster de nó único de dois nós (par de HA) cluster de quatro, seis ou oito nós</block>
   <block id="8557a15ebd845a53c232f882fe21205a" category="cell">Capacidade suportada (por nó)</block>
   <block id="e8551ae26bc9361887df2597e2a2ea57" category="cell">Até 400TB dados brutos (ESXi e KVM)</block>
   <block id="3c02a379965ab0dfcd77b1c484450433" category="open-title">Hardware</block>
@@ -3391,7 +3357,6 @@
   <block id="0a63727fe995fb5d301d20fb9140de4d" category="cell">10 núcleos / 72GB GB de RAM</block>
   <block id="e73d640a676c83c4510d0212e506bb38" category="cell">18 núcleos / 136GB GB de RAM</block>
   <block id="522c4ec4d9d59e1a992d989c8d770589" category="cell">Rede (por nó)</block>
-  <block id="d5fda742cbaf307ce4ca202b12335858" category="cell">Mínimo de duas portas de 1GbE GbE para um cluster de nó único, mínimo de quatro portas de 1GbE GbE para um cluster de dois nós (par de HA), no mínimo, de duas portas de 10GbE GbE para um cluster de quatro, seis ou oito nós</block>
   <block id="f0cb6783b152b19ceab16227ca3976a2" category="open-title">Tipo de armazenamento</block>
   <block id="5939197c86f855d26c9639db3b9a29d6" category="paragraph">A tabela a seguir fornece o tipo de licença mínimo necessário para o armazenamento especificado. </block>
   <block id="e629ab9880aae245163ce498ab9e1389" category="cell">Pequeno e médio</block>
@@ -3446,7 +3411,6 @@
   <block id="07dd1826d2d39d21b05b11f5f59d47dd" category="list-text">O Gerenciador de licenças é um componente de software que suporta licenciamento de pools de capacidade. Atualmente, ele faz parte do utilitário de administração de implantação. O LM aluga o storage para os nós do ONTAP Select a partir dos pools compartilhados que gerencia. O _License Lock ID_ é uma cadeia numérica que identifica exclusivamente cada instância LM e, portanto, cada instância de implantação. Você deve usar o número de série da licença do pool de capacidade e o LLID para gerar um arquivo de licença.</block>
   <block id="43b16943d6d5ff73da96f41d29e4303d" category="paragraph"><block ref="43b16943d6d5ff73da96f41d29e4303d" category="inline-link-macro-rx"></block></block>
   <block id="24d0d0c7fc9a3866a568dea751e3cd63" category="doc">Saiba mais sobre a proteção e eficiência de dados da ONTAP Select</block>
-  <block id="05ed3d70c9259c59c7d687abfdcbf9be" category="paragraph">O ONTAP Select foi desenvolvido com base no software de storage ONTAP para fornecer serviços de storage empresarial com eficiência e uma arquitetura com escalabilidade horizontal, sem compartilhamento e altamente disponível. É possível implantar uma solução com um, dois, quatro, seis ou oito nós com até 400TB TB de capacidade bruta para storage conectado por NFS, SMB/CIFS e iSCSI por nó. Você pode utilizar a deduplicação e a compactação nativas para reduzir os custos de storage aumentando sua capacidade efetiva. A arquitetura com escalabilidade horizontal permite alta disponibilidade e mobilidade de dados sem interrupções para balanceamento de carga ou manutenção de hardware.</block>
   <block id="b489b293d6cbe8b86835d3cac8c315fb" category="section-title">Proteção de dados do Snapshot</block>
   <block id="467385c0c4913cc96395e5493d47b3bc" category="paragraph">O ONTAP Select inclui recursos de proteção de dados, incluindo snapshot e software SnapMirror. Você pode replicar seus dados rapidamente para outro storage da ONTAP, seja no local, em um local remoto ou na nuvem. Se você precisar recuperar seus dados rapidamente, o software SnapRestore pode usar snapshots locais para recuperar sistemas de arquivos inteiros ou volumes de dados em segundos, independentemente da capacidade ou número de arquivos.</block>
   <block id="787fb8fbafed37b77c3881f9e0c851a0" category="section-title">Storage definido por software MetroCluster</block>
@@ -3588,7 +3552,6 @@
   <block id="deb20e04b6a7cd797c67d023a7919cc9" category="inline-link-macro">interface de usuário da web</block>
   <block id="91af5705f16502125e8b2187e64202c0" category="inline-link-macro">CLI</block>
   <block id="9b7a3cef1d3f98a8d89d5d50af86ae90" category="paragraph">Execute o verificador de conectividade de rede usando o <block ref="8b785c8234405c591fd2ca6b43d87925" category="inline-link-macro-rx"></block> ou o <block ref="d445e69ec86af9bb8b6f10e8a87603f1" category="inline-link-macro-rx"></block> para confirmar a conectividade entre os nós do cluster na rede interna.</block>
-  <block id="399ac94f70d77c6189cd7c4808326bdd" category="list-text">Expansões de clusters de um, dois ou quatro nós para clusters de seis ou oito nós.</block>
   <block id="f7dcf9444b81db6d7f05c66ad816c0fe" category="paragraph">Para alterar o número de nós em um cluster para um tamanho que não é suportado pela expansão ou contração do cluster, você precisa executar as seguintes tarefas:</block>
   <block id="f878a51040555cefe376b9b5a963ff25" category="list-text">Implante um novo cluster de vários nós usando o <block ref="e244d19d71425b6ce1016edcf4f160e2" category="inline-link-macro-rx"></block> ou o <block ref="e7b95b44ed2cf30f5122b04d3c4d28be" category="inline-link-macro-rx"></block> fornecido com o utilitário de administração ONTAP Select Deploy.</block>
   <block id="a1f41e52e9ddbd9f87ecd032c237b1c0" category="inline-link-macro">Replicação SnapMirror</block>
@@ -3633,7 +3596,6 @@
   <block id="8317b4a3fa4d9966b617b5491f76a3b8" category="open-title">ESX</block>
   <block id="9c1fae3eadcb237fdb7615bb300fbc53" category="paragraph">Um plex com falha deve ser excluído e recriado para que o espelhamento correto dos dados seja retomado. Observe que uma falha em vários discos, resultando na degradação de um agregado de dados, também resulta na degradação de um agregado raiz. O ONTAP Select usa o esquema de particionamento raiz-dados-dados (RDD) para dividir cada unidade física em uma partição raiz e duas partições de dados. Portanto, a perda de um ou mais discos pode afetar vários agregados, incluindo a raiz local ou a cópia do agregado raiz remoto, bem como o agregado de dados local e a cópia do agregado de dados remoto.</block>
   <block id="3076e2016b53038d778618dee10b478d" category="paragraph">Um plex com falha é excluído e recriado no exemplo de saída a seguir:</block>
-  <block id="859b3e34f415b642df5044600cd81ad1" category="summary">O NetApp ONTAP Select é um dispositivo de armazenamento definido por software que pode ser implantado em diversos servidores de hardware comuns que executam o VMware ESXi ou o hipervisor de Máquina Virtual baseada em Kernel (KVM). Ele oferece a agilidade necessária para construir uma infraestrutura de nuvem privada flexível e escalável. Este site contém a documentação do ONTAP Select 9.17.1.</block>
   <block id="0f1f9d8aa7712455b66d5e8b4b971a5b" category="list-text">Configurar passagem PCI para discos NVMe.</block>
   <block id="b6edb9d93c4b2803ccdda9357c898c2a" category="paragraph">Se estiver usando discos NVMe na sua configuração, você precisará configurar o PCI passthrough (DirectPath IO) para fornecer acesso direto do host KVM aos discos NVMe conectados localmente no cluster ONTAP Select . Você precisa de acesso direto para executar as seguintes tarefas:</block>
   <block id="f5b991faffa2b9298c79245107008a5c" category="inline-link-macro">Configurar o host KVM para usar unidades NVMe</block>
@@ -3642,11 +3604,8 @@
   <block id="9ad4168b96591d3ce9f13beb07f453ad" category="list-text"><block ref="9ad4168b96591d3ce9f13beb07f453ad" category="inline-link-macro-rx"></block></block>
   <block id="5f6ac3389caa4915b5df5ea4e23cdf3b" category="inline-link-macro">Documentação do Red Hat</block>
   <block id="1f04c0d85dac41d18c5e719982d2453c" category="paragraph">Veja o <block ref="9253ef5506cce823166f2bdf01913569" category="inline-link-macro-rx"></block> para obter instruções sobre como configurar o PCI passthrough (DirectPath IO) para um hipervisor KVM.</block>
-  <block id="43d46885286ff6d9d1bb3e3666375d7c" category="inline-link">Aviso para ONTAP Select 9.17.1</block>
-  <block id="381d9d218a33c87fe7a65bdd140b7718" category="paragraph"><block ref="381d9d218a33c87fe7a65bdd140b7718" category="inline-link-rx"></block></block>
   <block id="3a7c61c685981e316491699fa430a141" category="list-text">Nuvem SnapMirror</block>
   <block id="c5f33228fc937ef0d8daa944cc220984" category="section-title">ONTAP Select 9.17.1</block>
-  <block id="621bccb3ca618202d65c825d13f5c7cc" category="paragraph">O ONTAP Select 9.17.1 inclui vários novos recursos e melhorias.</block>
   <block id="a1ccdb52aaae23908c894a50ab1c7942" category="list-text">Suporte RAID de software para discos NVMe conectados localmente em hosts KVM</block>
   <block id="7da7c34592a8b282c418910ab837fc00" category="list-text">O ONTAP Select 9.17.1 apresenta suporte RAID de software para discos NVMe ONTAP Select conectados localmente em um host de hipervisor de máquina virtual baseada em kernel (KVM).</block>
   <block id="1dc28449401a7f910c3a8509d1d50bae" category="inline-link-macro">configurar passagem PCI (DirectPath IO)</block>
@@ -3668,13 +3627,11 @@
   <block id="9fe4db073ef9cb1070ea002413806d7b" category="paragraph">Para o ONTAP Select 9.16.1 e versões anteriores, o NVD continua a fornecer suporte para dispositivos NVMe na sua implantação do ONTAP Select .</block>
   <block id="4d4e935615049b9792b8ee30fa5c71d3" category="list-text">A partir do ONTAP Select 9.17.1, o hipervisor KVM é compatível com o Red Hat Enterprise Linux (RHEL) 9.6 e o Rocky Linux 9.6.</block>
   <block id="ac171b57f5c680bf4d0f02d3a2a4fc1f" category="list-text">A partir do ONTAP Select 9.16.1, o hipervisor KVM é compatível com RHEL 9.5 e Rocky Linux 9.5.</block>
-  <block id="0ea945de4d54019107b304aa9eca8fa3" category="admonition">Ao instalar no ESX 6.5 U2 e superior, o ONTAP Select usa o driver vNVMEe independentemente de o disco do sistema residir em um SSD ou em um disco NVMe. Isso define o nível de hardware da VM como 13, compatível com o ESX 6.5 e posteriores.</block>
   <block id="b819d70810100dd612c72123ee67224d" category="paragraph">Você pode implantar o ONTAP Select em hipervisores KVM e ESXi.</block>
   <block id="5c4913dc2f0c23f4a31e20e72374ec36" category="paragraph">O ONTAP Select oferece suporte às seguintes versões do hipervisor KVM:</block>
   <block id="106afc8ef14315f6a60e49c2f0227fcf" category="list-text">KVM no Red Hat Enterprise Linux 9.6, 9.5, 9.4, 9.2, 9.1, 9.0, 8.8, 8.7 e 8.6</block>
   <block id="b2270c4043a2f0c3e82238730523c1bd" category="list-text">KVM no Rocky Linux 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7 e 8.6</block>
   <block id="88f7643f9d6082d2e385207946c3b5a2" category="paragraph">O ONTAP Select oferece suporte às seguintes versões do hipervisor ESXi:</block>
-  <block id="8a64553b73285bd3d9851c3641c74431" category="list-text">VMware ESXi 7.0 GA (compilação 15843807 ou superior), incluindo 7.0 U3C, U2 e U1</block>
   <block id="2a861cd8eb5ba0785391c4057414e36a" category="paragraph">Os microprocessadores suportados incluem processadores Intel Xeon para servidor, consulte <block ref="b4ae18ee7ddc8509f21de2805d7b78c6" category="inline-link-macro-rx"></block> para maiores informações.</block>
   <block id="576be828257fef81586078e09f023f12" category="cell">Tamanho do nó</block>
   <block id="3498e0560fa8448ff0a0f15cd1b168f7" category="cell">núcleos de CPU</block>
@@ -3688,13 +3645,9 @@
   <block id="640e223edcd3fe1348f1d6ff235a0f90" category="cell">Premium ou Premium XL</block>
   <block id="84bfed00d5c0f440cfe0522a957d8c09" category="cell">Dezoito núcleos físicos ou mais, com dezesseis reservados para o ONTAP Select</block>
   <block id="2ab3f2081ffa300f8e39f366212f2346" category="cell">136 GB ou mais, com 128 GB reservados para ONTAP Select</block>
-  <block id="71e456c9cf1560175095f47063b9f150" category="inline-link-macro">Notas de versão do ONTAP Select 9.17.1</block>
-  <block id="7a0780d1a75284704296fa1d6669fe55" category="paragraph">Você pode acessar o <block ref="578177b2068e55f730d2ab8da37ff1a6" category="inline-link-macro-rx"></block> para ver os detalhes sobre a versão atual.</block>
   <block id="a8fb2d9d2ce588a77ffb778ffb1f4887" category="paragraph">Se você planeja usar unidades NVMe com RAID de software, precisará configurar o host ESXi ou KVM para reconhecer as unidades.</block>
-  <block id="c06f7735bf993ec75621b52838eec06d" category="list-text">Para um host KVM, ONTAP Select 9.17.1 com um utilitário de administração de implantação compatível</block>
   <block id="69376d0181427bc8147aa66d54429340" category="list-text">O host ESXi ou KVM está executando uma versão do hipervisor compatível:</block>
   <block id="f151466e45805b85c179d53c716d1730" category="paragraph">O ESXi é compatível com as seguintes versões do hipervisor:</block>
-  <block id="938bda7b4f477005ecd5a1be655a2d94" category="list-text">VMware ESXi 7.0 GA (compilação 15843807 ou superior), incluindo 7.0 U1, U2 e U3C</block>
   <block id="b9f88b3e1ffa6ae7d67f237344be95ad" category="paragraph">O KVM é suportado nas seguintes versões do hipervisor:</block>
   <block id="94df876ea98d3d9e82f501c53ff28527" category="list-text">Red Hat Enterprise Linux 9.6, 9.5, 9.4, 9.2, 9.1, 9.0, 8.8, 8.7 e 8.6</block>
   <block id="9fed076770017e73835f398d2e5b8714" category="list-text">Rocky Linux 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7 e 8.6</block>
@@ -3718,7 +3671,6 @@
   <block id="305009997eb17ffe0901beb32fdc2040" category="paragraph">Em preparação para a expansão do cluster, novos hosts ESXi e KVM são adicionados ao inventário e os detalhes dos novos nós são atribuídos. Antes de iniciar o processo de expansão do cluster, uma pré-verificação de rede verifica a rede interna selecionada.</block>
   <block id="1c53d6d4916415921dddecf6128580f3" category="list-text">Escolha os seguintes detalhes de configuração do par de alta disponibilidade (HA) para o quarto par de HA:</block>
   <block id="1baec4831214642ebba2ccfdd8a785df" category="list-text">Forneça as credenciais do ONTAP e selecione *Expandir cluster*.</block>
-  <block id="7cf2e3fec3d1629805de3aab60343896" category="sidebar">Documentação do ONTAP Select 9.17.1</block>
   <block id="aee852b160915b647628e7eef82ecf7e" category="paragraph">Você pode atualizar uma máquina virtual existente do utilitário ONTAP Select Deploy no local usando a CLI do utilitário ONTAP Select Deploy.</block>
   <block id="37d4c938e6c31c7ec9166448ac3458f3" category="paragraph">Certifique-se de que o ONTAP Select Deploy não seja usado para executar nenhuma outra tarefa durante a atualização.  Consulte as notas de versão atuais para obter informações e restrições sobre a atualização do utilitário ONTAP Select Deploy.</block>
   <block id="db1b7c6bff7b0da47260c4e758478bf5" category="section-title">Etapa 1: Baixe o pacote</block>
@@ -3737,7 +3689,6 @@
   <block id="c0b79db5f258f0c991a383cbdbf001dd" category="list-text">Sincronização ativa do SnapMirror</block>
   <block id="2f6bbdcc3a16c2d18a29e52e65bcab80" category="admonition">A SnapLock Compliance não é suportada pelo ONTAP Select.</block>
   <block id="eb35a2f875dfa96447c622fdb66d279e" category="list-text">Suporte aprimorado para expansão e contração de cluster em hosts ESXi</block>
-  <block id="2654d7a70d79a555a3d2a067d08ca074" category="list-text">A partir do ONTAP Select 9.17.1, a expansão e a contração de clusters são suportadas para clusters de seis e doze nós em hosts ESXi:</block>
   <block id="983f8945aaf0213b99984eb7d1654484" category="paragraph">Você pode aumentar o tamanho do cluster de um cluster ESXi existente nos seguintes incrementos:</block>
   <block id="1ba5d5a69c22e4227b754eb7f598a6fc" category="list-text">De seis nós para oito, dez ou doze nós</block>
   <block id="32f41e079924563332d58835bc015a2a" category="list-text">De oito nós para dez ou doze nós</block>
@@ -3765,15 +3716,8 @@
   <block id="cbec5c675188a8b88f95c1615c33fb39" category="list-text">Atualizar biblioteca</block>
   <block id="cbbbf9758b7ac41123821f7ea427538f" category="list-text">Atualizar item da biblioteca</block>
   <block id="845b12256749d66531d9afd69bc3a33c" category="list-text">Atualizar biblioteca local</block>
-  <block id="b6901598f11464666113bfe479efe49f" category="paragraph">Você pode aumentar o tamanho do cluster de um cluster ONTAP Select existente para hosts de hipervisor ESXi e KVM.  Para hosts KVM, você pode aumentar o tamanho do cluster de seis para oito nós e diminuir o tamanho de oito para seis nós.  Para hosts ESXi, você aumenta e diminui o tamanho do cluster em incrementos entre seis e doze nós.</block>
   <block id="936ee35c221853e402fecb3657e726ba" category="paragraph">As seguintes expansões e contrações de cluster não são suportadas para hosts ESXi e KVM:</block>
   <block id="ca069be0eeb72c96905b0cdbf504214d" category="paragraph">O recurso de expansão e contração de cluster é suportado nos seguintes hosts de hipervisor KVM e ESXi.</block>
-  <block id="e408638ff8e3e34af8feb723461e1722" category="paragraph">Use o recurso de expansão de cluster para aumentar o tamanho de um cluster ESXi ou KVM existente.</block>
-  <block id="3678d282a88e095e0e76381ffa83ff7c" category="paragraph">Você pode aumentar o tamanho de um cluster ESXi existente nos seguintes incrementos:</block>
-  <block id="ba14db9083442c41643b3455693e3ee2" category="paragraph">Você pode aumentar o tamanho de um cluster KVM existente de seis para oito nós.</block>
-  <block id="dbdf8658126f3cab82aa007ed31794d3" category="paragraph">Use o recurso de contração de cluster para diminuir o tamanho de um cluster ESXi ou KVM existente.</block>
-  <block id="419d991bb53188641539fa8dfe55b258" category="paragraph">Você pode diminuir o tamanho de um cluster ESXi existente nos seguintes incrementos:</block>
-  <block id="50261774776b49c62695c35def3230b0" category="paragraph">Você pode diminuir o tamanho de um cluster existente de oito para seis nós.</block>
   <block id="4e59a04163b76608c718d51a77e0ab85" category="paragraph">^1^ Assume dois núcleos e 8 GB de RAM para o hipervisor.</block>
   <block id="8b8284ef1bc414b0568b54a0a11232ad" category="cell">Aplicável</block>
   <block id="6799f681592f9a0a7cf264c2b7bcd3d7" category="list-text"><block ref="6799f681592f9a0a7cf264c2b7bcd3d7" category="inline-link-macro-rx"></block></block>
@@ -3827,7 +3771,6 @@
   <block id="c762418e7ca866adad88c4350fc20ef0" category="list-text">O ONTAP Select 9.17.1 é instalado inicialmente.</block>
   <block id="0bb5222a5975edbdfb5210abc7bbc0d5" category="admonition">A API REST incluída no ONTAP Select Deploy recebe um número de versão. O número da versão da API é independente do número da versão do Deploy. O utilitário de administração Deploy do ONTAP Select 9.17.1 inclui a versão 3 da API REST.</block>
   <block id="7b5019dce3bb835acb62c31388f47aef" category="cell">VMware vSphere 9.0, VMware vSphere 8.0GA e atualizações 1 a 3, VMware vSphere 7.0GA e atualizações 1 a 3C</block>
-  <block id="98a200153c1be0c16d526cf021fc6c2c" category="cell">Cluster de quatro, seis ou oito nós</block>
   <block id="709b51c435c268c165dc26b6de6a856e" category="list-text">O utilitário de administração Deploy contém apenas uma única versão do ONTAP Select. A versão incluída é a mais atual disponível no momento do lançamento. O recurso de instalação de imagem do ONTAP Select permite adicionar versões anteriores do ONTAP Select à sua instância do utilitário Deploy, que podem ser usadas ao implantar um cluster do ONTAP Select . Ver<block ref="9252191d0d6c29910ebabc98ee426eb0" category="inline-link-macro-rx"></block> .</block>
   <block id="d4859de543e918748cbd58f23dedb243" category="list-text">O ONTAP Select 9.17.1 inclui suporte para VMware ESXi 9.0.</block>
   <block id="bc70eaa4fe619d482b08c680b31e9639" category="paragraph">É uma boa prática fazer backup regularmente dos dados de configuração do Deploy, inclusive após a criação de um cluster. Isso se torna particularmente importante em clusters de dois nós, pois os dados de configuração do mediador são incluídos no backup.</block>
@@ -3844,7 +3787,6 @@
   <block id="653a421852b6e9fc7e8da536351d6d57" category="paragraph"><block ref="653a421852b6e9fc7e8da536351d6d57" category="inline-link-macro-rx"></block></block>
   <block id="52628d9c0b40a3d081fa61332a7dbc30" category="section-title">Passo 1: Configure o host</block>
   <block id="4b909310ad00915be4366c1fdc817ef6" category="paragraph">Configure o host ESXi ou KVM para reconhecer as unidades.</block>
-  <block id="90655b393a7a708ffeaf135abe38468e" category="list-text">Para um host ESX, ONTAP Select com um utilitário de administração Deploy compatível.</block>
   <block id="6fb98dfe0687afd13c6606a1e18796b4" category="section-title">Etapa 2: Instale o utilitário ONTAP Select Deploy</block>
   <block id="d85c74601b5bd33630ff2d0af7a47d20" category="paragraph">Após a implantação bem-sucedida do cluster, o ONTAP System Manager permite provisionar o armazenamento de acordo com as práticas recomendadas. O ONTAP ativa automaticamente recursos de eficiência de armazenamento otimizados para flash, que aproveitam ao máximo o seu armazenamento NVMe.</block>
   <block id="2cec6a18d96697f2973f92d17add7552" category="doc">Gerencie clusters ONTAP Select usando a CLI</block>
@@ -3861,17 +3803,14 @@
   <block id="323b40136cc3cd425a7ce6433872e39e" category="section-title">Passo 1: Faça backup dos dados de configuração de implantação.</block>
   <block id="2dd89f547668d42e92b18453b0fc2db7" category="section-title">Etapa 2: Instale uma nova instância da máquina virtual de implantação.</block>
   <block id="20db79ddbcecf961179a8654cf93bdfa" category="section-title">Etapa 3: Restaure os dados de configuração de implantação para a nova máquina virtual.</block>
-  <block id="35767fb08a64b94abf91d7c25ea1b1d5" category="paragraph">Você pode atualizar diretamente para o ONTAP Select Deploy 9.17.1 a partir do ONTAP Select Deploy 9.16.1 ou 9.15.1. Para atualizar do ONTAP Select Deploy 9.14.1 ou anterior, revise as notas de versão da sua versão do ONTAP Select .</block>
   <block id="4c2a7675fb89ee6113fb93327fabd5f6" category="list-text">ESXi 9.0</block>
   <block id="90facdbe61c2fda7ac079c021778069e" category="section-title">Etapa 3: Conclua a implantação</block>
-  <block id="7a0165449b5773328368f60f5c262ddd" category="doc">Atualize para o VMware ESXi 7.0 ou posterior para o ONTAP Select.</block>
   <block id="dd1789a087eda271d0e3deee49558019" category="section-title">Prepare-se para atualizar o VMware ESXi</block>
   <block id="82c36f45db475277ee2310dec3c1e939" category="paragraph">Antes de atualizar o software ESXi nos hipervisores que hospedam um cluster ONTAP Select, prepare e selecione o procedimento de atualização mais adequado ao seu ambiente.</block>
   <block id="0926feade48ead905fb59c610b0ac7fd" category="list-text">*Familiarize-se com o processo de atualização do VMware ESXi*</block>
   <block id="1ca1aaf5b842ffb10893e476d56ee6d7" category="list-text">*Selecione um procedimento de atualização*</block>
   <block id="8378d8bf20941add9c4df91829cd0827" category="list-text">Utilização do ONTAP Select Deploy</block>
   <block id="4057b7ca0c19f851f63420c9ec32a889" category="paragraph">A atualização é possível tanto com quanto sem o utilitário Deploy.</block>
-  <block id="017c62abcb9c0a7a31f008ff45eca54a" category="paragraph">Executar uma atualização do ESXi usando o utilitário de administração Deploy é a opção mais geral e resiliente. No entanto, pode haver casos em que o Deploy esteja indisponível ou não possa ser usado. Por exemplo, a atualização para o ESXi 7.0 não é compatível com versões anteriores do ONTAP Select e do utilitário de administração Deploy.</block>
   <block id="2e0e9d07ffda2d85422b14435c592a64" category="list-text">*Atualize o utilitário de administração do Deploy*</block>
   <block id="c3a59d3a6472b3e407374a73000fa2d0" category="inline-link-macro">Notas de lançamento do ONTAP Select</block>
   <block id="f5d84950dbef357c088050b223201054" category="paragraph">Antes de executar um procedimento de atualização usando o utilitário Deploy, talvez seja necessário atualizar sua instância do Deploy. Em geral, você deve atualizar para a versão mais recente do Deploy. O utilitário Deploy deve ser compatível com a versão do ONTAP Select que você está usando.  Consulte o<block ref="d849cafcad7044085f0bad0e874b53aa" category="inline-link-macro-rx"></block> Para obter mais informações.</block>
@@ -3929,7 +3868,6 @@
   <block id="69c2330b72fdbb0f24306b5344fc83ca" category="list-text">Selecione *Experimente!* para criar o alvo iSCSI do mediador.</block>
   <block id="e2cd7ceedce46e4ea3fd8396ef4baa97" category="list-text">Em um terminal de comando em sua estação de trabalho local, use o utilitário sftp para enviar o arquivo de backup para a máquina virtual de implantação, conforme mostrado no exemplo a seguir:</block>
   <block id="5c7a95e189e375455d7a7bdc02ec54ba" category="list-text">Restaurar os dados de configuração:</block>
-  <block id="662385e6e7c81bc5868ecc810d1b4419" category="paragraph">Comando de exemplo</block>
   <block id="86069ab716d4c2ffd77a81bd3827427f" category="list-text">Em um terminal de comandos em sua estação de trabalho local, use o<block ref="8a444a43bdf534c0c6338bb7809659b3" prefix=" " category="inline-code"></block> Utilitário (Secure Copy Protocol) para carregar o arquivo de imagem na máquina virtual ONTAP Select Deploy, conforme mostrado no exemplo a seguir:</block>
   <block id="52396dafee59debc72b8fccab2acb4c5" category="paragraph">Comando de exemplo:</block>
   <block id="3817e5dd56e94cb6952f7eb0ab2a6acd" category="summary">A partir do ONTAP Select 9.15.1, você pode aumentar ou diminuir o tamanho de um cluster existente.</block>
@@ -3937,4 +3875,64 @@
   <block id="7e6bf0ef053af206603d7df47832fbd5" category="inline-link-macro">Confirme se o recurso ONTAP Select AutoSupport está configurado.</block>
   <block id="785cc01cf7efbfd5a1fd1d4863d9b83a" category="paragraph">Após a implantação do cluster,<block ref="af0babf33c9640eb381afcb6484c80f3" category="inline-link-macro-rx"></block> e então<block ref="530c589d5a11589fc0cbd2126b61e792" category="inline-link-macro-rx"></block> .</block>
   <block id="b7f5f41e99a6f8c3c3a0c1843b24c17b" category="sidebar">Atualizar ESXi</block>
+  <block id="2b0d4f79e2ddc290a96628d7735b0b3d" category="summary">Se você estiver executando o ONTAP Select no VMware ESXi, poderá atualizar o software ESXi de uma versão anterior com suporte para o ESXi 8.0 ou posterior. Antes de atualizar, você deve entender o processo e selecionar o procedimento de atualização apropriado.</block>
+  <block id="1335df0f3090f59f014dd0b288b21b8d" category="doc">Atualize para o VMware ESXi 8.0 ou posterior para o ONTAP Select.</block>
+  <block id="5672e8bfffcafba3716de1eba03f8c81" category="list-text">ONTAP Select o tamanho do cluster</block>
+  <block id="17537cd69440eff402ea1d2fdf7d785c" category="paragraph">São suportados clusters de nó único e de múltiplos nós.</block>
+  <block id="17af16327a03b8ca52bdf0daa844b0c1" category="paragraph">Executar uma atualização do ESXi usando o utilitário de administração Deploy é a opção mais geral e resiliente. No entanto, pode haver casos em que o Deploy esteja indisponível ou não possa ser usado. Por exemplo, a atualização para o ESXi 8.0 não é compatível com versões anteriores do ONTAP Select e do utilitário de administração Deploy.</block>
+  <block id="be0322fd0c69452dec4b9d50f45d2e18" category="list-text">Atualize o host do hipervisor onde o ONTAP Select está sendo executado para o ESXi 8.0 ou posterior usando o procedimento fornecido pela VMware.</block>
+  <block id="fd1f31b53e7242c3be0dbe67d6dbb5fb" category="paragraph">O ONTAP Select foi desenvolvido com base no software de armazenamento ONTAP para fornecer serviços de armazenamento corporativo de forma eficiente, com uma arquitetura escalável de alta disponibilidade e sem compartilhamento. Você pode implementar uma solução com um, dois, quatro, seis, oito, dez ou doze nós, com até 400 TB de capacidade bruta para armazenamento conectado via NFS, SMB/CIFS e iSCSI por nó. Você pode aproveitar a desduplicação e a compactação nativas para reduzir os custos de armazenamento, aumentando sua capacidade efetiva. A arquitetura escalável permite alta disponibilidade e mobilidade de dados sem interrupções para balanceamento de carga ou para manutenção de hardware.</block>
+  <block id="cfc747a13fce627579c4fdb16bf71036" category="paragraph">Antes de executar os scripts Python, você deve garantir que o ambiente esteja configurado corretamente:</block>
+  <block id="9bf8bd99f54a07e23d2805398d5369d7" category="paragraph">Existem dois modelos de implantação de alta disponibilidade (HA) do ONTAP Select : clusters com vários nós (quatro, seis, oito, dez ou doze nós) e clusters com dois nós. A principal característica de um cluster ONTAP Select de dois nós é o uso de um serviço de mediação externo para resolver cenários de dupla personalidade.  A máquina virtual ONTAP Deploy serve como mediadora padrão para todos os pares de alta disponibilidade (HA) de dois nós que ela configura.</block>
+  <block id="9ddaa0242d12a15ea7e8ee813c0ae382" category="list-text">O cluster ONTAP Select de quatro nós é composto por dois pares de HA. Os clusters de seis, oito, dez e doze nós são compostos por três, quatro, cinco e seis pares HA, respectivamente. Dentro de cada par de HA, os agregados de dados em cada nó do cluster são espelhados de forma síncrona e, em caso de failover, não há perda de dados.</block>
+  <block id="de1606c9dc446d4b683c678bc5b19e2f" category="paragraph">Um cluster ONTAP Select é composto de dois a doze nós. Cada par de HA contém duas cópias de dados do usuário, espelhadas de forma síncrona entre os nós por meio de uma rede IP.  Esse espelhamento é transparente para o usuário e é uma propriedade do agregado de dados, que é configurada automaticamente durante o processo de criação do agregado de dados.</block>
+  <block id="628712ef3266c4d16740998b21e51bd5" category="cell">Nó único; Cluster de dois nós (par HA); Cluster de quatro, seis, oito, dez ou doze nós</block>
+  <block id="ac8a3bd368c1513181e25f36d8d90b25" category="cell">No mínimo, duas portas 1GbE para um cluster de nó único. No mínimo, quatro portas 1GbE para um cluster de dois nós (par HA). No mínimo, duas portas 10GbE para um cluster de quatro, seis, oito, dez ou doze nós.</block>
+  <block id="222deaabbfe510b32c49226a340e8166" category="paragraph">Em um cluster ONTAP Select , o tráfego interno e o tráfego externo são separados por meio de objetos de rede virtuais da camada 2, conhecidos como grupos de portas. A atribuição correta desses grupos de portas no vSwitch é extremamente importante, especialmente para a rede interna, responsável por fornecer serviços de cluster, interconexão de alta disponibilidade e replicação de espelhamento. Largura de banda insuficiente para essas portas de rede pode causar degradação do desempenho e até mesmo afetar a estabilidade do nó do cluster.  Portanto, clusters de quatro, seis, oito, dez e doze nós exigem que a rede interna do ONTAP Select utilize conectividade de 10 Gb; placas de rede de 1 Gb não são suportadas.  No entanto, podem ser feitas concessões em relação à rede externa, pois limitar o fluxo de dados de entrada para um cluster ONTAP Select não afeta sua capacidade de operar de forma confiável.</block>
+  <block id="79fd21e68f8b55d6701fdb3dc8b57721" category="paragraph">Essas redes são representadas na figura a seguir, que mostra um cluster ONTAP Select de quatro nós em execução em uma plataforma VMware vSphere. Clusters de seis, oito, dez e doze nós possuem um layout de rede semelhante.</block>
+  <block id="06f30d91c5b4e35870f7a74115950ce7" category="paragraph">O tráfego de rede do cluster deve fluir por meio de uma rede de camada 2 de baixa latência e sem roteamento. Devido aos requisitos de taxa de transferência e latência do cluster, espera-se que o cluster ONTAP Select esteja fisicamente localizado em proximidade (por exemplo, multipacote, data center único).  Não é possível criar configurações de cluster estendido com quatro, seis, oito, dez ou doze nós, separando nós de alta disponibilidade em uma WAN ou em distâncias geográficas significativas. Uma configuração estendida de dois nós com um mediador é compatível.</block>
+  <block id="b08e028303a5953366cd3dd0357eaa1e" category="cell">Cluster de quatro, seis, oito, dez ou doze nós</block>
+  <block id="452e45a3d17c3fc2acb4be240729a77b" category="paragraph">Um cluster ONTAP Select é composto por um, dois, quatro, seis, oito, dez ou doze nós. Cada nó do cluster é implantado como uma máquina virtual separada e executa uma versão especialmente projetada do software ONTAP 9.</block>
+  <block id="30612e552a85ef2e572d45df6c66dde5" category="paragraph">A NVRAM é colocada em seu próprio VMDK. Dividir a NVRAM em seu próprio VMDK permite que a VM ONTAP Select use o driver vNVMe para se comunicar com seu VMDK NVRAM . Também exige que a VM ONTAP Select utilize a versão de hardware 13, que é compatível com o ESX 8.0 e versões posteriores.</block>
+  <block id="7bfe859944c8684df0f1e5d48d3e19e7" category="admonition">A partição NVRAM é separada em seu próprio VMDK. Esse VMDK é conectado usando o driver vNVME disponível nas versões ESX 8.0 ou posteriores. Essa alteração é mais significativa para instalações ONTAP Select com RAID de software, que não se beneficiam do cache do controlador RAID.</block>
+  <block id="cc52ad49f55b8ec4cd8245398800774b" category="list-text">Você pode criar um cluster ONTAP Select composto por um, dois, quatro, seis, oito, dez ou doze nós. Clusters com vários nós sempre contêm um ou mais pares de HA. Por exemplo, um cluster de quatro nós consiste em dois pares de HA. Um cluster com um único nó não oferece capacidade de HA.</block>
+  <block id="5ec5e552cbceca200e1e7e00c7ece71f" category="list-text">Você deve instalar o modelo OVF (contido em um arquivo ova) usando o cliente autônomo vSphere ou o cliente web vSphere (a única opção para ESXi 8.0 e posteriores). Não use o utilitário de administração ONTAP Select Deploy.</block>
+  <block id="e24ae25ce9bfb1ce4c065eadcdcdd09a" category="inline-link">Aviso para ONTAP Select 9.18.1</block>
+  <block id="065d5511cb8e894211e164dae4b44b59" category="paragraph"><block ref="065d5511cb8e894211e164dae4b44b59" category="inline-link-rx"></block></block>
+  <block id="7f9a5208c0fd2a2b8aada8a0fe2106b3" category="section-title">ONTAP Select 9.18.1</block>
+  <block id="aa440a24775cc384ed06594a84a01bed" category="list-text">Apoio reforçado para a expansão e contração de clusters</block>
+  <block id="6cfc3c136010d00411d3802838588e31" category="list-text">A partir do ONTAP Select 9.18.1, a expansão e a contração de clusters são suportadas entre clusters ONTAP Select de quatro e doze nós em hosts de hipervisor ESXi e KVM.</block>
+  <block id="6d04a0203e7cab41dfaeba82517e732e" category="paragraph">Você pode aumentar o tamanho do cluster existente em um host ESXi ou KVM nos seguintes incrementos:</block>
+  <block id="b78096c34098a5b4b3ffbf97bcf4daec" category="list-text">De quatro nós para seis, oito, dez ou doze nós</block>
+  <block id="bb5c9bcb06dfca1234e3cdbb66afd69d" category="paragraph">Você pode diminuir o tamanho do cluster existente em um host ESXi ou KVM nos seguintes incrementos:</block>
+  <block id="b7c498ba5d0597ad80a98bb00cbd25af" category="list-text">De doze nós para dez, oito, seis ou quatro nós</block>
+  <block id="76cbf30b0fc08d8370aa0f23af20ecc9" category="list-text">De dez nós para oito, seis ou quatro nós</block>
+  <block id="51f7c3da494d27037a69b9ef7bfd03bd" category="list-text">De oito a seis ou quatro nós</block>
+  <block id="fe249bdaa41bd176ea8b58c535bc4bbb" category="list-text">De seis para quatro nós</block>
+  <block id="398ac50d2d746089dbbd794c676c2ae6" category="list-text">A partir do ONTAP Select 9.17.1, a expansão e a contração de clusters são suportadas entre clusters de seis e doze nós em hosts ESXi:</block>
+  <block id="765d6a53848808217d3e9d3acd0b4d1e" category="paragraph">A NetApp recomenda o uso do ESX 8.0 ou posterior e um disco NVMe para o armazenamento de dados que hospeda os discos do sistema. Essa configuração proporciona o melhor desempenho para a partição NVRAM .</block>
+  <block id="37d2070341f61f9632f32998e465484b" category="admonition">Ao instalar no ESX 8.0 ou posterior, o ONTAP Select usa o driver vNVMEe independentemente de o disco do sistema estar em um SSD ou em um disco NVMe. Isso define o nível de hardware da VM como 13, compatível com o ESX 8.0 e posteriores.</block>
+  <block id="3fcf474605790b0472ff59a3b813e230" category="list-text">Baixar arquivos</block>
+  <block id="4f2a0b4125eaf9d8804c99dcd015f5c0" category="list-text">Exibir configurações</block>
+  <block id="f8418fd648dfec4581baae7b3eee752e" category="list-text">Um cluster ONTAP Select é composto por um, dois, quatro, seis, oito, dez ou doze nós. Você deve determinar o tamanho do cluster com base nos requisitos da aplicação. Por exemplo, se a capacidade de alta disponibilidade for necessária para uma implantação corporativa, um cluster com vários nós deve ser usado.</block>
+  <block id="7683e8313977fc78e9f2aa1cc9935c79" category="admonition">O ESXi 7.0 GA atingiu o fim da sua disponibilidade.  Se você possui clusters ONTAP Select com esta versão, é necessário atualizar para as versões compatíveis, conforme indicado em [inserir aqui o caminho aqui].<block ref="2b761b14db6e131ceb5a9ee87e5e085a" category="inline-link-rx"></block> .</block>
+  <block id="ddfba58e606b509b0e3801e64826b46d" category="list-text">VMware ESXi 8.0 GA (compilação 20513097) ou posterior</block>
+  <block id="ea151d5a1fc2680e8be18f51bd12237d" category="list-text">VMware ESXi versão 8.0 ou posterior</block>
+  <block id="62080c1e38d010ffa650c0549d2fd463" category="inline-link-macro">Notas de versão do ONTAP Select 9.18.1</block>
+  <block id="bae2221cd26cec7b066734cfd0888c05" category="paragraph">Você pode acessar o<block ref="b88c41ab6f0bacccf3a706fd6b4f9780" category="inline-link-macro-rx"></block> Para visualizar os detalhes sobre a versão atual.</block>
+  <block id="8fce0c649f4d72f417cda254112e0124" category="list-text">Para um host ESX, ONTAP Select 9.7 ou posterior com um utilitário de administração de implantação compatível</block>
+  <block id="14d3f202c8554a54e4a6f4f52aa78fb3" category="list-text">Para um host KVM, ONTAP Select 9.17.1 ou posterior com um utilitário de administração Deploy compatível.</block>
+  <block id="da5ed6f3275aa7228f65de977570f140" category="list-text">Role para baixo e clique em * ONTAP Select*.</block>
+  <block id="bb68cf2408900213fd35084701d5c32c" category="paragraph">Você pode atualizar diretamente para o ONTAP Select Deploy 9.18.1 a partir do ONTAP Select Deploy 9.17.1 ou 9.16.1. Para atualizar do ONTAP Select Deploy 9.15.1 ou anterior, revise as notas de versão da sua versão do ONTAP Select .</block>
+  <block id="b69fcb807e0b12e6b52ca8806f85c011" category="paragraph">Aumentar ou diminuir o tamanho do cluster de um cluster ONTAP Select existente para hosts de hipervisor ESXi e KVM.  Para ambos os tipos de host, você pode aumentar e diminuir o tamanho do cluster em incrementos entre quatro e doze nós.</block>
+  <block id="a0b486320d46bfa4e7a315349c3d059b" category="list-text">Expansões de clusters de um ou dois nós para clusters de seis, oito, dez ou doze nós.</block>
+  <block id="459e1c3cb388ea595c42d32d54d432fb" category="list-text">Contrações de clusters de seis, oito, dez ou doze nós para clusters de um ou dois nós.</block>
+  <block id="cc3b764df35c22850e017fbdd86460bc" category="paragraph">Utilize o recurso de expansão de cluster para aumentar o tamanho de um cluster ONTAP Select existente.</block>
+  <block id="13835f01e49e3e665400c23d9afdc50c" category="paragraph">Você pode aumentar o tamanho de um cluster existente em um host ESXi ou KVM nos seguintes incrementos:</block>
+  <block id="d81f6bf9193c8af46601a92f8dcaa1fd" category="paragraph">Após expandir o cluster, você deverá<block ref="530c589d5a11589fc0cbd2126b61e792" category="inline-link-macro-rx"></block> .</block>
+  <block id="ca7aff0c664c54cdabca6ec7fa0f648c" category="paragraph">Utilize o recurso de contração de cluster para diminuir o tamanho de um cluster ONTAP Select existente.</block>
+  <block id="916d45d48096cd6fddadca86ec51dd59" category="paragraph">Você pode diminuir o tamanho de um cluster existente em um host ESXi ou KVM nos seguintes incrementos:</block>
+  <block id="79ba28975143977867633095c7f73b2a" category="paragraph">As etapas a seguir dependem se você deseja criar um cluster de nó único ou um cluster de vários nós. Um cluster com vários nós pode ter dois, quatro, seis, oito, dez ou doze nós.</block>
+  <block id="d3e10155b98b375f7263e8a2fc511046" category="sidebar">O NetApp ONTAP Select é um dispositivo de armazenamento definido por software que pode ser implantado em diversos servidores de hardware comuns que executam o VMware ESXi ou o hipervisor de Máquina Virtual baseada em Kernel (KVM). Ele oferece a agilidade necessária para construir uma infraestrutura de nuvem privada flexível e escalável. Este site contém a documentação do ONTAP Select 9.18.1.</block>
+  <block id="9819a8f62e77caeb3fdd9bc78f3d0a27" category="sidebar">Documentação do ONTAP Select 9.18.1</block>
 </blocks>

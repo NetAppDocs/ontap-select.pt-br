@@ -34,7 +34,7 @@ Existem várias configurações Ethernet suportadas com base no tamanho do clust
 | Cluster de dois nós ou MetroCluster SDS | 4 x 1GbE ou 1 x 10GbE | 2 x 10GbE 
 
 
-| Cluster de quatro, seis ou oito nós | 2 x 10GbE | 4 x 10GbE ou 2 x 25/40GbE 
+| Cluster de quatro, seis, oito, dez ou doze nós | 2 x 10GbE | 4 x 10GbE ou 2 x 25/40GbE 
 |===
 
 NOTE: A conversão entre topologias de enlace único e enlace múltiplo em um cluster em execução não é suportada devido à possível necessidade de converter entre diferentes configurações de agrupamento de NIC necessárias para cada topologia.

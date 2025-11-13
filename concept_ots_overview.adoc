@@ -44,7 +44,7 @@ O ONTAP Select é composto por dois principais componentes de software:
 
 === Nó ONTAP Select
 
-Um cluster do ONTAP Select é composto por um, dois, quatro, seis ou oito nós. Cada nó de cluster é implantado como uma máquina virtual separada e executa uma versão especialmente projetada do software ONTAP 9.
+Um cluster ONTAP Select é composto por um, dois, quatro, seis, oito, dez ou doze nós. Cada nó do cluster é implantado como uma máquina virtual separada e executa uma versão especialmente projetada do software ONTAP 9.
 
 
 

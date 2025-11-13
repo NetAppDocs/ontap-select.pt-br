@@ -118,9 +118,11 @@ A seguir estão listados os privilégios específicos para a biblioteca de conte
 * Criar biblioteca local
 * Excluir item da biblioteca
 * Excluir biblioteca local
+* Baixar arquivos
 * Armazenamento de leitura
 * Atualizar arquivos
 * Atualizar biblioteca
 * Atualizar item da biblioteca
 * Atualizar biblioteca local
+* Exibir configurações
 
