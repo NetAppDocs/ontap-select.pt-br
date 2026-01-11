@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: deploy-evaluation-ontap-select-ovf-template.html 
 keywords: ontap, select, ovf, template, deployment, evaluation, license 
-summary: Você pode implantar rapidamente uma instância de avaliação de 90 dias de um cluster ONTAP Select de nó único usando um modelo OVF no VMware ESXi. 
+summary: Você pode implantar uma instância de avaliação de 90 dias de um cluster ONTAP Select de nó único. 
 ---
 = Implantar uma instância de avaliação de 90 dias de um cluster do ONTAP Select
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Você pode implantar rapidamente uma instância de avaliação de 90 di
 
 
 [role="lead"]
-Você pode implantar rapidamente uma instância de avaliação de 90 dias de um cluster ONTAP Select de nó único usando um modelo OVF no VMware ESXi.
+Você pode implantar uma instância de avaliação de 90 dias de um cluster ONTAP Select, com tamanho variando de um único nó até 99 nós, usando um modelo OVF no VMware ESXi. Você pode baixar uma licença de avaliação se já for cliente ou se for um novo cliente. Por exemplo, você já é cliente e deseja experimentar uma nova configuração antes de comprar uma licença.
 
 .Sobre esta tarefa
 * Não é necessário obter um número de série ou uma licença de capacidade de armazenamento da NetApp.
@@ -26,7 +26,7 @@ Você pode implantar rapidamente uma instância de avaliação de 90 dias de um 
 
 
 
-== Preparar o host do cluster do ONTAP Select
+== Etapa 1: Prepare o host do cluster ONTAP Select
 
 Use os seguintes requisitos para preparar o host ESXi onde o cluster ONTAP Select é implantado. A descrição da plataforma é baseada na configuração do tipo de instância padrão ou pequena com armazenamento de conexão direta (DAS) local formatado usando o sistema de arquivos VMFS-5 ou VMFS-6.
 
@@ -36,7 +36,7 @@ Para obter informações adicionais sobre as opções de configuração do host,
 
 
 
-== Implante um cluster ONTAP Select de nó único usando um modelo OVF
+== Etapa 2: Implante um cluster ONTAP Select de nó único usando um modelo OVF
 
 Conclua as etapas a seguir em um servidor host ESXi de 64 bits compatível.
 
@@ -63,4 +63,6 @@ Conclua as etapas a seguir em um servidor host ESXi de 64 bits compatível.
 
 
 .Informações relacionadas
-link:http://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade"^]
+* link:concept_lic_evaluation.html["Saiba mais sobre as licenças de avaliação para implementações do ONTAP Select."]
+* link:http://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade"^]
+

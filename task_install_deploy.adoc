@@ -18,9 +18,9 @@ Você precisa instalar o utilitário de administração ONTAP Select Deploy e us
 
 
 
-== Baixe a imagem da máquina virtual
+== Passo 1: Baixe a imagem da máquina virtual.
 
-Pode transferir o pacote ONTAP Select a partir do site de suporte da NetApp.
+Faça o download do pacote ONTAP Select no site de suporte da NetApp .
 
 .Antes de começar
 https://mysupport.netapp.com/site/user/registration["Você tem uma conta registrada no site de suporte da NetApp"^].
@@ -40,9 +40,9 @@ O utilitário de administração ONTAP Select Deploy é empacotado como uma máq
 
 
 
-== Verifique a assinatura OVA de implantação do ONTAP Select
+== Etapa 2: Verifique a assinatura OVA do ONTAP Select Deploy
 
-Você deve verificar a assinatura do ONTAP Select Open Virtualization Appliance (OVA) antes de instalar o pacote de instalação.
+Verifique a assinatura do ONTAP Select Open Virtualization Appliance (OVA) antes de instalar o pacote de instalação.
 
 .Antes de começar
 Verifique se o sistema atende aos seguintes requisitos:
@@ -84,9 +84,9 @@ openssl dgst  -sha256 -verify ONTAP-Select-Deploy-Production.pub -signature ONTA
 
 
 
-== Implante a máquina virtual
+== Etapa 3: Implante a máquina virtual
 
-Você deve instalar e iniciar a VM ONTAP Select Deploy usando a imagem OVF VM. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
+Instale e inicie a máquina virtual ONTAP Select Deploy usando a imagem OVF da máquina virtual. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
 
 .Antes de começar
 Para um hypervisor ESXi, você deve se preparar para implantar a VM de implantação do ONTAP Select:
@@ -200,9 +200,9 @@ Use DHCP to set networking information? [n]:
 ====
 
 
-== Faça login na interface da Web de implantação
+== Etapa 4: Sign in na interface web de implantação.
 
-Você deve fazer login na interface do usuário da Web para confirmar que o utilitário de implantação está disponível e executar a configuração inicial.
+Sign in na interface de usuário da web para confirmar se o utilitário de implantação está disponível e realizar a configuração inicial.
 
 .Passos
 . Aponte seu navegador para o utilitário implantar usando o endereço IP ou nome de domínio:

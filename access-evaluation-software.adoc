@@ -1,0 +1,98 @@
+---
+sidebar: sidebar 
+permalink: access-evaluation-software.html 
+keywords: ontap select, evaluation, software, register, download, access 
+summary: Solicite acesso para baixar o software de avaliação ONTAP Select . 
+---
+= Acesse o software de avaliação ONTAP Select
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Você pode acessar o link:https://mysupport.netapp.com/site/downloads/evaluation/ontap-select["Software de avaliação ONTAP Select"^] Se você já é cliente do ONTAP Select e possui uma licença ativa, ou é um Parceiro NetApp e deseja baixar uma nova licença de avaliação do Capacity Tiers.
+
+Se você não se enquadra em nenhuma das opções acima e gostaria de experimentar o ONTAP Select para avaliação, siga estas etapas para solicitar acesso ao download do software de avaliação.
+
+.Sobre esta tarefa
+* Esta instrução destina-se a vendedores, parceiros e potenciais clientes da NetApp .
+* As licenças de avaliação do ONTAP Select Capacity Tiers são limitadas a 90 dias a partir da data de instalação.
++
+
+NOTE: Não é possível estender uma licença de avaliação. Ao final dos 90 dias, a licença deixa de funcionar e você não pode mais acessar os dados associados.
+
+* O software de avaliação contém todas as informações necessárias para baixar o utilitário de administração ONTAP Select Deploy e implantar um cluster.
+
+
+
+
+== Passo 1: Cadastre-se para obter uma conta.
+
+Conclua o cadastro da conta NetApp , se necessário, e solicite acesso ao cliente potencial.
+
+.Passos
+. Crie uma nova conta ou saia de uma conta existente.
++
+[role="tabbed-block"]
+====
+.Criar nova conta
+--
+Cadastre-se para obter uma conta no link:https://mysupport.netapp.com/site/user/registration["Site de suporte da NetApp"^] usando seu e-mail comercial.
+
+
+NOTE: Contas de e-mail gratuitas, como Gmail ou Yahoo, não são aceitas.
+
+Certifique-se de não estar conectado com a conta recém-criada.
+
+--
+.Conta existente
+--
+Se você já possui uma conta, acesse o link:https://mysupport.netapp.com/site/["Site de suporte da NetApp"^] e certifique-se de que você não está conectado.
+
+--
+====
+. Crie um caso de suporte não técnico para elevar os níveis de acesso ao "prospecto".
++
+.. Selecione a aba *CASOS* e, em seguida, selecione *Criar casos não técnicos*.
+.. Selecione *Problema com o cadastro do usuário* como categoria de feedback.
+.. Selecione *Criar caso*.
++
+Preencha todas as informações necessárias e, na seção de comentários, escreva: "Meu endereço de e-mail comercial é <seu-endereço-de-e-mail>". Gostaria de obter acesso para que os potenciais clientes possam baixar o software de avaliação ONTAP Select .
+
++
+Inclua o nome do seu contato na NetApp .
+
+.. Selecione *Enviar*.
+
+
+
+
+
+
+== Etapa 2: Baixe o software de avaliação ONTAP Select
+
+Após a análise e aprovação da sua solicitação de suporte, a equipe de suporte da NetApp entrará em contato com você por e-mail, no endereço fornecido.
+
+.Passo
+. https://mysupport.netapp.com/site/downloads/evaluation/ontap-select["Baixe o software de avaliação ONTAP Select."^].
++
+O arquivo de licença de avaliação está localizado dentro do arquivo zip.
+
+. Para cumprir os requisitos legais, você precisa link:https://mysupport.netapp.com/site/help["Abra um chamado de suporte."^] antes de obter acesso. Isso ajuda a NetApp a manter o controle e a documentação corretos, ao mesmo tempo que fornece o software pronto para produção de que você precisa.
++
+
+NOTE: A NetApp fornece a versão "pronta para produção" do ONTAP Select, que não é uma versão de código aberto ou alternativa. O suporte só está disponível se você atualizar para uma licença de produção.
+
+
+
+.O que vem a seguir?
+Após a conclusão do download do software de avaliação, siga as instruções para baixar o utilitário de administração ONTAP Select Deploy e implantar um cluster.
+
+.Informações relacionadas
+* link:concept_lic_evaluation.html["Saiba mais sobre as licenças de avaliação para implementações do ONTAP Select."]
+* link:task_adm_licenses.html#convert-license["Converter uma licença de avaliação em uma licença de produção"]
+
