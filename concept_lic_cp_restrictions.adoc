@@ -20,7 +20,7 @@ As restrições que se aplicam ao usar o modelo de licenciamento do pool de capa
 Todos os nós em um único cluster do ONTAP Select precisam usar o mesmo modelo de licenciamento, de categorias de capacidade ou de pools de capacidade. Não é possível misturar os tipos de licenciamento para os nós em um único cluster.
 
 .Todos os nós em um cluster usam a mesma instância do Gerenciador de licenças
-Todos os nós com uma licença de pool de capacidade em um cluster do ONTAP Select devem usar a mesma instância do Gerenciador de licenças. Como há uma instância do Gerenciador de licenças em cada instância de implantação, essa restrição é uma reafirmação do requisito existente de que todos os nós em um cluster devem ser gerenciados pela mesma instância de implantação.
+Todos os nós com uma licença de Capacity Pool em um cluster ONTAP Select devem usar a mesma instância do License Manager. Como existe uma instância do License Manager em cada instância do Deploy, essa restrição é uma reafirmação do requisito existente de que a mesma instância do Deploy deve gerenciar todos os nós em um cluster.
 
 .Um pool de capacidade por nó
 Cada nó pode alugar storage de exatamente um pool de capacidade. Um nó não pode usar dois ou mais pools.

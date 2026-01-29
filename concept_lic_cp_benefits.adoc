@@ -22,7 +22,7 @@ Há vários benefícios ao usar o modelo de licenciamento de pools de capacidade
 
 Ao usar o licenciamento de categorias de capacidade, você aloca uma capacidade de storage fixa a cada nó. Qualquer espaço não utilizado não pode ser compartilhado com os outros nós e é efetivamente desperdiçado. Com o licenciamento de pools de capacidade, cada nó consome apenas a capacidade de que precisa, com base no tamanho dos agregados de dados.
 
-E como a capacidade está ancorada em um pool central, ela pode ser compartilhada entre muitos nós da sua organização.
+A capacidade está ancorada em um pool central onde pode ser compartilhada entre vários nós da sua organização.
 
 
 

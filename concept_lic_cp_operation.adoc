@@ -33,10 +33,22 @@ O Gerenciador de licenças é executado como um processo separado dentro de cada
 
 O storage alocado para cada agregado de dados em um nó usando uma licença de pool de capacidade deve ter um leasing associado. O nó solicita um leasing de armazenamento e, se a capacidade estiver disponível, o Gerenciador de licenças responderá com um leasing. Cada locação tem os seguintes atributos explícitos ou implícitos:
 
-* Todos os nós do ONTAP Select estão associados a uma instância do Gerenciador de licenças
-* Cada nó do ONTAP Select está associado a um pool de capacidade
-* Alocação de armazenamento Um valor específico de capacidade é atribuído no contrato de locação
-* As locações de data e hora de expiração têm uma duração de entre uma hora e sete dias, dependendo da configuração do usuário.
+* Gestor de licenças
++
+Cada nó ONTAP Select está associado a uma instância do License Manager
+
+* Pool de Capacidade
++
+Cada nó ONTAP Select está associado a um Capacity Pool
+
+* Alocação de storage
++
+Um valor de capacidade específico é atribuído no contrato de arrendamento
+
+* Data e hora de validade
++
+Os contratos de locação têm duração entre uma hora e sete dias, dependendo da configuração de usuário.
+
 
 
 
@@ -47,15 +59,20 @@ Cada instância do Gerenciador de licenças e, portanto, cada instância do util
 
 Você pode determinar o ID de bloqueio de licença para sua instância de implantação usando a interface de usuário da Web das seguintes maneiras:
 
-* Esta página é exibida quando você inicia sessão pela primeira vez para implantar. Você também pode exibir a página clicando na caixa suspensa no canto superior direito da página e selecionando Introdução. O LLID é exibido na seção Adicionar licenças.
-* Administração clique na guia *Administração* a na parte superior da página e, em seguida, clique em *sistemas* e *Configurações*.
+* Página de introdução
++
+O Deploy exibe esta página quando você faz login pela primeira vez. Você também pode abrir a caixa suspensa no canto superior direito da página e selecionar *Getting Started* para exibir esta página. O LLID é exibido na seção Adicionar licenças.
+
++
+Selecione a guia *Administração* na parte superior da página, depois selecione *Sistemas* e *Configurações*.
+
 
 
 
 
 == Operações básicas de locação
 
-Um nó ONTAP Select deve localizar ou solicitar um leasing de capacidade válido sempre que um agregado de dados for criado, expandido ou alterado. Um leasing obtido de uma solicitação anterior que ainda é válida pode ser usado, ou um novo leasing pode ser solicitado, se necessário. As etapas a seguir são executadas pelo nó ONTAP Select para localizar um leasing de pool de capacidade:
+Um nó ONTAP Select deve localizar ou solicitar uma concessão de capacidade válida sempre que um agregado de dados for criado, expandido ou alterado. Você pode usar uma concessão obtida de uma solicitação anterior que ainda seja válida ou pode solicitar uma nova concessão, se necessário. O nó ONTAP Select executa as seguintes etapas para localizar uma concessão do Capacity Pool:
 
 . Se um leasing existente estiver localizado no nó, ele será usado desde que todos os seguintes itens sejam verdadeiros:
 +

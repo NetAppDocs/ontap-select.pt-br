@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: sizing-capacity-pool-license.html 
+keywords: license, licensing, Capacity Tiers, usable, space 
+summary: A licença Capacity Tiers baseia-se na capacidade de disco subjacente gerenciada por cada nó e não na capacidade utilizável do nó, par de HA ou cluster. Cada licença Capacity Tiers é atribuída a um número de série de nó individual para uma capacidade específica e requer um contrato de suporte correspondente. 
+---
+= Considerações para o dimensionamento de uma licença ONTAP Select Capacity Pools
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+A capacidade licenciada para uma licença de Capacity Pool é em valores inteiros de TiB, com um mínimo de 2 TiB. Você calcula a capacidade licenciada multiplicando a quantidade de capacidade utilizável pelo fator de sobrecarga. O fator de sobrecarga difere entre um cluster de nó único e clusters multinó (baseados em par de HA):
+
+* O fator de sobrecarga para clusters de nó único é 1.13
+* Fator de sobrecarga para clusters com vários nós é 2,67
+
+
+Você precisa calcular a capacidade licenciada com base no espaço utilizável para garantir que tenha o suficiente para sua implantação.
+
+[cols="25,30,45"]
+|===
+| Descrição | Nó único | Par de HA ou combinação de HA e cluster de nó único 
+
+
+| Capacidade utilizável | 20 TiB | 10 TiB por cluster de nó único 20 TiB para par de HA 
+
+
+| Espaço licenciado | 23 TiB (20 x 1,13 = 22,6, arredondar para o próximo TiB inteiro) | 54 TiB (20 x 2,67 = 53,4, arredondar para o próximo TiB inteiro) 
+
+
+| Espaço máximo utilizável por nó *Nota*: o espaço máximo gerenciado por nó ou par de HA é 400 TiB | 353 TiB (400 / 1,13)  a| 
+Por cluster de nó único:
+
+74 TiB [(400 / 2) / 2,67]
+
+Por par de HA cluster:
+
+148 TiB (2 x 74)
+
+|===
+.O que vem a seguir
+link:task_lic_acquire_cp.html["Adquira uma licença Capacity Pools para ONTAP Select"]

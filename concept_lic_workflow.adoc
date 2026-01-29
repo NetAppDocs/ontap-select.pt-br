@@ -25,5 +25,12 @@ Site de licenciamento:: Você obtém uma licença de nível de capacidade e pool
 
 image:purchased_license_workflow.png["Descreve o processo usado para comprar e instalar uma licença de storage para uma implantação do ONTAP Select de produção."]
 
+.O que vem a seguir?
+Saiba mais sobre as considerações para dimensionar uma licença do ONTAP Select:
+
+* link:sizing-capacity-tier-license.html["Licença Capacity Tiers"]
+* link:sizing-capacity-pool-license.html["Licença de Capacity Pools"]
+
+
 .Informações relacionadas
-link:task_adm_licenses.html["Licenças ONTAP Select"]
+link:task_adm_licenses.html["Saiba mais sobre como gerenciar licenças do ONTAP Select"]

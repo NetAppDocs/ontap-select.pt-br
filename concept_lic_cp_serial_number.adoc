@@ -23,7 +23,7 @@ O número de série de um nó que usa o licenciamento de pools de capacidade tem
 
 NOTE: Os espaços foram adicionados para maior clareza, mas não fazem parte do número de série real.
 
-Cada seção do número de série do nó é descrita na tabela a seguir, da esquerda para a direita.
+A tabela a seguir descreve cada seção do número de série do nó da esquerda para a direita.
 
 [cols="15,85"]
 |===
@@ -39,4 +39,4 @@ Cada seção do número de série do nó é descrita na tabela a seguir, da esqu
 | nnnnnnnn | Valor variável de oito dígitos gerado pelo Gerenciador de licenças para cada nó usando o pool de capacidade 
 |===
 
-NOTE: Atenção: Ao abrir um caso com suporte ao NetApp envolvendo um nó que usa uma licença de pool de capacidade, você não pode fornecer o número de série completo de nó de vinte dígitos. Em vez disso, você deve fornecer o número de série da licença do pool de capacidade de nove dígitos. Você pode derivar o número de série da licença a partir do número de série do nó, como mostrado acima. Ignore os primeiros três dígitos do número de série do nó ('999') e extraia os próximos nove dígitos (ppppppppppppppppppp).
+CAUTION: Ao abrir um chamado com o suporte da NetApp envolvendo um nó que utiliza uma licença do Capacity Pool, você deve fornecer o número de série da licença do Capacity Pool, que possui nove dígitos. Você não pode fornecer o número de série completo do nó, que possui vinte dígitos. Você pode obter o número de série da licença a partir do número de série do nó, ignorando os três primeiros dígitos do número de série do nó ('999') e extraindo os nove dígitos seguintes (ppppppppp).
