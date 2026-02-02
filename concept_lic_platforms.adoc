@@ -168,13 +168,7 @@ A tabela a seguir fornece o tipo de licença mínimo necessário para o armazena
 2+| Suporte a hipervisor (KVM)  a| 
 Red Hat Enterprise Linux 64-bit (KVM) 10.1, 10.0, 9.7, 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.8, 8.7 e 8.6
 
-Rocky Linux (KVM) 10.0, 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7 e 8.6
-
-*Nota*: Existem limitações no fluxo de trabalho RAID por software para hipervisores KVM em hosts RHEL 10.1 e 10.0 e Rocky Linux 10.0. Para obter mais informações, consulte os seguintes artigos da Knowledge Base:
-
-* link:https://kb.netapp.com/on-prem/ontap/ontap-select/Select-Issues/CDEPLOY-4020["CDEPLOY-4020: ONTAP Select Deploy: Mensagem de aviso ao criar o Cluster HWR usando RHEL 10 e ROCKY 10"^]
-* link:https://kb.netapp.com/on-prem/ontap/ontap-select/Select-Issues/CDEPLOY-4025["CDEPLOY-4025: ONTAP Select DeployGUI: Pools de armazenamento e discos de armazenamento não visíveis para SWR na página de criação de cluster em hosts com RHEL10/Rocky 10"^]
-
+Rocky Linux (KVM) 10.1, 10.0, 9.7, 9.6, 9.5, 9.4, 9.3, 9.2, 9.1, 9.0, 8.9, 8.8, 8.7 e 8.6
 
 
 

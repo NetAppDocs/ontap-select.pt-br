@@ -21,6 +21,29 @@ Saiba mais sobre os novos recursos e aprimoramentos nas versões suportadas do O
 
 == ONTAP Select 9.18.1
 
+Atualizações nas opções de download do produto ONTAP Select:: As opções de download do produto ONTAP Select no site de suporte da NetApp estão mudando com o lançamento do ONTAP Select 9.18.1 para *ONTAP Select Deploy* e *ONTAP Select Image*. Essas duas novas opções de download substituem as quatro opções anteriores, conforme mostrado na tabela a seguir:
++
+--
+[cols="30,30,40"]
+|===
+| Opção de download do produto anterior | Nova opção de download do produto | Para obter mais informações, acesse… 
+
+
+| ONTAP Select | ONTAP Select Deploy | link:task_install_deploy.html["Instale o ONTAP Select Deploy"] 
+
+
+| ONTAP Select Instalação de imagem | Imagem do ONTAP Select | link:task_cli_deploy_image_add.html["Adicione uma imagem ONTAP Select para implantar"] 
+
+
+| Atualização do ONTAP Select Deploy | ONTAP Select Deploy | link:task_cli_upgrade_deploy.html["Atualizar uma instância do ONTAP Select Deploy"] 
+
+
+| Atualização do nó ONTAP Select | Imagem do ONTAP Select | link:concept_adm_upgrading_nodes.html["Atualizar nós do ONTAP Select"] 
+|===
+
+NOTE: As alterações no download do produto também se aplicam ao ONTAP Select 9.17.1, 9.16.1, 9.15.1 e 9.14.1.
+
+--
 Apoio reforçado para a expansão e contração de clusters:: A partir do ONTAP Select 9.18.1, a expansão e a contração de clusters são suportadas entre clusters ONTAP Select de quatro e doze nós em hosts de hipervisor ESXi e KVM.
 +
 --
@@ -121,12 +144,12 @@ Suporte atualizado ao driver NDA:: A partir do ONTAP Select 9.17.1, o driver de 
 Para o ONTAP Select 9.16.1 e versões anteriores, o NVD continua a fornecer suporte para dispositivos NVMe na sua implantação do ONTAP Select .
 
 --
-Suporte ao hipervisor KVM atualizado:: A partir do ONTAP Select 9.17.1, o hipervisor KVM é suportado no Red Hat Enterprise Linux (RHEL) 10.1, 10.0, 9.7 e 9.6 e no Rocky Linux 10.0 e 9.6.
+Suporte ao hipervisor KVM atualizado:: A partir do ONTAP Select 9.17.1, o hipervisor KVM é suportado no Red Hat Enterprise Linux (RHEL) 10.1, 10.0, 9.7 e 9.6 e no Rocky Linux 10.1, 10.0, 9.7 e 9.6.
 +
 --
 [NOTE]
 ====
-Existem limitações no fluxo de trabalho RAID por software para hipervisores KVM em hosts RHEL 10.1 e 10.0 e Rocky Linux 10.0. Para obter mais informações, consulte os seguintes artigos da Base de Conhecimento:
+Existem limitações no fluxo de trabalho RAID por software para hipervisores KVM em hosts RHEL 10.1 e 10.0 e Rocky Linux 10.1 e 10.0. Para mais informações, consulte os seguintes artigos da Knowledge Base:
 
 * link:https://kb.netapp.com/on-prem/ontap/ontap-select/Select-Issues/CDEPLOY-4020["CDEPLOY-4020: ONTAP Select Deploy: Mensagem de aviso ao criar o Cluster HWR usando RHEL 10 e ROCKY 10"^]
 * link:https://kb.netapp.com/on-prem/ontap/ontap-select/Select-Issues/CDEPLOY-4025["CDEPLOY-4025: ONTAP Select DeployGUI: Pools de armazenamento e discos de armazenamento não visíveis para SWR na página de criação de cluster em hosts com RHEL10/Rocky 10"^]
@@ -134,8 +157,6 @@ Existem limitações no fluxo de trabalho RAID por software para hipervisores KV
 
 ====
 --
-
-
 Suporte aprimorado ao VMware ESXi:: O ONTAP Select 9.17.1 inclui suporte para VMware ESXi 9.0.
 
 
