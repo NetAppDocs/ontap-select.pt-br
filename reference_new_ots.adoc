@@ -40,9 +40,6 @@ Atualizações nas opções de download do produto ONTAP Select:: As opções de
 
 | Atualização do nó ONTAP Select | Imagem do ONTAP Select | link:concept_adm_upgrading_nodes.html["Atualizar nós do ONTAP Select"] 
 |===
-
-NOTE: As alterações no download do produto também se aplicam ao ONTAP Select 9.17.1, 9.16.1, 9.15.1 e 9.14.1.
-
 --
 Apoio reforçado para a expansão e contração de clusters:: A partir do ONTAP Select 9.18.1, a expansão e a contração de clusters são suportadas entre clusters ONTAP Select de quatro e doze nós em hosts de hipervisor ESXi e KVM.
 +
