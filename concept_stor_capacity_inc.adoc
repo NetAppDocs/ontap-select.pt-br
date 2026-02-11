@@ -50,7 +50,7 @@ Duas operações adicionais de adição de storage no nó 1 consomem o resto do 
 
 image:ST_07.jpg["Distribuição de capacidade: Alocação e espaço livre após duas operações adicionais de armazenamento adicional para o nó 1"]
 
-O tamanho máximo do VMDK usado durante as operações de adição de capacidade é 16TB. O tamanho máximo do VMDK usado durante as operações de criação de cluster continua a ser 8TB. O ONTAP Deploy cria VMDKs de tamanho correto, dependendo da sua configuração (um cluster de nó único ou com vários nós) e da quantidade de capacidade adicionada. No entanto, o tamanho máximo de cada VMDK não deve exceder 8TB MB durante as operações de criação de cluster e 16TB MB durante as operações de adição de armazenamento.
+O tamanho máximo de VMDK usado durante operações de adição de capacidade é de 16TB. O tamanho máximo de VMDK usado durante operações de criação de cluster continua sendo de 8TB. ONTAP Deploy cria VMDKs com o tamanho correto, dependendo da sua configuração (cluster de nó único ou de vários nós) e da quantidade de capacidade que está sendo adicionada. No entanto, o tamanho máximo de cada VMDK não deve exceder 8TB durante as operações de criação de cluster e 16TB durante as operações de adição de capacidade.
 
 
 
@@ -60,7 +60,8 @@ O assistente de adição de storage também pode ser usado para aumentar a capac
 
 Embora seja possível aumentar a licença de capacidade em um único TB, ao trabalhar com software RAID, não é possível aumentar fisicamente a capacidade em um único TB. Semelhante à adição de discos a um array FAS ou AFF, certos fatores determinam a quantidade mínima de storage que pode ser adicionada em uma única operação.
 
-Observe que, em um par de HA, adicionar storage ao nó 1 requer que um número idêntico de unidades também esteja disponível no par de HA do nó (nó 2). As unidades locais e os discos remotos são usados por uma operação de adição de armazenamento no nó 1. Ou seja, as unidades remotas são usadas para garantir que o novo armazenamento no nó 1 seja replicado e protegido no nó 2. Para adicionar storage utilizável localmente no nó 2, uma operação de adição de storage separada e um número separado e igual de unidades devem estar disponíveis em ambos os nós.
+
+NOTE: Em um par de HA, adicionar storage ao nó 1 exige que um número idêntico de discos também esteja disponível no par de HA do nó (nó 2). Tanto os discos locais quanto os remotos são usados por uma única operação de adição de storage no nó 1. Ou seja, os discos remotos são usados para garantir que o novo storage no nó 1 seja replicado e protegido no nó 2. Para adicionar storage utilizável localmente no nó 2, uma operação de adição de storage separada e um número igual de discos devem estar disponíveis em ambos os nós.
 
 O ONTAP Select particiona quaisquer novas unidades na mesma raiz, dados e partições de dados que as unidades existentes. A operação de particionamento ocorre durante a criação de um novo agregado ou durante a expansão em um agregado existente. O tamanho da faixa de partição raiz em cada disco é definido para corresponder ao tamanho da partição raiz existente nos discos existentes. Portanto, cada um dos dois tamanhos de partição de dados iguais pode ser calculado como a capacidade total do disco menos o tamanho da partição raiz dividido por dois. O tamanho da faixa de partição raiz é variável e é calculado durante a configuração inicial do cluster da seguinte forma. O espaço total de raiz necessário (68GB para um cluster de nó único e 136GB para pares de HA) é dividido pelo número inicial de discos menos quaisquer unidades sobressalentes e de paridade. O tamanho da faixa de partição raiz é mantido para ser constante em todas as unidades que estão sendo adicionadas ao sistema.
 

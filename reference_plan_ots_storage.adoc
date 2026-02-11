@@ -17,7 +17,7 @@ summary: Há vários problemas de Planejamento relacionados ao storage de host d
 Há vários problemas de Planejamento relacionados ao storage de host do ONTAP Select que você deve considerar.
 
 
-NOTE: As informações de suporte de armazenamento externo estão descritas na link:reference_plan_ots_vnas.html["Requisitos do ONTAP Select vNAS"].
+NOTE: As informações sobre suporte a storage externo são descritas para hosts ESXi e KVM. Para mais informações, consulte link:reference_plan_ots_vnas.html["Requisitos do VMware ESXi"] e link:reference_plan_ots_kvm.html["Requisitos do KVM"].
 
 
 
@@ -38,15 +38,15 @@ Os requisitos mínimos para o controlador RAID incluem:
 ** Ativar a política "sempre leitura antecipada" (se suportada)
 
 
-* Todos os discos locais atrás da controladora RAID devem ser configurados como um único grupo RAID; vários controladores RAID podem ser usados, se necessário:
+* Todos os discos locais atrás do controlador RAID devem ser configurados como um único grupo RAID; utilize múltiplos controladores RAID, se necessário:
 +
 ** Desative o cache de unidade local para o grupo RAID, que é fundamental para preservar a integridade dos dados.
 
 
-* A configuração de LUN deve ser realizada com base nas seguintes diretrizes:
+* Realize a configuração do LUN com base nas seguintes diretrizes:
 +
-** Se o tamanho do grupo RAID exceder o tamanho máximo de LUN de 64TB GB, você deve configurar várias LUNs de tamanho igual que consumam todo o armazenamento disponível no grupo RAID.
-** Se o tamanho do grupo RAID for menor do que o tamanho máximo de LUN de 64TB, você deverá configurar um LUN consumindo todo o armazenamento disponível no grupo RAID.
+** Se o tamanho do grupo RAID exceder o tamanho máximo do LUN de 64TB, configure vários LUNs de tamanho igual que consumam todo o storage disponível dentro do grupo RAID.
+** Se o tamanho do grupo RAID for menor que o tamanho máximo do LUN de 64TB, configure um LUN que consuma todo o storage disponível dentro do grupo RAID.
 
 
 
@@ -55,7 +55,7 @@ Os requisitos mínimos para o controlador RAID incluem:
 
 == Requisitos RAID de software
 
-Ao implantar um cluster ONTAP Select no hypervisor, você pode utilizar o recurso RAID de software fornecido pelo ONTAP Select em vez de um controlador RAID de hardware local. Há vários requisitos e restrições que você deve estar ciente antes de implantar um cluster usando RAID de software.
+Ao implementar um cluster ONTAP Select no hipervisor, você pode usar o recurso de RAID por software fornecido pelo ONTAP Select em vez de um controlador RAID local. Analise os seguintes requisitos e restrições antes de implementar um cluster usando RAID por software.
 
 
 
@@ -99,7 +99,7 @@ O valor comunicado para estes comandos deve ser '0'.
 
 
 
-* Espera-se que os dispositivos estejam conetados a um HBA ou, em alguns casos, a um controlador RAID configurado para operar no modo JBOD. Ao usar um controlador RAID, a função do dispositivo deve ser passada pelo host sem sobrecarregar qualquer funcionalidade RAID. Ao usar um controlador RAID no modo JBOD, você deve revisar a documentação do RAID ou entrar em Contato com o fornecedor conforme necessário para garantir que o dispositivo reporta a velocidade de rotação como '0'.
+* Espera-se que os dispositivos estejam conectados a um HBA ou, em alguns casos, a um controlador RAID configurado para operar no modo JBOD. Ao usar um controlador RAID, a função do dispositivo deve ser repassada pelo host sem sobrepor nenhuma funcionalidade RAID. Ao usar um controlador RAID no modo JBOD, você deve consultar a documentação do RAID ou entrar em contato com o fornecedor, conforme necessário, para garantir que o dispositivo reporte a velocidade de rotação como '0'.
 * Existem dois componentes de armazenamento separados:
 +
 ** Armazenamento de máquinas virtuais
@@ -189,7 +189,7 @@ Você pode configurar cada nó do ONTAP Select para usar até 400 TB de armazena
 
 
 
-NOTE: Um buffer de 2% não é utilizado em cada pool de storage e não requer licença de capacidade. Esse armazenamento não é usado pelo ONTAP Select, a menos que um limite de capacidade seja especificado. Se um limite de capacidade for especificado, essa quantidade de armazenamento será usada, a menos que a quantidade especificada caia na zona de buffer de 2%. O buffer é necessário para evitar erros ocasionais que ocorrem ao tentar alocar todo o espaço em um pool de armazenamento.
+NOTE: Um buffer de 2% permanece não utilizado em cada pool de storage e não requer uma licença de capacidade. ONTAP Select não utiliza esse armazenamento, a menos que você especifique um limite de capacidade. Se você especificar um limite de capacidade, então ONTAP Select utiliza essa quantidade de armazenamento, a menos que a quantidade especificada esteja dentro da zona do buffer de 2%. O buffer é necessário para evitar erros ocasionais que ocorrem ao tentar alocar todo o espaço em um pool de storage.
 
 
 

@@ -71,10 +71,10 @@ O ONTAP Select não recebe benefícios de desempenho ao aumentar o número de LU
 
 === Hosts do VMware ESXi
 
-A NetApp recomenda o uso do ESX 8.0 ou posterior e um disco NVMe para o armazenamento de dados que hospeda os discos do sistema. Essa configuração proporciona o melhor desempenho para a partição NVRAM .
+NetApp recomenda usar ESXi 8.0 ou posterior e um disco NVMe para o datastore que hospeda os discos do sistema. Essa configuração oferece o melhor desempenho para a partição NVRAM.
 
 
-NOTE: Ao instalar no ESX 8.0 ou posterior, o ONTAP Select usa o driver vNVMEe independentemente de o disco do sistema estar em um SSD ou em um disco NVMe. Isso define o nível de hardware da VM como 13, compatível com o ESX 8.0 e posteriores.
+NOTE: Ao instalar no ESXi 8.0 ou posterior, ONTAP Select usa o driver vNVMEe independentemente de o disco do sistema estar em um SSD ou em um disco NVMe. Isso define o nível de hardware da VM para 13, que é compatível com ESXi 8.0 e posterior.
 
 Defina portas de rede dedicadas, largura de banda e configurações vSwitch para as redes ONTAP Select e armazenamento externo (VMware VSAN e tráfego genérico de storage array ao usar iSCSI ou NFS).
 
@@ -169,7 +169,7 @@ O ONTAP Select suporta um único link 10Gb para clusters de dois nós; no entant
 
 Se uma NIC tiver vários circuitos integrados específicos de aplicativos (ASICs), selecione uma porta de rede de cada ASIC ao criar construções de rede por meio de agrupamento NIC para as redes internas e externas.
 
-O NetApp recomenda que o modo LACP esteja ativo tanto nos switches ESX quanto físicos. Além disso, o temporizador LACP deve ser definido como rápido (1 segundo) no switch físico, portas, interfaces de canal de porta e nos vmnics.
+NetApp recomenda que o modo LACP esteja ativo tanto no ESXi quanto nos switches físicos. Além disso, o timer LACP deve ser configurado para rápido (1 segundo) no switch físico, nas portas, nas interfaces de canal de porta e nas VMNICs.
 
 Ao usar um vSwitch distribuído com LACP, o NetApp recomenda que você configure a política de balanceamento de carga para rotear com base no Hash IP no grupo de portas, endereço IP de origem e destino, porta TCP/UDP e VLAN no LAG.
 

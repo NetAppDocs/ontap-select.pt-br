@@ -27,7 +27,7 @@ Configure o host ESXi ou KVM para reconhecer as unidades.
 .Antes de começar
 Certifique-se de que seu ambiente de implantação atenda aos seguintes requisitos mínimos:
 
-* Para um host ESX, ONTAP Select 9.7 ou posterior com um utilitário de administração de implantação compatível
+* Para um host ESXi, ONTAP Select 9.7 ou posterior com um utilitário de administração Deploy compatível
 * Para um host KVM, ONTAP Select 9.17.1 ou posterior com um utilitário de administração Deploy compatível.
 * Oferta de licença de plataforma Premium XL ou uma licença de avaliação de 90 dias
 * O host ESXi ou KVM está executando uma versão do hipervisor compatível:

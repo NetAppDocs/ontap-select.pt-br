@@ -74,6 +74,6 @@ Este parâmetro controla o comportamento dos comandos de longa duração. Se def
  a| 
 `-username _username_`
  a| 
-O nome de usuário que tem acesso a este host. Isso é necessário somente se o host não for gerenciado por um servidor de gerenciamento (ou seja, um host ESX gerenciado por um vCenter).
+O nome de usuário que tem acesso a este host. Isso é necessário apenas se o host não for gerenciado por um servidor de gerenciamento (ou seja, um host ESXi gerenciado por um vCenter).
 
 |===

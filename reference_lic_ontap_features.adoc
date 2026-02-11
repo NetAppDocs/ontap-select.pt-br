@@ -37,15 +37,18 @@ Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciado
 * NVMe sobre TCP
 * Funcionalidade de alocação a vários clientes da ONTAP
 * ONTAP S3
+* SnapLock Select
++
+SnapLock Select é a implementação do ONTAP SnapLock projetada para ONTAP Select e inclui SnapLock Enterprise. Não inclui SnapLock Compliance. Para mais informações, consulte o link:https://docs.netapp.com/us-en/ontap/snaplock/index.html["ONTAP SnapLock documentação"^].
+
 * S3 SnapMirror
 * SnapMirror
-* Nuvem SnapMirror
+* SnapMirror Cloud
 * SnapRestore
 * SnapVault
 * Recuperação de desastres de VM de storage (SVM DR)
 +
-
-NOTE: O ONTAP Select é compatível com o SVM DR como origem e destino, no máximo 16 relacionamentos. A compatibilidade com SVM DR está limitada ao uso da versão de origem do ONTAP nas versões mais de 2. Por exemplo, a fonte ONTAP Select 9.12.1 pode se conetar ao ONTAP de destino versões 9.12.1, 9.13.1 ou 9.14.1.
+O ONTAP Select é compatível com o SVM DR como origem e destino, no máximo 16 relacionamentos. A compatibilidade com SVM DR está limitada ao uso da versão de origem do ONTAP nas versões mais de 2. Por exemplo, a fonte ONTAP Select 9.12.1 pode se conetar ao ONTAP de destino versões 9.12.1, 9.13.1 ou 9.14.1.
 
 
 
@@ -56,17 +59,13 @@ NOTE: O ONTAP Select é compatível com o SVM DR como origem e destino, no máxi
 Você precisa adquirir uma licença separada para qualquer recurso do ONTAP que não esteja habilitado por padrão, incluindo:
 
 * FabricPool
++
+
+NOTE: Você não precisa de uma licença FabricPool ao utilizar o StorageGRID.
+
 * MetroCluster SDS (oferta de licença premium ONTAP Select)
 
 
-[NOTE]
-====
-* Para o ONTAP Select 9.16.1 e versões anteriores, o SnapLock Select Enterprise (incluindo bloqueio de instantâneo à prova de violação) está disponível nolink:https://mysupport.netapp.com/site/["Site de suporte da NetApp"^] .
-* A SnapLock Compliance não é suportada pelo ONTAP Select.
-* Você não precisa de uma licença FabricPool ao utilizar o StorageGRID.
-
-
-====
 .Informações relacionadas
 * link:concept_ots_overview.html#compare-ontap-select-and-ontap-9["Comparando ONTAP Select e ONTAP 9"]
 * link:https://mysupport.netapp.com/site/systems/master-license-keys["Chaves de licença principal do NetApp ONTAP"^]

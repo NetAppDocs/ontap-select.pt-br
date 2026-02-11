@@ -22,7 +22,7 @@ O requisito mínimo é que o hipervisor que você está usando (VMware ESXi ou K
 
 == Arquitetura vNAS
 
-A nomenclatura vNAS é usada para todas as configurações que não usam DAS. Para clusters ONTAP Select com vários nós, isso inclui arquiteturas para as quais os dois nós ONTAP Select no mesmo par de HA compartilham um único armazenamento de dados (incluindo datastores VSAN). Os nós também podem ser instalados em datastores separados do mesmo array externo compartilhado. Isso possibilita a eficiência de storage do lado do array reduzir o espaço físico geral de todo o par de HA da ONTAP Select. A arquitetura das soluções ONTAP Select vNAS é muito semelhante à do ONTAP Select no DAS com uma controladora RAID local. Ou seja, cada nó do ONTAP Select continua com uma cópia dos dados do parceiro de HA. As políticas de eficiência de storage da ONTAP têm escopo do nó. Portanto, as eficiências de storage no lado do array são preferíveis porque podem ser aplicadas em conjuntos de dados de ambos os nós da ONTAP Select.
+A nomenclatura vNAS é usada para todas as configurações que não utilizam DAS. Para clusters ONTAP Select com múltiplos nós, isso inclui arquiteturas nas quais os dois nós ONTAP Select no mesmo par de HA compartilham um único datastore (incluindo datastores vSAN). Os nós também podem ser instalados em datastores separados do mesmo array externo compartilhado. Isso permite que as eficiências de storage no lado do array reduzam a área ocupada total do par de HA ONTAP Select. A arquitetura das soluções ONTAP Select vNAS é muito semelhante à do ONTAP Select em DAS com um controlador RAID local. Ou seja, cada nó ONTAP Select continua a ter uma cópia dos dados de seu parceiro de HA. As políticas de eficiência de storage do ONTAP têm escopo de nó. Portanto, as eficiências de storage no lado do array são preferíveis porque podem, potencialmente, ser aplicadas a conjuntos de dados de ambos os nós ONTAP Select.
 
 Também é possível que cada nó ONTAP Select em um par de HA use um array externo separado. Essa é uma escolha comum ao usar o SDS do ONTAP Select MetroCluster com storage externo.
 
@@ -52,7 +52,8 @@ O recurso SIDL não é compatível com todos os recursos de eficiência de stora
 ----
 storage aggregate modify -aggregate aggr-name -single-instance-data-logging off
 ----
-Observe que o desempenho de gravação é afetado se o recurso SIDL estiver desativado. É possível reativar o recurso SIDL depois que todas as políticas de eficiência de storage em todos os volumes nesse agregado estiverem desativadas:
+
+NOTE: O desempenho de gravação é afetado se o recurso SIDL estiver desativado. É possível reativar o recurso SIDL depois que todas as políticas de eficiência de storage em todos os volumes desse agregado forem desativadas:
 
 [listing]
 ----
@@ -62,18 +63,21 @@ volume efficiency stop -all true -vserver * -volume * (all volumes in the affect
 
 == Collocate os nós do ONTAP Select ao usar o vNAS no ESXi
 
-O ONTAP Select é compatível com clusters ONTAP Select com vários nós em storage compartilhado. O ONTAP Deploy permite a configuração de vários nós ONTAP Select no mesmo host ESX desde que esses nós não façam parte do mesmo cluster. Observe que essa configuração só é válida para ambientes VNAS (datastores compartilhados). Várias instâncias do ONTAP Select por host não são suportadas ao usar o armazenamento DAS porque essas instâncias competem pelo mesmo controlador RAID de hardware.
+ONTAP Select inclui suporte para clusters ONTAP Select com vários nós em storage compartilhado. ONTAP Deploy permite a configuração de vários nós ONTAP Select no mesmo host ESXi, desde que esses nós não façam parte do mesmo cluster.
 
-O ONTAP Deploy garante que a implantação inicial do cluster VNAS multinó não coloque várias instâncias do ONTAP Select do mesmo cluster no mesmo host. A figura a seguir ilustra um exemplo de implantação correta de dois clusters de quatro nós que se cruzam em dois hosts.
 
-* Implantação inicial de clusters VNAS multinode*
+NOTE: Essa configuração é válida apenas para ambientes VNAS (storage compartilhado). Instâncias múltiplas do ONTAP Select por host não são suportadas ao usar storage DAS, pois essas instâncias competem pelo mesmo controlador RAID.
 
-image:ST_14.jpg["Implantação inicial de clusters VNAS multinode"]
+ONTAP Deploy garante que a implantação inicial do cluster VNAS de vários nós não coloque várias instâncias do ONTAP Select do mesmo cluster no mesmo host. A figura a seguir ilustra um exemplo de implantação correta de dois clusters de quatro nós que se intercruzam em dois hosts.
+
+*Implantação inicial de clusters VNAS multinó*
+
+image:ST_14.jpg["Implantação inicial de clusters VNAS multinós"]
 
 Após a implantação, os nós do ONTAP Select podem ser migrados entre hosts. Isso pode resultar em configurações não ideais e não suportadas para as quais dois ou mais nós de ONTAP Select do mesmo cluster compartilham o mesmo host subjacente. A NetApp recomenda a criação manual de regras de antiafinidade de VM para que o VMware mantenha automaticamente a separação física entre os nós do mesmo cluster, e não apenas os nós do mesmo par de HA.
 
 
-NOTE: As regras de antiafinidade exigem que o DRS esteja habilitado no cluster ESX.
+NOTE: As regras de antiafinidade exigem que o DRS esteja habilitado no cluster ESXi.
 
 Veja o exemplo a seguir sobre como criar uma regra de anti-afinidade para as VMs ONTAP Select. Se o cluster do ONTAP Select contiver mais de um par de HA, todos os nós do cluster precisarão ser incluídos nesta regra.
 
@@ -81,12 +85,13 @@ image:ST_15.jpg["Regras de VM/host"]
 
 image:ST_16.jpg["Editar regra VM/Host"]
 
-Dois ou mais nós de ONTAP Select do mesmo cluster ONTAP Select podem ser encontrados no mesmo host ESX por um dos seguintes motivos:
+Dois ou mais nós ONTAP Select do mesmo cluster ONTAP Select podem ser encontrados no mesmo host ESXi por um dos seguintes motivos:
 
 * O DRS não está presente devido a limitações de licença do VMware vSphere ou se o DRS não estiver habilitado.
 * A regra de anti-afinidade DRS é ignorada porque uma operação VMware HA ou migração de VM iniciada pelo administrador tem precedência.
 
 
-Observe que o ONTAP Deploy não monitora proativamente os locais das VMs do ONTAP Select. No entanto, uma operação de atualização de cluster reflete essa configuração não suportada nos logs de implantação do ONTAP:
+
+NOTE: ONTAP Deploy não monitora proativamente os locais das VMs do ONTAP Select. No entanto, uma operação de atualização do cluster reflete essa configuração não suportada nos logs do ONTAP Deploy:
 
 image:ST_17.PNG["Logs de implantação do ONTAP"]

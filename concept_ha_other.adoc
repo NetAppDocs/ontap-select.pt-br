@@ -36,7 +36,7 @@ No entanto, na arquitetura sem compartilhamento de um cluster do ONTAP Select, u
 Embora o método existente de deteção e evitação de split-brain não possa ser usado, um método de mediação ainda é necessário, aquele que se encaixa dentro das restrições de um ambiente de nada compartilhado. O ONTAP Select estende ainda mais a infraestrutura de caixa de correio existente, permitindo que ele atue como um método de mediação em caso de particionamento de rede. Como o armazenamento compartilhado não está disponível, a mediação é realizada por meio do acesso aos discos da caixa de correio através do nas. Esses discos são espalhados pelo cluster, incluindo o mediador em um cluster de dois nós, usando o protocolo iSCSI. Portanto, as decisões de failover inteligentes podem ser tomadas por um nó de cluster com base no acesso a esses discos. Se um nó puder acessar os discos da caixa de correio de outros nós fora de seu parceiro de HA, provavelmente estará ativo e íntegro.
 
 
-NOTE: A arquitetura da caixa de correio e o método de heartbeat baseado em disco de resolução de quórum de cluster e problemas de split-brain são os motivos pelos quais a variante multinode do ONTAP Select requer quatro nós separados ou um mediador para um cluster de dois nós.
+NOTE: A arquitetura de caixa de correio e o método de pulsação baseado em disco para resolver problemas de quorum e split-brain do cluster são os motivos pelos quais a variante multi-nó do ONTAP Select requer quatro nós separados ou um mediador para um cluster de dois nós.
 
 
 

@@ -54,8 +54,8 @@ A tabela a seguir compara os dois modelos de licenciamento de produção suporta
 | Execução: Licença expirada | N/A. | Sim (sem período de carência) 
 
 
-| Licença mínima | 1 TiB | 2 TiB 
+| Licença mínima | 1 TB | 2 TB 
 
 
-| Espaço máximo gerenciado | 400 TiB por nó | 400 TiB por nó 
+| Espaço máximo gerenciado | 400 TB por nó | 400 TB por nó 
 |===

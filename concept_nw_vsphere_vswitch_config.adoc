@@ -31,7 +31,7 @@ NOTE: Canais de porta estáticos não são suportados no ONTAP Select. Os canais
 
 Para clusters de nó único, o ONTAP Deploy configura a VM do ONTAP Select para usar um grupo de portas para a rede externa e o mesmo grupo de portas ou, opcionalmente, um grupo de portas diferente para o tráfego de gerenciamento do cluster e do nó. Para clusters de nó único, você pode adicionar o número desejado de portas físicas ao grupo de portas externas como adaptadores ativos.
 
-Para clusters com vários nós, o ONTAP Deploy configura cada VM ONTAP Select para usar um ou dois grupos de portas para a rede interna e, separadamente, um ou dois grupos de portas para a rede externa. O tráfego de gerenciamento de cluster e nós pode usar o mesmo grupo de portas que o tráfego externo ou, opcionalmente, um grupo de portas separado. O tráfego de gerenciamento de cluster e nó não pode compartilhar o mesmo grupo de portas com tráfego interno.
+Para clusters com vários nós, ONTAP Deploy configura cada ONTAP Select VM para usar um ou dois grupos de portas para a rede interna e, separadamente, um ou dois grupos de portas para a rede externa. O tráfego de gerenciamento do cluster e do nó pode usar o mesmo grupo de portas que o tráfego externo ou, opcionalmente, um grupo de portas separado. O tráfego de gerenciamento do cluster e do nó não pode compartilhar o mesmo grupo de portas com o tráfego interno.
 
 
 NOTE: O ONTAP Select suporta um máximo de quatro vmnics.
@@ -40,7 +40,7 @@ NOTE: O ONTAP Select suporta um máximo de quatro vmnics.
 
 == VSwitch padrão ou distribuído e quatro portas físicas por nó
 
-Você pode atribuir quatro grupos de portas a cada nó em um cluster com vários nós. Cada grupo de portas possui uma única porta física ativa e três portas físicas em espera, conforme ilustrado na figura a seguir.
+Você pode atribuir quatro grupos de portas a cada nó em um cluster com vários nós. Cada grupo de portas possui uma única porta física ativa e três portas físicas em espera, como na figura a seguir.
 
 *VSwitch com quatro portas físicas por nó*
 
@@ -124,9 +124,9 @@ Ao usar duas placas de rede de alta velocidade (25/40 Gb), a configuração reco
 
 image:DDN_17.jpg["VSwitch com duas portas físicas de alta velocidade (25/40GB) por nó"]
 
-Ao usar duas portas físicas (10Gb ou menos), cada grupo de portas deve ter um adaptador ativo e um adaptador de reserva configurados um ao outro. A rede interna está presente apenas para clusters ONTAP Select multinode. Para clusters de nó único, ambos os adaptadores podem ser configurados como ativos no grupo de portas externas.
+Ao usar duas portas físicas (10Gb ou menos), cada grupo de portas deve ter um adaptador ativo e um adaptador em espera configurados em posições opostas. A rede interna está presente apenas para clusters ONTAP Select com vários nós. Para clusters de nó único, ambos os adaptadores podem ser configurados como ativos no grupo de portas externas.
 
-O exemplo a seguir mostra a configuração de um vSwitch e os dois grupos de portas responsáveis ​​por lidar com os serviços de comunicação interna e externa para um cluster ONTAP Select de vários nós. A rede externa pode usar a VMNIC da rede interna em caso de falha de rede, pois as VMNICs da rede interna fazem parte deste grupo de portas e estão configuradas em modo de espera. O oposto ocorre na rede externa. A alternância entre as VMNICs ativas e em espera nos dois grupos de portas é crucial para o failover correto das VMs do ONTAP Select durante interrupções de rede.
+O exemplo a seguir mostra a configuração de um vSwitch e dos dois grupos de portas responsáveis por gerenciar os serviços de comunicação interna e externa para um cluster de vários nós do ONTAP Select. A rede externa pode usar a VMNIC da rede interna em caso de interrupção de rede porque as VMNICs da rede interna fazem parte desse grupo de portas e estão configuradas em modo de espera. O oposto ocorre com a rede interna. Alternar as VMNICs ativas e em espera entre os dois grupos de portas é fundamental para o failover correto das VMs do ONTAP Select durante interrupções de rede.
 
 *VSwitch com duas portas físicas (10Gb ou menos) por nó*
 
