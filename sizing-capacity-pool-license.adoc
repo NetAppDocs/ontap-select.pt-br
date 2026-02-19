@@ -24,7 +24,7 @@ Você precisa calcular a capacidade licenciada com base no espaço utilizável p
 
 [cols="25,30,45"]
 |===
-| Descrição | Nó único | Par de HA ou combinação de HA e cluster de nó único 
+| Descrição | Nó único | Par de HA ou combinação de par de HA e single-node 
 
 
 | Capacidade utilizável | 20 TB | 10 TB por cluster de nó único 20 TB para par de HA 
@@ -34,13 +34,13 @@ Você precisa calcular a capacidade licenciada com base no espaço utilizável p
 
 
 | Espaço máximo utilizável por nó *Nota*: O espaço máximo gerenciado por nó ou par de HA é 400 TB | 353 TB (400 / 1,13)  a| 
-Por cluster de nó único:
+Por nó individual em um cluster:
 
-74 TB [(400 / 2) / 2,67]
+149 TB (400 / 2,67)
 
-Por par de HA cluster:
+Por par de HA em um cluster:
 
-148 TB (2 x 74)
+298 TB (2 x 149)
 
 |===
 .O que vem a seguir

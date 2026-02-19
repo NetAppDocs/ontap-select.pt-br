@@ -63,9 +63,7 @@ Você pode determinar o ID de bloqueio de licença para sua instância de implan
 +
 O Deploy exibe esta página quando você faz login pela primeira vez. Você também pode abrir a caixa suspensa no canto superior direito da página e selecionar *Getting Started* para exibir esta página. O LLID é exibido na seção Adicionar licenças.
 
-+
-Selecione a guia *Administração* na parte superior da página, depois selecione *Sistemas* e *Configurações*.
-
+* Selecione a guia *Administração* na parte superior da página, depois selecione *Sistemas & AutoSupport*.
 
 
 

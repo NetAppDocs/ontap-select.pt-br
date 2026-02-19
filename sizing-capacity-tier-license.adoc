@@ -38,15 +38,17 @@ Calcule a capacidade licenciada com base no espaço utilizável para garantir qu
 | Espaço máximo utilizável por nó *Nota*: O espaço máximo gerenciado por nó ou par de HA é 400 TB | 353 TB (400 / 1,13)  a| 
 Por nó em um par de HA:
 
-* 74 TB [(400 / 2) / 2,67]
+* 149 TB (400 / 2,67)
 
 
 Por par de HA em um cluster com vários nós:
 
-* Dois nós: 148 TB (2 x 74)
-* Quatro nós: 296 TB (4 x 74)
-* Seis nós: 444 TB (6 x 74)
-* Oito nós: 592 TB (8 x 74)
+* Dois nós: 298 TB (2 x 149)
+* Quatro nós: 596 TB (4 x 149)
+* Seis nós: 894 TB (6 x 149)
+* Oito nós: 1.192 TB (8 x 149)
+* Dez nós: 1.490 TB (10 x 149)
+* Doze nós: 1,788 TB (12 x 149)
 
 
 |===
