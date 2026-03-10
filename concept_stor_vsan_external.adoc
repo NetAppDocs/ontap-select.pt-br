@@ -79,7 +79,7 @@ Após a implantação, os nós do ONTAP Select podem ser migrados entre hosts. I
 
 NOTE: As regras de antiafinidade exigem que o DRS esteja habilitado no cluster ESXi.
 
-Veja o exemplo a seguir sobre como criar uma regra de anti-afinidade para as VMs ONTAP Select. Se o cluster do ONTAP Select contiver mais de um par de HA, todos os nós do cluster precisarão ser incluídos nesta regra.
+Consulte o exemplo a seguir sobre como criar uma regra de antiafinidade para as máquinas virtuais ONTAP Select. Se o cluster ONTAP Select contiver mais de um par de HA, todos os nós do cluster deverão ser incluídos nesta regra.
 
 image:ST_15.jpg["Regras de VM/host"]
 

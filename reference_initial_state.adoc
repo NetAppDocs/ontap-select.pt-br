@@ -19,7 +19,7 @@ Você deve estar ciente do estado inicial de um cluster depois que ele for impla
 Um cluster do ONTAP Select tem várias caraterísticas depois que ele é criado.
 
 
-NOTE: Restringir funções e permissões para a conta de administrador do ONTAP pode limitar a capacidade do ONTAP Select Deploy de gerenciar o cluster. Para obter mais informações, consulte o artigo da base de dados de Conhecimento link:https://kb.netapp.com/onprem/ontap/ONTAP_Select/OTS_Deploy_cluster_refresh_fails_with_error%3A_ONTAPSelectSysCLIVersionFailed_zapi_returned_bad_status_0%3A_None["A atualização do cluster de implantação do OTS falha com erro"^].
+NOTE: Restringir funções e permissões para a conta de administrador do ONTAP pode limitar a capacidade do ONTAP Select Deploy de gerenciar o cluster. Para obter mais informações, consulte o artigo da Knowledge Base link:https://kb.netapp.com/onprem/ontap/ONTAP_Select/OTS_Deploy_cluster_refresh_fails_with_error%3A_ONTAPSelectSysCLIVersionFailed_zapi_returned_bad_status_0%3A_None["A atualização do cluster de implantação do OTS falha com erro"^].
 
 .LIFs
 Existem dois tipos de LIFs especificados pelo cliente atribuídos:

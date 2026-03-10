@@ -71,7 +71,7 @@ O ambiente para uma implantação de RAID de software deve atender aos seguintes
 
 
 
-NOTE: Se houver uma controladora RAID de hardware, consulte link:concept_stor_concepts_chars.html["Armazenamento de mergulho profundo"]a seção para obter os requisitos de configuração adicionais.
+NOTE: Se houver um controlador RAID de hardware, consulte a seção link:concept_stor_concepts_chars.html["Armazenamento de mergulho profundo"] para obter os requisitos de configuração adicionais.
 
 
 
@@ -86,7 +86,7 @@ NOTE: Se houver uma controladora RAID de hardware, consulte link:concept_stor_co
 
 === Requisitos específicos do KVM
 
-Há também requisitos específicos de configuração de pacotes de software. Veja o link:https://docs.netapp.com/us-en/ontap-select/kvm-host-configuration-and-preparation-checklist.html#prepare-linux-server["preparação do servidor Linux"] passo para mais informações.
+Existem também requisitos específicos de configuração do pacote de software. Consulte a link:https://docs.netapp.com/us-en/ontap-select/kvm-host-configuration-and-preparation-checklist.html#prepare-linux-server["preparação do servidor Linux"] etapa para obter mais informações.
 
 Expectativas de Mídia para a KVM:: Os dispositivos de armazenamento flash SSD usados devem atender aos seguintes requisitos adicionais:
 +
@@ -137,7 +137,7 @@ Como parte do Planejamento de uma implantação do ONTAP Select, você deve esta
 As restrições de armazenamento mais importantes são apresentadas abaixo. Você também deve rever o link:https://mysupport.netapp.com/matrix/["Ferramenta de Matriz de interoperabilidade"^] para obter informações mais detalhadas.
 
 
-TIP: O ONTAP Select impõe várias restrições relacionadas à alocação e uso de storage. Antes de implantar um cluster do ONTAP Select ou comprar uma licença, você deve estar familiarizado com essas restrições. Consulte link:https://docs.netapp.com/us-en/ontap-select/concept_lic_evaluation.html["Licença"]a secção para obter mais informações.
+TIP: ONTAP Select impõe diversas restrições relacionadas à alocação e ao uso de storage. Antes de implantar um cluster ONTAP Select ou adquirir uma licença, você deve se familiarizar com essas restrições. Consulte a seção link:concept_lic_evaluation.html["Licença"] para obter mais informações.
 
 
 

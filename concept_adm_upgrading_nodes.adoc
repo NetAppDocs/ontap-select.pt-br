@@ -34,7 +34,7 @@ Em um alto nível, você deve usar as etapas a seguir para atualizar um nó ONTA
 +
 Consulte a link:reference_release_notes.html["notas de lançamento"] para obter informações adicionais e quaisquer procedimentos necessários antes de atualizar um nó ONTAP Select.
 
-. Atualize o nó ONTAP Select usando os procedimentos de atualização padrão do ONTAP com o arquivo de atualização do ONTAP Select. Para obter informações sobre caminhos de atualização suportados, consulte o link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html["Caminhos de atualização do ONTAP compatíveis"^].
+. Atualize o nó ONTAP Select usando os procedimentos padrão de atualização do ONTAP com o arquivo de atualização do ONTAP Select. Para obter informações sobre os caminhos de atualização suportados, consulte o link:https://docs.netapp.com/us-en/ontap/upgrade/concept_upgrade_paths.html["Caminhos de atualização do ONTAP compatíveis"^].
 
 
 

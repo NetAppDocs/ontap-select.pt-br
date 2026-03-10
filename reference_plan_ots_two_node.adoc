@@ -32,7 +32,7 @@ Quando um cluster consiste em dois nós, não é possível alcançar o quorum ne
 CAUTION: Se você tiver um ou mais clusters de dois nós ativos, a máquina virtual ONTAP Select Deploy que administra os clusters deverá estar em execução o tempo todo. Se a máquina virtual do ONTAP Select Deploy for interrompida ou falhar, o serviço de mediação ficará indisponível e a capacidade de alta disponibilidade (HA) será perdida para os clusters de dois nós.
 
 .Localização do cluster e do serviço de mediador
-Como os clusters de dois nós são normalmente implantados em um escritório remoto ou filial, eles podem estar distantes do centro de dados corporativo e do utilitário ONTAP Select Deploy, que fornece suporte administrativo.  Com essa configuração, o tráfego de gerenciamento entre o utilitário ONTAP Select Deploy e o cluster flui pela WAN. Consulte as notas da versão para obter mais informações sobre limitações e restrições.
+Como os clusters de dois nós são normalmente implantados em um escritório remoto ou filial, eles podem estar distantes do data center corporativo e do utilitário ONTAP Select Deploy que fornece suporte administrativo. Com essa configuração, o tráfego de gerenciamento entre o utilitário ONTAP Select Deploy e o cluster flui pela WAN. Consulte o link:reference_release_notes.html["notas de lançamento"] para obter mais informações sobre limitações e restrições.
 
 .Faça backup dos dados de configuração do Deploy
 É uma boa práticalink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] Regularmente, inclusive após a criação de um cluster. Isso se torna particularmente importante em clusters de dois nós, devido aos dados de configuração do mediador incluídos no backup.

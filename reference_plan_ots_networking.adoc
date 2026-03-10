@@ -23,7 +23,7 @@ Você deve configurar a rede do hypervisor corretamente antes de implantar o ONT
 Você deve configurar um switch virtual em cada um dos hosts ONTAP Select para oferecer suporte à rede externa e à rede interna (somente clusters de vários nós). Como parte da implantação de um cluster de vários nós, você deve testar a conetividade de rede na rede interna do cluster.
 
 
-NOTE: Para saber mais sobre como configurar um vSwitch em um host de hipervisor e o recurso de interface de alta velocidade, consulte a link:concept_nw_concepts_chars.html["Rede de mergulho profundo"]seção.
+NOTE: Para saber mais sobre como configurar um vSwitch em um host hipervisor e o recurso de interface de alta velocidade, consulte a seção link:concept_nw_concepts_chars.html["Rede de mergulho profundo"].
 
 
 
@@ -72,7 +72,7 @@ Neste ambiente, você deve configurar o tráfego usando dois grupos de portas da
 * NIC2 em ativo
 
 
-Consulte link:concept_nw_concepts_chars.html["Rede de mergulho profundo"]a seção para obter mais informações sobre implantações de duas NIC.
+Consulte a link:concept_nw_concepts_chars.html["Rede de mergulho profundo"] seção para obter mais informações sobre implantações com duas NICs.
 
 
 
@@ -111,7 +111,7 @@ Neste ambiente, você deve configurar o tráfego usando quatro grupos de portas 
 * NIC1, NIC2, NIC3 em modo de espera
 
 
-Consulte link:concept_nw_concepts_chars.html["Rede de mergulho profundo"]a seção para obter mais informações sobre implantações de quatro NIC.
+Consulte a link:concept_nw_concepts_chars.html["Rede de mergulho profundo"] seção para obter mais informações sobre implantações com quatro NICs.
 
 
 

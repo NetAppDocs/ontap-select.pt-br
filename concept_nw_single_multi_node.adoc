@@ -136,7 +136,7 @@ NOTE: Não é possível atribuir um endereço IP estático a essas interfaces, e
 
 O tráfego de rede do cluster deve fluir por uma rede de camada 2 de baixa latência e sem roteamento. Devido aos requisitos de taxa de transferência e latência do cluster, você deve localizar fisicamente o cluster ONTAP Select em proximidade (por exemplo, multipack, data center único). Não há suporte para a criação de configurações de cluster estendido com quatro, seis, oito, dez ou doze nós, separando nós de HA em uma WAN ou a grandes distâncias geográficas. Uma configuração estendida de dois nós com um mediador é suportada.
 
-Para obter mais detalhes, consulte a secção link:reference_plan_best_practices.html#two-node-stretched-ha-metrocluster-sds-best-practices["Práticas recomendadas de HA (MetroCluster SDS) com dois nós esticados"].
+Para obter detalhes, consulte a seção link:reference_plan_best_practices.html#two-node-stretched-ha-metrocluster-sds-best-practices["Práticas recomendadas de HA (MetroCluster SDS) com dois nós esticados"].
 
 
 NOTE: Para garantir a máxima taxa de transferência para o tráfego de rede do cluster, esta porta de rede está configurada para usar jumbo frames (7500 a 9000 MTU). Para o correto funcionamento do cluster, verifique se os jumbo frames estão habilitados em todos os switches virtuais e físicos upstream que fornecem serviços de rede interna aos nós do cluster ONTAP Select.

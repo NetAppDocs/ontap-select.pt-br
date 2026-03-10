@@ -148,7 +148,7 @@ No shell do ESXi ou KVM, você pode inserir o seguinte comando para piscar o LED
 
 [role="tabbed-block"]
 ====
-.ESX
+.ESXi
 --
 [source, cli]
 ----

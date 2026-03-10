@@ -28,7 +28,7 @@ Você precisa preparar cada um dos servidores Linux KVM onde um nó ONTAP Select
 .Passos
 . Instale o Red Hat Enterprise Linux (RHEL).
 +
-Instale o sistema operacional RHEL usando a imagem ISO. Consulte a link:reference_plan_ots_hardware.html#software-compatibility["informações de compatibilidade de software para hipervisores"] para obter uma lista das versões RHEL suportadas. Durante a instalação, configure o sistema da seguinte forma:
+Instale o sistema operacional RHEL usando a imagem ISO. Consulte a link:reference_plan_ots_hardware.html#software-compatibility["informações de compatibilidade de software para hipervisores"] para obter uma lista das versões do RHEL suportadas. Durante a instalação, configure o sistema da seguinte forma:
 
 +
 .. Selecione Padrão como a política de segurança.
@@ -62,7 +62,7 @@ Se estiver usando discos NVMe na sua configuração, você precisará configurar
 
 
 +
-Veja o link:https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/5/html/virtualization/chap-virtualization-pci_passthrough#sect-Virtualization-PCI_passthrough-AI_device_to_a_host["Documentação do Red Hat"^] para obter instruções sobre como configurar o PCI passthrough (DirectPath IO) para um hipervisor KVM.
+Consulte o link:https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/5/html/virtualization/chap-virtualization-pci_passthrough#sect-Virtualization-PCI_passthrough-AI_device_to_a_host["Documentação do Red Hat"^] para obter instruções sobre como configurar a passagem PCI (DirectPath IO) para um hipervisor KVM.
 
 . Configurar os pools de armazenamento.
 +

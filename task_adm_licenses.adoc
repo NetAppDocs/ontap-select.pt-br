@@ -180,7 +180,7 @@ Os números de série de vinte dígitos atribuídos originalmente a cada nó par
 
 Geralmente, quando uma licença expira, nada acontece. No entanto, não é possível instalar uma licença diferente porque os nós estão associados à licença expirada. Até que você renove a licença, você deve _não_ fazer qualquer coisa que traga o agregado off-line, como uma operação de reinicialização ou failover. A ação recomendada é acelerar a renovação da licença.
 
-Para obter mais informações sobre o ONTAP Select e a renovação de licença, consulte a seção licenças, instalação, atualizações e revertes na link:https://docs.netapp.com/us-en/ontap-select/reference_faq.html#licenses-installation-upgrades-and-reverts["FAQ"].
+Para obter mais informações sobre ONTAP Select e renovação de licença, consulte a seção Licenças, instalação, atualizações e reversões no link:reference_faq.html#licenses-installation-upgrades-and-reverts["FAQ"].
 
 
 
