@@ -20,7 +20,7 @@ O ONTAP Select converte unidades de disco internas, NVMe, SSD ou HDD e storage d
 
 O ONTAP Select adapta-se às suas necessidades de consumo de capacidade com dois modelos de licenciamento complementares: Camadas de capacidade e pools de capacidade completamente flexíveis. Ambos os modelos de licenciamento permitem que você aumente a capacidade em incrementos de apenas 1TB TB. Por exemplo, você pode começar com alguns terabytes e adicionar capacidade dinamicamente à medida que seu projeto cresce. Se você estiver usando pools de capacidade, poderá redistribuir a capacidade conforme desejar quando o projeto for concluído.
 
-O ONTAP Select é integrado a estruturas de gerenciamento de nuvem, como o VMware vSphere. Isso ajuda a acelerar a implantação de novos projetos, como serviços de arquivos, diretórios base, ambientes de desenvolvimento de software e teste de aplicações.
+ONTAP Select está integrado a estruturas de gerenciamento de nuvem como VMware vSphere e Kernel-based Virtual Machine (KVM). Isso ajuda a acelerar a implantação de novos projetos, como serviços de arquivos, diretórios pessoais, ambientes de desenvolvimento de software e testes de aplicativos.
 
 O software SnapMirror permite mover dados entre o storage da ONTAP na nuvem híbrida para que você possa acessar facilmente seus dados onde quiser. Por exemplo, você pode criar um ambiente rapidamente para provar uma ideia. Posteriormente, você pode migrar o projeto para uma plataforma de storage dedicada para implantação de produção ou torná-lo mais acessível na nuvem como parte de um fluxo de trabalho de desenvolvimento.
 
@@ -132,6 +132,6 @@ A modificação das propriedades das portas ONTAP, incluindo velocidade, duplex 
 
 
 .Informações relacionadas
-* link:reference_lic_ontap_features.html#ontap-features-automatically-enabled-by-default["Saiba mais sobre os recursos do ONTAP ativados por padrão"]
+* link:reference_lic_ontap_features.html#enabled-ontap-features["Saiba mais sobre os recursos do ONTAP ativados por padrão"]
 * link:concept_lic_evaluation.html["Saiba mais sobre as opções de licença do ONTAP Select"]
 
