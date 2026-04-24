@@ -63,7 +63,7 @@ Uma ação administrativa é necessária se o local original do mediador tiver d
 
 O cluster de dois nós é definido como um cluster para o qual ambos os nós estão localizados no mesmo data center a uma distância de 300m km. Em geral, ambos os nós têm uplinks para o mesmo switch de rede ou conjunto de switches de rede ISL (Interswitch link).
 
-O MetroCluster SDS de dois nós é definido como um cluster para o qual os nós são separados fisicamente (salas diferentes, edifícios diferentes e data centers diferentes) em mais de 300m. Além disso, as conexões uplink de cada nó são conetadas a switches de rede separados. O SDS do MetroCluster não requer hardware dedicado. No entanto, o ambiente deve aderir aos requisitos de latência (um máximo de 5ms para RTT e 5ms para jitter, para um total de 10ms) e distância física (um máximo de 10km).
+Um cluster de dois nós MetroCluster SDS é definido como um cluster com nós fisicamente separados (salas diferentes, edifícios diferentes e centros de dados diferentes) por mais de 300m. Além disso, as conexões de uplink de cada nó são conectadas a switches de rede separados. O MetroCluster SDS não requer hardware dedicado. No entanto, o ambiente deve atender aos requisitos de latência (máximo de 5ms para RTT e 5ms para jitter, totalizando 10ms).
 
 O MetroCluster SDS é um recurso premium e requer uma licença Premium ou uma licença Premium XL. A licença Premium suporta a criação de VMs pequenas e médias, bem como suportes HDD e SSD. A licença Premium XL também dá suporte à criação de unidades NVMe.
 

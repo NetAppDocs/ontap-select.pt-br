@@ -29,6 +29,12 @@ Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciado
 * CIFS
 * Deduplicação e compactação
 * FlexCache
++
+ONTAP Select suporta FlexCache cache volumes com write-back. FlexCache origin volumes com write-back não são suportados.
+
++
+link:concept_ots_overview.html#flexcache-write-back-with-ontap-select["Saiba mais sobre o recurso de write-back do FlexCache com ONTAP Select"]
+
 * FlexClone
 * ISCSI
 * NDMP
@@ -40,7 +46,10 @@ Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciado
 * S3 SnapMirror
 * SnapLock Select
 +
-SnapLock Select é a implementação do ONTAP SnapLock projetada para ONTAP Select e inclui SnapLock Enterprise. Não inclui SnapLock Compliance. Para mais informações, consulte o link:https://docs.netapp.com/us-en/ontap/snaplock/index.html["ONTAP SnapLock documentação"^].
+SnapLock Select é a implementação do ONTAP SnapLock projetada para ONTAP Select e inclui SnapLock Enterprise. Não inclui SnapLock Compliance.
+
++
+link:https://docs.netapp.com/us-en/ontap/snaplock/index.html["Saiba mais sobre ONTAP SnapLock"^]
 
 * SnapMirror
 * SnapMirror cloud
@@ -67,6 +76,6 @@ NOTE: Você não precisa de uma licença FabricPool ao utilizar o StorageGRID.
 
 
 .Informações relacionadas
-* link:concept_ots_overview.html#compare-ontap-select-and-ontap-9["Comparando ONTAP Select e ONTAP 9"]
-* link:https://mysupport.netapp.com/site/systems/master-license-keys["Chaves de licença principal do NetApp ONTAP"^]
+* link:concept_ots_overview.html#compare-ontap-select-and-ontap-9["Comparar ONTAP Select e ONTAP 9"]
+* link:https://mysupport.netapp.com/site/systems/master-license-keys["Saiba mais sobre NetApp ONTAP Master License Keys"^]
 

@@ -44,7 +44,7 @@ A tabela a seguir compara os recursos das ofertas de licença padrão, premium e
 | configuração vNAS | Sim | Sim | Sim 
 
 
-.3+| Unidades de estado sólido (SSD) em um ... | Configuração RAID de hardware | Não | Sim | Sim 
+.3+| Unidades de estado sólido (SSDs) em um ... | Configuração RAID de hardware | Não | Sim | Sim 
 
 
 | Configuração RAID de software | Não | Sim | Sim 
