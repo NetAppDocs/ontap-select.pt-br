@@ -46,7 +46,7 @@ Conclua as etapas a seguir em um servidor host ESXi de 64 bits compatível.
 . Selecione o host usando uma das seguintes opções:
 +
 ** Selecione *File* > *Deploy OVF Template*.
-** Selecione *Datacenter*. Em seguida, clique com o botão direito do Mouse e selecione *Deploy OVF Template*.
+** Selecione *Datacenter*. Em seguida, clique com o botão direito do mouse e selecione *Implantar modelo OVF*.
 
 
 . Selecione o ficheiro OVA de origem ONTAP Select na estação de trabalho local e, em seguida, selecione *seguinte*.

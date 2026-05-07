@@ -144,7 +144,7 @@ NOTE: O objetivo do procedimento de recuperação é restaurar o cluster de dois
 . Prepare uma nova instância do utilitário ONTAP Select Deploy:
 +
 .. Instale uma nova máquina virtual utilitário de implantação.
-.. Opcionalmente, restaure a configuração de implantação de um backup anterior para a nova máquina virtual.
+.. Opcionalmente, restaure a configuração do Deploy de um backup anterior para a nova máquina virtual.
 +
 Se você restaurar um backup anterior, a nova instância de implantação não conterá o cluster de dois nós. Consulte a secção de informações relacionadas para obter informações mais detalhadas sobre os procedimentos de instalação e restauro.
 

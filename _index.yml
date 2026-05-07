@@ -1,16 +1,16 @@
 ---
 indexpage:
   title: Documentação do ONTAP Select
-  lead: O NetApp ONTAP Select é um dispositivo de armazenamento definido por software
-    que pode ser implantado em diversos servidores de hardware comuns que executam
-    o VMware ESXi ou o hipervisor de Máquina Virtual baseada em Kernel (KVM). Ele
+  lead: NetApp ONTAP Select é um dispositivo de storage definido por software que
+    você pode implantar em uma variedade de servidores de hardware como commodity
+    executando o hipervisor VMware ESXi ou Kernel-based Virtual Machine (KVM). Ele
     oferece a agilidade necessária para construir uma infraestrutura de nuvem privada
-    flexível e escalável. Este site contém a documentação do ONTAP Select 9.18.1.
+    flexível e escalável. Este site contém a documentação do ONTAP Select 9.19.1.
   tiles:
   - title: Comece agora
     links:
     - title: Notas de lançamento
-      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3365264
+      url: https://library.netapp.com/ecm/ecm_download_file/ECMLP3378465
     - title: O que há de novo
       url: "/reference_new_ots.html"
     - title: Saiba mais sobre o ONTAP Select

@@ -50,5 +50,5 @@ Todos os recursos estão licenciados e disponíveis. Tanto o SnapLock quanto o F
 
 .Informações relacionadas
 * link:https://docs.netapp.com/us-en/ontap/system-admin/types-svms-concept.html["Tipos de SVMs contidos em um cluster"^]
-* link:reference_lic_ontap_features.html["Recursos do ONTAP ativados por padrão"]
+* link:reference_lic_ontap_features.html["Recursos do ONTAP licenciados por padrão"]
 

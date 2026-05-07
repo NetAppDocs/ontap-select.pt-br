@@ -16,11 +16,11 @@ summary: Você pode atualizar uma máquina virtual de utilitário de implantaç�
 [role="lead"]
 Atualize uma máquina virtual utilitário ONTAP Select Deploy existente no local usando a CLI do utilitário ONTAP Select Deploy.
 
-Você pode atualizar diretamente para ONTAP Select Deploy 9.18.1 a partir do ONTAP Select Deploy 9.17.1 ou 9.16.1. Para atualizar de uma versão anterior, por exemplo, ONTAP Select Deploy 9.15.1, você deve primeiro atualizar para ONTAP Select Deploy 9.16.1 ou 9.17.1 e, em seguida, atualizar para ONTAP Select Deploy 9.18.1.
+Você pode atualizar diretamente para ONTAP Select Deploy 9.19.1 a partir do ONTAP Select Deploy 9.18.1 ou 9.17.1. Para atualizar de uma versão anterior, por exemplo, ONTAP Select Deploy 9.16.1, você deve primeiro atualizar para ONTAP Select Deploy 9.17.1 ou 9.18.1 e, em seguida, atualizar para ONTAP Select Deploy 9.19.1.
 
 [NOTE]
 ====
-Se você tiver uma instância mais antiga do utilitário de administração ONTAP Select Deploy instalada, deverá atualizá-la para a versão atual. O nó ONTAP Select e o componente ONTAP Select Deploy são atualizados independentemente. Consulte link:concept_adm_upgrading_nodes.html["Atualizar os nós de ONTAP Select"^] para obter mais detalhes.
+Se você tiver uma instância mais antiga do utilitário de administração ONTAP Select Deploy instalada, deverá atualizá-la para a versão atual. Você atualiza os componentes do nó ONTAP Select e do ONTAP Select Deploy de forma independente. Consulte link:concept_adm_upgrading_nodes.html["Atualizar os nós de ONTAP Select"^] para obter mais detalhes.
 
 ====
 .Antes de começar
@@ -54,14 +54,12 @@ Esta tarefa descreve um método para carregar o arquivo na máquina virtual ONTA
 * Verifique se você tem a senha da conta de usuário administrador.
 
 
-.Passos
-. Em um terminal de comandos em sua estação de trabalho local, use o `scp` Utilitário (Secure Copy Protocol) para carregar o arquivo de imagem na máquina virtual ONTAP Select Deploy, conforme mostrado no exemplo a seguir:
-+
+.Passo
+Em um terminal de comandos em sua estação de trabalho local, use o `scp` Utilitário (Secure Copy Protocol) para carregar o arquivo de imagem na máquina virtual ONTAP Select Deploy, conforme mostrado no exemplo a seguir:
+
 ....
 scp ONTAPdeploy2.12_upgrade.tar.gz admin@10.228.162.221:/home/admin (provide password when prompted)
 ....
-
-
 .Resultado
 O arquivo de atualização é armazenado no diretório inicial do usuário admin.
 

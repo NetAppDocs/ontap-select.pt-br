@@ -27,6 +27,6 @@ Cada cluster de dois nós do ONTAP Select é monitorado pelo serviço de mediado
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique no separador *Administration* (Administração) na parte superior da página e clique em *Mediators* (mediadores).
-. Opcionalmente, clique em *filtro* para personalizar a visualização dos clusters de dois nós monitorados pelo serviço de mediador.
+. Selecione a aba *Administração* na parte superior da página, depois selecione *Mediadores*.
+. Opcionalmente, selecione *Filtrar* para personalizar sua visualização dos clusters de dois nós monitorados pelo serviço de mediação.
 

@@ -27,9 +27,9 @@ Os dados de configuração de implantação são usados pelo AutoSupport.
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique na guia *Administration* na parte superior da página.
-. Clique em *Definições e AutoSupport* e, em seguida, clique image:icon_pencil.gif["Editar"]em .
-. Forneça os dados de configuração adequados ao seu ambiente e clique em *Modificar*.
+. Selecione a guia *Administration* na parte superior da página.
+. Selecione *Configurações e AutoSupport*, depois selecione image:icon_pencil.gif["Editar"].
+. Forneça os dados de configuração adequados ao seu ambiente e selecione *Modificar*.
 +
 Se você usar um servidor proxy, poderá configurar o URL do proxy da seguinte forma:
 `\http://USERNAME:PASSWORD@<FQDN|IP>:PORT`
@@ -59,9 +59,9 @@ Você pode filtrar a lista de mensagens de eventos com base em várias caraterí
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique na guia *Administration* na parte superior da página.
-. Clique em *Eventos e trabalhos* e, em seguida, clique em *Eventos*.
-. Opcionalmente, clique em *Filter* e crie um filtro para limitar as mensagens de evento exibidas.
+. Selecione a guia *Administration* na parte superior da página.
+. Selecione *Eventos & Empregos* e, em seguida, selecione *Eventos*.
+. Opcionalmente, selecione *Filtrar* e crie um filtro para limitar as mensagens de evento exibidas.
 
 
 
@@ -75,8 +75,8 @@ O AutoSupport é a principal ferramenta de solução de problemas usada pelo Net
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique na guia *Administration* na parte superior da página.
-. Clique em *Definições e AutoSupport* e, em seguida, clique image:icon_kebab.gif["Opções"]em .
+. Selecione a guia *Administration* na parte superior da página.
+. Selecione *Configurações e AutoSupport* e, em seguida, selecione image:icon_kebab.gif["Opções"].
 . Ative ou desative o recurso AutoSupport conforme necessário.
 
 
@@ -96,13 +96,13 @@ Você pode gerar os seguintes pacotes do AutoSupport sob a direção e orientaç
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique na guia *Administration* na parte superior da página.
-. Clique em *Definições e AutoSupport* e, em seguida, clique image:icon_kebab.gif["Opções"]em .
-. Clique em *Generate*.
+. Selecione a guia *Administration* na parte superior da página.
+. Selecione *Configurações e AutoSupport* e, em seguida, selecione image:icon_kebab.gif["Opções"].
+. Selecione *Gerar*.
 . Selecione o tipo e forneça uma descrição para o pacote; opcionalmente, você pode fornecer um número de caso.
-. Clique em *Generate*.
+. Selecione *Gerar*.
 +
 A cada pacote AutoSupport é atribuído um número de identificação de sequência único.
 
-. Opcionalmente, em *Histórico do AutoSupport*, selecione o pacote correto e clique no ícone de download para salvar o arquivo AutoSupport em sua estação de trabalho local.
+. Opcionalmente, selecione o pacote correto em *AutoSupport History* e, em seguida, selecione o ícone de download para salvar o arquivo AutoSupport em sua estação de trabalho local.
 

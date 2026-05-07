@@ -115,6 +115,7 @@ Vários recursos do ONTAP não são suportados com o ONTAP Select. Na maioria do
 
 NOTE: A partir do ONTAP Select 9.16.1, são suportadas atualizações manuais para ARP e a licença de recurso ARP está incluída no arquivo de licença NetApp (NLF).
 
+* Gerenciadores de chaves em nuvem
 * IPspace do cluster
 +
 Não há suporte para qualquer modificação no IPspace de cluster, incluindo a adição ou remoção de portas, LANs virtuais (VLANs) ou grupos de agregação de links.
@@ -131,12 +132,12 @@ O monitoramento tradicional de integridade usado com uma implantação de ONTAP 
 +
 Os grupos de interface não são suportados.
 
-* Gerenciador de chaves multi-Tenant (MTKM)
 * Suporte para descarga de NIC
 +
 Devido ao ambiente virtualizado usado com o ONTAP Select, a instalação de descarga de NIC não é suportada.
 
 * Unidades de criptografia de armazenamento NetApp
+* Gerenciador de Chaves Integrado
 * Propriedades da porta ONTAP
 +
 A modificação das propriedades das portas ONTAP, incluindo velocidade, duplex e controle de fluxo, não é suportada.
@@ -149,6 +150,6 @@ A modificação das propriedades das portas ONTAP, incluindo velocidade, duplex 
 
 
 .Informações relacionadas
-* link:reference_lic_ontap_features.html#enabled-ontap-features["Saiba mais sobre os recursos do ONTAP ativados por padrão"]
+* link:reference_lic_ontap_features.html#licensed-ontap-features["Saiba mais sobre os recursos do ONTAP licenciados por padrão"]
 * link:concept_lic_evaluation.html["Saiba mais sobre as opções de licença do ONTAP Select"]
 

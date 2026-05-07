@@ -63,7 +63,7 @@ Tem de ter a palavra-passe para a conta de utilizador admin.
 .Passos
 . Em um shell de comando em sua estação de trabalho local, use o utilitário sftp para carregar o arquivo de licença para a máquina virtual implantar.
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -113,7 +113,7 @@ Se mais de um host de hipervisor for necessário, use este procedimento para adi
 host register -name <FQDN|IP> -hypervisor-type KVM -username <KVM_username>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]
@@ -130,7 +130,7 @@ Forneça a senha da conta de host quando solicitado.
 host show -name <FQDN|IP> -detailed
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]
@@ -156,7 +156,7 @@ Antes de Registrar um host gerenciado pelo vCenter, você deve adicionar uma con
 credential add -hostname <FQDN|IP> -type vcenter -username <vcenter_username>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -177,7 +177,7 @@ host register -name <FQDN|IP> -hypervisor-type ESX -username <esx_username>
 host register -name <FQDN|IP> -hypervisor-type ESX -mgmt-server <FQDN|IP>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -192,7 +192,7 @@ host register -name 10.234.81.14 -hypervisor-type ESX -mgmt-server vc.select.com
 host show -name <FQDN|IP> -detailed
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -223,7 +223,7 @@ Quando você cria um cluster do ONTAP Select, o utilitário implantar gera autom
 cluster create -name <cluster_name> -node-count <count>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -236,7 +236,7 @@ cluster create -name test-cluster -node-count 1
 cluster modify -name <cluster_name> -mgmt-ip <IP_address> -netmask <netmask> -gateway <IP_address> -dns-servers <FQDN|IP>_LIST -dns-domains <domain_list>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -280,7 +280,7 @@ node show -cluster-name <cluster_name>
 node modify -name <node_name> -cluster-name <cluster_name> -host-name <FQDN|IP> -license-serial-number <number> -instance-type TYPE -passthrough-disks false
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -300,7 +300,7 @@ Uma licença de nível de capacidade é usada para o nó ONTAP Select.
 host network show -host-name <FQDN|IP> -detailed
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -329,7 +329,7 @@ node modify -name <node_name> -cluster-name <cluster_name> -mgmt-ip IP -manageme
 Ao implantar um cluster de nó único, você não precisa de uma rede interna e deve remover "-internal-network".
 
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -343,7 +343,7 @@ node modify -name test-cluster-01 -cluster-name test-cluster -mgmt-ip 10.234.81.
 node show -name <node_name> -cluster-name <cluster_name> -detailed
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 ....
@@ -372,7 +372,7 @@ Ao usar uma controladora RAID de hardware local, você precisa executar as etapa
 host storage pool show -host-name <FQDN|IP>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]
@@ -392,7 +392,7 @@ node storage pool attach -name <pool_name> -cluster-name <cluster_name> -node-na
 Se você incluir o parâmetro "-capacity-limit", especifique o valor como GB ou TB.
 
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]
@@ -407,7 +407,7 @@ node-name test-cluster-01 -capacity-limit 500GB
 node storage pool show -cluster-name <cluster_name> -node-name <node_name>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]
@@ -421,7 +421,7 @@ node storage pool show -cluster-name test-cluster -node-name testcluster-01
 node storage disk attach -node-name <node_name> -cluster-name <cluster_name> -disks <list_of_drives>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]
@@ -435,7 +435,7 @@ node storage disk attach -node-name NVME_SN-01 -cluster-name NVME_SN -disks 0000
 node storage disk show -node-name <node_name> -cluster-name <cluster_name>`
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]
@@ -462,7 +462,7 @@ Execute o verificador de conectividade de rede usando o link:task_adm_connectivi
 cluster deploy -name <cluster_name>
 ----
 +
-Exemplo de saída
+Exemplo de saída:
 
 +
 [listing]

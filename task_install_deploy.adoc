@@ -127,12 +127,12 @@ Tem de definir a palavra-passe da conta de administrador. Você precisa fornecer
 +
 Nome do host :
 
-.. Digite o nome do host e pressione *Enter*.
+.. Digite o nome do host e selecione *Enter*.
 .. Aguarde o seguinte aviso:
 +
 Forneça uma senha para o usuário admin:
 
-.. Digite a senha e pressione *Enter*.
+.. Digite a senha e selecione *Enter*.
 .. Aguarde o seguinte aviso:
 +
 Usar DHCP para definir informações de rede? [n]:

@@ -24,7 +24,7 @@ A página de documentação on-line do ONTAP Select inclui os detalhes de cada c
 
 As seguintes informações são incluídas para cada chamada de API dentro de um fluxo de trabalho para ajudar a localizar a chamada na página de documentação:
 
-* Categoria as chamadas de API são organizadas na página de documentação em áreas ou categorias funcionalmente relacionadas. Para localizar uma chamada de API específica, role até a parte inferior da página e clique na categoria de API aplicável.
+* Categoria As chamadas da API estão organizadas na página de documentação em áreas ou categorias funcionalmente relacionadas. Para localizar uma chamada de API específica, role até o final da página e selecione a categoria de API correspondente.
 * HTTP verb o verbo HTTP identifica a ação executada em um recurso. Cada chamada de API é executada através de um único verbo HTTP.
 * Caminho o caminho determina o recurso específico ao qual a ação se aplica como parte da execução de uma chamada. A cadeia de carateres do caminho é anexada ao URL principal para formar a URL completa que identifica o recurso.
 

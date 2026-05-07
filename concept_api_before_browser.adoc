@@ -28,8 +28,8 @@ Se você pretende emitir chamadas de API como parte da execução de tarefas adm
 
 Cada chamada de API é descrita na página de documentação usando um formato consistente. O conteúdo inclui notas de implementação, parâmetros de consulta e códigos de status HTTP. Além disso, você pode exibir detalhes sobre o JSON usado com as solicitações e respostas da API da seguinte forma:
 
-* Exemplo de valor se você clicar em _exemplo de valor_ em uma chamada de API, uma estrutura JSON típica para a chamada será exibida. Você pode modificar o exemplo conforme necessário e usá-lo como entrada para sua solicitação.
-* Modelo se você clicar em _Model_, uma lista completa dos parâmetros JSON será exibida, com uma descrição para cada parâmetro.
+* Valor de exemplo Se você selecionar _Valor de exemplo_ em uma chamada de API, uma estrutura JSON típica para a chamada será exibida. Você pode modificar o exemplo conforme necessário e usá-lo como entrada para sua solicitação.
+* Modelo Se você selecionar _Modelo_, será exibida uma lista completa dos parâmetros JSON, com uma descrição para cada parâmetro.
 
 
 

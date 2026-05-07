@@ -26,7 +26,7 @@ Você pode adicionar, editar e excluir licenças do nível de capacidade do ONTA
 . Inicie sessão no utilitário de implementação através da interface Web utilizando a conta de administrador.
 . Selecione a guia *Administration* na parte superior da página.
 . Selecione *licenças* e selecione *nível de capacidade*.
-. Opcionalmente, selecione *Filter* e para limitar as licenças exibidas.
+. Opcionalmente, selecione *Filtrar* para limitar as licenças exibidas.
 . Para substituir uma licença existente; selecione uma licença, selecione image:icon_kebab.gif["Opções"]e selecione *Atualizar*.
 . Para adicionar uma nova licença, selecione *Adicionar* na parte superior da página e, em seguida, selecione *carregar Licença(s)* e selecione um ficheiro de licença na sua estação de trabalho local.
 

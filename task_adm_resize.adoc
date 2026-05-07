@@ -30,9 +30,9 @@ Esta tarefa descreve como usar a interface de usuário da Web Deploy. Você tamb
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique na guia *Cluster* na parte superior da página e selecione o cluster desejado na lista.
-. Na página de detalhes do cluster, clique no ícone de engrenagem à direita da página e selecione *Redimensionar instância*.
-. Selecione o *tipo de instância* e forneça as credenciais ONTAP e clique em *Modificar*.
+. Selecione a aba *Cluster* na parte superior da página e, em seguida, selecione o cluster desejado na lista.
+. Na página de detalhes do cluster, selecione o ícone de engrenagem à direita da página e selecione *Redimensionar instância*.
+. Selecione o *Tipo de Instância* e forneça as credenciais do ONTAP, depois selecione *Modificar*.
 
 
 .Depois de terminar

@@ -79,10 +79,9 @@ Se um host de hipervisor ESXi for gerenciado por um servidor vCenter, você deve
 
 O host do hypervisor físico onde você implantar o ONTAP Select deve atender a vários requisitos de hardware. Você pode escolher qualquer plataforma para o host do hypervisor, desde que atenda aos requisitos mínimos de hardware. Os seguintes fornecedores fornecem plataformas de hardware suportadas: Cisco, Dell, HP, Fujitsu, Lenovo e Supermicro.
 
+ONTAP Select é compatível com modelos de CPU baseados em processadores Intel Xeon Sandy Bridge e Advanced Micro Devices (AMD).
 
-NOTE: A partir da versão 9.9.1 do ONTAP Select , somente os modelos de CPU baseados em Intel Xeon Sandy Bridge ou posteriores são suportados.
-
-Consulte a https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade, janela em branco"] para obter mais informações.
+Consulte a  https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interoperabilidade"^] para obter mais informações.
 
 
 
@@ -91,10 +90,9 @@ Consulte a https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interope
 Existem vários requisitos comuns de hardware que se aplicam a todas as plataformas, independentemente do tipo de instância do nó ou da oferta de licença.
 
 .Processador
-Os microprocessadores suportados incluem processadores Intel Xeon para servidor, consulte link:https://www.intel.com/content/www/us/en/products/processors/xeon/view-all.html?Processor+Type=1003["Processadores Intel Xeon, janela em branco"] para maiores informações.
+Os microprocessadores suportados incluem processadores de servidor Intel Xeon e processadores AMD.
 
-
-NOTE: Os processadores Advanced Micro Devices (AMD) não são compatíveis com o ONTAP Select.
+Consulte link:https://www.intel.com/content/www/us/en/products/processors/xeon/view-all.html?Processor+Type=1003["Processadores Intel Xeon"^] e link:https://www.amd.com/en/products/processors/server/epyc.html["CPUs de servidor AMD EPYC"^] para mais informações.
 
 .Configuração Ethernet
 Existem várias configurações Ethernet suportadas com base no tamanho do cluster.
@@ -118,8 +116,6 @@ Existem várias configurações Ethernet suportadas com base no tamanho do clust
 
 Existem vários requisitos adicionais de hardware com base no tipo de instância do nó.
 
-link:concept_lic_platforms.html["Entenda as ofertas de licença da plataforma"]Consulte para obter mais informações.
-
 [cols="a1,a2,a2,a2"]
 |===
 | Tamanho do nó | núcleos de CPU | Memória | Oferta de licença de plataforma necessária 
@@ -135,3 +131,6 @@ link:concept_lic_platforms.html["Entenda as ofertas de licença da plataforma"]C
 |===
 
 NOTE: Existem requisitos de disco adicionais baseados na licença da plataforma. Consulte link:reference_plan_ots_storage.html["Armazenamento e RAID"] para obter mais informações.
+
+.Informações relacionadas
+Saiba mais sobrelink:concept_lic_platforms.html["as ofertas de licenciamento da plataforma para ONTAP Select"]

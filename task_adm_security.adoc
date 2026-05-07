@@ -24,8 +24,8 @@ Você pode alterar a senha da conta de administrador de máquina virtual implant
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique no ícone de figura no canto superior direito da página e selecione *alterar senha*.
-. Forneça a senha atual e nova conforme solicitado e clique em *Enviar*.
+. Selecione o ícone de figura no canto superior direito da página e, em seguida, selecione *Alterar senha*.
+. Forneça a senha atual e a nova senha conforme solicitado e selecione *Enviar*.
 
 
 
@@ -39,9 +39,9 @@ Você deve estar familiarizado com os tipos de credenciais e como elas são usad
 
 .Passos
 . Inicie sessão na interface de utilizador da Web do utilitário de implementação utilizando a conta de administrador.
-. Clique na guia *Administration* na parte superior da página.
-. Clique em *Management Servers* e clique em *Add vCenter*.
-. Insira as informações a seguir e clique em *Add*.
+. Selecione a guia *Administration* na parte superior da página.
+. Selecione *Servidores de Gerenciamento* > *Adicionar vCenter*.
+. Insira as seguintes informações e selecione *Adicionar*.
 +
 [cols="30,70"]
 |===
@@ -56,7 +56,7 @@ Você deve estar familiarizado com os tipos de credenciais e como elas são usad
 
 | Palavra-passe | Introduza a palavra-passe para o nome de utilizador associado. 
 |===
-. Depois que o novo servidor de gerenciamento é adicionado, você pode opcionalmente clicar image:icon_kebab.gif["Opções"] e selecionar uma das seguintes opções:
+. Opcionalmente, selecione image:icon_kebab.gif["Opções"] após a adição do novo servidor de gerenciamento, e então selecione uma das seguintes opções:
 +
 ** Atualizar credenciais
 ** Verifique as credenciais
@@ -166,7 +166,7 @@ Você pode fazer login no ONTAP Select Deploy usando a autenticação YubiKey PI
 . Inicie sessão a partir do seu dispositivo com o YubiKey ligado.
 
 
-.Exemplo de saída
+.Exemplo de saída:
 [listing]
 ----
 login as: admin
@@ -194,7 +194,7 @@ O `ssh-keygen` comando suporta vários algoritmos de chave pública para chaves 
 * O tamanho da chave é selecionado com a `-b` opção
 
 
-.Exemplo de saída
+.Exemplo de saída:
 [listing]
 ----
 ssh-keygen -t ecdsa -b 521

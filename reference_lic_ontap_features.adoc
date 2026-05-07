@@ -21,13 +21,17 @@ NOTE: Os recursos do ONTAP que têm dependências específicas de hardware geral
 
 
 
-== Os recursos do ONTAP são ativados automaticamente por padrão
+== Recursos do ONTAP licenciados por padrão
 
 Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciados por padrão:
 
 * Proteção autônoma contra ransomware (ARP) (atualizações manuais)
 * CIFS
 * Deduplicação e compactação
+* Gerenciamento externo de chaves usando o Protocolo de Interoperabilidade de Gerenciamento de Chaves (KMIP)
++
+O gerenciamento de chaves externas é o único gerenciamento de chaves compatível com o ONTAP Select. Saiba mais link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Habilitar e configurar o gerenciamento de chaves externas"^].
+
 * FlexCache
 +
 ONTAP Select suporta FlexCache cache volumes com write-back. FlexCache origin volumes com write-back não são suportados.
@@ -57,7 +61,7 @@ link:https://docs.netapp.com/us-en/ontap/snaplock/index.html["Saiba mais sobre O
 * SnapVault
 * Recuperação de desastres de VM de storage (SVM DR)
 +
-O ONTAP Select é compatível com o SVM DR como origem e destino, no máximo 16 relacionamentos. A compatibilidade com SVM DR está limitada ao uso da versão de origem do ONTAP nas versões mais de 2. Por exemplo, a fonte ONTAP Select 9.12.1 pode se conetar ao ONTAP de destino versões 9.12.1, 9.13.1 ou 9.14.1.
+ONTAP Select suporta SVM DR como origem e destino, com um máximo de 16 relacionamentos. O suporte a SVM DR é limitado ao uso da versão do ONTAP até versões +2. Por exemplo, a origem ONTAP Select 9.16.1 pode se conectar a destinos ONTAP nas versões 9.16.1, 9.17.1 ou 9.18.1.
 
 
 
@@ -65,7 +69,7 @@ O ONTAP Select é compatível com o SVM DR como origem e destino, no máximo 16 
 
 == Recursos do ONTAP licenciados separadamente
 
-Você precisa adquirir uma licença separada para qualquer recurso do ONTAP que não esteja habilitado por padrão, incluindo:
+Você precisa adquirir uma licença separada para qualquer recurso do ONTAP que não esteja licenciado por padrão, incluindo:
 
 * FabricPool
 +
@@ -77,5 +81,5 @@ NOTE: Você não precisa de uma licença FabricPool ao utilizar o StorageGRID.
 
 .Informações relacionadas
 * link:concept_ots_overview.html#compare-ontap-select-and-ontap-9["Comparar ONTAP Select e ONTAP 9"]
-* link:https://mysupport.netapp.com/site/systems/master-license-keys["Saiba mais sobre NetApp ONTAP Master License Keys"^]
+* link:https://mysupport.netapp.com/site/systems/master-license-keys["Saiba mais sobre as chaves de licença mestra do NetApp ONTAP"^]
 

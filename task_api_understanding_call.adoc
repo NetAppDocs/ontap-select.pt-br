@@ -23,6 +23,6 @@ Você deve estar conetado à página da Web de documentação on-line do ONTAP S
 Você pode recuperar as informações de configuração que descrevem um cluster ONTAP Select usando seu identificador exclusivo. Neste exemplo, todos os campos classificados como baratos são devolvidos. No entanto, como prática recomendada, você deve solicitar apenas os campos específicos necessários.
 
 .Passos
-. Na página principal, role até a parte inferior e clique em *Cluster*.
-. Clique em *GET /clusters/(cluster_id)* para exibir os detalhes da chamada de API usada para retornar informações sobre um cluster ONTAP Select.
+. Na página principal, role até o final e selecione *Cluster*.
+. Selecione *GET /clusters/{cluster_id}* para exibir os detalhes da chamada da API usada para retornar informações sobre um cluster ONTAP Select.
 

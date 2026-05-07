@@ -22,5 +22,5 @@ Talvez seja necessário acessar o console da máquina virtual para solucionar um
 .Passos
 . Acesse o cliente vSphere e faça login.
 . Navegue até o local apropriado na hierarquia para localizar a máquina virtual ONTAP Select.
-. Clique com o botão direito do Mouse na máquina virtual e selecione *Open Console*.
+. Clique com o botão direito do mouse na máquina virtual e selecione *Open Console*.
 
