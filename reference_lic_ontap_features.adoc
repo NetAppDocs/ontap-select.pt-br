@@ -30,7 +30,7 @@ Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciado
 * Deduplicação e compactação
 * Gerenciamento externo de chaves usando o Protocolo de Interoperabilidade de Gerenciamento de Chaves (KMIP)
 +
-O gerenciamento de chaves externas é o único gerenciamento de chaves compatível com o ONTAP Select. Saiba mais link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Habilitar e configurar o gerenciamento de chaves externas"^].
+Saiba mais link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["Habilitar e configurar o gerenciamento de chaves externas"^].
 
 * FlexCache
 +

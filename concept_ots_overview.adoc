@@ -137,7 +137,6 @@ Os grupos de interface não são suportados.
 Devido ao ambiente virtualizado usado com o ONTAP Select, a instalação de descarga de NIC não é suportada.
 
 * Unidades de criptografia de armazenamento NetApp
-* Gerenciador de Chaves Integrado
 * Propriedades da porta ONTAP
 +
 A modificação das propriedades das portas ONTAP, incluindo velocidade, duplex e controle de fluxo, não é suportada.
