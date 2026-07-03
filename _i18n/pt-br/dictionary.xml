@@ -1736,8 +1736,6 @@
   <block id="1ea2947dc8d9221eb1191bb16ac646e9" category="admonition">As informações da conta são armazenadas de forma segura no banco de dados usando o algoritmo de criptografia AES e o algoritmo de hash SHA-256.</block>
   <block id="dfe55bfdf78bf686c853c934cacca8aa" category="paragraph-title">Tipos de credenciais</block>
   <block id="cae10f600cbb13bc7d34a887977c79a8" category="paragraph">São suportados os seguintes tipos de credenciais:</block>
-  <block id="473ff5b444e8cefb39620100d2cc4834" category="list-text">Host usado para autenticar um host de hipervisor como parte da implantação de um nó ONTAP Select diretamente no VMware ESXi</block>
-  <block id="f9c8e615168b7695f683bda1636a1fd7" category="list-text">O vCenter é usado para autenticar um servidor vCenter como parte da implantação de um nó do ONTAP Select no ESXi quando o host é gerenciado pelo VMware vCenter</block>
   <block id="bf733d8a933c1601697f364223fc7ecb" category="paragraph-title">Acesso</block>
   <block id="6bc6433efd5abd7e3ac98556742ca0e4" category="paragraph">O armazenamento de credenciais é acessado internamente como parte da execução de tarefas administrativas normais usando o Deploy, como a adição de um host de hipervisor. Você também pode gerenciar o armazenamento de credenciais diretamente por meio da interface de usuário da Web Deploy e da CLI.</block>
   <block id="5105302096dd720ab813764e8580a00d" category="summary">Há vários requisitos e restrições específicos para o ambiente VMware que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente VMware.</block>
@@ -1768,17 +1766,13 @@
   <block id="ed34a736700c5aafae0be7fbae944e8a" category="paragraph">Não é possível adicionar um nó ONTAP Select diretamente a um cluster baseado em hardware da ONTAP. No entanto, você pode, opcionalmente, estabelecer uma relação de peering de cluster entre um cluster ONTAP Select e um cluster ONTAP baseado em hardware.</block>
   <block id="8b93cc40161cdbd01ab9e18838bcb683" category="section-title">Ambiente de hipervisor VMware</block>
   <block id="080eeefb865f5c5b09e0ddbf462e23ba" category="paragraph-title">Requisitos de hardware do servidor host ESXi</block>
-  <block id="5e9e7152a56ac74f6432d3a1d1e9844a" category="paragraph">Há vários requisitos mínimos de recursos que seu host do hipervisor ESXi deve atender. Você deve garantir que os hosts em que o ONTAP Select é implantado atendam aos seguintes requisitos básicos:</block>
   <block id="4832f452ca99a142c0e0db2c856d79e2" category="list-text">Servidor ESXi:</block>
   <block id="683c2567130f6a4546bb443f353cff0d" category="list-text">O hardware e o software devem ser de 64 bits</block>
   <block id="501ecbf501c47a3b1460cba563bd3cb2" category="list-text">Deve aderir às mesmas versões suportadas definidas para um nó ONTAP Select</block>
   <block id="665f528a615917daa6e68c9858e8973e" category="list-text">Memória virtual (4 GB)</block>
   <block id="2460c4c672fe5aa97bccda9a2c15381a" category="list-text">Armazenamento (40 GB)</block>
   <block id="6571206ea0d72e18ca7e523cdfac9bf3" category="list-text">DHCP ativado (também pode atribuir um endereço IP estático)</block>
-  <block id="1db683534b98bd41ba839804b8e68460" category="paragraph">Você deve garantir que a interface de rede da máquina virtual ONTAP Select Deploy esteja configurada e tenha um único endereço IP de gerenciamento. Você pode usar DHCP para atribuir dinamicamente um endereço IP ou configurar manualmente um endereço IP estático.</block>
   <block id="a8f60467940bda53d9db3f4b1f47ca5a" category="paragraph">Dependendo de suas decisões de implantação, a VM de implantação deve ser capaz de se conetar ao servidor vCenter, aos hosts do hipervisor ESXi e aos nós do ONTAP Select que ele gerencia. Você deve configurar seus firewalls para permitir o tráfego necessário.</block>
-  <block id="ff263ddaf336b6dad768fdf733aba4d6" category="paragraph">O Deploy usa a API VMware VIX para se comunicar com o servidor vCenter e os hosts ESXi. Inicialmente, ele estabelece uma conexão usando SOAP através de SSL na porta TCP 443. Depois disso, uma conexão é aberta usando SSL na porta 902. Além disso, implantar problemas comandos PING para verificar se há um host ESXi no endereço IP especificado.</block>
-  <block id="0322e46fade696f2e31f29923f0e13e7" category="paragraph">O Deploy também deve ser capaz de se comunicar com o nó ONTAP Select e os endereços IP de gerenciamento de cluster usando os seguintes protocolos:</block>
   <block id="62a5303a3a11fbd7213daedd9ed6e5b5" category="list-text">Comando PING (ICMP)</block>
   <block id="a808fd43c31372cb5ef7ac1ac9224c52" category="list-text">Você deve atribuir um endereço IPv4 ao LIF de gerenciamento da máquina virtual implantar.</block>
   <block id="79bcd6ba5f33475a7941fe7ef0f5412c" category="summary">Existem vários requisitos gerais que você deve considerar como parte do Planejamento de uma implantação do ONTAP Select.</block>
@@ -3362,12 +3356,7 @@
   <block id="fb6ec34800c58ebc5bb6517ce0db74b8" category="list-text">De oito a seis nós</block>
   <block id="e9d1284d8df9151f9bec7a163cd5c363" category="list-text">Suporte para vSAN ESA em clusters de vários nós</block>
   <block id="4ba59a7efee785c52f70cdae7fca55c3" category="list-text">A partir do ONTAP Select 9.17.1, o suporte para vSAN Express Storage Architecture (ESA) foi estendido para implantar clusters de vários nós.  Esse aprimoramento permite que você implante configurações do vSAN ESA.</block>
-  <block id="9f2987dffbb8cc07dc722392ca553e1e" category="paragraph">Para executar operações na biblioteca de conteúdo, você precisará de acesso a níveis de permissão adicionais.  Isso é necessário para implantações do vSAN ESA se você estiver trabalhando com funções restritas.</block>
-  <block id="6146fd29f571a044684d201d9c796583" category="inline-link-macro">Saiba mais sobre como acessar níveis de permissão para operações de biblioteca de conteúdo</block>
-  <block id="23add99dd3b98f3716a4830bf3524c6e" category="paragraph"><block ref="0338668b24eba8707cba4da17831f4b6" category="inline-link-macro-rx"></block> .</block>
-  <block id="2e4143d0df24451229cbcf21d106b6c5" category="section-title">Considerações sobre a implantação do servidor VMware vCenter do ONTAP Select</block>
   <block id="0cdb970631a712b516a9779c1d127d32" category="section-title">Privilégios do VMware vSphere para ESA</block>
-  <block id="fe2a57ed0ddb8d9b57b737aff59f340b" category="paragraph">A seguir estão listados os privilégios específicos para a biblioteca de conteúdo do vSphere necessários para criar e gerenciar o vSAN Express Storage Architecture (ESA) no vCenter:</block>
   <block id="7fda80facd4b5302f2a2c887c2ecb595" category="list-text">Adicionar item de biblioteca</block>
   <block id="5ac2b813625b685d2cd86e5bbd2e2259" category="list-text">Criar biblioteca local</block>
   <block id="036e7b8c4bda5955184609f09f458e15" category="list-text">Excluir item da biblioteca</block>
@@ -3428,7 +3417,6 @@
   <block id="26a1590332f300c4ec3aa0f686d62125" category="admonition">Se você tiver um ou mais clusters de dois nós ativos, a máquina virtual ONTAP Select Deploy que administra os clusters deverá estar em execução o tempo todo. Se a máquina virtual do ONTAP Select Deploy for interrompida ou falhar, o serviço de mediação ficará indisponível e a capacidade de alta disponibilidade (HA) será perdida para os clusters de dois nós.</block>
   <block id="ed89295e41e84f73a1840cf9d0bc49c6" category="paragraph">Você deve atribuir um endereço IP estático ao utilitário de administração ONTAP Select Deploy.  Este requisito aplica-se a todas as instâncias do ONTAP Select Deploy que gerenciam um ou mais clusters ONTAP Select de dois nós.</block>
   <block id="ee1aadb3a9fa619eb12db5d1e58032b4" category="inline-link-macro">Saiba mais sobre os privilégios do VMware vSphere para vSAN ESA no vCenter</block>
-  <block id="653a421852b6e9fc7e8da536351d6d57" category="paragraph"><block ref="653a421852b6e9fc7e8da536351d6d57" category="inline-link-macro-rx"></block></block>
   <block id="52628d9c0b40a3d081fa61332a7dbc30" category="section-title">Passo 1: Configure o host</block>
   <block id="4b909310ad00915be4366c1fdc817ef6" category="paragraph">Configure o host ESXi ou KVM para reconhecer as unidades.</block>
   <block id="6fb98dfe0687afd13c6606a1e18796b4" category="section-title">Etapa 2: Instale o utilitário ONTAP Select Deploy</block>
@@ -4062,4 +4050,19 @@
   <block id="ec0736970ae0e8ef44338bd9345f3951" category="paragraph">Saiba mais <block ref="56cfa00fc3eb294dcd6bd0a608d346a4" category="inline-link-macro-rx"></block>.</block>
   <block id="93c62ab5c9e2a68e9993e9a6f79af3e0" category="list-text">A partir do ONTAP Select 9.19.1, o ONTAP Select oferece suporte ao gerenciamento de chaves externas usando o Key Management Interoperability Protocol (KMIP). Você pode habilitar o gerenciamento de chaves externas após implantar um cluster ONTAP Select 9.19.1 ou atualizar um cluster existente para o ONTAP Select 9.19.1. Para obter mais informações, consulte <block ref="d74e51aab974d5584eeccb899c4795c8" category="inline-link-macro-rx"></block>.</block>
   <block id="a53e97c2bb7494f6cd88d2ca9e3f6cfb" category="paragraph">ONTAP Select não oferece suporte a gerenciadores de chaves na nuvem.</block>
+  <block id="115b70fb63fe464e7cf86f17b11f1d67" category="paragraph">Para executar operações na Biblioteca de Conteúdo, você precisa de acesso a níveis de permissão adicionais. Esse acesso é necessário para implantações do vSAN ESA se você estiver trabalhando com funções restritas.</block>
+  <block id="b1689d890e3bfdba864c509e65029ab6" category="inline-link-macro">Saiba mais sobre os níveis de permissão de acesso para operações da Content Library</block>
+  <block id="420c43a81b06eb199719986301b88739" category="paragraph"><block ref="349cc67b5cd523e4bbe7acd476212356" category="inline-link-macro-rx"></block>.</block>
+  <block id="31a9fcd92544b53d42e4000ae7c63c29" category="list-text">*Host*: Usado para autenticar um host de hipervisor como parte da implantação de um nó ONTAP Select diretamente no VMware ESXi</block>
+  <block id="9a5195b1ff4c19906bdb0971591f465c" category="list-text">*vCenter*: usado para autenticar um servidor vCenter como parte da implantação de um nó ONTAP Select no ESXi quando o host é gerenciado pelo VMware vCenter</block>
+  <block id="26185f28054346a59a9c3901db564d91" category="list-text">Um utilitário de implantação em execução no VMware ESXi pode criar e gerenciar clusters ONTAP Select em VMware ESXi ou KVM.</block>
+  <block id="f862ce787876275b8b041dd3b50bc344" category="list-text">Um utilitário de implantação em execução no KVM pode criar e gerenciar clusters ONTAP Select em VMware ESXi ou KVM.</block>
+  <block id="722c5f11159798669e97619a3674eb66" category="paragraph">Seu host hipervisor ESXi deve atender a vários requisitos mínimos de recursos. Verifique se os hosts onde ONTAP Select está implantado atendem aos seguintes requisitos básicos:</block>
+  <block id="cbdb21e82973d8b56af711a4e158e10d" category="paragraph">Verifique se a interface de rede da máquina virtual ONTAP Select está configurada e possui um único endereço IP de gerenciamento. Você pode usar DHCP para atribuir dinamicamente um endereço IP ou configurar manualmente um endereço IP estático.</block>
+  <block id="4677d18a24fcb2eb3f37347531f81229" category="paragraph">O Deploy utiliza a API VIX da VMware para se comunicar com o vCenter server e os hosts ESXi. Inicialmente, ele estabelece uma conexão usando SOAP sobre SSL na porta TCP 443. Depois disso, uma conexão é aberta usando SSL na porta 902. Além disso, o Deploy emite comandos PING para verificar se existe um host ESXi no endereço IP que você especificar.</block>
+  <block id="bb055e0f2f4e26b5aad8eaa467d4f3fa" category="paragraph">Além disso, o Deploy deve ser capaz de se comunicar com os endereços IP de gerenciamento do nó e do cluster do ONTAP Select usando os seguintes protocolos:</block>
+  <block id="645dbfc8ae0a73e8087fbcb0a997027f" category="section-title">Considerações sobre o servidor VMware vCenter</block>
+  <block id="3c877a9561264bd22f7ed715473c9258" category="paragraph">Para criar e gerenciar a vSAN Express Storage Architecture (ESA) em vCenter, você precisa dos seguintes privilégios da vSphere Content Library:</block>
+  <block id="913b24f487842d48914e3794480e83cc" category="admonition">Para acessar os privilégios da Biblioteca de Conteúdo, um administrador precisa conceder a você acesso às Permissões Globais no vCenter Server.</block>
+  <block id="c0d2cde9a14e7d58e2ab5a38de5b380d" category="paragraph"><block ref="c0d2cde9a14e7d58e2ab5a38de5b380d" category="inline-link-macro-rx"></block></block>
 </blocks>
