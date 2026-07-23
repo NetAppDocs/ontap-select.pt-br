@@ -30,6 +30,7 @@ NOTE: Não é possível estender uma licença de avaliação. Ao final dos 90 di
 
 
 
+[[step-1-register-for-an-account]]
 == Passo 1: Cadastre-se para obter uma conta.
 
 Conclua o cadastro da conta NetApp , se necessário, e solicite acesso ao cliente potencial.
@@ -73,6 +74,7 @@ Inclua o nome do seu contato na NetApp .
 
 
 
+[[step-2-download-ontap-select-evaluation-software]]
 == Etapa 2: Baixe o software de avaliação ONTAP Select
 
 Após a análise e aprovação da sua solicitação de suporte, a equipe de suporte da NetApp entrará em contato com você por e-mail, no endereço fornecido.

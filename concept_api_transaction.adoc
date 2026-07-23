@@ -18,12 +18,14 @@ Cada chamada de API de implantação é executada como uma solicitação HTTP pa
 
 
 
+[[input-variables-controlling-an-api-request]]
 == Variáveis de entrada que controlam uma solicitação de API
 
 Você pode controlar como uma chamada de API é processada por meio de parâmetros definidos na solicitação HTTP.
 
 
 
+[[request-headers]]
 === Cabeçalhos de solicitação
 
 Você deve incluir vários cabeçalhos na solicitação HTTP, incluindo:
@@ -35,6 +37,7 @@ Você deve incluir vários cabeçalhos na solicitação HTTP, incluindo:
 
 
 
+[[request-body]]
 === Corpo do pedido
 
 O conteúdo do corpo da solicitação varia de acordo com a chamada específica. O corpo da solicitação HTTP consiste em um dos seguintes:
@@ -45,6 +48,7 @@ O conteúdo do corpo da solicitação varia de acordo com a chamada específica.
 
 
 
+[[filter-objects]]
 === Filtrar objetos
 
 Ao emitir uma chamada de API que usa GET, você pode limitar ou filtrar os objetos retornados com base em qualquer atributo. Por exemplo, você pode especificar um valor exato para corresponder:
@@ -85,6 +89,7 @@ Você também pode retornar um conjunto de objetos com base se um campo específ
 
 
 
+[[selecting-object-fields]]
 === Selecionar campos de objeto
 
 Por padrão, a emissão de uma chamada de API usando O GET retorna apenas os atributos que identificam exclusivamente o objeto ou objetos. Este conjunto mínimo de campos atua como uma chave para cada objeto e varia de acordo com o tipo de objeto. Você pode selecionar propriedades de objeto adicionais usando o parâmetro de consulta campos das seguintes maneiras:
@@ -99,6 +104,7 @@ TIP: Como prática recomendada, você deve sempre identificar os campos específ
 
 
 
+[[sort-objects-in-the-output-set]]
 === Classificar objetos no conjunto de saída
 
 Os Registros em uma coleção de recursos são retornados na ordem padrão definida pelo objeto. Você pode alterar a ordem usando o parâmetro de consulta order_by com o nome do campo e a direção de ordenação da seguinte forma:
@@ -111,6 +117,7 @@ Ao incluir vários parâmetros, você deve separar os campos com uma vírgula.
 
 
 
+[[pagination]]
 === Paginação
 
 Ao emitir uma chamada de API usando GET para acessar uma coleção de objetos do mesmo tipo, todos os objetos correspondentes são retornados por padrão. Se necessário, você pode limitar o número de Registros retornados usando o parâmetro de consulta Max_Records com a solicitação. Por exemplo:
@@ -123,12 +130,14 @@ Você pode emitir várias solicitações para percorrer os eventos (ou qualquer 
 
 
 
+[[interpret-an-api-response]]
 == Interpretar uma resposta da API
 
 Cada solicitação de API gera uma resposta de volta ao cliente. Você pode examinar a resposta para determinar se ela foi bem-sucedida e recuperar dados adicionais, conforme necessário.
 
 
 
+[[http-status-code]]
 === Código de status HTTP
 
 Os códigos de status HTTP usados pela API REST de implantação são descritos abaixo.
@@ -169,6 +178,7 @@ Os códigos de status HTTP usados pela API REST de implantação são descritos 
 |===
 
 
+[[response-headers]]
 === Cabeçalhos de resposta
 
 Vários cabeçalhos estão incluídos na resposta HTTP gerada pelo servidor de implantação, incluindo:
@@ -179,6 +189,7 @@ Vários cabeçalhos estão incluídos na resposta HTTP gerada pelo servidor de i
 
 
 
+[[response-body]]
 === Corpo de resposta
 
 O conteúdo da resposta associada a uma solicitação de API difere com base no objeto, no tipo de processamento e no sucesso ou falha da solicitação. O corpo de resposta é renderizado em JSON.

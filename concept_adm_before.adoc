@@ -29,6 +29,7 @@ Existem vários procedimentos específicos para implantar (como alterar a senha 
 
 
 
+[[administer-ontap-select]]
 == Administrar o ONTAP Select
 
 Existem muitos procedimentos administrativos diferentes disponíveis como parte do suporte ao ONTAP Select. Além disso, existem procedimentos específicos para o utilitário administrativo de implantação. Os procedimentos mais importantes são apresentados abaixo. Em geral, todos usam a interface de usuário da Web Deploy.
@@ -38,6 +39,7 @@ NOTE: Também é possível link:https://docs.netapp.com/us-en/ontap-select/task_
 
 
 
+[[perform-additional-ontap-configuration]]
 == Execute a configuração adicional do ONTAP
 
 Depois que um cluster do ONTAP Select é implantado, você pode configurar e gerenciar o cluster da mesma forma que faria com um sistema ONTAP baseado em hardware. Por exemplo, você pode usar o Gerenciador de sistema do ONTAP ou a CLI do ONTAP para configurar o cluster do ONTAP Select.

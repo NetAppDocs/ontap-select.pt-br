@@ -18,6 +18,7 @@ Há várias tarefas relacionadas que você pode executar como parte da proteçã
 
 
 
+[[change-the-deploy-administrator-password]]
 == Altere a senha do administrador de implantação
 
 Você pode alterar a senha da conta de administrador de máquina virtual implantar conforme necessário usando a interface de usuário da Web.
@@ -30,6 +31,7 @@ Você pode alterar a senha da conta de administrador de máquina virtual implant
 
 
 
+[[add-a-management-server-account]]
 == Adicione uma conta de servidor de gerenciamento
 
 Você pode adicionar uma conta de servidor de gerenciamento ao banco de dados de armazenamento de credenciais de implantação.
@@ -67,6 +69,7 @@ Você deve estar familiarizado com os tipos de credenciais e como elas são usad
 
 
 
+[[configure-mfa]]
 == Configurar MFA
 
 A partir do ONTAP Select 9.13.1, a autenticação multifator (MFA) é compatível com a conta de administrador do ONTAP Select Deploy:
@@ -77,10 +80,12 @@ A partir do ONTAP Select 9.13.1, a autenticação multifator (MFA) é compatíve
 
 
 
+[[ontap-select-deploy-cli-mfa-login-using-yubikey-piv-or-fido2-authentication]]
 == ONTAP Select implante o login de MFA da CLI usando a autenticação YubiKey PIV ou FIDO2
 
 
 
+[[yubikey-piv]]
 === YubiKey PIV
 
 Configure o PIN YubiKey e gere ou importe a chave privada e o certificado do Remote Support Agent (RSA) ou Elliptic Curve Digital Signature Algorithm (ECDSA) com as etapas em link:https://docs.netapp.com/us-en/ontap-technical-reports/security.html#multifactor-authentication["TR-4647: Autenticação multifator no ONTAP"^].
@@ -91,6 +96,7 @@ Configure o PIN YubiKey e gere ou importe a chave privada e o certificado do Rem
 
 
 
+[[fido2]]
 === FIDO2
 
 Se você optar por optar pela autenticação YubiKey FIDO2, configure o PIN YubiKey FIDO2 usando o YubiKey Manager e gere a chave FIDO2 com um PuTTY-CAC (Common Access Card) para Windows ou ssh-keygen para MacOS. As etapas para fazer isso estão no relatório técnico link:https://docs.netapp.com/us-en/ontap-technical-reports/security.html#multifactor-authentication["TR-4647: Autenticação multifator no ONTAP"^].
@@ -101,6 +107,7 @@ Se você optar por optar pela autenticação YubiKey FIDO2, configure o PIN Yubi
 
 
 
+[[obtain-the-yubikey-piv-or-fido2-public-key]]
 === Obtenha a chave pública YubiKey PIV ou FIDO2
 
 A obtenção da chave pública depende se você é um cliente Windows ou MacOS e se você está usando PIV ou FIDO2.
@@ -117,6 +124,7 @@ A obtenção da chave pública depende se você é um cliente Windows ou MacOS e
 
 
 
+[[configure-the-public-key-in-ontap-select-deploy]]
 == Configure a chave pública no ONTAP Select Deploy
 
 O SSH é usado pela conta de administrador para o método de autenticação de chave pública. O comando usado é o mesmo se o método de autenticação é a autenticação padrão de chave pública SSH ou autenticação YubiKey PIV ou FIDO2.
@@ -156,6 +164,7 @@ MFA enabled Successfully
 
 
 
+[[log-in-to-ontap-select-deploy-using-yubikey-piv-authentication-over-ssh]]
 == Faça login no ONTAP Select Deploy usando autenticação via SSH
 
 Você pode fazer login no ONTAP Select Deploy usando a autenticação YubiKey PIV via SSH.
@@ -184,6 +193,7 @@ Version: NetApp Release 9.13.1 Build:6811765 08-17-2023 03:08:09
 ----
 
 
+[[ontap-select-deploy-cli-mfa-login-using-ssh-keygen]]
 == ONTAP Select implante o login da CLI MFA usando ssh-keygen
 
 O `ssh-keygen` comando é uma ferramenta para criar novos pares de chaves de autenticação para SSH. Os pares de chaves são usados para automatizar logins, logon único e autenticar hosts.
@@ -236,6 +246,7 @@ Version: NetApp Release 9.13.1 Build:6811765 08-17-2023 03:08:09
 
 
 
+[[migrate-from-mfa-to-single-factor-authentication]]
 === Migração de MFA para autenticação de fator único
 
 O MFA pode ser desativado para a conta de administrador de implantação usando os seguintes métodos:

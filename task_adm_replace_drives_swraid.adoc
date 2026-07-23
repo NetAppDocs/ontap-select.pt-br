@@ -21,6 +21,7 @@ NOTE: Tanto a remoção da unidade com falha quanto a adição de uma nova unida
 
 
 
+[[identify-the-failed-drive]]
 == Identifique a unidade com falha
 
 Quando uma unidade falha, você precisa usar a CLI do ONTAP para identificar o disco com falha.
@@ -86,6 +87,7 @@ NET-1.4 893.3GB - - SSD broken - sti-rx2540-346a'
 ====
 
 
+[[remove-the-failed-drive]]
 == Remova a unidade com falha
 
 Depois de identificar a unidade que falhou, remova o disco.
@@ -211,6 +213,7 @@ image:ST_26.jpg["Aviso"]
 ====
 
 
+[[add-the-new-spare-drive]]
 == Adicione a nova unidade sobressalente
 
 Depois de remover a unidade com falha, adicione o disco sobressalente.

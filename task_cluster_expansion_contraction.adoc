@@ -35,6 +35,7 @@ Você inicia os procedimentos de expansão e contração do cluster no ONTAP Sel
 
 
 
+[[hardware-and-storage-considerations]]
 == Considerações sobre hardware e armazenamento
 
 O recurso de expansão e contração de cluster é suportado nos seguintes hosts de hipervisor KVM e ESXi.
@@ -69,6 +70,7 @@ A expansão e a contração de cluster são suportadas pelas seguintes versões 
 ====
 
 
+[[expand-the-cluster]]
 == Expanda o cluster
 
 Utilize o recurso de expansão de cluster para aumentar o tamanho de um cluster ONTAP Select existente.
@@ -124,6 +126,7 @@ Após expandir o cluster, você deverálink:task_cli_clusters.html["Faça backup
 
 
 
+[[contract-the-cluster]]
 == Contrate o cluster
 
 Utilize o recurso de contração de cluster para diminuir o tamanho de um cluster ONTAP Select existente.

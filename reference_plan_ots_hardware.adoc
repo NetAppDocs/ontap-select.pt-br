@@ -18,6 +18,7 @@ Há vários requisitos de hardware e problemas de Planejamento que você deve co
 
 
 
+[[hypervisor-requirements]]
 == Requisitos de hipervisor
 
 Existem vários requisitos relacionados ao hypervisor em que o ONTAP Select é executado.
@@ -27,12 +28,14 @@ NOTE: Você deve revisar olink:reference_release_notes.html["Notas de versão do
 
 
 
+[[vmware-licensing]]
 === Licenciamento da VMware
 
 Para implantar um cluster do ONTAP Select, sua organização deve ter uma licença válida do VMware vSphere para os hosts de hypervisor em que o ONTAP Select é executado. Você deve usar as licenças apropriadas para sua implantação.
 
 
 
+[[software-compatibility]]
 === Compatibilidade de software
 
 Você pode implantar o ONTAP Select em hipervisores KVM e ESXi.
@@ -69,12 +72,14 @@ NOTE: O ESXi 7.0 GA atingiu o fim da sua disponibilidade.  Se você possui clust
 ====
 
 
+[[vmware-vcenter-and-standalone-esxi-hosts]]
 === VMware vCenter e hosts ESXi independentes
 
 Se um host de hipervisor ESXi for gerenciado por um servidor vCenter, você deverá Registrar o host no utilitário de administração implantar usando as credenciais do vCenter. Não é possível Registrar o host como um host autônomo usando as credenciais ESXi.
 
 
 
+[[core-hardware-requirements]]
 == Requisitos básicos de hardware
 
 O host do hypervisor físico onde você implantar o ONTAP Select deve atender a vários requisitos de hardware. Você pode escolher qualquer plataforma para o host do hypervisor, desde que atenda aos requisitos mínimos de hardware. Os seguintes fornecedores fornecem plataformas de hardware suportadas: Cisco, Dell, HP, Fujitsu, Lenovo e Supermicro.
@@ -85,6 +90,7 @@ Consulte a  https://mysupport.netapp.com/matrix["Ferramenta de Matriz de interop
 
 
 
+[[basic-hardware-requirements]]
 === Requisitos básicos de hardware
 
 Existem vários requisitos comuns de hardware que se aplicam a todas as plataformas, independentemente do tipo de instância do nó ou da oferta de licença.
@@ -112,6 +118,7 @@ Existem várias configurações Ethernet suportadas com base no tamanho do clust
 |===
 
 
+[[additional-hardware-requirements-based-on-the-instance-type]]
 === Requisitos de hardware adicionais baseados no tipo de instância
 
 Existem vários requisitos adicionais de hardware com base no tipo de instância do nó.

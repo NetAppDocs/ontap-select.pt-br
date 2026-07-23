@@ -18,6 +18,7 @@ Existem diversas tarefas relacionadas que você pode executar para administrar u
 
 
 
+[[back-up-the-ontap-select-deploy-configuration-data]]
 == Faça backup dos dados de configuração do ONTAP Select Deploy.
 
 Por exemplo, é possível fazer backup dos dados de configuração do ONTAP Select Deploy após a implantação de um cluster. Os dados são salvos em um único arquivo criptografado que você pode baixar para sua estação de trabalho local.
@@ -54,6 +55,7 @@ Você pode acessar o arquivo de backup através do URL.
 
 
 
+[[delete-an-ontap-select-cluster]]
 == Eliminar um cluster ONTAP Select
 
 Você pode excluir um cluster do ONTAP Select quando ele não for mais necessário.

@@ -18,6 +18,7 @@ Você precisa instalar o utilitário de administração ONTAP Select Deploy e us
 
 
 
+[[step-1-download-the-virtual-machine-image]]
 == Passo 1: Baixe a imagem da máquina virtual.
 
 Faça o download do pacote ONTAP Select no site de suporte da NetApp .
@@ -38,6 +39,7 @@ O utilitário de administração ONTAP Select Deploy é empacotado como uma máq
 
 
 
+[[step-2-verify-the-ontap-select-deploy-ova-signature]]
 == Etapa 2: Verifique a assinatura OVA do ONTAP Select Deploy
 
 Verifique a assinatura do ONTAP Select Open Virtualization Appliance (OVA) antes de instalar o pacote de instalação.
@@ -82,6 +84,7 @@ openssl dgst  -sha256 -verify ONTAP-Select-Deploy-Production.pub -signature ONTA
 
 
 
+[[step-3-deploy-the-virtual-machine]]
 == Etapa 3: Implante a máquina virtual
 
 Instale e inicie a máquina virtual ONTAP Select Deploy usando a imagem OVF da máquina virtual. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
@@ -198,6 +201,7 @@ Use DHCP to set networking information? [n]:
 ====
 
 
+[[step-4-sign-in-to-the-deploy-web-interface]]
 == Etapa 4: Sign in na interface web de implantação.
 
 Sign in na interface de usuário web para confirmar se o utilitário de implantação está disponível e realizar a configuração inicial.

@@ -20,6 +20,7 @@ Algumas das informações coletadas se aplicam ao próprio cluster, enquanto out
 
 
 
+[[cluster-level-information]]
 == Informações em nível de cluster
 
 Você deve coletar informações relacionadas ao cluster do ONTAP Select.
@@ -39,6 +40,7 @@ Você deve coletar informações relacionadas ao cluster do ONTAP Select.
 |===
 
 
+[[host-level-information]]
 == Informações em nível de host
 
 Você deve coletar informações relacionadas a cada um dos nós no cluster do ONTAP Select.

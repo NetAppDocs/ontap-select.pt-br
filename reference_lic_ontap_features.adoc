@@ -21,6 +21,8 @@ NOTE: Os recursos do ONTAP que têm dependências específicas de hardware geral
 
 
 
+[[ontap-features-licensed-by-default]]
+[[licensed-ontap-features]]
 == Recursos do ONTAP licenciados por padrão
 
 Os seguintes recursos do ONTAP são compatíveis com o ONTAP Select e licenciados por padrão:
@@ -56,6 +58,9 @@ SnapLock Select é a implementação do ONTAP SnapLock projetada para ONTAP Sele
 Saiba mais sobrelink:https://docs.netapp.com/us-en/ontap/snaplock/index.html["ONTAP SnapLock"^]
 
 * SnapMirror
++
+ONTAP Select não suporta grupos de consistência em Asynchronous SnapMirror.
+
 * SnapRestore
 * SnapVault
 * Recuperação de desastres de VM de storage (SVM DR)
@@ -66,6 +71,8 @@ ONTAP Select suporta SVM DR como origem e destino, com um máximo de 16 relacion
 
 
 
+[[ontap-features-that-are-separately-licensed]]
+[[other-ontap-features]]
 == Recursos do ONTAP licenciados separadamente
 
 Você precisa adquirir uma licença separada para qualquer recurso do ONTAP que não esteja licenciado por padrão, incluindo:

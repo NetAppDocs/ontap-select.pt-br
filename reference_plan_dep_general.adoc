@@ -18,6 +18,7 @@ Existem vários requisitos gerais que você deve considerar como parte do Planej
 
 
 
+[[pairing-the-deploy-utility-with-the-ontap-select-clusters]]
 == Emparelhar o utilitário Deploy com os clusters ONTAP Select
 
 Você tem várias opções ao emparelhar uma instância do utilitário implantar com os clusters do ONTAP Select.
@@ -36,6 +37,7 @@ NOTE: Uma instância do utilitário implantar pode administrar até 400 nós ONT
 
 
 
+[[requirements-related-to-the-kvm-environment]]
 == Requisitos relacionados ao ambiente KVM
 
 Antes de instalar o utilitário de administração implantar em um ambiente de hipervisor KVM, você deve analisar os requisitos básicos e se preparar para a implantação.
@@ -70,6 +72,7 @@ O ONTAP Select Deploy só suporta IP versão 4 (IPv4). A versão IP 6 (IPv6) nã
 
 
 
+[[required-configuration-information]]
 == Informações de configuração necessárias
 
 Como parte do Planejamento de implantação, você deve determinar as informações de configuração necessárias antes de instalar o utilitário de administração ONTAP Select Deploy.
@@ -88,6 +91,7 @@ A rede onde a VM de implantação está conetada.
 
 
 
+[[optional-network-configuration-information]]
 == Informações de configuração de rede opcionais
 
 A VM de implantação é configurada usando o DHCP por padrão. No entanto, se necessário, você pode configurar manualmente a interface de rede para a VM.
@@ -115,6 +119,7 @@ Os domínios de pesquisa a utilizar.
 
 
 
+[[authentication-using-the-credential-store]]
 == Autenticação usando o armazenamento de credenciais
 
 O armazenamento de credenciais ONTAP Select Deploy é uma base de dados contendo informações de conta. O Deploy usa as credenciais da conta para executar a autenticação do host como parte da criação e gerenciamento do cluster. Você deve estar ciente de como o armazenamento de credenciais é usado como parte do Planejamento de uma implantação do ONTAP Select.

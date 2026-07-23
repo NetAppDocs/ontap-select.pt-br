@@ -42,6 +42,7 @@ NOTE: O cluster de dois nós do ONTAP Select é composto por um par de HA e um m
 
 
 
+[[two-node-ha-versus-multi-node-ha]]
 == Ha de dois nós versus HA de vários nós
 
 Ao contrário dos arrays FAS, os nós ONTAP Select em um par de HA comunicam-se exclusivamente pela rede IP. Isso significa que a rede IP é um ponto único de falha (SPOF), e proteger contra particionamentos de rede e cenários de split-brain torna-se um aspecto importante do projeto. O cluster com vários nós pode suportar falhas de um único nó porque o quorum do cluster pode ser estabelecido pelos três ou mais nós sobreviventes. O cluster de dois nós depende do serviço de mediação hospedado pela VM do ONTAP Deploy para obter o mesmo resultado.
@@ -57,6 +58,7 @@ Uma ação administrativa é necessária se o local original do mediador tiver d
 
 
 
+[[two-node-ha-versus-two-node-stretched-ha-metrocluster-sds]]
 == Ha de dois nós versus HA estendida de dois nós (MetroCluster SDS)
 
 É possível esticar um cluster de HA ativo/ativo de dois nós em distâncias maiores e potencialmente colocar cada nó em um data center diferente. A única distinção entre um cluster de dois nós e um cluster estendido de dois nós (também conhecido como MetroCluster SDS) é a distância de conetividade de rede entre nós.

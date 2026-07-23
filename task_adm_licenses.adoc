@@ -18,6 +18,7 @@ Existem várias tarefas relacionadas que podem ser executadas como parte da admi
 
 
 
+[[manage-the-capacity-tier-licenses]]
 == Gerenciar as licenças do nível de capacidade
 
 Você pode adicionar, editar e excluir licenças do nível de capacidade do ONTAP Select conforme necessário.
@@ -33,6 +34,7 @@ Você pode adicionar, editar e excluir licenças do nível de capacidade do ONTA
 
 
 
+[[manage-the-capacity-pool-licenses]]
 == Gerenciar as licenças do pool de capacidade
 
 Você pode adicionar, editar e excluir licenças do pool de capacidade do ONTAP Select conforme necessário.
@@ -81,6 +83,7 @@ Para renovar uma licença existente:
 
 
 
+[[reinstall-a-capacity-pool-license]]
 == Reinstale uma licença do pool de capacidade
 
 Cada licença do pool de capacidade ativo é bloqueada para uma instância específica do Gerenciador de licenças, que está contida em uma instância do utilitário de administração implantar. Se você estiver usando uma licença do pool de capacidade e, em seguida, restaurar ou recuperar a instância de implantação, a licença original não será mais válida. Você deve gerar um novo arquivo de licença de capacidade e instalar a licença na nova instância de implantação.
@@ -145,6 +148,8 @@ Consulte link:task_lic_acquire_cp.html["Adquirir uma licença de pool de capacid
 
 
 
+[[convert-an-evaluation-license-to-a-production-license]]
+[[convert-license]]
 == Converter uma licença de avaliação em uma licença de produção
 
 Você pode atualizar um cluster de avaliação do ONTAP Select para usar uma licença de nível de capacidade de produção com o utilitário de administração implantar.
@@ -176,6 +181,7 @@ Os números de série de vinte dígitos atribuídos originalmente a cada nó par
 
 
 
+[[manage-an-expired-capacity-pool-license]]
 == Gerenciar uma licença de pool de capacidade expirada
 
 Geralmente, quando uma licença expira, nada acontece. No entanto, não é possível instalar uma licença diferente porque os nós estão associados à licença expirada. Até que você renove a licença, você deve _não_ fazer qualquer coisa que traga o agregado off-line, como uma operação de reinicialização ou failover. A ação recomendada é acelerar a renovação da licença.
@@ -184,6 +190,7 @@ Para obter mais informações sobre ONTAP Select e renovação de licença, cons
 
 
 
+[[manage-add-on-licenses]]
 == Gerenciar licenças complementares
 
 Para o produto ONTAP Select, as licenças complementares são aplicadas diretamente no ONTAP e não são gerenciadas por meio do ONTAP Select Deploy. link:https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Visão geral de gerenciamento de licenças (somente administradores de cluster)"^]Consulte e link:https://docs.netapp.com/us-en/ontap/task_admin_enable_new_features.html["Ative novos recursos adicionando chaves de licença"^] para obter mais informações.

@@ -26,6 +26,7 @@ Você pode implantar uma instância de avaliação de 90 dias de um cluster ONTA
 
 
 
+[[step-1-prepare-the-ontap-select-cluster-host]]
 == Etapa 1: Prepare o host do cluster ONTAP Select
 
 Use os seguintes requisitos para preparar o host ESXi onde o cluster ONTAP Select é implantado. A descrição da plataforma é baseada na configuração do tipo de instância padrão ou pequena com armazenamento de conexão direta (DAS) local formatado usando o sistema de arquivos VMFS-5 ou VMFS-6.
@@ -36,6 +37,7 @@ Para obter informações adicionais sobre as opções de configuração do host,
 
 
 
+[[step-2-deploy-a-single-node-ontap-select-cluster-using-an-ovf-template]]
 == Etapa 2: Implante um cluster ONTAP Select de nó único usando um modelo OVF
 
 Conclua as etapas a seguir em um servidor host ESXi de 64 bits compatível.

@@ -18,6 +18,7 @@ Você pode configurar o ONTAP Select no hipervisor KVM com um storage array exte
 
 
 
+[[basic-requirements-and-restrictions]]
 == Requisitos básicos e restrições
 
 Se você usar um array externo para os pools de armazenamento do ONTAP Select, as seguintes restrições de configuração se aplicam:
@@ -33,6 +34,7 @@ CAUTION: A capacidade de armazenamento especificada tem de estar dentro dos limi
 
 
 
+[[best-practices]]
 == Práticas recomendadas
 
 Você deve seguir estas boas práticas:

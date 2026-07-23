@@ -18,6 +18,7 @@ Se o utilitário ONTAP Select Deploy falhar ou ficar indisponível por algum mot
 
 
 
+[[prepare-to-recover-the-deploy-utility]]
 == Prepare-se para recuperar o utilitário Deploy.
 
 Para garantir o sucesso, é necessário se preparar antes de tentar recuperar uma instância do utilitário Deploy.  Você deve estar familiarizado com diversos procedimentos administrativos e possuir as informações necessárias.
@@ -51,6 +52,8 @@ link:task_cli_migrate_deploy.html#step-3-restore-the-deploy-configuration-data-t
 
 
 
+[[restore-a-deploy-utility-instance-using-a-configuration-backup]]
+[[restore-deploy-backup]]
 == Restaure uma instância de utilitário de implantação usando um backup de configuração
 
 Se você tiver um backup da instância do utilitário de implantação com falha que contém o cluster de dois nós, poderá restaurar os dados de configuração para a nova instância de implantação de máquina virtual. Em seguida, concluir a recuperação executando a configuração adicional dos dois nós no cluster do ONTAP Select.
@@ -127,6 +130,8 @@ Se você utiliza o licenciamento de Pools de Capacidade, reinstale cada licença
 
 
 
+[[reconfigure-and-recover-a-deploy-utility-instance]]
+[[restore-and-recover-deploy]]
 == Reconfigure e recupere uma instância de utilitário de implantação
 
 Caso não possua um backup da instância do utilitário Deploy que apresentou falha e que contém o cluster de dois nós, configure o destino iSCSI do mediador e a caixa de correio na nova máquina virtual do Deploy.  Em seguida, você conclui a recuperação realizando configurações adicionais nos dois nós do cluster ONTAP Select .

@@ -18,6 +18,7 @@ Você pode comprar uma licença do nível de capacidade ou do pool de capacidade
 
 
 
+[[what-a-platform-license-offering-provides]]
 == O que uma oferta de licença de plataforma oferece
 
 Uma oferta de licença específica determina os recursos do host do hipervisor em duas áreas:
@@ -69,6 +70,7 @@ NOTE: Máquinas virtuais baseadas em kernel (KVM) não suportam o tipo de instâ
 
 
 
+[[compare-hardware-support-for-platform-license-offerings]]
 == Compare o suporte de hardware para ofertas de licença de plataforma
 
 As licenças padrão, premium e premium XL oferecem suporte a uma ampla variedade de hardware e software. Para informações atualizadas sobre as versões de hardware e software, consulte a link:https://mysupport.netapp.com/matrix/["Ferramenta de Matriz de interoperabilidade"^].

@@ -21,6 +21,7 @@ CAUTION: Você não deve modificar diretamente a configuração de uma máquina 
 
 
 
+[[hypervisor-independent]]
 == Independente do hipervisor
 
 Tanto o ONTAP Select quanto o utilitário de administração do ONTAP Select Deploy são independentes do hipervisor.
@@ -64,6 +65,7 @@ Não é possível adicionar um nó ONTAP Select diretamente a um cluster baseado
 
 
 
+[[vmware-hypervisor-environment]]
 == Ambiente de hipervisor VMware
 
 Há vários requisitos e restrições específicos para o ambiente VMware que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente VMware.
@@ -106,6 +108,7 @@ O ONTAP Select Deploy só suporta IP versão 4 (IPv4). A versão IP 6 (IPv6) nã
 
 
 
+[[vmware-vcenter-server-considerations]]
 == Considerações sobre o servidor VMware vCenter
 
 .Privilégios do VMware vSphere para ESA

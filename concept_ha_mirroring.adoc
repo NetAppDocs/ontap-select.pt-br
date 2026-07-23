@@ -18,6 +18,7 @@ Evite a perda de dados usando RAID SyncMirror (RSM), agregados espelhados e cami
 
 
 
+[[synchronous-replication]]
 == Replicação síncrona
 
 O modelo ONTAP HA foi desenvolvido com base no conceito de parceiros de HA. O ONTAP Select estende essa arquitetura para o mundo dos servidores comuns não compartilhados usando o recurso RAID SyncMirror (RSM) presente no ONTAP para replicar blocos de dados entre nós do cluster, fornecendo duas cópias de dados de usuários espalhados por um par de HA.
@@ -26,6 +27,7 @@ Um cluster de dois nós com um mediador pode abranger dois data centers. Para ob
 
 
 
+[[mirrored-aggregates]]
 == Agregados espelhados
 
 Um cluster ONTAP Select é composto de dois a doze nós. Cada par de HA contém duas cópias de dados do usuário, espelhadas de forma síncrona entre os nós por meio de uma rede IP.  Esse espelhamento é transparente para o usuário e é uma propriedade do agregado de dados, que é configurada automaticamente durante o processo de criação do agregado de dados.
@@ -54,6 +56,7 @@ NOTE: Quando um cluster ONTAP Select é implantado, todos os discos virtuais pre
 
 
 
+[[write-path]]
 == Escrever caminho
 
 O espelhamento síncrono de blocos de dados entre os nós do cluster e o requisito para nenhuma perda de dados com uma falha do sistema têm um impacto significativo no caminho que uma gravação recebida leva à medida que se propaga por um cluster ONTAP Select. Este processo consiste em duas etapas:

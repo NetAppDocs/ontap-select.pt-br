@@ -18,6 +18,7 @@ Antes de instalar o utilitário de administração implantar em um ambiente de h
 
 
 
+[[required-configuration-information]]
 == Informações de configuração necessárias
 
 Como parte do Planejamento de implantação, você deve determinar as informações de configuração necessárias antes de instalar o utilitário de administração ONTAP Select Deploy.
@@ -40,6 +41,7 @@ Como parte do Planejamento de implantação, você deve determinar as informaç�
 |===
 
 
+[[optional-network-configuration-information]]
 == Informações de configuração de rede opcionais
 
 A máquina virtual implantar é configurada usando DHCP por padrão. No entanto, se necessário, você pode configurar manualmente a interface de rede para a máquina virtual.

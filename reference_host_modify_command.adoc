@@ -18,12 +18,14 @@ Você pode usar o `host modify` comando para modificar um servidor de gerenciame
 
 
 
+[[syntax]]
 == Sintaxe
 
 `host modify [-help] [-foreground] -name _name_ -mgmt-server _management_server_ [-username _username_]`
 
 
 
+[[required-parameters]]
 == Parâmetros necessários
 
 [cols="35,65"]
@@ -48,6 +50,7 @@ O endereço IP ou FQDN do servidor de gerenciamento do host a ser definido como 
 |===
 
 
+[[optional-parameters]]
 == Parâmetros opcionais
 
 [cols="35,65"]

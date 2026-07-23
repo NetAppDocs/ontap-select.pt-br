@@ -23,6 +23,8 @@ TIP: Você também link:https://docs.netapp.com/us-en/ontap-select/task_cli_depl
 
 
 
+[[step-1-prepare-for-the-deployment]]
+[[prepare-for-deploy]]
 == Etapa 1: preparar para a implantação
 
 Prepare-se para a implantação para garantir que ela seja bem-sucedida.
@@ -87,6 +89,8 @@ Se você estiver implantando um cluster de vários nós, deverá estar familiari
 
 
 
+[[step-2-create-a-single-node-or-multi-node-cluster]]
+[[create-single-or-multi-node-cluster]]
 == Etapa 2: criar um cluster de nó único ou de vários nós
 
 Você pode usar a interface de usuário da Web ONTAP Select Deploy para implantar um cluster ONTAP Select de nó único ou de vários nós.
@@ -196,6 +200,7 @@ A página é atualizada automaticamente em intervalos regulares.
 ====
 
 
+[[step-3-complete-the-deployment]]
 == Etapa 3: Conclua a implantação
 
 Após a implantação do cluster,link:https://docs.netapp.com/us-en/ontap/system-admin/setup-autosupport-task.html["Confirme se o recurso ONTAP Select AutoSupport está configurado."^] e entãolink:task_cli_clusters.html["Faça backup dos dados de configuração do ONTAP Select Deploy."] .

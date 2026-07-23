@@ -18,6 +18,7 @@ O ONTAP Select Deploy é o utilitário de administração usado para implantar e
 
 
 
+[[core-functionality]]
 == Funcionalidade principal
 
 O utilitário de administração implantar executa as seguintes funções principais:
@@ -33,18 +34,21 @@ O utilitário de administração implantar executa as seguintes funções princi
 
 
 
+[[ways-you-can-access-the-deploy-utility]]
 == Maneiras de acessar o utilitário implantar
 
 Você tem várias opções disponíveis ao acessar o utilitário de administração implantar. Todas as interfaces externas são funcionalmente equivalentes. Você deve selecionar a opção de acesso que melhor corresponda aos seus objetivos e requisitos de implantação específicos. Em todos os casos, você deve entrar usando a conta de administrador com uma senha válida.
 
 
 
+[[web-graphical-user-interface]]
 === Interface gráfica do usuário da Web
 
 Você pode acessar o utilitário Deploy por meio de um navegador web moderno. A interface gráfica do usuário (UI) oferece uma interface intuitiva e fácil de usar e, na maioria dos casos, será sua interface principal ao usar o utilitário.
 
 
 
+[[command-line-interface]]
 === Interface de linha de comando
 
 Uma interface de linha de comando baseada em texto está disponível através do shell de gerenciamento. Você pode acessar o shell de gerenciamento da CLI das seguintes maneiras:
@@ -57,6 +61,7 @@ Você normalmente usa o console da máquina virtual como parte do processo de in
 
 
 
+[[rest-web-services-api]]
 === API REST de serviços da Web
 
 A API REST de serviços da Web exposta a clientes externos fornece outra opção ao se conetar ao utilitário Deploy. Você pode acessar a API usando qualquer linguagem ou ferramenta de programação convencional que suporte serviços da Web REST. As escolhas populares incluem:
@@ -70,6 +75,7 @@ O uso de uma linguagem de programação ou script oferece a oportunidade de auto
 
 
 
+[[ontap-select-online-documentation-web-page]]
 === Página da web de documentação on-line do ONTAP Select
 
 Exibir a página da Web de documentação on-line no utilitário deploy é uma maneira alternativa de acessar a API REST de serviços da Web. No entanto, em vez de usar uma linguagem de programação, você acessa a API de gerenciamento através da página usando um navegador. As seguintes caraterísticas são fornecidas:
