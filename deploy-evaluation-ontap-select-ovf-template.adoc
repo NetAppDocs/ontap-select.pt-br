@@ -19,7 +19,6 @@ Você pode implantar uma instância de avaliação de 90 dias de um cluster ONTA
 .Sobre esta tarefa
 * Não é necessário obter um número de série ou uma licença de capacidade de armazenamento da NetApp.
 * Você pode alocar a mesma quantidade de armazenamento para dados de usuário que uma licença adquirida.
-* Não é possível atualizar o nó de uma licença de avaliação para uma licença adquirida.
 * Você só pode usar uma conta do vCenter para implantar o modelo OVF. A instalação diretamente em um host ESXi não é atualmente suportada.
 * Você deve instalar o modelo OVF (contido em um arquivo ova) usando o cliente autônomo vSphere ou o cliente web vSphere (a única opção para ESXi 8.0 e posteriores). Não use o utilitário de administração ONTAP Select Deploy.
 
