@@ -14,13 +14,18 @@ summary: A licença Capacity Tiers baseia-se na capacidade de disco subjacente g
 
 
 [role="lead"]
-A capacidade licenciada para uma licença de Capacity Pool é em quantidades inteiras de TB, com um mínimo de 2 TB. Você calcula a capacidade licenciada multiplicando a quantidade de espaço utilizável pelo fator de sobrecarga. O fator de sobrecarga difere entre um cluster de nó único e clusters multinó (baseados em par de HA):
+A capacidade licenciada para uma licença de Capacity Pool é em quantidades inteiras de TB, com um mínimo de 2 TB. Você calcula a capacidade licenciada multiplicando a quantidade de espaço utilizável pelo fator de sobrecarga. O fator de sobrecarga estima a capacidade de sobrecarga do software ONTAP Select a ser retirada do espaço utilizável e se aplica à determinação da capacidade do ONTAP Select para unidades NVMe, SSD, HDD ou virtuais. O fator de sobrecarga difere entre clusters de nó único e clusters multinós (baseados em par de HA):
 
 * O fator de sobrecarga para clusters de nó único é 1.13
 * Fator de sobrecarga para clusters com vários nós é 2,67
 
 
-Você precisa calcular a capacidade licenciada com base no espaço utilizável para garantir que tenha o suficiente para sua implantação.
+Você precisa calcular a capacidade licenciada com base no espaço utilizável para garantir que você tenha o suficiente para sua implantação. Por exemplo, você quer 20 TB de capacidade utilizável para um par de HA (10 TB por nó):
+
+* Com um par de HA, os dados são duplicados entre ambos os nós para redundância, então, para 20 TB de dados utilizáveis em um par de HA, você precisa ter 20 TB por nó, caso um dos nós fique offline.
+* O fator 2,67 duplica a capacidade de cada nó e adiciona a capacidade de sobrecarga (0,67) necessária para o funcionamento do ONTAP Select.
+* A capacidade de licença por nó é de 27 TB (10 x 2,67 = 26,7). Para o par de HA, você precisa de duas licenças de 27 TB para ter 20 TB de capacidade utilizável.
+
 
 [cols="25,30,45"]
 |===

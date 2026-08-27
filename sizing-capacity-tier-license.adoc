@@ -16,13 +16,18 @@ summary: A licença Capacity Tiers baseia-se na capacidade de disco subjacente g
 [role="lead"]
 A licença Capacity Tiers baseia-se na capacidade de disco subjacente gerenciada por cada nó ONTAP Select e não na capacidade utilizável do nó, par de HA ou cluster. Cada licença Capacity Tiers é atribuída a um número de série de nó individual para uma capacidade específica e requer um contrato de suporte correspondente.
 
-A capacidade licenciada para uma licença Capacity Tiers é em quantidades inteiras de TB, com um mínimo de 1 TB. Você calcula a capacidade licenciada multiplicando a quantidade de espaço utilizável pelo fator de sobrecarga. O fator de sobrecarga difere entre um cluster de nó único e clusters multinós (baseados em par de HA):
+A capacidade licenciada para uma licença Capacity Tiers é expressa em TB completos, com um mínimo de 1 TB. Você calcula a capacidade licenciada multiplicando a quantidade de espaço utilizável pelo fator de sobrecarga. O fator de sobrecarga estima a capacidade de sobrecarga do software ONTAP Select a ser consumida do espaço utilizável e se aplica à determinação da capacidade do ONTAP Select para unidades NVMe, SSD, HDD ou virtuais. O fator de sobrecarga difere entre clusters de nó único e clusters multinós (baseados em par de HA):
 
 * O fator de sobrecarga para clusters de nó único é 1.13
 * Fator de sobrecarga para clusters com vários nós é 2,67
 
 
-Calcule a capacidade licenciada com base no espaço utilizável para garantir que você tenha o suficiente para sua implantação.
+Você precisa calcular a capacidade licenciada com base no espaço utilizável para garantir que você tenha o suficiente para sua implantação. Por exemplo, você quer 10 TB de capacidade utilizável para um par de HA (5 TB por nó):
+
+* Com um par de HA, os dados são duplicados entre ambos os nós para redundância, então para 10 TB de dados utilizáveis em um par de HA, você precisa ter 10 TB por nó, caso um dos nós fique offline.
+* O fator 2,67 duplica a capacidade de cada nó e adiciona a capacidade de sobrecarga (0,67) necessária para o funcionamento do ONTAP Select.
+* A capacidade de licença por nó é de 14 TB (5 x 2,67 = 13,35). Para o par de HA, você precisa de duas licenças de 14 TB para ter 10 TB de capacidade utilizável.
+
 
 [cols="25,30,45"]
 |===

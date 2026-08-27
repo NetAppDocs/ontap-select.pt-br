@@ -221,11 +221,7 @@ sidebar:
       - title: Outras funções de alta disponibilidade
         url: "/concept_ha_other.html"
     - title: Desempenho
-      entries:
-      - title: Visão geral do desempenho
-        url: "/concept_perf_general.html"
-      - title: Desempenho do ONTAP Select 9,6
-        url: "/concept_perf_premium_ha_direct_ssd_96.html"
+      url: "/concept_perf_general.html"
   - title: Automatize com REST
     entries:
     - title: Conceitos
