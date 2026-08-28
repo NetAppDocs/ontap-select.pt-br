@@ -4,7 +4,7 @@ permalink: sizing-capacity-pool-license.html
 keywords: license, licensing, Capacity Tiers, usable, space 
 summary: A licença Capacity Tiers baseia-se na capacidade de disco subjacente gerenciada por cada nó e não na capacidade utilizável do nó, par de HA ou cluster. Cada licença Capacity Tiers é atribuída a um número de série de nó individual para uma capacidade específica e requer um contrato de suporte correspondente. 
 ---
-= Considerações para o dimensionamento de uma licença ONTAP Select Capacity Pools
+= Determine o tamanho da licença dos Capacity Pools para o ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

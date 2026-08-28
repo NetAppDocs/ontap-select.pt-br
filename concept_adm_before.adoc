@@ -4,7 +4,7 @@ permalink: concept_adm_before.html
 keywords: administer, administering, web, before you begin 
 summary: Depois de criar um cluster do ONTAP Select, você pode dar suporte à implantação executando várias tarefas administrativas. Há algumas considerações gerais a serem tomadas em consideração. 
 ---
-= Antes de começar a administrar o ONTAP Select
+= Saiba mais sobre como administrar o ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

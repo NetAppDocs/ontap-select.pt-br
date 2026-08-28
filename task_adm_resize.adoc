@@ -4,7 +4,7 @@ permalink: task_adm_resize.html
 keywords: administer, administering, web, resizing nodes, resizing 
 summary: Depois de implantar um cluster do ONTAP Select, você pode atualizar o tipo de instância do hypervisor dos nós usando o utilitário de administração implantar. 
 ---
-= Redimensione os nós de cluster do ONTAP Select
+= Redimensionar os nós do cluster ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -4,7 +4,7 @@ permalink: esxi-host-configuration-and-preparation-checklist.html
 keywords: ontap select, pre-installation checklist, esxi, host preparation 
 summary: Prepare cada host do hipervisor ESXi onde um nó ONTAP Select está implantado. Ao preparar os hosts, avalie cuidadosamente o ambiente de implantação para garantir que eles estejam configurados corretamente e prontos para suportar a implantação de um cluster ONTAP Select . 
 ---
-= Lista de verificação de configuração e preparação do host ESXi para ONTAP Select
+= Prepare um host ESXi para o ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

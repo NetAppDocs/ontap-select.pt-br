@@ -4,7 +4,7 @@ permalink: task_cli_connectivity.html
 keywords: administer, administering, cli, connectivity, network connectivity, network checker 
 summary: Você pode testar a conetividade de rede entre dois ou mais nós ONTAP Select na rede interna do cluster. Normalmente, você executa esse teste antes que um cluster de vários nós seja implantado para detetar problemas que possam causar falha na operação. 
 ---
-= Confirme a conetividade de rede entre os nós ONTAP Select
+= Confirme a conectividade de rede entre os nós do ONTAP Select
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
