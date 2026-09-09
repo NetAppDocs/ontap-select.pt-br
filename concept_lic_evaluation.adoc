@@ -4,7 +4,7 @@ permalink: concept_lic_evaluation.html
 keywords: license, licensing, evaluation, upgrade license 
 summary: Você pode usar uma licença de avaliação se quiser avaliar o ONTAP Select antes de tomar a decisão de comprar. A licença de avaliação está incluída no utilitário de administração ONTAP Select Deploy e é aplicada automaticamente a cada nó do ONTAP Select como parte de uma implantação de avaliação. 
 ---
-= Licenças de avaliação para implantações ONTAP Select
+= Saiba mais sobre as licenças de avaliação para implementações do ONTAP Select.
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

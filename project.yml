@@ -249,7 +249,7 @@ sidebar:
       - title: Antes de começar
         url: "/concept_api_before_workflows.html"
       - title: Crie um cluster no ESXi
-        url: "/reference_api_workflow01.html"
+        url: "/reference_api_workflow.html"
     - title: Acesso com Python
       entries:
       - title: Antes de começar
@@ -258,7 +258,7 @@ sidebar:
         url: "/concept_api_understanding_scripts.html"
     - title: Amostras de código Python
       entries:
-      - title: Crie um cluster usando script
+      - title: Script para criar um cluster
         url: "/reference_api_script_cc.html"
       - title: JSON para criar um cluster
         url: "/reference_api_json_cc.html"

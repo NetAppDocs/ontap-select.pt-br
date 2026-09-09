@@ -16,4 +16,28 @@ summary: Há um processo de fluxo de trabalho que você pode usar para implantar
 [role="lead"]
 Você pode usar o fluxo de trabalho a seguir para implantar e administrar um cluster do ONTAP Select.
 
-image:deploy_workflow2.png["Descreve o fluxo de trabalho completo necessário para implantar um cluster ONTAP Select."]
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Um"] link:reference_plan_ots_general.html["Planeje a implantação e prepare o ambiente"]
+[role="quick-margin-para"]
+Analise os requisitos de planejamento para seus nós ONTAP Select, armazenamento, rede e ambiente de hipervisor. Preparar seu ambiente com antecedência ajuda você a evitar problemas de implantação.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Dois"] link:task_install_deploy.html["Instale o utilitário de administração ONTAP Select Deploy"]
+[role="quick-margin-para"]
+Instale o utilitário que você usa para implantar e gerenciar os clusters ONTAP Select.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Três"] link:concept_lic_workflow.html["Adquira as licenças necessárias para uma implementação em produção"]
+[role="quick-margin-para"]
+Adquira e aplique as licenças necessárias para sua implantação em produção. Você pode escolher entre os modelos de licenciamento por Capacity Tiers e Capacity Pools.
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Quatro"]Implante um cluster ONTAP Select usando o utilitário de administração ONTAP Select Deploy
+[role="quick-margin-para"]
+Use o utilitário Deploy para criar seu cluster ONTAP Select:
+
+[role="quick-margin-list"]
+* link:task_deploy_cluster.html["Implante usando a interface web"]
+* link:task_cli_deploy_cluster.html["Implante usando a CLI"]
+* link:reference_api_workflow.html["Implante usando a API REST"]
+
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Cinco"] link:concept_adm_before.html["Administre o cluster ONTAP Select usando as ferramentas e interfaces de gerenciamento padrão da NetApp"]
+[role="quick-margin-para"]
+Administre o seu cluster ONTAP Select usando as mesmas ferramentas e interfaces de gerenciamento que você usa para outros clusters ONTAP.
