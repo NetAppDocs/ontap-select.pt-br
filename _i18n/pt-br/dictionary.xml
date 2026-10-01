@@ -2619,7 +2619,6 @@
   <block id="fa0fa8503380df9df5c58ad57a531ff5" category="sidebar">Biblioteca de produtos ONTAP Select</block>
   <block id="c09b5be4c2da04f4040eef1878f258aa" category="sidebar">Documentação do ONTAP 9</block>
   <block id="5c7750df890d8a1ae46102a5c56d163d" category="sidebar">ONTAP Select blogs</block>
-  <block id="bafb5d4f7ed06fcf88f3e77fadecc81b" category="sidebar">ONTAP Select comunidade</block>
   <block id="dd3d71b5f68ad8da8831a0b5ea514e35" category="sidebar">Matriz de interoperabilidade</block>
   <block id="5dd03e8d039863e563e049be198c3fd3" category="sidebar">Notas de versão</block>
   <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">Conceitos</block>
@@ -4032,4 +4031,5 @@
   <block id="d8dbba8f3ce92ce5f07a5e0348eee10d" category="inline-link-macro">lista de verificação pré-instalação</block>
   <block id="cdf955804034c3c67f90a9fa2b26792d" category="paragraph">Você revisou o <block ref="1a659edfd1511c28d59e934c80be869d" category="inline-link-macro-rx"></block>.</block>
   <block id="e16c906ba61aeeafbcb69e14b4357d15" category="sidebar">Script para criar um cluster</block>
+  <block id="9a2f5932020cd5f8335afc3f02118937" category="sidebar">A comunidade ONTAP</block>
 </blocks>
