@@ -93,13 +93,17 @@ openssl dgst  -sha256 -verify ONTAP-Select-Deploy-Production.pub -signature ONTA
 Instale e inicie a máquina virtual ONTAP Select Deploy usando a imagem OVF da máquina virtual. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
 
 .Antes de começar
+[role="tabbed-block"]
+====
+.ESXi
+--
 Para um hypervisor ESXi, você deve se preparar para implantar a VM de implantação do ONTAP Select:
 
 * Ative a funcionalidade OVF no seu navegador instalando o plug-in de integração de cliente VMware ou executando configuração semelhante conforme necessário
 * Ative o DHCP no ambiente VMware se você atribuir dinamicamente um endereço IP à VM de implantação
 
 
-Para hipervisores ESXi e KVM, é necessário ter as informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, da rede externa e do nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:
+Você precisa ter as informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, a rede externa e o nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:
 
 * Endereço IP da VM de implantação
 * Máscara de rede
@@ -109,6 +113,21 @@ Para hipervisores ESXi e KVM, é necessário ter as informações de configuraç
 * Domínios de pesquisa DNS
 
 
+--
+.KVM
+--
+Para hipervisores KVM, você precisa das informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, a rede externa e o nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:
+
+* Endereço IP da VM de implantação
+* Máscara de rede
+* Endereço IP do gateway (roteador)
+* Endereço IP do servidor DNS primário
+* Endereço IP do segundo servidor DNS
+* Domínios de pesquisa DNS
+
+
+--
+====
 .Sobre esta tarefa
 Se você usar o vSphere, o assistente implantar modelo OVF inclui um formulário para fornecer todas as informações de configuração de implantação, incluindo a configuração de rede. No entanto, se você optar por não usar este formulário, poderá usar o console da VM de implantação para configurar a rede.
 

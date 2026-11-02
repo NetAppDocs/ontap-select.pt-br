@@ -48,6 +48,7 @@ A partir do ONTAP Select 9.15.1, a expansão e a contração de cluster são sup
 
 A expansão e a contração de cluster são suportadas nas seguintes versões do hipervisor ESXi:
 
+* ESXi 9.1
 * ESXi 9.0
 * ESXi 8,0 U3
 * ESXi 8,0 U2

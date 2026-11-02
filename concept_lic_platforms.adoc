@@ -150,16 +150,19 @@ A tabela a seguir fornece o tipo de licença mínimo necessário para o armazena
 2+| Tamanho da instância | Pequeno | Pequeno e médio | Pequeno, médio e grande 
 
 
-2+| DAS local com controladora RAID de hardware | 8 - 60 unidades | 8 - 60 unidades | 8 - 60 unidades 
+2+| DAS local com controladora RAID de hardware | 8 a 60 discos | 8 a 60 discos | 8 a 60 discos 
 
 
 2+| HDD (SAS, NL-SAS, SATA) | Não aplicável | 4 – 60 unidades | 4 – 60 unidades 
 
 
-2+| SSD (SAS) | Não aplicável | 4 – 60 unidades (somente SSD) | 4 – 60 unidades (somente SSD) 
+2+| SSD (SAS) | Não aplicável | 4 – 60 unidades | 4 – 60 unidades 
 
 
-2+| DAS local com software RAID | Não aplicável | Aplicável | 4 - 14 unidades (somente NVMe) 
+2+| NVMe | Não aplicável | Não aplicável | 4 a 14 acionamentos 
+
+
+2+| DAS local com software RAID | Não aplicável | Aplicável | 4 a 14 unidades (somente NVMe) 
 
 
 2+| 1.3 3+| Armazenamentos de dados hospedados em arrays externos são conectados por meio de FC, FCoE, iSCSI e NFS (o NFS não é compatível com KVM). Esses datastores fornecem alta disponibilidade e resiliência. 
@@ -176,7 +179,7 @@ A tabela a seguir fornece o tipo de licença mínimo necessário para o armazena
 2+| Tipo de software 3+| Descrição 
 
 
-2+| Suporte a hipervisor (VMware) 3+| VMware vSphere 9.0, VMware vSphere 8.0GA e atualizações 1 a 3, VMware vSphere 7.0GA e atualizações 1 a 3C 
+2+| Suporte a hipervisor (VMware) 3+| VMware vSphere 9.1, 9.0 VMware vSphere 8.0GA e as atualizações 1 a 3 
 
 
 2+| Suporte a hipervisor (KVM)  a| 

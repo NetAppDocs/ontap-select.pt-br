@@ -39,6 +39,7 @@ Certifique-se de que seu ambiente de implantação atenda aos seguintes requisit
 --
 O ESXi é compatível com as seguintes versões do hipervisor:
 
+** VMware ESXi 9.1
 ** VMware ESXi 9.0
 ** VMware ESXi 8,0 U3
 ** VMware ESXi 8,0 U2

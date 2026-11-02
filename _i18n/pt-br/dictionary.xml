@@ -2571,7 +2571,6 @@
   <block id="a295d719442375039396c1ff541e8a8f" category="paragraph">Para um hypervisor ESXi, você deve se preparar para implantar a VM de implantação do ONTAP Select:</block>
   <block id="780f7110b279a0cc42242a48431ab5bd" category="list-text">Ative a funcionalidade OVF no seu navegador instalando o plug-in de integração de cliente VMware ou executando configuração semelhante conforme necessário</block>
   <block id="171890587c5a7811013eb0e4f687968f" category="list-text">Ative o DHCP no ambiente VMware se você atribuir dinamicamente um endereço IP à VM de implantação</block>
-  <block id="4ecc6637981131c676cdedcda970a661" category="paragraph">Para hipervisores ESXi e KVM, é necessário ter as informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, da rede externa e do nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:</block>
   <block id="d98fb3ce51b49ee9b9e8ea2645524f08" category="list-text">Endereço IP da VM de implantação</block>
   <block id="536f68587c52377d3e98807b214c5de8" category="list-text">Máscara de rede</block>
   <block id="e1abf8f6b13a06faf59bfd3d015dd968" category="list-text">Endereço IP do gateway (roteador)</block>
@@ -2940,13 +2939,10 @@
   <block id="e629ab9880aae245163ce498ab9e1389" category="cell">Pequeno e médio</block>
   <block id="a09a88160dc1591cac42ba911581e599" category="cell">Pequeno, médio e grande</block>
   <block id="93c34d5f173f74aeed0b64401f2a6edc" category="cell">DAS local com controladora RAID de hardware</block>
-  <block id="2feb1874507e2463194f3c757efe6209" category="cell">8 - 60 unidades</block>
   <block id="7742d08808786c4493a46e06b5648ff9" category="cell">HDD (SAS, NL-SAS, SATA)</block>
   <block id="fea45fcfeb873048ff2e2be995d8cb77" category="cell">4 – 60 unidades</block>
   <block id="bb878052f3499d534f13d06526b7d885" category="cell">SSD (SAS)</block>
-  <block id="25a5b17224d1f38c386742ec7cbc343b" category="cell">4 – 60 unidades (somente SSD)</block>
   <block id="d8e31ece33b3b9fb9373e996815932a7" category="cell">DAS local com software RAID</block>
-  <block id="a64e775634e2bf5c5e3f63f149af2601" category="cell">4 - 14 unidades (somente NVMe)</block>
   <block id="518c7a2538245dd75c6daac2212b8316" category="cell">1.3</block>
   <block id="8731210144d2e5094fb4001b893115d2" category="cell">Armazenamentos de dados hospedados em arrays externos são conectados por meio de FC, FCoE, iSCSI e NFS (o NFS não é compatível com KVM). Esses datastores fornecem alta disponibilidade e resiliência.</block>
   <block id="563a5726768d43a126f11bc13b3361dd" category="paragraph">1 o suporte ao protocolo de matriz externa reflete a conetividade de storage em rede.</block>
@@ -3269,7 +3265,6 @@
   <block id="a72643a79ec8e9d1d5c61ff835cabbeb" category="list-text">O ONTAP Select 9.16.1 é instalado inicialmente.</block>
   <block id="588a4431a3d49dda029dcc4161fc2be3" category="list-text">Você pode atualizar o nó para a versão 9.17.1 e, em seguida, reverter para a versão 9.16.1, se necessário.</block>
   <block id="c762418e7ca866adad88c4350fc20ef0" category="list-text">O ONTAP Select 9.17.1 é instalado inicialmente.</block>
-  <block id="7b5019dce3bb835acb62c31388f47aef" category="cell">VMware vSphere 9.0, VMware vSphere 8.0GA e atualizações 1 a 3, VMware vSphere 7.0GA e atualizações 1 a 3C</block>
   <block id="709b51c435c268c165dc26b6de6a856e" category="list-text">O utilitário de administração Deploy contém apenas uma única versão do ONTAP Select. A versão incluída é a mais atual disponível no momento do lançamento. O recurso de instalação de imagem do ONTAP Select permite adicionar versões anteriores do ONTAP Select à sua instância do utilitário Deploy, que podem ser usadas ao implantar um cluster do ONTAP Select . Ver<block ref="9252191d0d6c29910ebabc98ee426eb0" category="inline-link-macro-rx"></block> .</block>
   <block id="d4859de543e918748cbd58f23dedb243" category="list-text">O ONTAP Select 9.17.1 inclui suporte para VMware ESXi 9.0.</block>
   <block id="bc70eaa4fe619d482b08c680b31e9639" category="paragraph">É uma boa prática fazer backup regularmente dos dados de configuração do Deploy, inclusive após a criação de um cluster. Isso se torna particularmente importante em clusters de dois nós, pois os dados de configuração do mediador são incluídos no backup.</block>
@@ -4032,4 +4027,14 @@
   <block id="cdf955804034c3c67f90a9fa2b26792d" category="paragraph">Você revisou o <block ref="1a659edfd1511c28d59e934c80be869d" category="inline-link-macro-rx"></block>.</block>
   <block id="e16c906ba61aeeafbcb69e14b4357d15" category="sidebar">Script para criar um cluster</block>
   <block id="9a2f5932020cd5f8335afc3f02118937" category="sidebar">A comunidade ONTAP</block>
+  <block id="50ae596e882ccedcefde5c47743d7203" category="cell">8 a 60 discos</block>
+  <block id="70d9e3c68d42d6ec42ab792e06c44357" category="cell">NVMe</block>
+  <block id="09c766d054990e91a8bd7172378ef91f" category="cell">4 a 14 acionamentos</block>
+  <block id="4afe31410695c2d966b3cab63555adc2" category="cell">4 a 14 unidades (somente NVMe)</block>
+  <block id="a993152ace9c48fc9ffe20e1239c701e" category="cell">VMware vSphere 9.1, 9.0 VMware vSphere 8.0GA e as atualizações 1 a 3</block>
+  <block id="d6a844c0eee1b2460b68d5e1674ce3ee" category="list-text">ONTAP Select 9.19.1 inclui suporte para VMware ESXi 9.1.</block>
+  <block id="7fad4e1ab4f0475552986341e454b657" category="list-text">VMware ESXi 9.1</block>
+  <block id="e95da606b42156a1d47560476c9088a5" category="list-text">ESXi 9.1</block>
+  <block id="05297b8670c42857ef0d5c0e4996e75c" category="paragraph">Você precisa ter as informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, a rede externa e o nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:</block>
+  <block id="9db175ef7b9ec37a8ebe335363d8fbe5" category="paragraph">Para hipervisores KVM, você precisa das informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, a rede externa e o nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:</block>
 </blocks>
