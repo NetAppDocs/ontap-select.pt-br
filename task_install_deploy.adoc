@@ -17,7 +17,12 @@ summary: Você precisa instalar o utilitário de administração ONTAP Select De
 Você precisa instalar o utilitário de administração ONTAP Select Deploy e usar o utilitário para criar um cluster do ONTAP Select.
 
 .Antes de começar
-Você revisou o link:kvm-host-configuration-and-preparation-checklist.html["lista de verificação pré-instalação"].
+Você já revisou a lista de verificação de pré-instalação para o seu host de hipervisor:
+
+* link:esxi-host-configuration-and-preparation-checklist.html["Lista de verificação do host ESXi"]
+* link:hyper-v-host-configuration-and-preparation-checklist.html["Lista de verificação do host Hyper-V"]
+* link:kvm-host-configuration-and-preparation-checklist.html["Lista de verificação do host KVM"]
+
 
 
 
@@ -30,7 +35,7 @@ Faça o download do pacote ONTAP Select no site de suporte da NetApp .
 https://mysupport.netapp.com/site/user/registration["Você tem uma conta registrada no site de suporte da NetApp"^].
 
 .Sobre esta tarefa
-O utilitário de administração ONTAP Select Deploy é empacotado como uma máquina virtual (VM) baseada no padrão Open Virtualization Format (OVF). O arquivo único compactado possui o sufixo `OVA` para hosts ESXi e `TGZ` para hosts KVM. A VM fornece o servidor Deploy e as imagens de instalação para os nós do ONTAP Select.
+O utilitário de administração do ONTAP Select Deploy vem empacotado como uma máquina virtual (VM) baseada no Open Virtualization Format. O único arquivo compactado tem o sufixo `ova` para hosts ESXi, `vhdx.tgz` para Hyper-V e `raw.tgz` para hosts KVM. A VM fornece o servidor Deploy e as imagens de instalação para os nós do ONTAP Select.
 
 .Passos
 . Acesse a link:https://mysupport.netapp.com/site/downloads/["Downloads do site de suporte da NetApp"^] página.
@@ -90,10 +95,15 @@ openssl dgst  -sha256 -verify ONTAP-Select-Deploy-Production.pub -signature ONTA
 [[step-3-deploy-the-virtual-machine]]
 == Etapa 3: Implante a máquina virtual
 
-Instale e inicie a máquina virtual ONTAP Select Deploy usando a imagem OVF da máquina virtual. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
+Crie a máquina virtual do ONTAP Select Deploy no seu host de hipervisor.
 
-.Antes de começar
 [role="tabbed-block"]
+====
+.ESXi
+--
+Instale e inicie a VM do ONTAP Select Deploy em um host ESXi usando a imagem OVF da VM. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
+
+--
 ====
 .ESXi
 --
@@ -127,17 +137,12 @@ Para hipervisores KVM, você precisa das informações de configuração a serem
 
 
 --
+[]
 ====
 .Sobre esta tarefa
 Se você usar o vSphere, o assistente implantar modelo OVF inclui um formulário para fornecer todas as informações de configuração de implantação, incluindo a configuração de rede. No entanto, se você optar por não usar este formulário, poderá usar o console da VM de implantação para configurar a rede.
 
 .Passos
-As etapas a seguir dependem se você usa um hipervisor ESXi ou KVM.
-
-[role="tabbed-block"]
-====
-.ESXi
---
 . Acesse o cliente vSphere e faça login.
 . Navegue até o local apropriado na hierarquia e selecione *Deploy OVF Template*.
 . Selecione o arquivo OVA e conclua o assistente de implantação do modelo OVF. Selecione as opções adequadas ao seu ambiente.
@@ -169,8 +174,131 @@ Usar DHCP para definir informações de rede? [n]:
 
 
 --
-.KVM
+
 --
+Instale e inicie a máquina virtual ONTAP Select Deploy em um host Hyper-V usando o Assistente para Nova Máquina Virtual.
+
+.Antes de começar
+Verifique se o host Hyper-V atende aos seguintes requisitos:
+
+[cols="1,2"]
+|===
+| Requisito | Valor 
+
+
+| Função do Hyper-V | Instalado, incluindo o módulo PowerShell do Hyper-V 
+
+
+| Geração de VM | Geração 1 
+
+
+| vCPUs | 2 
+
+
+| Memória | 4 GB, estática (memória dinâmica desativada) 
+
+
+| Disco de inicialização | Conectado ao controlador IDE 0, localização 0 
+
+
+| Espaço livre em disco | Pelo menos 40 GB no volume que armazena o disco da máquina virtual 
+
+
+| Ferramenta de arquivamento | tar, incluído no Windows Server 2019 e versões posteriores 
+|===
+Verifique se você possui as seguintes informações:
+
+[cols="1,2"]
+|===
+| Informação | Descrição 
+
+
+| Nome da VM | Nome da VM Deploy, por exemplo ONTAP-deploy-HV 
+
+
+| Nome do switch virtual | Nome do switch virtual externo, por exemplo ONTAP_Vswitch 
+
+
+| Nome da NIC física | Adaptador de rede do host conectado à rede da VM Deploy 
+
+
+| ID da VLAN | Necessário apenas se a porta do switch esperar tráfego marcado 
+
+
+| Nome do host | FQDN ou nome curto do host da VM Deploy 
+
+
+| Senha de administrador | Senha da conta de administrador, definida durante a primeira inicialização 
+|===
+Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:
+
+* Endereço IP da VM de implantação
+* Máscara de rede
+* Endereço IP do gateway (roteador)
+* Endereço IP do servidor DNS primário
+* Endereço IP do segundo servidor DNS
+* Domínios de pesquisa DNS
+
+
+.Sobre esta tarefa
+A criação de um switch virtual externo interrompe brevemente o tráfego de rede na NIC física. Se você estiver conectado ao host remotamente pela NIC física, use um console fora de banda, como o BMC do servidor, ou um adaptador de rede diferente para não perder o acesso.
+
+.Passos
+. No Gerenciador do Hyper-V, selecione *Novo* > *Máquina Virtual* para abrir o Assistente para Nova Máquina Virtual.
+. Selecione *Next*.
+. Digite o nome da VM e selecione *Avançar*.
+. Selecione *Geração 1* e, em seguida, selecione *Avançar*.
++
+
+NOTE: O ONTAP Select com o Hyper-V não suporta VMs de Geração 2.
+
+. Insira a quantidade de memória e selecione *Avançar*.
++
+
+NOTE: O requisito mínimo de memória é de 4 GB.
+
+. Selecione seu switch virtual na lista suspensa e, em seguida, selecione *Avançar*.
+. Selecione *Usar um disco rígido virtual existente* > *Procurar*, localize e selecione o arquivo de `vhdx.tgz` imagem.
+. Selecione *Next*.
+. Verifique a configuração e, em seguida, selecione *Concluir*.
+. Se necessário, você pode configurar a rede de implantação usando o console da VM:
++
+.. Aguarde o seguinte aviso:
++
+[listing]
+----
+Host name :
+----
+.. Digite o nome do host e selecione *Enter*.
+.. Aguarde o seguinte aviso:
++
+[listing]
+----
+Use DHCP to set networking information? [n]:
+----
+.. Digite *n* para definir uma configuração IP estática ou *y* para usar o DHCP e selecione *Enter*.
+.. Se você escolher uma configuração estática, forneça todas as informações de configuração de rede, conforme necessário.
+
+
+
+
+--
+
+--
+Instale e inicie a VM do ONTAP Select Deploy em um host KVM usando a imagem OVF da VM. Como parte do processo de instalação, você configura a interface de rede para usar DHCP ou uma configuração de IP estático.
+
+.Antes de começar
+Você precisa ter as informações de configuração a serem usadas ao criar a VM, incluindo o nome da VM, a rede externa e o nome do host. Ao definir uma configuração de rede estática, você precisa das seguintes informações adicionais:
+
+* Endereço IP da VM de implantação
+* Máscara de rede
+* Endereço IP do gateway (roteador)
+* Endereço IP do servidor DNS primário
+* Endereço IP do segundo servidor DNS
+* Domínios de pesquisa DNS
+
+
+.Passos
 . Entre na CLI no servidor Linux:
 +
 [listing]
@@ -220,6 +348,8 @@ Use DHCP to set networking information? [n]:
 
 
 --
+
+--
 ====
 
 
@@ -231,7 +361,7 @@ Sign in na interface de usuário web para confirmar se o utilitário de implanta
 .Passos
 . Aponte seu navegador para o utilitário implantar usando o endereço IP ou nome de domínio:
 +
-`\https://<ip_address>/`
+`\https://<IP_address>/`
 
 . Forneça o nome e a senha da conta de administrador (admin) e inicie sessão.
 . Se a janela pop-up *Welcome to ONTAP Select* for exibida, revise os pré-requisitos e selecione *OK* para continuar.

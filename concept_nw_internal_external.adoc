@@ -65,7 +65,7 @@ Esta ferramenta é útil apenas para solucionar problemas na rede interna de um 
 
 O assistente de criação de cluster (parte da interface de usuário do ONTAP Deploy) inclui o verificador de rede interna como uma etapa opcional disponível durante a criação de clusters multinós. Dado o papel importante que a rede interna desempenha em clusters multinós, tornar essa etapa parte do fluxo de trabalho de criação de cluster melhora a taxa de sucesso das operações de criação de cluster.
 
-A partir do ONTAP Deploy 2,10, o tamanho da MTU usado pela rede interna pode ser definido entre 7.500 e 9.000. O verificador de conetividade de rede também pode ser usado para testar o tamanho da MTU entre 7.500 e 9.000. O valor MTU predefinido é definido para o valor do comutador de rede virtual. Esse padrão teria que ser substituído por um valor menor se uma sobreposição de rede como o VXLAN estiver presente no ambiente.
+A partir do ONTAP Deploy 2.10, o tamanho da Unidade Máxima de Transmissão (MTU) usada pela rede interna pode ser configurado entre 7.500 e 9.000. O verificador de conectividade de rede também pode ser usado para testar o tamanho da MTU entre 7.500 e 9.000. O valor padrão da MTU é definido como o valor do switch de rede virtual. Esse valor padrão precisaria ser substituído por um valor menor caso uma sobreposição de rede, como VXLAN, esteja presente no ambiente.
 
 
 

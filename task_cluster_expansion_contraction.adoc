@@ -38,7 +38,7 @@ Você inicia os procedimentos de expansão e contração do cluster no ONTAP Sel
 [[hardware-and-storage-considerations]]
 == Considerações sobre hardware e armazenamento
 
-O recurso de expansão e contração de cluster é suportado nos seguintes hosts de hipervisor KVM e ESXi.
+O recurso de expansão e contração de cluster é compatível com os seguintes hosts de hipervisor ESXi e KVM.
 
 [role="tabbed-block"]
 ====

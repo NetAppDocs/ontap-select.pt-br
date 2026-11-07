@@ -38,7 +38,7 @@ A partir do ONTAP Select 9,5 usando o Deploy 2,10, o VMXNET3 é o driver de rede
 [[cluster-mtu]]
 == MTU do cluster
 
-Uma rede interna separada é usada para conetar os nós do ONTAP Select em um cluster de vários nós. Normalmente, o tamanho da MTU para esta rede é 9000. No entanto, há situações em que esse tamanho de MTU é muito grande para a rede que coneta os nós de ONTAP Select. Para acomodar os quadros menores, o tamanho da MTU usado pelo ONTAP Select na rede interna pode estar no intervalo de 7500-9000 bytes.
+Uma rede interna separada é usada para conectar os nós do ONTAP Select em um cluster de vários nós. Normalmente, o tamanho da Maximum Transmission Unit (MTU) dessa rede é 9000. No entanto, há situações em que esse tamanho de MTU é grande demais para a rede que conecta os nós do ONTAP Select. Para acomodar os frames menores, o tamanho de MTU usado pelo ONTAP Select na rede interna pode ficar na faixa de 7500 a 9000 bytes.
 
 O tamanho da MTU é exibido na seção Detalhes do cluster da página de criação do cluster. O valor é determinado pelo utilitário de administração de implantação da seguinte forma:
 
@@ -123,17 +123,35 @@ Consulte a link:concept_nw_concepts_chars.html["Rede de mergulho profundo"] seç
 [[network-traffic-requirements]]
 == Requisitos de tráfego de rede
 
-Você deve certificar-se de que seus firewalls estão configurados corretamente para permitir que o tráfego de rede flua entre os vários participantes em um ambiente de implantação do ONTAP Select.
+Você deve garantir que seus firewalls estejam configurados corretamente para permitir que o tráfego de rede flua entre os diversos participantes em um ambiente de implantação do ONTAP Select.
 
 .Participantes
 Existem vários participantes ou entidades que trocam tráfego de rede como parte de uma implantação do ONTAP Select. Estes são introduzidos e, em seguida, utilizados na descrição resumida dos requisitos de tráfego de rede.
 
-* Implantar o utilitário de administração ONTAP Select Deploy
-* VSphere (somente ESXi) um servidor vSphere ou host ESXi, dependendo de como o host é gerenciado na implantação do cluster
-* Servidor de hipervisor ESXi host de hipervisor ou host KVM Linux
-* Nó OTS um nó ONTAP Select
-* Cluster do OTS um cluster ONTAP Select
-* Estação de trabalho administrativa local WS Admin
+* Implantar
++
+Utilitário de administração ONTAP Select Deploy
+
+* vSphere (somente ESXi)
++
+Pode ser um servidor vSphere ou um host ESXi, dependendo de como o host é gerenciado na sua implementação de cluster
+
+* Servidor de hipervisor
++
+Host de hipervisor ESXi, host Microsoft Hyper-V ou host Linux KVM
+
+* Nó ONTAP Select
++
+Um nó do ONTAP Select
+
+* Cluster ONTAP Select
++
+Um cluster do ONTAP Select
+
+* WS de administração
++
+Estação de trabalho administrativa local
+
 
 
 .Resumo dos requisitos de tráfego de rede
@@ -141,7 +159,25 @@ A tabela a seguir descreve os requisitos de tráfego de rede para uma implantaç
 
 [cols="20,20,35,25"]
 |===
-| Protocolo / porta | ESXi / KVM | Direção | Descrição 
+| Protocolo / porta | ESXi / Hyper-V / KVM | Direção | Descrição 
+
+
+| ICMP | ESXi, Hyper-V ou KVM | Implantar no servidor do hipervisor | Ping 
+
+
+| ICMP | ESXi, Hyper-V ou KVM | Implantar em cada nó do ONTAP Select | Ping 
+
+
+| KIT DE MEIA (22) | ESXi, Hyper-V ou KVM | Admin WS para cada nó do ONTAP Select | Administração 
+
+
+| KIT DE MEIA (22) | KVM | Implante nos nós do servidor do hipervisor | Acesse o servidor do hipervisor 
+
+
+| KIT DE PROTEÇÃO (443) | ESXi, Hyper-V ou KVM | Implantação em nós e clusters do ONTAP Select | Acesse o ONTAP 
+
+
+| KIT DE PROTEÇÃO (443) | ESXi, Hyper-V ou KVM | Cada nó do ONTAP Select a ser implantado | Implantação de acesso (licenciamento de pools de capacidade) 
 
 
 | KIT DE PROTEÇÃO (443) | ESXi | Implante no vCenter Server (gerenciado) ou ESXi (gerenciado ou não gerenciado) | API VMware VIX 
@@ -150,23 +186,8 @@ A tabela a seguir descreve os requisitos de tráfego de rede para uma implantaç
 | 902 | ESXi | Implante no vCenter Server (gerenciado) ou ESXi (não gerenciado) | API VMware VIX 
 
 
-| ICMP | ESXi ou KVM | Implantar no servidor do hipervisor | Ping 
+| ISCSI (3260) | ESXi, Hyper-V ou KVM | Cada nó do ONTAP Select a ser implantado | Disco de mediador/caixa de correio 
 
 
-| ICMP | ESXi ou KVM | Implante em cada nó do OTS | Ping 
-
-
-| KIT DE MEIA (22) | ESXi ou KVM | Admin WS para cada nó do OTS | Administração 
-
-
-| KIT DE MEIA (22) | KVM | Implante nos nós do servidor do hipervisor | Acesse o servidor do hipervisor 
-
-
-| KIT DE PROTEÇÃO (443) | ESXi ou KVM | Implante em nós e clusters de OTS | Acesse o ONTAP 
-
-
-| KIT DE PROTEÇÃO (443) | ESXi ou KVM | Cada nó do OTS a ser implantado | Implantação de acesso (licenciamento de pools de capacidade) 
-
-
-| ISCSI (3260) | ESXi ou KVM | Cada nó do OTS a ser implantado | Disco de mediador/caixa de correio 
+| WinRM HTTPS (5986) | O Hyper-V | Implante nos nós do servidor do hipervisor | Acesse o servidor do hipervisor 
 |===

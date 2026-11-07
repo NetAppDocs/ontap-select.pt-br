@@ -19,6 +19,9 @@ Se você planeja usar unidades NVMe com RAID de software, precisará configurar 
 Use a passagem de I/o do VMDirectPath nos dispositivos NVMe para maximizar a eficiência de dados. Esta configuração expõe as unidades à máquina virtual ONTAP Select, permitindo que o ONTAP tenha acesso direto à PCI ao dispositivo.
 
 
+NOTE: O ONTAP Select suporta unidades NVMe como discos SCSI em hosts Hyper-V. O ONTAP Select não suporta unidades NVMe como atribuições de dispositivos discretos (dispositivos de passagem) em hosts Hyper-V.
+
+
 
 [[step-1-configure-the-host]]
 == Passo 1: Configure o host

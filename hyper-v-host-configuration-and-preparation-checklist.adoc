@@ -1,0 +1,249 @@
+---
+sidebar: sidebar 
+permalink: hyper-v-host-configuration-and-preparation-checklist.html 
+keywords: ontap select, pre-installation checklist, hyper-v, host preparation 
+summary: Prepare cada host de hipervisor Hyper-V no qual um nó do ONTAP Select é implantado. Ao preparar os hosts, avalie cuidadosamente o ambiente de implantação para garantir que os hosts estejam configurados corretamente e prontos para dar suporte à implantação de um cluster do ONTAP Select. 
+---
+= Prepare um host Hyper-V para o ONTAP Select
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Prepare cada host de hipervisor Hyper-V em que você implantará um nó do ONTAP Select. Certifique-se de que os hosts estejam configurados corretamente e prontos para oferecer suporte à implantação de um cluster do ONTAP Select.
+
+
+NOTE: O utilitário de administração ONTAP Select Deploy não realiza a configuração de rede e armazenamento necessária dos hosts do hipervisor. Você deve preparar manualmente cada host antes de implantar um cluster ONTAP Select .
+
+
+
+[[step-1-prepare-the-hyper-v-hypervisor-host]]
+[[prepare-hyper-v-server]]
+== Etapa 1: preparar o host do hipervisor Hyper-V
+
+Prepare cada um dos servidores Windows Hyper-V onde um nó do ONTAP Select está implantado.
+
+.Sobre esta tarefa
+Consulte a documentação do Windows para obter mais informações sobre como executar essas etapas.
+
+.Passos
+. Instale uma versão compatível do Windows Server e habilite a função Hyper-V usando o Server Manager, o Windows Admin Center ou o PowerShell.
+. Instale o Windows no disco de inicialização local. Não instale o Windows em um disco que você pretende fornecer ao ONTAP Select.
+. Verifique se a configuração atende aos seguintes requisitos:
++
+** A versão do Windows Server está listada como compatível. O utilitário Deploy lê o nome do produto durante o registro do host e informa uma versão não compatível.
+** A função Hyper-V está habilitada. O utilitário Deploy verifica isso durante o registro do host, e o registro falha se a função não estiver habilitada.
+** A CPU e a memória do host têm capacidade para o Windows Server. O utilitário Deploy reserva 2 núcleos de CPU e 8 GB de memória para o host ao dimensionar um nó.
+
+
+
+
+
+
+[[step-2-provide-remote-management-access-for-deploy]]
+== Etapa 2: forneça acesso de gerenciamento remoto para o Deploy
+
+O utilitário Deploy administra o host por meio do Windows Remote Management (WinRM) usando HTTPS e a configuração de acesso remoto do PowerShell. Você precisa configurar o listener HTTPS do WinRM, o certificado associado e a regra de firewall.
+
+.Passos
+. Habilite o WinRM HTTP:
++
+[source, cli]
+----
+Enable-PSRemoting -Force
+----
+. Verifique a configuração do WinRM:
++
+[source, cli]
+----
+winrm enumerate winrm/config/listener
+----
+. Crie uma regra de entrada do firewall para aceitar conexões de rede na porta HTTPS 5986:
++
+[source, cli]
+----
+New-NetFirewallRule -DisplayName "WinRM HTTPS" -Direction Inbound -Action Allow -Protocol TCP -LocalPort 5986
+----
+. Configure o certificado associado:
++
+[role="tabbed-block"]
+====
+.O certificado está disponível
+--
+Se você já possui um certificado válido no repositório de certificados da máquina local:
+
+.. Configure a administração remota do Powershell para o certificado:
++
+[source, cli]
+----
+Enable-PSRemoting -Force
+----
+.. Configurar o WinRM para administração remota:
++
+[source, cli]
+----
+winrm quickconfig -q
+----
+.. Verifique a configuração do ouvinte HTTPS do WinRM:
++
+[source, cli]
+----
+winrm e winrm/config/listener
+----
+
+
+--
+.O certificado não está disponível
+--
+.. Gere o certificado autoassinado:
++
+[source, cli]
+----
+$cert = New-SelfSignedCertificate -DnsName $env:COMPUTERNAME -CertStoreLocation Cert:\LocalMachine\My
+----
+.. Vincule o certificado ao ouvinte WinRM:
++
+[source, cli]
+----
+New-WSManInstance -ResourceURI winrm/config/Listener -SelectorSet @{Transport='HTTPS';Address='*'} -ValueSet @{CertificateThumbprint=$cert.Thumbprint}
+----
+
+
+--
+====
+. Configure a Política de Grupo selecionando *Configuração do Computador* > *Modelos Administrativos* > *Componentes do Windows* > *Gerenciamento Remoto do Windows (WinRM)* > *Serviço WinRM*.
+. Verifique se a configuração atende aos seguintes requisitos:
++
+** A máquina virtual (VM) do Deploy pode acessar o listener HTTPS do WinRM na porta TCP 5986. O utilitário do Deploy não usa HTTP nem a porta TCP 5985.
+** Existe um certificado autoassinado. O utilitário Deploy não valida o certificado em relação a uma autoridade certificadora.
+** A conta usada para registrar o host tem direitos de administrador no host. O utilitário Deploy autentica-se com Kerberos. Se o utilitário Deploy não puder usar Kerberos, ele recorrerá ao NTLM.
+** Você registrou o host Hyper-V usando um nome exclusivo que responde na porta TCP 5986. O utilitário Deploy recupera o certificado usando o nome registrado.
++
+
+NOTE: O utilitário Deploy registra o certificado e o valida em todas as conexões subsequentes. Se o certificado for substituído, as conexões com o host falharão e você deverá excluir o host do utilitário Deploy e registrá-lo novamente.
+
+
+
+
+
+
+
+[[step-3-prepare-the-host-storage]]
+== Etapa 3: preparar o armazenamento do host
+
+Um pool de storage em um host Hyper-V é um volume local que contém a VM ONTAP Select e seus discos virtuais.
+
+.Passos
+. Crie um volume local usando o Gerenciamento de Disco, o Server Manager ou o Windows Admin Center. Consulte a documentação da Microsoft para obter mais informações.
+. Crie pelo menos um pool de storage para cada nó do ONTAP Select. Consulte a documentação da Microsoft para obter mais informações.
++
+[NOTE]
+====
+** Você precisa criar um pool de storage ao usar RAID de software.
+** Para remover um pool de storage, primeiro exclua o cluster ou nó do ONTAP Select que está usando o pool de storage e, em seguida, exclua o volume usando as ferramentas padrão do Windows.
+
+
+====
+. Verifique se o volume está formatado como NTFS ou ReFS e se tem uma letra de unidade atribuída. O utilitário Deploy identifica o pool de storage pela letra da unidade.
++
+[NOTE]
+====
+** O utilitário Deploy reserva dois por cento do volume como sobrecarga e pode alocar um máximo de 64 TB de um único pool de storage.
+** Não é possível usar Volumes Compartilhados de Cluster e compartilhamentos de arquivos SMB 3.0 como pools de storage do ONTAP Select.
+** O ONTAP Select não consegue detectar um volume que esteja montado apenas em um caminho de pasta porque ele não possui uma letra de unidade.
+
+
+====
+. Se você estiver usando RAID por software, precisará reservar discos físicos para o ONTAP Select. O PCI passthrough não é compatível com o Hyper-V, portanto, os discos são apresentados à máquina virtual como discos físicos passthrough. Os discos físicos devem atender aos seguintes requisitos:
++
+** São discos SSD ou NVMe com pelo menos 200 GB de armazenamento cada.
+** São discos brutos sem partições, volumes ou letras de unidade.
+** Os discos não fazem parte de um pool do Storage Spaces.
+** Os discos permanecem online. O utilitário Deploy coloca cada disco offline ao anexá-lo à VM.
+
+
+. Um cluster de nó único requer no mínimo três discos para RAID de software e quatro ou cinco discos para RAID-DP de software. Um cluster de dois nós requer seis discos para RAID de software ou dez discos para RAID-DP de software. O ONTAP Select suporta no máximo 60 discos passthrough por nó.
++
+Confirme se os discos reservados são elegíveis antes de registrar o host:
+
++
+[source, cli]
+----
+Get-PhysicalDisk | Select-Object FriendlyName, MediaType, BusType, Size
+----
++
+
+NOTE: Os discos que aparecem como membros de um pool do Storage Spaces na `Get-StoragePool` saída são excluídos pelo utilitário Deploy e não estão disponíveis para RAID de software.
+
+
+
+
+
+[[step-4-review-the-ontap-select-cluster-configuration]]
+== Etapa 4: Revise a configuração do cluster ONTAP Select
+
+Você pode implantar o ONTAP Select como um cluster de dois ou quatro nós ou como um cluster de nó único. Em muitos casos, um cluster com vários nós é preferível devido à capacidade de storage adicional e ao recurso de alta disponibilidade (HA).
+
+As figuras a seguir ilustram as redes ONTAP Select usadas com um cluster de nó único e um cluster de quatro nós para um host ESXi.
+
+[role="tabbed-block"]
+====
+.Cluster de nó único
+--
+A figura a seguir ilustra um cluster de nó único. A rede externa transporta tráfego de replicação entre clusters, clientes e gerenciamento (SnapMirror/SnapVault).
+
+image:CHK_01.jpg["Cluster de nó único mostrando uma rede"]
+
+--
+.Cluster de quatro nós
+--
+A figura a seguir ilustra um cluster de quatro nós mostrando duas redes. A rede interna permite a comunicação entre os nós em suporte aos serviços de rede do cluster ONTAP. A rede externa transporta tráfego de replicação entre clusters, clientes e gerenciamento (SnapMirror/SnapVault).
+
+image:CHK_02.jpg["Cluster de quatro nós mostrando duas redes"]
+
+--
+.Nó único em um cluster de quatro nós
+--
+A figura a seguir ilustra a configuração de rede típica para uma única máquina virtual do ONTAP Select em um cluster de quatro nós. Há duas redes separadas: ONTAP-internal e ONTAP-external.
+
+image:CHK_03.jpg["Nó único em um cluster de quatro nós"]
+
+--
+====
+
+
+[[step-5-prepare-the-networks]]
+== Etapa 5: preparar as redes
+
+O ONTAP Select Deploy se conecta à rede física por meio de switches virtuais Hyper-V. Você precisa criar os switches virtuais antes de registrar o host.
+
+.Sobre esta tarefa
+Consulte a documentação do Windows para obter mais informações sobre como executar essas etapas.
+
+.Passos
+. Crie os switches usando o Virtual Switch Manager no Hyper-V Manager, no Windows Admin Center ou em PowerShell.
++
+Crie um switch virtual externo para cada adaptador físico usado pelo ONTAP Select. Um cluster de nó único requer pelo menos um adaptador e um cluster de dois nós requer pelo menos dois adaptadores.
+
+. Configure os quadros jumbo nas propriedades avançadas do adaptador físico.
+. Associe um adaptador físico a cada switch virtual.
++
+
+NOTE: NIC teaming e Switch Embedded Teaming não são suportados.
+
+. Verifique se cada uplink está  `up`funcionando corretamente.
++
+
+NOTE: Um switch virtual externo cujo uplink  `down` aparece como indisponível.
+
+. Configure a marcação de VLAN na porta física do switch ou no adaptador do sistema operacional de gerenciamento. O utilitário Deploy lê a VLAN que está em uso, não atribui uma VLAN.
+. A rede interna de um cluster de dois nós requer uma Unidade Máxima de Transmissão (MTU) de 7500 a 9000 bytes. Habilite os quadros jumbo no adaptador que transporta a rede interna.
++
+
+NOTE: O Windows Server informa o tamanho do quadro jumbo incluindo o cabeçalho Ethernet, portanto, um adaptador configurado para 9014 bytes fornece uma MTU de 9000 bytes. É assim que o utilitário Deploy interpreta o valor de MTU para a configuração do adaptador. Quando um switch virtual é compartilhado com o sistema operacional de gerenciamento, a MTU IP do adaptador de host correspondente também limita a MTU que o utilitário Deploy informa.
+
+

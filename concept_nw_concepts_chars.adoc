@@ -82,7 +82,7 @@ A rede interna tem as seguintes caraterísticas:
 ** Endereço local do link
 
 
-* O tamanho da MTU é de 9000 bytes por padrão e pode ser ajustado dentro do intervalo de 7500-9000 (inclusive)
+* O tamanho da Unidade Máxima de Transmissão (MTU) é de 9000 bytes por padrão e pode ser ajustado na faixa de 7500 a 9000 (inclusive)
 
 
 
@@ -124,6 +124,6 @@ O host do hipervisor fornece vários recursos de rede.
 
 O ONTAP Select conta com os seguintes recursos expostos pela máquina virtual:
 
-Portas da máquina virtual:: Existem várias portas disponíveis para uso pelo ONTAP Select. Eles são atribuídos e usados com base em vários fatores, incluindo o tamanho do cluster.
-Switch virtual:: O software de switch virtual dentro do ambiente do hypervisor, seja vSwitch (VMware) ou Open vSwitch (KVM), une as portas expostas pela máquina virtual às portas de NIC Ethernet físicas. Você deve configurar um vSwitch para cada host ONTAP Select, conforme apropriado para o seu ambiente.
+Portas da máquina virtual:: Existem diversas portas disponíveis para uso pelo ONTAP Select. Elas são atribuídas e utilizadas com base em vários fatores, incluindo o tamanho do cluster.
+Switch virtual:: O software de switch virtual no ambiente do hipervisor, seja o vSwitch (VMware e Hyper-V) ou o Open vSwitch (KVM), conecta as portas expostas pela máquina virtual às portas físicas da NIC Ethernet. Você deve configurar um vSwitch para cada host do ONTAP Select, conforme apropriado para o seu ambiente.
 

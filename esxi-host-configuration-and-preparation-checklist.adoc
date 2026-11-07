@@ -14,7 +14,7 @@ summary: Prepare cada host do hipervisor ESXi onde um nó ONTAP Select está imp
 
 
 [role="lead"]
-Prepare cada host do hipervisor ESXi onde um nó ONTAP Select será implantado. Ao preparar os hosts, avalie cuidadosamente o ambiente de implantação para garantir que eles estejam configurados corretamente e prontos para suportar a implantação de um cluster ONTAP Select .
+Prepare cada host do hipervisor ESXi em que um nó do ONTAP Select será implantado. Certifique-se de que os hosts estejam configurados corretamente e prontos para oferecer suporte à implantação de um cluster do ONTAP Select.
 
 
 NOTE: O utilitário de administração ONTAP Select Deploy não realiza a configuração de rede e armazenamento necessária dos hosts do hipervisor. Você deve preparar manualmente cada host antes de implantar um cluster ONTAP Select .

@@ -27,9 +27,6 @@ Diferentemente da versão multi-nó do produto ONTAP Select, cada ONTAP Select V
 
 Essas portas são usadas para fornecer os seguintes serviços: Gerenciamento, dados e LIFs entre clusters.
 
-.KVM
-Você pode implantar ONTAP Select como um cluster de nó único. O host do hipervisor inclui um switch virtual que fornece acesso à rede externa.
-
 .ESXi
 A figura a seguir mostra a relação entre essas portas e os adaptadores físicos subjacentes. A figura representa um nó de cluster ONTAP Select no hipervisor ESXi.
 
@@ -39,6 +36,9 @@ image:DDN_03.jpg["Configuração de rede do cluster ONTAP Select de nó único"]
 
 
 NOTE: Mesmo que dois adaptadores sejam suficientes para um cluster de nó único, o agrupamento de NIC ainda é necessário.
+
+.Hyper-V e KVM
+Você pode implantar ONTAP Select como um cluster de nó único. O host do hipervisor inclui um switch virtual que fornece acesso à rede externa.
 
 
 
@@ -146,7 +146,7 @@ O tráfego de rede do cluster deve fluir por uma rede de camada 2 de baixa latê
 Para obter detalhes, consulte a seção link:reference_plan_best_practices.html#two-node-stretched-ha-metrocluster-sds-best-practices["Práticas recomendadas de HA (MetroCluster SDS) com dois nós esticados"].
 
 
-NOTE: Para garantir a máxima taxa de transferência para o tráfego de rede do cluster, esta porta de rede está configurada para usar jumbo frames (7500 a 9000 MTU). Para o correto funcionamento do cluster, verifique se os jumbo frames estão habilitados em todos os switches virtuais e físicos upstream que fornecem serviços de rede interna aos nós do cluster ONTAP Select.
+NOTE: Para garantir a taxa de transferência máxima para o tráfego de rede do cluster, esta porta de rede está configurada para usar quadros jumbo com uma Unidade Máxima de Transmissão (MTU) de 7500 a 9000 bytes. Para o funcionamento correto do cluster, verifique se os quadros jumbo estão habilitados em todos os switches virtuais e físicos upstream que fornecem serviços de rede interna aos nós do cluster do ONTAP Select.
 
 
 

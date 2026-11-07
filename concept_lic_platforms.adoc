@@ -65,9 +65,13 @@ A tabela a seguir compara os recursos das ofertas de licença padrão, premium e
 
 2+| SDS do MetroCluster | Não | Sim | Sim 
 |===
+[NOTE]
+====
+O Microsoft Hyper-V oferece suporte a tipos de instância pequenos, médios e grandes.
 
-NOTE: Máquinas virtuais baseadas em kernel (KVM) não suportam o tipo de instância grande.
+Máquinas virtuais baseadas em kernel (KVM) não suportam o tipo de instância grande.
 
+====
 
 
 [[compare-hardware-support-for-platform-license-offerings]]
@@ -92,7 +96,7 @@ As licenças padrão, premium e premium XL oferecem suporte a uma ampla variedad
 2+| Opções de implantação 3+| Nó único; Cluster de dois nós (par HA); Cluster de quatro, seis, oito, dez ou doze nós 
 
 
-2+| Capacidade suportada (por nó) 3+| Até 400TB dados brutos (ESXi e KVM) 
+2+| Capacidade suportada (por nó) 3+| Até 400 TB de dados brutos (ESXi, Hyper-V e KVM) 
 |===
 --
 .Hardware
@@ -165,7 +169,7 @@ A tabela a seguir fornece o tipo de licença mínimo necessário para o armazena
 2+| DAS local com software RAID | Não aplicável | Aplicável | 4 a 14 unidades (somente NVMe) 
 
 
-2+| 1.3 3+| Armazenamentos de dados hospedados em arrays externos são conectados por meio de FC, FCoE, iSCSI e NFS (o NFS não é compatível com KVM). Esses datastores fornecem alta disponibilidade e resiliência. 
+2+| 1.3 3+| Os datastores hospedados em arrays externos são conectados por meio de FC, FCoE e iSCSI para ESXi, Hyper-V e KVM, e NFS para ESXi. NFS não é compatível com KVM e Hyper-V. Esses datastores oferecem alta disponibilidade e resiliência. 
 |===
 1 o suporte ao protocolo de matriz externa reflete a conetividade de storage em rede.
 
@@ -180,6 +184,9 @@ A tabela a seguir fornece o tipo de licença mínimo necessário para o armazena
 
 
 2+| Suporte a hipervisor (VMware) 3+| VMware vSphere 9.1, 9.0 VMware vSphere 8.0GA e as atualizações 1 a 3 
+
+
+2+| Suporte ao hipervisor (Hyper-V) 3+| Windows Server 2025 e 2022 
 
 
 2+| Suporte a hipervisor (KVM)  a| 

@@ -28,23 +28,23 @@ Como parte do Planejamento de implantação, você deve determinar as informaç�
 | Informações necessárias | Descrição 
 
 
-| Nome da máquina virtual implantar | Identificador a utilizar para a máquina virtual. 
+| Nome da máquina virtual (VM) do Deploy | Identificador a ser usado para a VM. 
 
 
-| Nome do host do hipervisor | Identificador para o host de hipervisor VMware ESXi ou KVM onde o utilitário de implantação está instalado. 
+| Nome do host do hipervisor | Identificador do host de hipervisor VMware ESXi, Hyper-V ou KVM onde o utilitário Deploy está instalado. 
 
 
-| Nome do armazenamento de dados | Identificador para o armazenamento de dados do hipervisor que contém os ficheiros da máquina virtual (é necessário aproximadamente 40GB MB). 
+| Nome do local de armazenamento | Identificador do armazenamento de dados (ESXi) ou pool de storage (Hyper-V ou KVM) que contém os arquivos da máquina virtual (é necessário aproximadamente 40 GB). 
 
 
-| Rede para a máquina virtual | Identificador para a rede onde a máquina virtual de implantação está conetada. 
+| Rede para a VM | Identificador da rede à qual a Deploy VM está conectada. 
 |===
 
 
 [[optional-network-configuration-information]]
 == Informações de configuração de rede opcionais
 
-A máquina virtual implantar é configurada usando DHCP por padrão. No entanto, se necessário, você pode configurar manualmente a interface de rede para a máquina virtual.
+A máquina virtual Deploy é configurada usando DHCP por padrão. No entanto, se necessário, você pode configurar manualmente a interface de rede da máquina virtual.
 
 [cols="35,65"]
 |===
@@ -57,7 +57,7 @@ A máquina virtual implantar é configurada usando DHCP por padrão. No entanto,
 | Endereço IP do host | Endereço IPv4 estático da máquina host. 
 
 
-| Máscara de sub-rede | Máscara de sub-rede, com base na rede da qual a máquina virtual faz parte. 
+| Máscara de sub-rede | Máscara de sub-rede, baseada na rede da qual a VM faz parte. 
 
 
 | Gateway | Gateway ou roteador padrão. 

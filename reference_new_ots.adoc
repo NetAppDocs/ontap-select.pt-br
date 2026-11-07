@@ -19,6 +19,23 @@ Saiba mais sobre os novos recursos e aprimoramentos nas versões suportadas do O
 
 
 
+[[ontap-select-9-20-1]]
+== ONTAP Select 9.20.1
+
+Suporte para o hipervisor Hyper-V:: A partir do ONTAP Select 9.20.1, você pode implantar clusters do ONTAP Select em hipervisores Microsoft Hyper-V que executam o Windows Server 2025 e o Windows Server 2022. Você pode configurar e gerenciar clusters de um nó, dois nós e quatro nós em hosts Hyper-V compatíveis usando o utilitário de administração ONTAP Select Deploy.
++
+--
+* Saiba mais sobre o link:plan-ots-hyper-v.html["Requisitos de armazenamento do Hyper-V"]
+* Saiba mais sobre link:hyper-v-host-configuration-and-preparation-checklist.html["Lista de verificação para configuração e preparação do host Hyper-V"]
+* Saiba mais sobrelink:task_install_deploy.html["instalando o ONTAP Select Deploy em um host Hyper-V"]
+
+
+--
+Suporte para NFS sobre TLS:: A partir do ONTAP Select 9.20.1, o ONTAP Select oferece suporte a NFS sobre TLS usando a CLI. O System Manager não é compatível. Para obter mais informações, consulte link:reference_lic_ontap_features.html#licensed-ontap-features["Recursos do ONTAP licenciados por padrão"].
+
+
+
+
 [[ontap-select-9-19-1]]
 == ONTAP Select 9.19.1
 
@@ -28,7 +45,7 @@ Suporte para gerenciamento de chaves externas (KMIP):: A partir do ONTAP Select 
 ONTAP Select não oferece suporte a gerenciadores de chaves na nuvem.
 
 --
-Suporte para processadores Advanced Micro Devices (AMD):: A partir da ONTAP Select 9.19.1, o ONTAP Select oferece suporte a processadores AMD em hosts hipervisor Kernel-Based Virtual Machine (KVM) e ESXi. Para mais informações, consulte link:reference_plan_ots_hardware.html["Considerações sobre o hipervisor e o hardware da VMware"].
+Suporte para processadores Advanced Micro Devices (AMD):: A partir do ONTAP Select 9.19.1, o ONTAP Select oferece suporte a processadores AMD em hosts de hipervisor ESXi e Kernel-Based Virtual Machine (KVM). Para obter mais informações, consulte link:reference_plan_ots_hardware.html["Considerações sobre o hipervisor e o hardware da VMware"].
 Suporte aprimorado ao VMware ESXi:: ONTAP Select 9.19.1 inclui suporte para VMware ESXi 9.1.
 
 
@@ -78,7 +95,7 @@ Você pode diminuir o tamanho do cluster existente em um host ESXi ou KVM nos se
 
 
 --
-link:task_cluster_expansion_contraction.html["Saiba mais sobre expansão e contração de cluster e as versões de hipervisor KVM e ESXi suportadas"] .
+link:task_cluster_expansion_contraction.html["Saiba mais sobre a expansão e a contração do cluster e as versões de hipervisor ESXi e KVM compatíveis"].
 
 --
 Suporte ao hipervisor KVM atualizado:: A partir do ONTAP Select 9.18.1, o hipervisor KVM é suportado no Rocky Linux 10.1.
@@ -101,12 +118,12 @@ Para usar RAID de software para discos NVMe conectados localmente, você precisa
 link:concept_stor_swraid_local.html["Saiba mais sobre os serviços de configuração RAID de software para armazenamento local conectado"] .
 
 --
-Suporte para expansão e contração de cluster em hosts KVM:: A partir do ONTAP Select 9.17.1, o recurso de expansão e contração de cluster é compatível com máquinas virtuais baseadas em kernel (KVM) e hosts de hipervisor ESXi. Para o ONTAP Select 9.16.1 e 9.15.1, a expansão e contração de cluster são compatíveis apenas com hosts de hipervisor ESXi.
+Suporte para expansão e contração de cluster em hosts KVM:: A partir do ONTAP Select 9.17.1, o recurso de expansão e contração de cluster é compatível com hosts de hipervisor ESXi e Kernel-Based Virtual Machine (KVM). Para o ONTAP Select 9.16.1 e 9.15.1, a expansão e contração de cluster é compatível apenas com hosts de hipervisor ESXi.
 +
 --
 Você pode usar o recurso de expansão e contração de cluster em um cluster ONTAP Select existente para aumentar o tamanho de um cluster de seis nós para um cluster de oito nós ou diminuir o tamanho de um cluster de oito nós para um cluster de seis nós.
 
-link:task_cluster_expansion_contraction.html["Saiba mais sobre expansão e contração de cluster e as versões de hipervisor KVM e ESXi suportadas"] .
+link:task_cluster_expansion_contraction.html["Saiba mais sobre a expansão e a contração do cluster e as versões de hipervisor ESXi e KVM compatíveis"].
 
 --
 Suporte aprimorado para expansão e contração de cluster em hosts ESXi:: A partir do ONTAP Select 9.17.1, a expansão e a contração de clusters são suportadas entre clusters de seis e doze nós em hosts ESXi:
@@ -128,7 +145,7 @@ Você pode diminuir o tamanho do cluster de um cluster ESXi existente nos seguin
 
 
 --
-link:task_cluster_expansion_contraction.html["Saiba mais sobre expansão e contração de cluster e as versões de hipervisor KVM e ESXi suportadas"] .
+link:task_cluster_expansion_contraction.html["Saiba mais sobre a expansão e a contração do cluster e as versões de hipervisor ESXi e KVM compatíveis"].
 
 --
 Suporte para SnapMirror cloud:: A partir do ONTAP Select 9.17.1, SnapMirror cloud é compatível com o ONTAP Select. SnapMirror cloud não possui licença por padrão para o ONTAP Select. Ao implantar um cluster ONTAP Select 9.17.1 ou atualizar um cluster ONTAP Select existente para a versão 9.17.1, você precisa solicitar uma licença SnapMirror cloud. Para obter mais informações, consulte link:reference_lic_ontap_features.html#other-ontap-features["Recursos do ONTAP licenciados separadamente"].
@@ -144,7 +161,7 @@ ONTAP Select Deploy e ONTAP Select para ESXi suportam a configuração de um clu
 ====
 Para executar operações na Biblioteca de Conteúdo, você precisa de acesso a níveis de permissão adicionais. Esse acesso é necessário para implantações do vSAN ESA se você estiver trabalhando com funções restritas.
 
-link:reference_plan_dep_vmware.html#vmware-vcenter-server-considerations["Saiba mais sobre os níveis de permissão de acesso para operações da Content Library"].
+link:plan-deploy-hypervisor.html#vmware-vcenter-server-considerations["Saiba mais sobre os níveis de permissão de acesso para operações da Content Library"].
 
 ====
 --
@@ -280,7 +297,7 @@ Suporte para VMware NSX-T:: O ONTAP Select 9.10.1 foi qualificado para o VMware 
 --
 * MTU do cluster
 +
-Você deve ajustar manualmente o tamanho da MTU do cluster para 8800 antes de implantar o cluster para ter em conta a sobrecarga adicional. A orientação da VMware é permitir um buffer de 200 bytes ao usar o NSX-T.
+Você deve ajustar manualmente o tamanho da Unidade Máxima de Transmissão (MTU) do cluster para 8800 antes de implantar o cluster para compensar a sobrecarga adicional. A recomendação da VMware é permitir um buffer de 200 bytes ao usar o NSX-T.
 
 * Configuração de rede 4x10Gb
 +

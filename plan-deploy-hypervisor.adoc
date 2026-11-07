@@ -1,0 +1,239 @@
+---
+sidebar: sidebar 
+permalink: plan-deploy-hypervisor.html 
+keywords: plan, planning, ontap select deploy, vmware requirements 
+summary: Há vários requisitos e restrições específicos para o ambiente VMware que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente VMware. 
+---
+= Considerações sobre o ONTAP Select implantar o host do hypervisor
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Há vários problemas de Planejamento relacionados ao host do hipervisor que você deve considerar.
+
+
+CAUTION: Você não deve modificar diretamente a configuração de uma máquina virtual (VM) do ONTAP Select, a menos que receba instruções para isso do suporte da NetApp. Você só deve configurar e modificar uma VM por meio do utilitário de administração Deploy. Fazer alterações em uma VM do ONTAP Select fora do utilitário Deploy, sem a assistência do suporte da NetApp, pode fazer a VM falhar e torná-la inutilizável.
+
+
+
+[[hypervisor-independent]]
+== Independente do hipervisor
+
+Tanto o ONTAP Select quanto o utilitário de administração do ONTAP Select Deploy são independentes do hipervisor.
+
+Os hypervisors a seguir são compatíveis com a administração do ONTAP Select e do ONTAP Select Deploy:
+
+* VMware ESXi
+* Microsoft Hyper-V
+* Kernel-Based Virtual Machine (KVM)
+
+
+
+NOTE: Consulte as informações de planejamento específicas do hipervisor e link:reference_release_notes.html["notas de lançamento"] para obter detalhes adicionais sobre as plataformas suportadas.
+
+.Hipervisor para nós ONTAP Select e utilitário de administração
+Tanto o utilitário de administração do Deploy quanto os nós do ONTAP Select são executados como máquinas virtuais. O hipervisor que você escolher para o utilitário do Deploy é independente do hipervisor que você escolher para os nós do ONTAP Select. Você tem total flexibilidade ao emparelhar os dois:
+
+* O utilitário de implantação executado no VMware ESXi pode criar e gerenciar clusters do ONTAP Select no VMware ESXi, Hyper-V ou KVM
+* O utilitário de implantação executado no Hyper-V pode criar e gerenciar clusters do ONTAP Select no VMware ESXi, Hyper-V ou KVM
+* O utilitário de implantação executado no KVM pode criar e gerenciar clusters do ONTAP Select no VMware ESXi, Hyper-V ou KVM
+
+
+.Uma ou mais instâncias de nó ONTAP Select por host
+Cada nó do ONTAP Select é executado como uma máquina virtual dedicada. Você pode criar vários nós no mesmo host do hipervisor, com as seguintes restrições:
+
+* Vários nós de um único cluster ONTAP Select não podem ser executados no mesmo host. Todos os nós em um host específico devem ser de diferentes clusters do ONTAP Select.
+* Você deve usar o armazenamento externo.
+* Se você usar RAID de software, só poderá implantar um nó ONTAP Select no host.
+
+
+.Consistência do hipervisor para os nós dentro de um cluster
+Todos os hosts em um cluster do ONTAP Select devem ser executados na mesma versão e versão do software do hypervisor.
+
+.Número de portas físicas em cada host
+Você deve configurar cada host para usar uma, duas ou quatro portas físicas. Embora você tenha flexibilidade ao configurar as portas de rede, siga estas recomendações sempre que possível:
+
+* Um host em um cluster de nó único deve ter duas portas físicas.
+* Cada host em um cluster de vários nós deve ter quatro portas físicas
+
+
+.Integre o ONTAP Select a um cluster baseado em hardware da ONTAP
+Não é possível adicionar um nó ONTAP Select diretamente a um cluster baseado em hardware da ONTAP. No entanto, você pode, opcionalmente, estabelecer uma relação de peering de cluster entre um cluster ONTAP Select e um cluster ONTAP baseado em hardware.
+
+
+
+[[hypervisor-environment]]
+== Ambiente de hipervisor
+
+Antes de instalar o utilitário de administração do Deploy em um ambiente de hipervisor, você deve revisar os requisitos básicos e se preparar para a implantação.
+
+[role="tabbed-block"]
+====
+.ESXi
+--
+Há vários requisitos e restrições específicos para o ambiente VMware que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente VMware.
+
+.Requisitos de hardware
+Verifique se os hosts do hipervisor ESXi em que o ONTAP Select está implantado atendem aos seguintes requisitos básicos:
+
+* Servidor ESXi:
++
+** O hardware e o software devem ser de 64 bits
+** Deve aderir às mesmas versões suportadas definidas para um nó ONTAP Select
+
+
+* CPUs virtuais (2)
+* Memória virtual (4 GB)
+* Sacos de peso (40GB)
+* Protocolo de Configuração Dinâmica de Hosts (DHCP) ativado (também é possível atribuir um endereço IP estático)
+
+
+.Conetividade de rede
+Verifique se a interface de rede da VM do ONTAP Select Deploy está configurada e tem um único endereço IP de gerenciamento. Você pode usar DHCP para atribuir dinamicamente um endereço IP ou configurar manualmente um endereço IP estático.
+
+Dependendo de suas decisões de implantação, a VM de implantação deve ser capaz de se conetar ao servidor vCenter, aos hosts do hipervisor ESXi e aos nós do ONTAP Select que ele gerencia. Você deve configurar seus firewalls para permitir o tráfego necessário.
+
+O Deploy utiliza a API VIX da VMware para se comunicar com o vCenter server e os hosts ESXi. Inicialmente, ele estabelece uma conexão usando SOAP sobre SSL na porta TCP 443. Depois disso, uma conexão é aberta usando SSL na porta 902. Além disso, o Deploy emite comandos PING para verificar se existe um host ESXi no endereço IP que você especificar.
+
+Além disso, o Deploy deve ser capaz de se comunicar com os endereços IP de gerenciamento do nó e do cluster do ONTAP Select usando os seguintes protocolos:
+
+* Comando PING (ICMP)
+* SSH (porta 22)
+* SSL (porta 443)
+
+
+.Suporte para IP versão 4
+O ONTAP Select Deploy só suporta IP versão 4 (IPv4). A versão IP 6 (IPv6) não é suportada. Essa restrição afeta o ONTAP Select das seguintes maneiras:
+
+* Você deve atribuir um endereço IPv4 ao LIF de gerenciamento da VM de implantação.
+* A implantação não pode criar nós de ONTAP Select configurados para usar o IPv6 nos LIFs do ONTAP.
+
+
+--
+.O Hyper-V
+--
+Existem vários requisitos e restrições específicos do ambiente Hyper-V que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente Hyper-V.
+
+.Requisitos de hardware
+Verifique se os hosts de hipervisor do Windows Hyper-V onde o ONTAP Select está implantado atendem aos seguintes requisitos básicos:
+
+* O Windows Server:
++
+** O hardware e o software devem ser de 64 bits
+** O servidor deve aderir às mesmas versões suportadas definidas para um nó ONTAP Select
+
+
+* CPUs virtuais (2)
+* Memória virtual (4GB)
+* Sacos de peso (40GB)
+* O Protocolo de Configuração Dinâmica de Hosts (DHCP) está ativado (você também pode atribuir um endereço IP)
+
+
+.Conetividade de rede
+Verifique se a interface de rede da máquina virtual Deploy está configurada e consegue se conectar aos hosts do ONTAP Select que ela gerencia.
+
+.Suporte para IP versão 4
+O ONTAP Select Deploy só suporta IP versão 4 (IPv4). A versão IP 6 (IPv6) não é suportada. Essa restrição afeta o ONTAP Select das seguintes maneiras:
+
+* Você deve atribuir um endereço IPv4 ao LIF de gerenciamento da VM de implantação.
+* A implantação não pode criar nós de ONTAP Select configurados para usar o IPv6 nos LIFs do ONTAP.
+
+
+.Informações de configuração necessárias
+Como parte do Planejamento de implantação, você deve determinar as informações de configuração necessárias antes de instalar o utilitário de administração ONTAP Select Deploy.
+
+[cols="1,2"]
+|===
+| Configuração | Descrição 
+
+
+| Nome da VM de implantação | O nome a ser usado para a VM. 
+
+
+| Nome do anfitrião | O host do hipervisor Windows Hyper-V onde o utilitário Deploy está instalado. 
+
+
+| Nome do pool de armazenamento | O pool de armazenamento que contém os arquivos VM (aproximadamente 40GB é necessário). 
+
+
+| Rede para a VM | A rede onde a VM de implantação está conetada. 
+|===
+--
+.KVM
+--
+Há vários requisitos e restrições específicos do ambiente de hipervisor que você deve considerar antes de instalar o utilitário ONTAP Select Deploy em um ambiente KVM.
+
+.Requisitos de hardware
+Verifique se os hosts de hipervisor KVM Linux onde o ONTAP Select está implantado atendem aos seguintes requisitos básicos:
+
+* Servidor Linux:
++
+** O hardware e o software devem ser de 64 bits
+** O servidor deve aderir às mesmas versões suportadas definidas para um nó ONTAP Select
+
+
+* CPUs virtuais (2)
+* Memória virtual (4GB)
+* Sacos de peso (40GB)
+* O Protocolo de Configuração Dinâmica de Hosts (DHCP) está ativado (você também pode atribuir um endereço IP)
+
+
+.Conetividade de rede
+Verifique se a interface de rede da máquina virtual Deploy está configurada e consegue se conectar aos hosts do ONTAP Select que ela gerencia.
+
+.Suporte para IP versão 4
+O ONTAP Select Deploy só suporta IP versão 4 (IPv4). A versão IP 6 (IPv6) não é suportada. Essa restrição afeta o ONTAP Select das seguintes maneiras:
+
+* Você deve atribuir um endereço IPv4 ao LIF de gerenciamento da VM de implantação.
+* A implantação não pode criar nós de ONTAP Select configurados para usar o IPv6 nos LIFs do ONTAP.
+
+
+.Informações de configuração necessárias
+Como parte do Planejamento de implantação, você deve determinar as informações de configuração necessárias antes de instalar o utilitário de administração ONTAP Select Deploy.
+
+[cols="1,2"]
+|===
+| Configuração | Descrição 
+
+
+| Nome da VM de implantação | O nome a ser usado para a VM. 
+
+
+| Nome do anfitrião | O host do hipervisor KVM Linux no qual o utilitário Deploy está instalado. 
+
+
+| Nome do pool de armazenamento | O pool de armazenamento que contém os arquivos VM (aproximadamente 40GB é necessário). 
+
+
+| Rede para a VM | A rede onde a VM de implantação está conetada. 
+|===
+--
+====
+
+
+[[vmware-vcenter-server-considerations]]
+== Considerações sobre o servidor VMware vCenter
+
+.Privilégios do VMware vSphere para ESA
+Para criar e gerenciar a vSAN Express Storage Architecture (ESA) em vCenter, você precisa dos seguintes privilégios da vSphere Content Library:
+
+
+NOTE: Para acessar os privilégios da Biblioteca de Conteúdo, um administrador precisa conceder a você acesso às Permissões Globais no vCenter Server.
+
+* Adicionar item de biblioteca
+* Criar biblioteca local
+* Excluir item da biblioteca
+* Excluir biblioteca local
+* Baixar arquivos
+* Armazenamento de leitura
+* Atualizar arquivos
+* Atualizar biblioteca
+* Atualizar item da biblioteca
+* Atualizar biblioteca local
+* Exibir configurações
+
